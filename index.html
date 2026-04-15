@@ -173,6 +173,11 @@ nav.scrolled .logo{font-size:2rem}
 
 .empathy-note{background:#EFF6FF;border-left:3px solid var(--primary);padding:10px 14px;border-radius:6px;font-size:.88rem;color:var(--navy);margin-bottom:16px}
 
+/* MONEY INPUT CON PREFIJO COP */
+.money-input{position:relative}
+.money-input::before{content:'COP';position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--gray);font-weight:800;font-size:.82rem;letter-spacing:.5px;pointer-events:none;z-index:2}
+.money-input input{padding-left:58px!important}
+
 /* SUPER BOOSTS (checkboxes) */
 .boost-group{margin-bottom:18px}
 .boost-check{display:flex;align-items:flex-start;gap:14px;background:#fff;border:2px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;transition:.2s;margin-bottom:10px;user-select:none}
@@ -639,12 +644,12 @@ footer{background:var(--navy);color:#CBD5E1;padding:50px 0 24px;margin-top:60px}
 
         <div class="form-group">
           <label>¿Cuál es el valor comercial del apartamento?</label>
-          <input type="text" id="cr-valor" placeholder="Ej: 350.000.000" oninput="formatMoney(this);updateFinanciarDefault()">
+          <div class="money-input"><input type="text" id="cr-valor" placeholder="Ej: 350.000.000" oninput="formatMoney(this);updateFinanciarDefault()"></div>
         </div>
 
         <div class="form-group">
           <label>¿Cuánto dinero necesitas que el banco te preste?</label>
-          <input type="text" id="cr-financiar" placeholder="Ej: 245.000.000" oninput="formatMoney(this);checkLeasingAlert()">
+          <div class="money-input"><input type="text" id="cr-financiar" placeholder="Ej: 245.000.000" oninput="formatMoney(this);checkLeasingAlert()"></div>
           <div class="hint">Por defecto sugerimos el <strong>70%</strong> del valor. Ajústalo si necesitas menos o más.</div>
           <div class="leasing-alert" id="leasingAlert">
             <strong>💡 Te sugerimos Leasing Habitacional</strong>
@@ -661,13 +666,13 @@ footer{background:var(--navy);color:#CBD5E1;padding:50px 0 24px;margin-top:60px}
 
         <div class="form-group">
           <label>¿Cuáles son tus ingresos mensuales?</label>
-          <input type="text" id="cr-ingresos" placeholder="Ej: 6.000.000" oninput="formatMoney(this)">
+          <div class="money-input"><input type="text" id="cr-ingresos" placeholder="Ej: 6.000.000" oninput="formatMoney(this)"></div>
           <div class="hint">💡 <strong>Tip:</strong> Puedes sumar tus ingresos con los de tu pareja o familiares para que el banco te preste más y te baje la tasa.</div>
         </div>
 
         <div class="form-group">
           <label>¿Cuánto gastas al mes en cuotas fijas?</label>
-          <input type="text" id="cr-deudas" placeholder="Ej: 500.000 (0 si no tienes)" oninput="formatMoney(this)">
+          <div class="money-input"><input type="text" id="cr-deudas" placeholder="Ej: 500.000 (0 si no tienes)" oninput="formatMoney(this)"></div>
           <div class="hint">Arriendo, tarjetas de crédito, otras deudas.</div>
         </div>
 
@@ -799,19 +804,19 @@ footer{background:var(--navy);color:#CBD5E1;padding:50px 0 24px;margin-top:60px}
 
         <div class="form-group">
           <label>¿Cuánto ganas al mes?</label>
-          <input type="text" id="cot-ingresos" placeholder="Ej: 5.000.000" oninput="formatMoney(this)">
+          <div class="money-input"><input type="text" id="cot-ingresos" placeholder="Ej: 5.000.000" oninput="formatMoney(this)"></div>
           <div class="hint">Lo usamos solo para validar que la cuota sea saludable.</div>
         </div>
 
         <div class="form-group">
           <label>💼 ¿Con cuánto dinero cuentas HOY para asegurar tu lugar?</label>
-          <input type="text" id="cot-separacion" placeholder="Ej: 5.000.000" oninput="formatMoney(this)">
+          <div class="money-input"><input type="text" id="cot-separacion" placeholder="Ej: 5.000.000" oninput="formatMoney(this)"></div>
           <div class="hint">Este es el capital de separación inicial del proyecto.</div>
         </div>
 
         <div class="form-group">
           <label>💸 ¿Qué cuota mensual podrías pagar tranquilo?</label>
-          <input type="text" id="cot-cuotaComoda" placeholder="Ej: 1.500.000" oninput="formatMoney(this)">
+          <div class="money-input"><input type="text" id="cot-cuotaComoda" placeholder="Ej: 1.500.000" oninput="formatMoney(this)"></div>
           <div class="hint">Lo que puedes aportar cada mes sin apretarte.</div>
         </div>
 
@@ -841,7 +846,7 @@ footer{background:var(--navy);color:#CBD5E1;padding:50px 0 24px;margin-top:60px}
 
         <div class="form-group">
           <label>💵 ¿Vas a recibir dinero extra mientras pagas el apartamento?</label>
-          <input type="text" id="cot-extras" placeholder="Ej: 3.000.000 (opcional)" oninput="formatMoney(this);toggleExtrasFecha()">
+          <div class="money-input"><input type="text" id="cot-extras" placeholder="Ej: 3.000.000 (opcional)" oninput="formatMoney(this);toggleExtrasFecha()"></div>
           <div class="hint">Cualquier ingreso adicional que sepas que te llegará durante el plazo del proyecto.</div>
         </div>
 
