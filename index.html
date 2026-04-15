@@ -1,0 +1,1664 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Tu Cuota — Descubre como puedes comprar apartamento propio. Compara proyectos y créditos hipotecarios en 2 minutos. Gratis, sin enredos.">
+<title>Tu Cuota</title>
+
+<!-- GA4 -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+<script>window.dataLayer=window.dataLayer||[];function gtag(){dataLayer.push(arguments)}gtag('js',new Date());gtag('config','G-XXXXXXX');</script>
+
+<!-- Meta Pixel -->
+<script>!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,document,'script','https://connect.facebook.net/en_US/fbevents.js');fbq('init','XXXXXXXXX');fbq('track','PageView');</script>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root {
+  --primary: #1E40AF; /* Un azul un poco más profundo para el 'Cuota' */
+  --success: #10B981;
+  --navy: #0F2544;
+  --gray:#64748B;
+  --light:#F8FAFC;
+  --border:#E2E8F0;
+  --dark:#0F172A;
+  --shadow:0 4px 20px rgba(0,0,0,.08);
+  --radius:12px;
+}
+body{font-family:system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--dark);background:#fff;line-height:1.6}
+.container{max-width:1200px;margin:0 auto;padding:0 20px}
+a{text-decoration:none;color:inherit}
+button{font-family:inherit}
+
+/* NAV */
+nav{background:#fff;box-shadow:0 2px 12px rgba(0,0,0,.05);position:sticky;top:0;z-index:100;transition:box-shadow .3s ease,backdrop-filter .3s ease}
+nav.scrolled{box-shadow:0 2px 20px rgba(0,0,0,.08);background:rgba(255,255,255,.96);backdrop-filter:saturate(180%) blur(10px)}
+nav .container{display:flex;align-items:center;justify-content:center;height:92px;gap:20px;transition:height .3s ease;position:relative}
+nav.scrolled .container{height:72px}
+.logo{font-size:2.5rem;font-weight:900;color:var(--navy);letter-spacing:.3px;cursor:pointer;user-select:none;display:inline-flex;align-items:center;background:none;border:none;padding:6px 14px;border-radius:10px;transition:transform .25s ease,font-size .3s ease,background .2s ease;font-family:inherit;line-height:1}
+.logo:hover{transform:translateY(-1px);background:rgba(30,64,175,.04)}
+.logo:active{transform:translateY(0) scale(.985)}
+.logo:focus-visible{outline:2px solid var(--primary);outline-offset:4px}
+.logo span{color:var(--primary);margin-left:1px}
+nav.scrolled .logo{font-size:2rem}
+.nav-links{display:flex;gap:32px;list-style:none}
+.nav-links a{color:var(--gray);font-weight:600;font-size:.95rem;transition:.2s;cursor:pointer}
+.nav-links a:hover,.nav-links a.active{color:var(--primary)}
+.nav-filters{display:flex;gap:10px}
+.nav-filters select{padding:8px 12px;border:1px solid var(--border);border-radius:8px;font-size:.85rem;background:#fff;cursor:pointer;color:var(--dark)}
+
+/* HERO */
+.hero{background:linear-gradient(135deg,#1E40AF 0%,#2563EB 100%);color:#fff;padding:70px 0 50px;text-align:center}
+.hero h1{font-size:2.6rem;margin-bottom:14px;font-weight:800;letter-spacing:-.5px;line-height:1.15}
+.hero h1 strong{color:#FBBF24}
+.hero p{font-size:1.15rem;opacity:.95;max-width:680px;margin:0 auto 32px}
+
+/* TABS */
+.tabs-wrap{display:flex;justify-content:center;margin-top:-28px;position:relative;z-index:10;padding:0 20px}
+.tabs{background:#fff;border-radius:50px;padding:6px;box-shadow:0 8px 30px rgba(0,0,0,.15);display:flex;gap:4px}
+.tab-btn{padding:14px 32px;border-radius:50px;font-size:1rem;font-weight:700;cursor:pointer;border:none;background:transparent;color:var(--gray);transition:.25s}
+.tab-btn.active{background:var(--primary);color:#fff}
+.tab-btn:hover:not(.active){color:var(--dark)}
+
+/* TRUST BAND */
+.trust-band{background:var(--light);padding:28px 0;border-bottom:1px solid var(--border)}
+.trust-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:20px;text-align:center;align-items:center}
+.trust-stat{display:flex;flex-direction:column;gap:3px}
+.trust-stat .num{font-size:1.4rem;font-weight:800;color:var(--primary)}
+.trust-stat .lbl{font-size:.82rem;color:var(--gray)}
+.trust-logos{display:flex;gap:30px;justify-content:center;align-items:center;flex-wrap:wrap;margin-top:18px;opacity:.6}
+.trust-logo-chip{padding:8px 18px;background:#fff;border-radius:8px;font-size:.82rem;font-weight:600;color:var(--gray);border:1px solid var(--border)}
+.trust-badge{display:inline-flex;align-items:center;gap:6px;background:#ECFDF5;color:#065F46;padding:6px 14px;border-radius:20px;font-size:.82rem;font-weight:600}
+
+/* SECCIONES */
+.section{display:none;padding:50px 0 70px}
+.section.active{display:block}
+.section-title{text-align:center;font-size:2rem;font-weight:800;color:var(--navy);margin-bottom:10px;letter-spacing:-.3px}
+.section-sub{text-align:center;color:var(--gray);margin-bottom:35px;font-size:1.05rem;max-width:600px;margin-left:auto;margin-right:auto}
+
+/* FILTROS UNIFICADOS */
+.filter-bar{display:flex;align-items:stretch;gap:0;background:#fff;border:1px solid var(--border);border-radius:60px;box-shadow:0 6px 28px rgba(15,37,68,.08);padding:6px;margin:0 auto 34px;max-width:880px;transition:box-shadow .25s ease}
+.filter-bar:hover{box-shadow:0 10px 34px rgba(15,37,68,.12)}
+.filter-item{flex:1;position:relative;padding:10px 22px;border-radius:50px;cursor:pointer;transition:background .2s ease}
+.filter-item:hover{background:var(--light)}
+.filter-item+.filter-item{border-left:1px solid var(--border)}
+.filter-item .lbl{display:block;font-size:.72rem;font-weight:700;color:var(--navy);letter-spacing:.6px;text-transform:uppercase;margin-bottom:3px}
+.filter-item select{width:100%;border:none;background:transparent;font-size:.95rem;font-weight:600;color:var(--dark);cursor:pointer;outline:none;appearance:none;-webkit-appearance:none;padding-right:18px;background-image:url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12'><path fill='%231E40AF' d='M6 9L1 4h10z'/></svg>");background-repeat:no-repeat;background-position:right center;background-size:10px}
+.filter-reset{background:var(--light);border:none;border-radius:50px;padding:0 22px;font-weight:700;color:var(--gray);cursor:pointer;font-size:.85rem;transition:.2s;white-space:nowrap}
+.filter-reset:hover{background:var(--border);color:var(--primary)}
+.filter-mobile-btn{display:none;width:100%;max-width:460px;margin:0 auto 26px;padding:16px 22px;background:#fff;border:1px solid var(--border);border-radius:50px;font-size:.95rem;font-weight:700;color:var(--navy);cursor:pointer;box-shadow:0 4px 18px rgba(15,37,68,.08);justify-content:space-between;align-items:center}
+.filter-mobile-btn .badge-count{background:var(--primary);color:#fff;border-radius:20px;padding:3px 10px;font-size:.72rem}
+.filter-sheet{display:none;position:fixed;inset:0;background:rgba(15,37,68,.6);z-index:210;align-items:flex-end;justify-content:center}
+.filter-sheet.show{display:flex;animation:fadeIn .25s ease}
+.filter-sheet .panel{background:#fff;width:100%;max-width:560px;border-radius:22px 22px 0 0;padding:24px;max-height:82vh;overflow-y:auto;animation:slideUp .3s ease}
+.filter-sheet h3{font-size:1.15rem;font-weight:800;color:var(--navy);margin-bottom:16px}
+.filter-sheet .f-group{margin-bottom:18px}
+.filter-sheet .f-group label{display:block;font-size:.78rem;font-weight:700;color:var(--gray);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px}
+.filter-sheet .f-group select{width:100%;padding:13px 16px;border:2px solid var(--border);border-radius:12px;font-size:1rem;background:#fff}
+.filter-sheet .sheet-actions{display:flex;gap:10px;margin-top:10px}
+.filter-sheet .sheet-actions button{flex:1;padding:14px;border-radius:12px;font-size:.95rem;font-weight:700;cursor:pointer;border:none}
+.filter-sheet .sheet-apply{background:var(--primary);color:#fff}
+.filter-sheet .sheet-clear{background:var(--light);color:var(--gray)}
+.cat-tag{display:inline-block;padding:3px 9px;border-radius:8px;font-size:.68rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;margin-left:6px;vertical-align:middle}
+.cat-tag.vis{background:#ECFDF5;color:#065F46}
+.cat-tag.novis{background:#EFF6FF;color:#1E40AF}
+.cat-tag.vip{background:#FEF3C7;color:#92400E}
+
+/* CARDS PROYECTOS */
+.projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(330px,1fr));gap:24px}
+.project-card{background:#fff;border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);transition:.3s;border:1px solid var(--border)}
+.project-card:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(0,0,0,.12)}
+.project-img{height:200px;background-size:cover;background-position:center;position:relative}
+.project-badge{position:absolute;top:14px;left:14px;background:var(--success);color:#fff;padding:5px 14px;border-radius:20px;font-size:.78rem;font-weight:700;letter-spacing:.3px}
+.project-badge.ultimas{background:#EF4444}
+.urgency-chip{position:absolute;bottom:14px;left:14px;background:rgba(15,37,68,.92);color:#fff;padding:5px 12px;border-radius:20px;font-size:.75rem;font-weight:600}
+.project-info{padding:22px}
+.project-name{font-size:1.25rem;font-weight:800;margin-bottom:4px;color:var(--navy)}
+.project-location{color:var(--gray);font-size:.9rem;margin-bottom:14px}
+.project-constructor{color:var(--primary);font-weight:600;cursor:pointer;transition:.2s}
+.project-constructor:hover{text-decoration:underline}
+.project-details{display:flex;gap:18px;margin-bottom:16px;padding-bottom:14px;border-bottom:1px solid var(--border)}
+.project-detail{font-size:.88rem;color:var(--gray)}
+.project-detail strong{color:var(--dark);font-weight:700}
+.project-price{font-size:1.75rem;font-weight:900;color:var(--navy);margin-bottom:4px;letter-spacing:-.5px;line-height:1.1}
+.project-price .prefix{font-size:.72rem;color:var(--gray);font-weight:700;text-transform:uppercase;letter-spacing:.6px;display:block;margin-bottom:2px}
+.project-price small{font-size:.78rem;color:var(--gray);font-weight:500;display:inline-block;margin-left:4px}
+.project-price-note{font-size:.72rem;color:var(--gray);font-style:italic;margin-bottom:12px;display:block;min-height:1em}
+.btn-cotizar{width:100%;padding:14px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-size:1rem;font-weight:800;cursor:pointer;transition:.25s;letter-spacing:.2px;box-shadow:0 4px 14px rgba(30,64,175,.22)}
+.btn-cotizar:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 6px 18px rgba(30,64,175,.32)}
+.btn-cotizar:active{transform:translateY(0)}
+
+/* CRÉDITO CARDS */
+.credit-type-cards{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:16px;margin-bottom:30px;max-width:820px;margin-left:auto;margin-right:auto}
+.credit-type-card{background:#fff;border:2px solid var(--border);border-radius:var(--radius);padding:28px 22px;cursor:pointer;text-align:center;transition:.25s}
+.credit-type-card:hover{border-color:var(--primary);transform:translateY(-2px)}
+.credit-type-card.selected{border-color:var(--primary);background:#EFF6FF}
+.credit-type-card .icon{font-size:2.5rem;margin-bottom:10px}
+.credit-type-card h3{font-size:1.1rem;margin-bottom:6px;color:var(--navy)}
+.credit-type-card p{font-size:.85rem;color:var(--gray)}
+
+/* FORM / STEPS */
+.step-host{max-width:620px;margin:0 auto}
+.step{display:none}
+.step.active{display:block;animation:fadeSlide .3s ease}
+@keyframes fadeSlide{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.progress-bar{height:6px;background:var(--border);border-radius:10px;overflow:hidden;margin-bottom:10px}
+.progress-fill{height:100%;background:var(--primary);border-radius:10px;transition:width .3s ease}
+.progress-label{font-size:.82rem;color:var(--gray);margin-bottom:24px;text-align:center;font-weight:600}
+.q-title{font-size:1.4rem;font-weight:800;color:var(--navy);margin-bottom:8px;text-align:center}
+.q-sub{color:var(--gray);text-align:center;margin-bottom:24px;font-size:.95rem}
+
+.form-group{margin-bottom:18px}
+.form-group label{display:block;font-weight:700;margin-bottom:8px;color:var(--dark);font-size:1rem}
+.form-group .hint{font-size:.82rem;color:var(--gray);margin-top:6px}
+.form-group input,.form-group select{width:100%;padding:14px 16px;border:2px solid var(--border);border-radius:10px;font-size:1.15rem;transition:.2s;outline:none;background:#fff}
+.form-group input:focus,.form-group select:focus{border-color:var(--primary)}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+
+.chip-group{display:flex;gap:10px;flex-wrap:wrap;margin-bottom:6px}
+.chip{padding:14px 22px;border:2px solid var(--border);border-radius:12px;cursor:pointer;font-weight:600;font-size:.95rem;background:#fff;transition:.2s;color:var(--dark)}
+.chip:hover{border-color:var(--primary)}
+.chip.active{border-color:var(--primary);background:#EFF6FF;color:var(--primary)}
+
+.slider-group{margin-bottom:20px}
+.slider-group label{display:flex;justify-content:space-between;font-weight:700;margin-bottom:8px;color:var(--dark)}
+.slider-group label .val{color:var(--primary);font-size:1.15rem}
+.slider-group input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:8px;background:var(--border);border-radius:10px;outline:none}
+.slider-group input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;appearance:none;width:22px;height:22px;background:var(--primary);border-radius:50%;cursor:pointer;border:3px solid #fff;box-shadow:0 2px 6px rgba(0,0,0,.2)}
+.slider-group input[type=range]::-moz-range-thumb{width:22px;height:22px;background:var(--primary);border-radius:50%;cursor:pointer;border:3px solid #fff}
+.slider-range{display:flex;justify-content:space-between;font-size:.78rem;color:var(--gray);margin-top:4px}
+
+.empathy-note{background:#EFF6FF;border-left:3px solid var(--primary);padding:10px 14px;border-radius:6px;font-size:.88rem;color:var(--navy);margin-bottom:16px}
+
+/* SUPER BOOSTS (checkboxes) */
+.boost-group{margin-bottom:18px}
+.boost-check{display:flex;align-items:flex-start;gap:14px;background:#fff;border:2px solid var(--border);border-radius:14px;padding:16px 18px;cursor:pointer;transition:.2s;margin-bottom:10px;user-select:none}
+.boost-check:hover{border-color:var(--primary);background:#F5F9FF}
+.boost-check.active{border-color:var(--success);background:#ECFDF5;box-shadow:0 4px 14px rgba(16,185,129,.12)}
+.boost-check input{display:none}
+.boost-check .check-box{width:26px;height:26px;border:2px solid var(--border);border-radius:8px;flex-shrink:0;display:flex;align-items:center;justify-content:center;transition:.2s;background:#fff;margin-top:1px}
+.boost-check.active .check-box{background:var(--success);border-color:var(--success)}
+.boost-check .check-box svg{width:16px;height:16px;opacity:0;transition:.2s}
+.boost-check.active .check-box svg{opacity:1}
+.boost-check .txt strong{display:block;color:var(--navy);font-size:1rem;font-weight:800;margin-bottom:2px}
+.boost-check .txt span{display:block;color:var(--gray);font-size:.85rem;line-height:1.4}
+.boost-check .txt .power{color:var(--success);font-weight:700;font-size:.8rem;margin-top:4px;display:block}
+.gap-alert{background:#FEF3C7;border-left:4px solid #F59E0B;padding:14px 18px;border-radius:10px;margin:16px 0;color:#78350F;font-size:.92rem;line-height:1.55}
+.gap-alert strong{color:#92400E}
+.gap-ok{background:#ECFDF5;border-left:4px solid var(--success);padding:14px 18px;border-radius:10px;margin:16px 0;color:#065F46;font-size:.92rem;line-height:1.55}
+
+/* COMPARATIVA PLANES */
+.compare-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:22px 0}
+.compare-card{background:#fff;border-radius:16px;padding:24px 22px;border:2px solid var(--border);position:relative;transition:.25s}
+.compare-card.trad{background:linear-gradient(180deg,#FFFBEB,#fff)}
+.compare-card.smart{background:linear-gradient(180deg,#ECFDF5,#fff);border-color:var(--success);box-shadow:0 10px 30px rgba(16,185,129,.14)}
+.compare-card.smart::before{content:'✨ TU PLAN';position:absolute;top:-12px;left:50%;transform:translateX(-50%);background:var(--success);color:#fff;padding:4px 14px;border-radius:20px;font-size:.72rem;font-weight:800;letter-spacing:.6px;white-space:nowrap}
+.compare-card h4{font-size:.82rem;color:var(--gray);text-transform:uppercase;letter-spacing:.6px;margin-bottom:6px;font-weight:700}
+.compare-card .tag-mini{display:block;color:var(--navy);font-size:.95rem;font-weight:700;margin-bottom:12px}
+.compare-card .big-q{font-size:2rem;font-weight:900;color:var(--navy);letter-spacing:-.7px;line-height:1}
+.compare-card .big-q small{display:block;font-size:.8rem;color:var(--gray);font-weight:600;margin-top:4px;letter-spacing:0}
+.compare-card.smart .big-q{color:var(--success)}
+.compare-card .saving{margin-top:12px;padding-top:12px;border-top:1px dashed var(--border);font-size:.82rem;color:var(--gray)}
+.compare-card.smart .saving{color:#065F46;font-weight:700}
+.cta-giant{display:block;width:100%;margin:24px auto 8px;padding:20px;background:linear-gradient(135deg,var(--primary),#2563EB);color:#fff;border:none;border-radius:16px;font-size:1.1rem;font-weight:800;cursor:pointer;box-shadow:0 10px 30px rgba(30,64,175,.32);transition:.25s;letter-spacing:.2px}
+.cta-giant:hover{transform:translateY(-2px);box-shadow:0 14px 36px rgba(30,64,175,.42)}
+.cta-giant:active{transform:translateY(0)}
+.cta-subtle{background:none;border:none;color:var(--gray);font-size:.88rem;cursor:pointer;text-decoration:underline;display:block;margin:8px auto;text-align:center}
+.cta-subtle:hover{color:var(--primary)}
+
+/* HORARIO CHECKBOX */
+.horario-chips{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+.horario-chip{padding:14px 10px;border:2px solid var(--border);border-radius:12px;cursor:pointer;font-weight:700;text-align:center;transition:.2s;background:#fff;color:var(--dark);font-size:.88rem}
+.horario-chip:hover{border-color:var(--primary)}
+.horario-chip.active{border-color:var(--primary);background:#EFF6FF;color:var(--primary)}
+.horario-chip .emoji{display:block;font-size:1.3rem;margin-bottom:3px}
+.input-error{border-color:#EF4444!important;background:#FEF2F2!important}
+.error-msg{color:#EF4444;font-size:.8rem;margin-top:5px;display:none}
+.error-msg.show{display:block}
+
+/* CREDIT HERO INDICATORS */
+.credit-hero-indicators{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;max-width:960px;margin:0 auto 38px}
+.credit-indicator{background:#fff;border-radius:16px;padding:22px 20px;box-shadow:0 6px 24px rgba(15,37,68,.08);text-align:center;border:1px solid var(--border);transition:.25s}
+.credit-indicator:hover{transform:translateY(-3px);box-shadow:0 12px 30px rgba(15,37,68,.12)}
+.credit-indicator .ico{font-size:2.3rem;margin-bottom:8px}
+.credit-indicator .num{font-size:1.5rem;font-weight:900;color:var(--primary);letter-spacing:-.3px;margin-bottom:3px;line-height:1}
+.credit-indicator .title{font-size:.95rem;font-weight:800;color:var(--navy);margin-bottom:4px}
+.credit-indicator .sub{font-size:.8rem;color:var(--gray);line-height:1.4}
+
+/* LEASING ALERT */
+.leasing-alert{background:#FEF3C7;border:2px solid #F59E0B;border-radius:12px;padding:14px 18px;margin:10px 0 0;font-size:.88rem;color:#78350F;line-height:1.5;display:none}
+.leasing-alert.show{display:block;animation:fadeSlide .3s ease}
+.leasing-alert strong{color:#92400E;display:block;margin-bottom:4px}
+.leasing-alert button{background:#F59E0B;color:#fff;border:none;padding:8px 16px;border-radius:8px;font-weight:700;cursor:pointer;margin-top:8px;font-size:.85rem}
+.leasing-alert button:hover{background:#D97706}
+
+/* PRIORIDAD CHIPS */
+.prio-chip{display:flex;align-items:center;gap:10px;padding:14px 16px;border:2px solid var(--border);border-radius:12px;cursor:pointer;background:#fff;margin-bottom:8px;transition:.2s;font-weight:600;color:var(--dark)}
+.prio-chip:hover{border-color:var(--primary)}
+.prio-chip.active{border-color:var(--primary);background:#EFF6FF;color:var(--primary)}
+.prio-chip .ico{font-size:1.35rem;width:32px;text-align:center}
+
+/* MARKETPLACE AUTORIDAD */
+.market-auth{background:linear-gradient(135deg,#EFF6FF,#fff);border:1px solid var(--border);border-radius:14px;padding:18px 22px;margin-bottom:18px;text-align:center}
+.market-auth p{color:var(--navy);font-weight:600;font-size:.95rem;margin-bottom:4px}
+.market-auth small{color:var(--gray);font-size:.78rem}
+
+.btn-row{display:flex;gap:12px;margin-top:24px}
+.btn-next,.btn-back,.btn-submit,.btn-wa{padding:14px 26px;border-radius:10px;font-size:1rem;font-weight:700;cursor:pointer;border:none;transition:.2s}
+.btn-next{background:var(--primary);color:#fff;flex:1}
+.btn-next:hover{filter:brightness(.9)}
+.btn-back{background:transparent;color:var(--gray);border:2px solid var(--border)}
+.btn-back:hover{background:var(--light)}
+.btn-submit{background:var(--success);color:#fff;width:100%}
+.btn-submit:hover{filter:brightness(.9)}
+.btn-wa{background:#25D366;color:#fff;display:inline-flex;align-items:center;gap:8px;justify-content:center}
+.btn-wa:hover{filter:brightness(.9)}
+
+/* RESULTADO WOW */
+.wow-hero{background:linear-gradient(135deg,#10B981 0%,#2563EB 100%);color:#fff;padding:50px 30px;border-radius:20px;text-align:center;margin-bottom:24px;position:relative;overflow:hidden}
+.wow-hero::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at 20% 20%,rgba(255,255,255,.15),transparent 50%),radial-gradient(circle at 80% 80%,rgba(255,255,255,.1),transparent 50%)}
+.wow-hero > *{position:relative;z-index:1}
+.wow-celebrate{font-size:3rem;margin-bottom:8px;animation:bounce .6s ease}
+@keyframes bounce{0%,100%{transform:translateY(0)}50%{transform:translateY(-10px)}}
+.wow-title{font-size:3.5rem;font-weight:900;letter-spacing:-1px;line-height:1;margin-bottom:10px}
+.wow-sub{font-size:1.1rem;opacity:.95}
+.wow-key{background:#fff;border-radius:16px;padding:32px;text-align:center;margin-bottom:24px;border:2px solid var(--border)}
+.wow-key .mini{font-size:.95rem;color:var(--gray);margin-bottom:6px}
+.wow-key .big{font-size:3rem;font-weight:900;color:var(--navy);letter-spacing:-1px}
+.wow-key .big small{font-size:1rem;color:var(--gray);font-weight:600}
+.wow-key .context{color:var(--success);font-weight:700;margin-top:10px;font-size:.95rem}
+.wow-plan{background:#fff;border-radius:16px;padding:24px;margin-bottom:24px;border:1px solid var(--border)}
+.wow-plan h3{color:var(--navy);margin-bottom:14px;font-size:1.15rem}
+.plan-timeline{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:14px}
+.plan-month{background:var(--light);border-radius:8px;padding:10px;text-align:center;font-size:.78rem;border:1px solid var(--border)}
+.plan-month.boost{background:#ECFDF5;border-color:var(--success)}
+.plan-month .m{color:var(--gray);font-size:.72rem;margin-bottom:2px}
+.plan-month .v{font-weight:700;color:var(--navy)}
+.plan-month.boost .v{color:var(--success)}
+.plan-legend{display:flex;gap:14px;font-size:.82rem;color:var(--gray);flex-wrap:wrap}
+.plan-legend span{display:inline-flex;align-items:center;gap:5px}
+.plan-legend .dot{width:10px;height:10px;border-radius:50%;background:var(--light);border:1px solid var(--border)}
+.plan-legend .dot.boost{background:#ECFDF5;border-color:var(--success)}
+.wow-steps{background:#fff;border-radius:16px;padding:24px;margin-bottom:24px;border:1px solid var(--border)}
+.wow-steps h3{color:var(--navy);margin-bottom:16px;font-size:1.15rem}
+.step-item{display:flex;gap:14px;padding:12px 0;border-bottom:1px dashed var(--border)}
+.step-item:last-child{border-bottom:none}
+.step-item .num{width:32px;height:32px;background:var(--primary);color:#fff;border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;flex-shrink:0}
+.step-item .text strong{display:block;color:var(--navy);margin-bottom:2px}
+.step-item .text span{color:var(--gray);font-size:.88rem}
+.wow-ctas{display:flex;gap:12px;flex-wrap:wrap}
+.wow-ctas button{flex:1;min-width:220px;padding:16px;font-size:1.05rem;font-weight:700;border-radius:12px;cursor:pointer;border:none;transition:.2s}
+.wow-ctas .primary{background:#25D366;color:#fff}
+.wow-ctas .primary:hover{filter:brightness(.9)}
+.wow-ctas .secondary{background:#fff;color:var(--primary);border:2px solid var(--primary)}
+.wow-ctas .secondary:hover{background:#EFF6FF}
+.wow-urgency{text-align:center;color:var(--gray);font-size:.9rem;margin-top:14px}
+
+/* BANCOS RESULT */
+.bank-results{display:flex;flex-direction:column;gap:16px;max-width:860px;margin:0 auto}
+.bank-card{background:#fff;border:2px solid var(--border);border-radius:16px;padding:26px 26px 22px;display:flex;flex-direction:column;gap:18px;transition:.3s;position:relative;box-shadow:0 2px 10px rgba(15,37,68,.04)}
+.bank-card:hover{border-color:var(--primary);box-shadow:0 10px 28px rgba(15,37,68,.09);transform:translateY(-2px)}
+.bank-card.best{border-color:var(--success);background:linear-gradient(180deg,#F0FDF4,#fff)}
+.bank-card.best::before{content:'⭐ RECOMENDADO';position:absolute;top:-12px;left:24px;background:var(--success);color:#fff;padding:5px 14px;border-radius:20px;font-size:.72rem;font-weight:800;letter-spacing:.6px;box-shadow:0 4px 12px rgba(16,185,129,.35)}
+.bank-info{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr) minmax(0,1fr);gap:18px;align-items:center}
+.bank-name{display:flex;flex-direction:column;min-width:0}
+.bank-name strong{font-weight:800;font-size:1.1rem;color:var(--navy);line-height:1.2;letter-spacing:-.2px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bank-name small{font-weight:600;color:var(--gray);font-size:.78rem;margin-top:4px;text-transform:uppercase;letter-spacing:.4px}
+.bank-rate,.bank-monthly{text-align:center;padding:8px 6px;border-left:1px solid var(--border);min-width:0}
+.bank-rate .rate,.bank-monthly .amount{font-size:1.35rem;font-weight:900;color:var(--primary);letter-spacing:-.3px;line-height:1.1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.bank-monthly .amount{color:var(--navy)}
+.bank-rate small,.bank-monthly small{display:block;color:var(--gray);font-size:.72rem;font-weight:600;margin-top:4px;text-transform:uppercase;letter-spacing:.5px}
+.btn-select-bank{width:100%;padding:14px 20px;background:var(--primary);color:#fff;border:none;border-radius:12px;font-weight:800;font-size:.95rem;cursor:pointer;transition:.25s;letter-spacing:.2px;box-shadow:0 4px 14px rgba(30,64,175,.22);display:flex;align-items:center;justify-content:center;gap:8px}
+.btn-select-bank:hover{filter:brightness(1.08);transform:translateY(-1px);box-shadow:0 6px 18px rgba(30,64,175,.3)}
+.btn-select-bank:active{transform:translateY(0)}
+.bank-card.best .btn-select-bank{background:var(--success);box-shadow:0 4px 14px rgba(16,185,129,.28)}
+.bank-card.best .btn-select-bank:hover{box-shadow:0 6px 18px rgba(16,185,129,.38)}
+
+/* MODAL */
+.modal-overlay{display:none;position:fixed;inset:0;background:rgba(15,37,68,.75);z-index:200;align-items:center;justify-content:center;padding:20px}
+.modal-overlay.show{display:flex;animation:fadeIn .25s ease}
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+.modal{background:#fff;border-radius:16px;max-width:640px;width:100%;max-height:92vh;overflow-y:auto;position:relative;animation:slideUp .3s ease}
+@keyframes slideUp{from{transform:translateY(20px);opacity:0}to{transform:translateY(0);opacity:1}}
+.modal-header{padding:22px 25px 0;display:flex;justify-content:space-between;align-items:center}
+.modal-header h2{font-size:1.2rem;color:var(--navy);font-weight:800}
+.modal-close{background:none;border:none;font-size:1.8rem;cursor:pointer;color:var(--gray);padding:0;width:32px;height:32px;display:flex;align-items:center;justify-content:center;border-radius:50%;transition:.2s}
+.modal-close:hover{background:var(--light)}
+.modal-body{padding:22px 25px 28px}
+.modal-wide{max-width:780px}
+
+/* PERFIL CONSTRUCTORA */
+.builder-hero{background:linear-gradient(135deg,var(--navy),var(--primary));color:#fff;padding:28px;border-radius:14px;margin-bottom:22px;text-align:center}
+.builder-logo-big{width:70px;height:70px;background:#fff;border-radius:50%;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:1.8rem;font-weight:900;color:var(--primary)}
+.builder-hero h2{font-size:1.6rem;margin-bottom:6px;font-weight:800}
+.builder-verified{display:inline-flex;align-items:center;gap:5px;background:rgba(255,255,255,.2);padding:4px 12px;border-radius:20px;font-size:.82rem;margin-top:10px}
+.builder-desc{color:var(--dark);line-height:1.7;margin-bottom:18px;font-size:.95rem}
+.builder-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:22px}
+.builder-stat{background:var(--light);padding:16px;border-radius:10px;text-align:center}
+.builder-stat .n{font-size:1.4rem;font-weight:800;color:var(--primary)}
+.builder-stat .l{font-size:.78rem;color:var(--gray);margin-top:2px}
+.builder-projects h3{color:var(--navy);margin-bottom:12px;font-size:1.05rem}
+.builder-projects-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(170px,1fr));gap:10px;margin-bottom:20px}
+.mini-proj{background:#fff;border:1px solid var(--border);border-radius:10px;padding:10px;cursor:pointer;transition:.2s}
+.mini-proj:hover{border-color:var(--primary)}
+.mini-proj .n{font-weight:700;font-size:.88rem;color:var(--navy)}
+.mini-proj .l{color:var(--gray);font-size:.78rem;margin:2px 0 6px}
+.mini-proj .p{color:var(--primary);font-weight:800;font-size:.88rem}
+
+/* LEAD SUCCESS */
+.lead-success{text-align:center;padding:20px}
+.lead-success .icon{font-size:3.5rem;margin-bottom:12px}
+.lead-success h2{color:var(--navy);margin-bottom:8px;font-weight:800}
+.lead-success p{color:var(--gray);margin-bottom:20px}
+
+.summary-box{background:var(--light);padding:18px;border-radius:10px;text-align:left;margin-top:14px}
+.summary-box p{margin:4px 0;color:var(--dark);font-size:.92rem}
+
+/* FOOTER */
+footer{background:var(--navy);color:#CBD5E1;padding:50px 0 24px;margin-top:60px}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:40px;margin-bottom:36px}
+.footer-brand .logo{color:#fff;margin-bottom:14px;display:inline-block}
+.footer-brand .logo span{color:#60A5FA}
+.footer-brand p{font-size:.92rem;line-height:1.6;max-width:360px;color:#CBD5E1;margin-bottom:18px}
+.footer-wa{display:inline-flex;align-items:center;gap:8px;background:#25D366;color:#fff;padding:11px 20px;border-radius:10px;font-weight:700;font-size:.9rem;border:none;cursor:pointer;transition:.2s}
+.footer-wa:hover{filter:brightness(.9)}
+.footer-col h4{color:#fff;font-size:.82rem;letter-spacing:1px;margin-bottom:14px;font-weight:700}
+.footer-col ul{list-style:none}
+.footer-col li{margin-bottom:10px}
+.footer-col a{color:#CBD5E1;font-size:.92rem;cursor:pointer;transition:.2s}
+.footer-col a:hover{color:#fff}
+.footer-bottom{border-top:1px solid rgba(255,255,255,.1);padding-top:20px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:#94A3B8;font-size:.85rem}
+.footer-bottom .links{display:flex;gap:20px}
+
+/* WHATSAPP FLOATING */
+.wa-float{position:fixed;bottom:24px;right:24px;width:60px;height:60px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 6px 20px rgba(37,211,102,.4);cursor:pointer;z-index:150;transition:.3s;animation:pulse 2s infinite}
+.wa-float:hover{transform:scale(1.08)}
+.wa-float svg{width:30px;height:30px;fill:#fff}
+@keyframes pulse{0%,100%{box-shadow:0 6px 20px rgba(37,211,102,.4)}50%{box-shadow:0 6px 30px rgba(37,211,102,.7)}}
+
+/* HABEAS DATA */
+.habeas-banner{position:fixed;bottom:20px;left:20px;right:100px;background:#fff;border:1px solid var(--border);border-radius:12px;padding:16px 20px;box-shadow:0 8px 30px rgba(0,0,0,.15);z-index:140;display:none;align-items:center;gap:14px;flex-wrap:wrap}
+.habeas-banner.show{display:flex}
+.habeas-banner p{flex:1;min-width:260px;font-size:.85rem;color:var(--dark)}
+.habeas-banner p a{color:var(--primary);font-weight:700;cursor:pointer}
+.habeas-banner button{padding:9px 18px;background:var(--primary);color:#fff;border:none;border-radius:8px;cursor:pointer;font-weight:700;font-size:.85rem}
+
+/* TESTIMONIAL */
+.testimonial-row{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:18px;margin:30px auto 0;max-width:1000px}
+.testimonial{background:#fff;border:1px solid var(--border);border-radius:14px;padding:22px;display:flex;gap:14px;align-items:flex-start}
+.testimonial-avatar{width:50px;height:50px;border-radius:50%;background:linear-gradient(135deg,var(--primary),var(--success));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:1.1rem;flex-shrink:0}
+.testimonial-body p{font-size:.9rem;color:var(--dark);font-style:italic;margin-bottom:8px}
+.testimonial-body .who{font-size:.82rem;color:var(--gray);font-weight:600}
+
+/* LEGAL CONTENT */
+.legal-content h3{color:var(--navy);margin-bottom:12px;font-weight:800}
+.legal-content p{color:var(--dark);line-height:1.7;margin-bottom:14px;font-size:.95rem}
+.legal-content strong{color:var(--navy)}
+
+/* RESPONSIVE */
+@media(max-width:900px){
+  .footer-grid{grid-template-columns:1fr 1fr;gap:28px}
+  .trust-grid{grid-template-columns:repeat(2,1fr)}
+}
+@media(max-width:768px){
+  .hero h1{font-size:1.8rem}
+  .hero p{font-size:1rem}
+  .wow-title{font-size:2.4rem}
+  .wow-key .big{font-size:2rem}
+  .projects-grid{grid-template-columns:1fr}
+  .bank-card{padding:22px 18px 18px;gap:16px}
+  .bank-info{grid-template-columns:1fr;gap:14px;text-align:center}
+  .bank-rate,.bank-monthly{border-left:none;border-top:1px solid var(--border);padding:14px 0 0}
+  .bank-name{align-items:center;text-align:center}
+  .form-row{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .nav-filters{display:none}
+  nav .container{height:74px}
+  nav.scrolled .container{height:62px}
+  .logo{font-size:1.85rem;padding:4px 10px}
+  nav.scrolled .logo{font-size:1.55rem}
+  .filter-bar{display:none}
+  .filter-mobile-btn{display:flex}
+  .compare-grid{grid-template-columns:1fr;gap:22px}
+  .credit-hero-indicators{grid-template-columns:1fr;gap:12px;margin-bottom:28px}
+  .credit-indicator{padding:18px}
+  .horario-chips{grid-template-columns:1fr}
+  .footer-grid{grid-template-columns:1fr}
+  .tab-btn{padding:11px 20px;font-size:.9rem}
+  .builder-stats{grid-template-columns:1fr;gap:8px}
+  .habeas-banner{right:20px;bottom:90px}
+}
+
+</style>
+</head>
+<body>
+
+<nav id="mainNav">
+  <div class="container">
+    <button type="button" class="logo" onclick="goHome()" aria-label="TuCuota — Ir al inicio">Tu<span>Cuota</span></button>
+  </div>
+</nav>
+
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h1 id="heroTitle">Descubre como <strong>PUEDES</strong> tener apartamento propio</h1>
+    <p id="heroSub">En 2 minutos sabes cuánto cuesta, cuánto ahorras y cuándo es tuyo. Gratis, sin enredos.</p>
+  </div>
+</section>
+
+<!-- TABS -->
+<div class="tabs-wrap">
+  <div class="tabs">
+    <button class="tab-btn active" onclick="showSection('proyectos')">Cotizar Proyecto</button>
+    <button class="tab-btn" onclick="showSection('credito')">Buscar Crédito</button>
+  </div>
+</div>
+
+<!-- TRUST BAND -->
+<section class="trust-band" id="trustBand">
+  <div class="container">
+    <div class="trust-grid" id="trustGrid" style="grid-template-columns: repeat(3, 1fr);">
+
+      <div class="trust-stat">
+        <span class="num" data-target="500">+0</span>
+        <span class="lbl">Personas han encontrado su hogar</span>
+      </div>
+
+      <div class="trust-stat">
+        <span class="num" data-target="25">+0</span>
+        <span class="lbl">proyectos disponibles</span>
+      </div>
+
+      <div class="trust-stat">
+        <span class="num">-15%</span>
+        <span class="lbl">en tu cuota mensual*</span>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FLUJO 1: PROYECTOS ======================== -->
+<section class="section active" id="sec-proyectos">
+  <div class="container">
+    <h2 class="section-title">Encuentra tu próximo hogar</h2>
+    <p class="section-sub">Elige un proyecto y calcula tu plan de pagos personalizado. Gratis, sin compromiso.</p>
+
+    <!-- FILTROS UNIFICADOS (desktop) -->
+    <div class="filter-bar" role="search" aria-label="Filtros de proyectos">
+      <div class="filter-item">
+        <span class="lbl">📍 Sector</span>
+        <select id="filterSector" onchange="applyFilters()">
+          <option value="todos">Todos los sectores</option>
+          <option value="norte">Medellín Norte</option>
+          <option value="sur">Medellín Sur</option>
+          <option value="bello">Bello</option>
+          <option value="envigado">Envigado</option>
+          <option value="sabaneta">Sabaneta</option>
+          <option value="rionegro">Rionegro</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <span class="lbl">💰 Presupuesto</span>
+        <select id="filterPrecio" onchange="applyFilters()">
+          <option value="0">Cualquiera</option>
+          <option value="150-250">$150M — $250M</option>
+          <option value="250-450">$250M — $450M</option>
+          <option value="500+">Desde $500M</option>
+        </select>
+      </div>
+      <div class="filter-item">
+        <span class="lbl">🏠 Tipo</span>
+        <select id="filterTipo" onchange="applyFilters()">
+          <option value="todos">Todos</option>
+          <option value="vis">VIS (Interés Social)</option>
+          <option value="novis">No VIS</option>
+          <option value="vip">VIP (Prioritaria)</option>
+        </select>
+      </div>
+      <button class="filter-reset" type="button" onclick="resetFilters()">Limpiar</button>
+    </div>
+
+    <!-- FILTROS MOBILE (botón que abre sheet) -->
+    <button class="filter-mobile-btn" type="button" onclick="openFilterSheet()">
+      <span>🎛 Filtrar proyectos</span>
+      <span class="badge-count" id="filterCount">0</span>
+    </button>
+
+    <div class="projects-grid" id="projectsGrid"></div>
+
+    <div class="testimonial-row">
+      <div class="testimonial">
+        <div class="testimonial-avatar">MF</div>
+        <div class="testimonial-body">
+          <p>"Pensé que nunca podría. Tu Cuota me mostró que sí."</p>
+          <div class="who">María Fernanda · Bello</div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-avatar">JC</div>
+        <div class="testimonial-body">
+          <p>"En 5 minutos comparé 8 bancos. Me ahorré mil vueltas."</p>
+          <div class="who">Juan Carlos · Envigado</div>
+        </div>
+      </div>
+      <div class="testimonial">
+        <div class="testimonial-avatar">AR</div>
+        <div class="testimonial-body">
+          <p>"Por fin entiendo cómo funciona una cuota inicial."</p>
+          <div class="who">Andrea R. · Medellín</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== FLUJO 2: CRÉDITO ======================== -->
+<section class="section" id="sec-credito">
+  <div class="container">
+    <h2 class="section-title">Encuentra el crédito que <strong style="color:var(--primary)">SÍ</strong> se ajusta a ti</h2>
+    <p class="section-sub">Analizamos tu perfil y te conectamos con el banco que te dé la tasa más baja. Sin filas, sin enredos.</p>
+
+    <!-- 3 INDICADORES DE CONFIANZA -->
+    <div class="credit-hero-indicators">
+      <div class="credit-indicator">
+        <div class="ico">🏦</div>
+        <div class="num">+7</div>
+        <div class="title">Bancos Aliados</div>
+        <div class="sub">Comparamos las mejores tasas del mercado por ti</div>
+      </div>
+      <div class="credit-indicator">
+        <div class="ico">💻</div>
+        <div class="num">100%</div>
+        <div class="title">Gestión Digital</div>
+        <div class="sub">Radicamos tu solicitud sin que salgas de casa</div>
+      </div>
+      <div class="credit-indicator">
+        <div class="ico">⚡</div>
+        <div class="num">Minutos</div>
+        <div class="title">Respuesta Récord</div>
+        <div class="sub">Resultados de viabilidad con bancos en minutos</div>
+      </div>
+    </div>
+
+    <div class="step-host">
+      <!-- STEP 1: TIPO -->
+      <div class="step active" id="credit-step1">
+        <div class="progress-bar"><div class="progress-fill" style="width:33%"></div></div>
+        <div class="progress-label">Paso 1 de 3</div>
+        <h3 class="q-title">¿Qué tipo de financiación buscas?</h3>
+        <p class="q-sub">Elige la opción que mejor se ajusta a tu situación.</p>
+        <div class="credit-type-cards">
+          <div class="credit-type-card" onclick="selectCreditType('hipotecario',this)">
+            <div class="icon">🏠</div>
+            <h3>Crédito Hipotecario</h3>
+            <p>Compra vivienda nueva o usada con cuotas fijas mensuales. Hasta 70% del inmueble.</p>
+          </div>
+          <div class="credit-type-card" onclick="selectCreditType('leasing',this)">
+            <div class="icon">🔑</div>
+            <h3>Leasing Habitacional</h3>
+            <p>Ideal si necesitas financiar más del 70%. Cuota más baja y beneficios tributarios.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- STEP 2: RADIOGRAFÍA FINANCIERA -->
+      <div class="step" id="credit-step2">
+        <div class="progress-bar"><div class="progress-fill" style="width:66%"></div></div>
+        <div class="progress-label">Paso 2 de 3 · Radiografía Financiera</div>
+        <h3 class="q-title">Personaliza tu plan de financiación</h3>
+        <p class="q-sub">Con estos datos buscamos la mejor opción para ti.</p>
+
+        <div class="form-group">
+          <label>¿Cuál es el valor comercial del apartamento?</label>
+          <input type="text" id="cr-valor" placeholder="Ej: 350.000.000" oninput="formatMoney(this);updateFinanciarDefault()">
+        </div>
+
+        <div class="form-group">
+          <label>¿Cuánto dinero necesitas que el banco te preste?</label>
+          <input type="text" id="cr-financiar" placeholder="Ej: 245.000.000" oninput="formatMoney(this);checkLeasingAlert()">
+          <div class="hint">Por defecto sugerimos el <strong>70%</strong> del valor. Ajústalo si necesitas menos o más.</div>
+          <div class="leasing-alert" id="leasingAlert">
+            <strong>💡 Te sugerimos Leasing Habitacional</strong>
+            Estás pidiendo más del 70% del valor del inmueble. El Leasing Habitacional te permite financiar hasta el 90% con una cuota más baja y beneficios tributarios.
+            <button type="button" onclick="switchToLeasing()">Cambiar a Leasing</button>
+          </div>
+        </div>
+
+        <div class="slider-group">
+          <label>¿En cuántos años prefieres pagarlo? <span class="val" id="cr-plazo-val">20 años</span></label>
+          <input type="range" id="cr-plazo" min="5" max="30" step="1" value="20" oninput="updateSlider('cr-plazo',' años')">
+          <div class="slider-range"><span>5 años</span><span>30 años</span></div>
+        </div>
+
+        <div class="form-group">
+          <label>¿Cuáles son tus ingresos mensuales?</label>
+          <input type="text" id="cr-ingresos" placeholder="Ej: 6.000.000" oninput="formatMoney(this)">
+          <div class="hint">💡 <strong>Tip:</strong> Puedes sumar tus ingresos con los de tu pareja o familiares para que el banco te preste más y te baje la tasa.</div>
+        </div>
+
+        <div class="form-group">
+          <label>¿Cuánto gastas al mes en cuotas fijas?</label>
+          <input type="text" id="cr-deudas" placeholder="Ej: 500.000 (0 si no tienes)" oninput="formatMoney(this)">
+          <div class="hint">Arriendo, tarjetas de crédito, otras deudas.</div>
+        </div>
+
+        <div class="form-group">
+          <label>¿Cuál es tu situación laboral?</label>
+          <div class="chip-group">
+            <div class="chip active" onclick="selectChip(this,'cr-empleo','empleado');checkPensionadoMsg()">Empleado</div>
+            <div class="chip" onclick="selectChip(this,'cr-empleo','independiente');checkPensionadoMsg()">Independiente</div>
+            <div class="chip" onclick="selectChip(this,'cr-empleo','pensionado');checkPensionadoMsg()">Pensionado</div>
+          </div>
+          <input type="hidden" id="cr-empleo" value="empleado">
+          <div class="gap-ok" id="pensionadoMsg" style="display:none;margin-top:10px">✓ Los pensionados tienen <strong>tasas preferenciales</strong> en varios de nuestros bancos aliados.</div>
+        </div>
+
+        <div class="form-group">
+          <label>¿Cuál es tu prioridad número uno?</label>
+          <div class="prio-chip active" onclick="selectPrio(this,'cuota')">
+            <span class="ico">💰</span>
+            <span>La cuota mensual más baja</span>
+          </div>
+          <div class="prio-chip" onclick="selectPrio(this,'monto')">
+            <span class="ico">📈</span>
+            <span>Que me presten el máximo posible</span>
+          </div>
+          <div class="prio-chip" onclick="selectPrio(this,'rapidez')">
+            <span class="ico">⚡</span>
+            <span>Rapidez en el desembolso</span>
+          </div>
+          <input type="hidden" id="cr-prioridad" value="cuota">
+        </div>
+
+        <div class="empathy-note">Tranquilo, esto es solo para estimar. Nada se comparte aún.</div>
+
+        <div class="btn-row">
+          <button class="btn-back" onclick="creditBack(1)">Atrás</button>
+          <button class="btn-next" onclick="calcularCredito()">Muéstrame mis opciones</button>
+        </div>
+      </div>
+
+      <!-- STEP 3: MARKETPLACE DE RESULTADOS -->
+      <div class="step" id="credit-step3">
+        <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+        <div class="progress-label">Paso 3 de 3 · Resultados en tiempo real</div>
+        <h3 class="q-title">Resultados según tu perfil financiero</h3>
+        <div class="market-auth">
+          <p>🔎 Hemos cruzado tus datos con las tasas actuales de nuestra red bancaria para encontrarte la mejor opción.</p>
+          <small id="marketTransparency">Tasa calculada según perfil de riesgo e ingresos declarados.</small>
+        </div>
+        <div class="bank-results" id="bankResults"></div>
+        <div style="text-align:center;margin-top:20px">
+          <button class="btn-back" onclick="creditBack(2)">Modificar datos</button>
+        </div>
+      </div>
+
+      <!-- STEP 3.5: CIERRE CONCISO (NOMBRE + WHATSAPP) -->
+      <div class="step" id="credit-step-close">
+        <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+        <div class="progress-label">Último paso · Envío a <span id="closeBankName">banco</span></div>
+        <h3 class="q-title">Envía tu perfil al banco</h3>
+        <p class="q-sub">Solo necesitamos 2 datos para que el asesor te contacte.</p>
+
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input type="text" id="credit-lead-nombre" placeholder="Tu nombre">
+          <div class="error-msg" id="err-cnombre">Por favor ingresa tu nombre.</div>
+        </div>
+
+        <div class="form-group">
+          <label>WhatsApp (Colombia)</label>
+          <input type="tel" id="credit-lead-tel" placeholder="3XX XXX XXXX" maxlength="13" oninput="formatPhoneCO(this);clearErr('err-ctel',this)">
+          <div class="hint">Debe iniciar con 3 y tener 10 dígitos.</div>
+          <div class="error-msg" id="err-ctel">Celular inválido. Debe iniciar con 3 y tener 10 dígitos.</div>
+        </div>
+
+        <div class="empathy-note">Al continuar autorizas el tratamiento de tus datos según nuestra <a onclick="openLegal('habeas')" style="color:var(--primary);cursor:pointer;font-weight:700">política de Habeas Data</a>.</div>
+
+        <div class="btn-row">
+          <button class="btn-back" onclick="creditBack(3)">Atrás</button>
+          <button class="btn-next" onclick="confirmCreditLead()">Enviar solicitud al banco ✓</button>
+        </div>
+      </div>
+
+      <!-- STEP 4: LEAD ENVIADO -->
+      <div class="step" id="credit-step4">
+        <div class="lead-success">
+          <div class="icon">✅</div>
+          <h2 id="creditSuccessTitle">¡Solicitud enviada!</h2>
+          <p id="creditSuccessMsg">Un asesor se contactará contigo para iniciar el proceso de radicación formal.</p>
+          <div class="summary-box" id="creditSummary"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ======================== MODAL COTIZADOR ======================== -->
+<div class="modal-overlay" id="cotizadorModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="modalTitle">Tu plan de pagos</h2>
+      <button class="modal-close" onclick="closeModal('cotizadorModal')">&times;</button>
+    </div>
+    <div class="modal-body">
+
+      <!-- PASO 1: INFO PROYECTO -->
+      <div class="step active" id="cot-step1">
+        <div class="progress-bar"><div class="progress-fill" style="width:25%"></div></div>
+        <div class="progress-label">Paso 1 de 4</div>
+        <div id="projectDetail"></div>
+        <button class="btn-next" onclick="nextStep(2)" style="margin-top:20px">Quiero ver si puedo →</button>
+      </div>
+
+      <!-- PASO 2: DATOS CLIENTE -->
+      <div class="step" id="cot-step2">
+        <div class="progress-bar"><div class="progress-fill" style="width:50%"></div></div>
+        <div class="progress-label">Paso 2 de 4</div>
+        <h3 class="q-title">Arma tu plan de pagos</h3>
+        <p class="q-sub">Activa tus "superpoderes" para bajar tu cuota mensual.</p>
+
+        <div class="form-group">
+          <label>¿Trabajas como empleado o independiente?</label>
+          <div class="chip-group">
+            <div class="chip active" onclick="selectChip(this,'cot-empleo','empleado');toggleCesantias()">Empleado</div>
+            <div class="chip" onclick="selectChip(this,'cot-empleo','independiente');toggleCesantias()">Independiente</div>
+            <div class="chip" onclick="selectChip(this,'cot-empleo','pensionado');toggleCesantias()">Pensionado</div>
+          </div>
+          <input type="hidden" id="cot-empleo" value="empleado">
+        </div>
+
+        <div class="form-group">
+          <label>¿Cuánto ganas al mes?</label>
+          <input type="text" id="cot-ingresos" placeholder="Ej: 5.000.000" oninput="formatMoney(this)">
+          <div class="hint">Lo usamos solo para validar que la cuota sea saludable.</div>
+        </div>
+
+        <div class="form-group">
+          <label>💼 ¿Con cuánto dinero cuentas HOY para asegurar tu lugar?</label>
+          <input type="text" id="cot-separacion" placeholder="Ej: 5.000.000" oninput="formatMoney(this)">
+          <div class="hint">Este es el capital de separación inicial del proyecto.</div>
+        </div>
+
+        <div class="form-group">
+          <label>💸 ¿Qué cuota mensual podrías pagar tranquilo?</label>
+          <input type="text" id="cot-cuotaComoda" placeholder="Ej: 1.500.000" oninput="formatMoney(this)">
+          <div class="hint">Lo que puedes aportar cada mes sin apretarte.</div>
+        </div>
+
+        <div class="boost-group" id="boostsSection">
+          <label style="display:block;font-weight:800;color:var(--navy);margin-bottom:10px;font-size:.95rem">⚡ Activa tus potenciadores (bajan tu cuota)</label>
+
+          <label class="boost-check active" id="boost-primas">
+            <input type="checkbox" checked onchange="toggleBoost(this,'boost-primas')">
+            <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="txt">
+              <strong>Incluir mis Primas</strong>
+              <span>Junio y Diciembre — Un salario completo cada prima</span>
+              <span class="power">✨ Baja tu cuota mensual automáticamente</span>
+            </div>
+          </label>
+
+          <label class="boost-check active" id="boost-cesantias">
+            <input type="checkbox" checked onchange="toggleBoost(this,'boost-cesantias')">
+            <div class="check-box"><svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3"><polyline points="20 6 9 17 4 12"/></svg></div>
+            <div class="txt">
+              <strong>Incluir mis Cesantías</strong>
+              <span>Consignadas en Febrero de cada año</span>
+              <span class="power">✨ Súper-ahorro anual para tu inicial</span>
+            </div>
+          </label>
+        </div>
+
+        <div class="form-group">
+          <label>🎁 ¿Tienes otros ahorros o bonos extras?</label>
+          <input type="text" id="cot-extras" placeholder="Ej: 3.000.000 (opcional)" oninput="formatMoney(this)">
+          <div class="hint">Bonos, liquidación, devolución de impuestos… cualquier extra suma.</div>
+        </div>
+
+        <div class="empathy-note">Tranquilo, esto es solo para estimar. No guardamos datos sensibles.</div>
+
+        <div class="btn-row">
+          <button class="btn-back" onclick="nextStep(1)">Atrás</button>
+          <button class="btn-next" onclick="calcularCotizacion()">Ver mi plan inteligente</button>
+        </div>
+      </div>
+
+      <!-- PASO 3: COMPARATIVA DE PLANES -->
+      <div class="step" id="cot-step3">
+        <div id="cotResult"></div>
+      </div>
+
+      <!-- PASO 4: LEAD (FAST-TRACK 4 CAMPOS) -->
+      <div class="step" id="cot-step4">
+        <div class="progress-bar"><div class="progress-fill" style="width:100%"></div></div>
+        <div class="progress-label">Último paso · Contacto directo</div>
+        <h3 class="q-title">¿Cuándo prefieres que te contacten?</h3>
+        <p class="q-sub">Solo 4 datos. Sin preguntas tediosas.</p>
+
+        <div class="form-group">
+          <label>Nombre completo</label>
+          <input type="text" id="lead-nombre" placeholder="Tu nombre">
+          <div class="error-msg" id="err-nombre">Por favor ingresa tu nombre.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Celular (Colombia)</label>
+          <input type="tel" id="lead-tel" placeholder="3XX XXX XXXX" maxlength="13" oninput="formatPhoneCO(this)">
+          <div class="hint">Debe iniciar con 3 y tener 10 dígitos.</div>
+          <div class="error-msg" id="err-tel">Celular inválido. Debe iniciar con 3 y tener 10 dígitos.</div>
+        </div>
+
+        <div class="form-group">
+          <label>Correo electrónico</label>
+          <input type="email" id="lead-email" placeholder="tu@email.com" oninput="clearErr('err-email',this)">
+          <div class="error-msg" id="err-email">Correo inválido. Usa un formato como nombre@dominio.com.</div>
+        </div>
+
+        <div class="form-group">
+          <label>¿Cuándo prefieres que te llamen?</label>
+          <div class="horario-chips">
+            <div class="horario-chip active" onclick="selectHorario(this,'manana')"><span class="emoji">🌅</span>Mañana</div>
+            <div class="horario-chip" onclick="selectHorario(this,'tarde')"><span class="emoji">☀️</span>Tarde</div>
+            <div class="horario-chip" onclick="selectHorario(this,'cuandosea')"><span class="emoji">⏰</span>Cuando sea</div>
+          </div>
+          <input type="hidden" id="lead-horario" value="manana">
+        </div>
+
+        <div class="empathy-note">Al continuar autorizas el tratamiento de tus datos según nuestra <a onclick="openLegal('habeas')" style="color:var(--primary);cursor:pointer;font-weight:700">política de Habeas Data</a>.</div>
+
+        <button class="btn-submit" onclick="enviarLead()">Confirmar y enviar mi plan al asesor ✓</button>
+        <button class="cta-subtle" onclick="nextStep(3)">← Volver a mi plan</button>
+      </div>
+
+      <!-- PASO 5: ÉXITO -->
+      <div class="step" id="cot-step5">
+        <div class="lead-success">
+          <div class="icon">🎉</div>
+          <h2 id="leadSuccessTitle">¡Listo! Tu plan está en camino</h2>
+          <p id="leadSuccessMsg">Estás muy cerca de recibir las llaves de tu próximo hogar.</p>
+          <div class="summary-box" id="leadSummary"></div>
+          <button class="btn-next" style="margin-top:20px;width:100%" onclick="closeModal('cotizadorModal');showSection('credito')">Ahora busca tu mejor crédito →</button>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- ======================== MODAL CONSTRUCTORA ======================== -->
+<div class="modal-overlay" id="builderModal">
+  <div class="modal modal-wide">
+    <div class="modal-header">
+      <h2>Perfil de Constructora</h2>
+      <button class="modal-close" onclick="closeModal('builderModal')">&times;</button>
+    </div>
+    <div class="modal-body" id="builderBody"></div>
+  </div>
+</div>
+
+<!-- ======================== MODAL LEGAL ======================== -->
+<div class="modal-overlay" id="legalModal">
+  <div class="modal">
+    <div class="modal-header">
+      <h2 id="legalTitle">—</h2>
+      <button class="modal-close" onclick="closeModal('legalModal')">&times;</button>
+    </div>
+    <div class="modal-body legal-content" id="legalBody"></div>
+  </div>
+</div>
+
+<!-- ======================== FOOTER ======================== -->
+<footer>
+  <div class="container">
+    <div class="footer-grid">
+      <div class="footer-brand">
+        <div class="logo">Tu<span>Cuota</span></div>
+        <p>Plataforma de intermediación entre compradores, constructoras y bancos en Colombia. Rápido, gratuito y sin compromisos.</p>
+        <button class="footer-wa" onclick="openWhatsApp()">💬 Contáctanos por WhatsApp</button>
+      </div>
+      <div class="footer-col">
+        <h4>EMPRESA</h4>
+        <ul>
+          <li><a onclick="showSection('proyectos')">Proyectos</a></li>
+          <li><a onclick="openLegal('historia')">Quiénes somos</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>LEGAL</h4>
+        <ul>
+          <li><a onclick="openLegal('privacidad')">Política de Privacidad</a></li>
+          <li><a onclick="openLegal('habeas')">Habeas Data</a></li>
+          <li><a onclick="openLegal('terminos')">Términos de uso</a></li>
+          <li><a onclick="openLegal('contacto')">Contacto</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <div>© 2026 Tu Cuota. Todos los derechos reservados.</div>
+      <div class="links">
+        <a onclick="openLegal('privacidad')">Privacidad</a>
+        <a onclick="openLegal('terminos')">Términos</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+<!-- WHATSAPP FLOAT -->
+<div class="wa-float" onclick="openWhatsApp()" title="Chatea con nosotros">
+  <svg viewBox="0 0 32 32"><path d="M16 2C8.27 2 2 8.27 2 16c0 2.77.81 5.35 2.2 7.53L2 30l6.66-2.15C10.79 29.2 13.32 30 16 30c7.73 0 14-6.27 14-14S23.73 2 16 2zm0 25.6c-2.46 0-4.76-.73-6.68-1.98l-.48-.31-3.95 1.27 1.28-3.85-.31-.5C4.58 20.28 3.8 18.2 3.8 16c0-6.73 5.47-12.2 12.2-12.2s12.2 5.47 12.2 12.2-5.47 12.2-12.2 12.2zm6.86-9.14c-.38-.19-2.24-1.1-2.58-1.23-.35-.13-.6-.19-.85.19s-.98 1.23-1.2 1.48c-.22.25-.45.28-.82.09-.38-.19-1.59-.58-3.03-1.87-1.12-1-1.88-2.24-2.1-2.61-.22-.38-.02-.58.17-.77.17-.17.38-.45.57-.67.19-.22.25-.38.38-.63.13-.25.06-.48-.03-.67-.09-.19-.85-2.04-1.16-2.8-.3-.73-.61-.63-.85-.64h-.73c-.25 0-.67.09-1.02.48s-1.33 1.3-1.33 3.16 1.36 3.67 1.55 3.92c.19.25 2.68 4.09 6.5 5.74.91.39 1.62.63 2.17.81.91.29 1.74.25 2.4.15.73-.11 2.24-.92 2.56-1.8.32-.88.32-1.63.22-1.8-.1-.16-.35-.25-.73-.44z"/></svg>
+</div>
+
+<!-- FILTER SHEET MOBILE -->
+<div class="filter-sheet" id="filterSheet" onclick="if(event.target===this)closeFilterSheet()">
+  <div class="panel">
+    <h3>Filtrar proyectos</h3>
+    <div class="f-group">
+      <label>📍 Sector</label>
+      <select id="mFilterSector">
+        <option value="todos">Todos los sectores</option>
+        <option value="norte">Medellín Norte</option>
+        <option value="sur">Medellín Sur</option>
+        <option value="bello">Bello</option>
+        <option value="envigado">Envigado</option>
+        <option value="sabaneta">Sabaneta</option>
+        <option value="rionegro">Rionegro</option>
+      </select>
+    </div>
+    <div class="f-group">
+      <label>💰 Presupuesto</label>
+      <select id="mFilterPrecio">
+        <option value="0">Cualquiera</option>
+        <option value="150-250">$150M — $250M</option>
+        <option value="250-450">$250M — $450M</option>
+        <option value="500+">Desde $500M</option>
+      </select>
+    </div>
+    <div class="f-group">
+      <label>🏠 Tipo de vivienda</label>
+      <select id="mFilterTipo">
+        <option value="todos">Todos</option>
+        <option value="vis">VIS (Interés Social)</option>
+        <option value="novis">No VIS</option>
+        <option value="vip">VIP (Prioritaria)</option>
+      </select>
+    </div>
+    <div class="sheet-actions">
+      <button class="sheet-clear" type="button" onclick="clearMobileFilters()">Limpiar</button>
+      <button class="sheet-apply" type="button" onclick="applyMobileFilters()">Ver proyectos</button>
+    </div>
+  </div>
+</div>
+
+<!-- HABEAS DATA -->
+<div class="habeas-banner" id="habeasBanner">
+  <p>Usamos cookies y datos para mejorar tu experiencia. Al continuar aceptas nuestra <a onclick="openLegal('habeas')">política de Habeas Data</a>.</p>
+  <button onclick="acceptHabeas()">Entendido</button>
+</div>
+
+<script>
+// ======================== DATA ========================
+const projects = [
+  {id:1,name:"Asia Towers",constructorId:"planner",constructor:"Planner Constructora",location:"Bello, Antioquia",sector:"bello",categoria:"novis",price:259000000,area:55,rooms:2,baths:2,delivery:"Dic 2027",img:"https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?w=600&h=400&fit=crop",badge:"Preventa",urgency:null,amenities:"Piscina, Gym, BBQ, Coworking",months:20},
+  {id:2,name:"Mirador del Parque",constructorId:"planner",constructor:"Planner Constructora",location:"Bello, Antioquia",sector:"bello",categoria:"novis",price:320000000,area:68,rooms:3,baths:2,delivery:"Jun 2028",img:"https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=600&h=400&fit=crop",badge:"Nuevo",urgency:null,amenities:"Parque infantil, Salón social, Gym",months:20},
+  {id:3,name:"Torre Esmeralda",constructorId:"bolivar",constructor:"Constructora Bolívar",location:"Envigado",sector:"envigado",categoria:"novis",price:450000000,area:82,rooms:3,baths:3,delivery:"Mar 2028",img:"https://images.unsplash.com/photo-1515263487990-61b07816b324?w=600&h=400&fit=crop",badge:"Últimas unidades",urgency:"Solo quedan 3 apartamentos",amenities:"Rooftop, Piscina, Gym, Pet friendly",months:20},
+  {id:4,name:"Altos de San Juan",constructorId:"conconcreto",constructor:"Conconcreto",location:"Medellín Norte",sector:"norte",categoria:"novis",price:380000000,area:72,rooms:3,baths:2,delivery:"Sep 2027",img:"https://images.unsplash.com/photo-1574362848149-11496d93a7c7?w=600&h=400&fit=crop",badge:"En construcción",urgency:null,amenities:"Piscina, Gym, Salón de juegos",months:18},
+  {id:5,name:"Parque Central Living",constructorId:"planner",constructor:"Planner Constructora",location:"Medellín Sur",sector:"sur",categoria:"novis",price:520000000,area:95,rooms:3,baths:3,delivery:"Ene 2029",img:"https://images.unsplash.com/photo-1460317442991-0ec209397118?w=600&h=400&fit=crop",badge:"Lanzamiento",urgency:null,amenities:"Club house, Cinema, Coworking, Piscina",months:24},
+  {id:6,name:"Natura Habitat",constructorId:"bolivar",constructor:"Constructora Bolívar",location:"Bello, Antioquia",sector:"bello",categoria:"vis",price:195000000,area:45,rooms:2,baths:1,delivery:"Ago 2027",img:"https://images.unsplash.com/photo-1567684014761-b65e2e59b9eb?w=600&h=400&fit=crop",badge:"VIS",urgency:null,amenities:"Zonas verdes, Parque, Salón social",months:18},
+  {id:7,name:"Ciudad Bonita",constructorId:"conconcreto",constructor:"Conconcreto",location:"Sabaneta",sector:"sabaneta",categoria:"vis",price:175000000,area:42,rooms:2,baths:1,delivery:"May 2027",img:"https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?w=600&h=400&fit=crop",badge:"VIS",urgency:null,amenities:"Zona infantil, Salón social",months:16},
+  {id:8,name:"Refugio del Oriente",constructorId:"planner",constructor:"Planner Constructora",location:"Rionegro",sector:"rionegro",categoria:"vip",price:148000000,area:38,rooms:2,baths:1,delivery:"Oct 2027",img:"https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?w=600&h=400&fit=crop",badge:"VIP",urgency:null,amenities:"Parque lineal, Zonas verdes",months:18}
+];
+
+const constructoras = {
+  planner: {
+    id:"planner", name:"Planner Constructora", initial:"P",
+    desc:"Constructora antioqueña con más de 15 años de experiencia en proyectos residenciales de alto estándar. Reconocida por su arquitectura contemporánea, materiales premium y cumplimiento riguroso en entregas.",
+    desc2:"Ha entregado más de 2.500 unidades en el Valle de Aburrá con enfoque en comunidades que combinan bienestar, diseño y ubicación estratégica.",
+    years:15, delivered:2500, projects:12, wa:"573001112233"
+  },
+  bolivar: {
+    id:"bolivar", name:"Constructora Bolívar", initial:"B",
+    desc:"Una de las constructoras más grandes de Colombia con más de 50 años de historia. Presencia nacional con proyectos desde VIS hasta alto lujo.",
+    desc2:"Líder en financiación directa y alianzas con bancos. Reconocida por su solidez financiera y cumplimiento regulatorio.",
+    years:50, delivered:180000, projects:45, wa:"573004445566"
+  },
+  conconcreto: {
+    id:"conconcreto", name:"Conconcreto", initial:"C",
+    desc:"Constructora paisa con más de 60 años de trayectoria en proyectos residenciales, comerciales e infraestructura.",
+    desc2:"Reconocida por estándares de calidad ISO y proyectos que transforman zonas urbanas.",
+    years:60, delivered:45000, projects:28, wa:"573007778899"
+  }
+};
+
+const banks = [
+  {name:"Bancolombia",rate:1.05,maxPlazo:30,minIncome:2500000},
+  {name:"Davivienda",rate:1.10,maxPlazo:25,minIncome:2000000},
+  {name:"BBVA",rate:0.98,maxPlazo:30,minIncome:3000000},
+  {name:"Banco de Bogotá",rate:1.08,maxPlazo:20,minIncome:2500000},
+  {name:"Scotiabank Colpatria",rate:1.02,maxPlazo:25,minIncome:2800000},
+  {name:"AV Villas",rate:1.15,maxPlazo:20,minIncome:1800000},
+  {name:"Banco Caja Social",rate:1.20,maxPlazo:20,minIncome:1500000},
+  {name:"Itaú",rate:0.95,maxPlazo:30,minIncome:3500000}
+];
+
+const legalContent = {
+  historia: {title:"Quiénes somos", body:`<h3>Nuestra historia</h3><p>Somos un equipo colombiano apasionado por hacer que la compra de vivienda deje de ser un laberinto. Nacimos en 2025 con la convicción de que acceder a un crédito hipotecario o a un proyecto sobre planos no debería requerir un máster en finanzas.</p><p>Conectamos a compradores con las mejores constructoras y los bancos más competitivos del país, en un solo lugar, <strong>gratis y sin compromiso</strong>.</p><p>No somos un banco ni una constructora. Somos el puente que faltaba.</p>`},
+  privacidad: {title:"Política de Privacidad", body:`<h3>Política de Privacidad</h3><p>En Tu Cuota respetamos tu información personal. Solo recolectamos los datos necesarios para conectarte con constructoras y bancos aliados.</p><p><strong>No vendemos tu información a terceros.</strong> Solo compartimos tus datos con la constructora o banco que TÚ eliges contactar.</p><p>Puedes solicitar la eliminación de tus datos en cualquier momento escribiéndonos a <strong>privacidad@tucuota.co</strong>.</p>`},
+  habeas: {title:"Habeas Data", body:`<h3>Autorización de Tratamiento de Datos</h3><p>De acuerdo con la <strong>Ley 1581 de 2012</strong> y el Decreto 1377 de 2013, autorizas a Tu Cuota S.A.S. a tratar tus datos personales para los fines descritos en nuestra política: conectarte con constructoras y bancos aliados, mejorar la plataforma y enviarte información relevante.</p><p>Tienes derecho a conocer, actualizar, rectificar y suprimir tu información en cualquier momento.</p><p>Contacto oficial: <strong>habeasdata@tucuota.co</strong></p>`},
+  terminos: {title:"Términos de uso", body:`<h3>Términos y Condiciones</h3><p>Tu Cuota es una <strong>plataforma de intermediación</strong>. No somos un banco ni una constructora.</p><p>Las cotizaciones que ves en la plataforma son <strong>estimaciones</strong> y no constituyen una oferta vinculante. La aprobación final de crédito depende del banco que elijas.</p><p>El uso de la plataforma implica la aceptación de estos términos. Nos reservamos el derecho de actualizarlos con previo aviso.</p>`},
+  contacto: {title:"Contacto", body:`<h3>¿Necesitas ayuda?</h3><p><strong>WhatsApp:</strong> +57 300 000 0000</p><p><strong>Email:</strong> hola@tucuota.co</p><p><strong>Horario de atención:</strong> Lunes a Viernes 8am - 6pm (COT)</p><p><strong>Oficina principal:</strong> Medellín, Colombia</p><p style="margin-top:20px"><button class="btn-wa" onclick="openWhatsApp()">💬 Escribir por WhatsApp</button></p>`}
+};
+
+let currentProject=null, selectedCreditType='';
+let activeFilters={sector:'todos',precio:'0',tipo:'todos'};
+let planCalculado=null;
+
+// ======================== UTILS ========================
+function fmt(n){return new Intl.NumberFormat('es-CO').format(Math.round(n))}
+function parseMoney(str){return parseInt((str||'0').replace(/[^0-9]/g,''))||0}
+function formatMoney(el){
+  let v=el.value.replace(/[^0-9]/g,'');
+  el.value=v?new Intl.NumberFormat('es-CO').format(parseInt(v)):'';
+}
+function updateSlider(id,suffix){
+  const el=document.getElementById(id), val=document.getElementById(id+'-val');
+  val.textContent=el.value+suffix;
+}
+function updateFinanciarDefault(){
+  const valor=parseMoney(document.getElementById('cr-valor').value);
+  const financiarEl=document.getElementById('cr-financiar');
+  if(valor>0&&!financiarEl.value){
+    financiarEl.value=new Intl.NumberFormat('es-CO').format(Math.round(valor*0.7));
+  }
+  checkLeasingAlert();
+}
+function checkLeasingAlert(){
+  const valor=parseMoney(document.getElementById('cr-valor').value);
+  const financiar=parseMoney(document.getElementById('cr-financiar').value);
+  const alert=document.getElementById('leasingAlert');
+  if(!alert)return;
+  if(valor>0&&financiar>valor*0.7&&selectedCreditType==='hipotecario'){
+    alert.classList.add('show');
+  } else {
+    alert.classList.remove('show');
+  }
+}
+function switchToLeasing(){
+  selectedCreditType='leasing';
+  document.getElementById('leasingAlert').classList.remove('show');
+  // Update visual selection on step 1 cards (if user navigates back)
+  document.querySelectorAll('.credit-type-card').forEach((c,i)=>{
+    c.classList.toggle('selected',i===1);
+  });
+}
+function checkPensionadoMsg(){
+  const empleo=document.getElementById('cr-empleo').value;
+  document.getElementById('pensionadoMsg').style.display=empleo==='pensionado'?'block':'none';
+}
+function selectPrio(el,val){
+  el.parentElement.querySelectorAll('.prio-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('cr-prioridad').value=val;
+}
+function selectChip(el,hiddenId,val){
+  el.parentElement.querySelectorAll('.chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById(hiddenId).value=val;
+}
+function toggleCesantias(){
+  const empleo=document.getElementById('cot-empleo').value;
+  const section=document.getElementById('boostsSection');
+  if(!section)return;
+  const esEmpleado=empleo==='empleado';
+  section.style.opacity=esEmpleado?'1':'.45';
+  section.style.pointerEvents=esEmpleado?'auto':'none';
+  // Auto-uncheck if not empleado
+  if(!esEmpleado){
+    ['boost-primas','boost-cesantias'].forEach(id=>{
+      const box=document.getElementById(id);
+      if(box){box.classList.remove('active');const cb=box.querySelector('input');if(cb)cb.checked=false}
+    });
+  }
+}
+
+// ======================== NAV ========================
+function goHome(){
+  showSection('proyectos');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+window.addEventListener('scroll',()=>{
+  const nav=document.getElementById('mainNav');
+  if(!nav)return;
+  if(window.scrollY>20)nav.classList.add('scrolled');
+  else nav.classList.remove('scrolled');
+},{passive:true});
+
+function showSection(sec){
+  document.querySelectorAll('.section').forEach(s=>s.classList.remove('active'));
+  document.getElementById('sec-'+sec).classList.add('active');
+  document.querySelectorAll('.tab-btn').forEach(t=>t.classList.remove('active'));
+  document.querySelectorAll('.nav-links a').forEach(a=>a.classList.remove('active'));
+  const heroTitle=document.getElementById('heroTitle'), heroSub=document.getElementById('heroSub');
+  if(sec==='proyectos'){
+    document.querySelectorAll('.tab-btn')[0].classList.add('active');
+    document.querySelectorAll('.nav-links a')[0].classList.add('active');
+    heroTitle.innerHTML='Descubre si <strong>PUEDES</strong> tener apartamento propio';
+    heroSub.textContent='En 2 minutos sabes cuánto cuesta, cuánto ahorras y cuándo es tuyo. Gratis, sin enredos.';
+  }else{
+    document.querySelectorAll('.tab-btn')[1].classList.add('active');
+    document.querySelectorAll('.nav-links a')[1].classList.add('active');
+    heroTitle.innerHTML='Encuentra el crédito que <strong>SÍ</strong> se ajusta a ti';
+    heroSub.textContent='Comparamos múltiples bancos por ti. Tú eliges. Sin papeleo al principio.';
+    document.querySelectorAll('#sec-credito .step').forEach(s=>s.classList.remove('active'));
+    document.getElementById('credit-step1').classList.add('active');
+  }
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+// ======================== PROJECTS ========================
+function catLabel(c){return c==='vis'?'VIS':c==='vip'?'VIP':'No VIS'}
+function priceInRange(price,range){
+  if(range==='0')return true;
+  if(range==='150-250')return price>=150000000&&price<=250000000;
+  if(range==='250-450')return price>250000000&&price<=450000000;
+  if(range==='500+')return price>=500000000;
+  return true;
+}
+function renderProjects(){
+  const grid=document.getElementById('projectsGrid');
+  let filtered=projects;
+  if(activeFilters.sector!=='todos')filtered=filtered.filter(p=>p.sector===activeFilters.sector);
+  if(activeFilters.tipo!=='todos')filtered=filtered.filter(p=>p.categoria===activeFilters.tipo);
+  filtered=filtered.filter(p=>priceInRange(p.price,activeFilters.precio));
+  if(!filtered.length){grid.innerHTML='<p style="grid-column:1/-1;text-align:center;color:var(--gray);padding:30px">No encontramos proyectos con esos filtros. Prueba ajustar.</p>';return}
+  grid.innerHTML=filtered.map(p=>{
+    const esVis=p.categoria==='vis'||p.categoria==='vip';
+    const priceBlock=esVis
+      ? `<div class="project-price">$${fmt(p.price)} <small>COP</small></div><span class="project-price-note">&nbsp;</span>`
+      : `<div class="project-price"><span class="prefix">Desde</span>$${fmt(p.price)} <small>COP</small></div><span class="project-price-note">* Sujeto a cambios por altura/vista</span>`;
+    return `
+    <div class="project-card">
+      <div class="project-img" style="background-image:url('${p.img}')">
+        <span class="project-badge ${p.badge==='Últimas unidades'?'ultimas':''}">${p.badge}</span>
+        ${p.urgency?`<span class="urgency-chip">⚡ ${p.urgency}</span>`:''}
+      </div>
+      <div class="project-info">
+        <div class="project-name">${p.name} <span class="cat-tag ${p.categoria}">${catLabel(p.categoria)}</span></div>
+        <div class="project-location">${p.location} · <span class="project-constructor" onclick="openBuilder('${p.constructorId}')">${p.constructor}</span></div>
+        <div class="project-details">
+          <span class="project-detail"><strong>${p.area}m²</strong></span>
+          <span class="project-detail"><strong>${p.rooms}</strong> hab</span>
+          <span class="project-detail"><strong>${p.baths}</strong> baños</span>
+        </div>
+        ${priceBlock}
+        <button class="btn-cotizar" onclick="openCotizador(${p.id})">¡Quiero mi plan de pagos!</button>
+      </div>
+    </div>`}).join('');
+}
+function applyFilters(){
+  activeFilters.sector=document.getElementById('filterSector').value;
+  activeFilters.precio=document.getElementById('filterPrecio').value;
+  activeFilters.tipo=document.getElementById('filterTipo').value;
+  updateFilterBadge();
+  renderProjects();
+}
+function resetFilters(){
+  document.getElementById('filterSector').value='todos';
+  document.getElementById('filterPrecio').value='0';
+  document.getElementById('filterTipo').value='todos';
+  activeFilters={sector:'todos',precio:'0',tipo:'todos'};
+  updateFilterBadge();
+  renderProjects();
+}
+function openFilterSheet(){
+  document.getElementById('mFilterSector').value=activeFilters.sector;
+  document.getElementById('mFilterPrecio').value=activeFilters.precio;
+  document.getElementById('mFilterTipo').value=activeFilters.tipo;
+  document.getElementById('filterSheet').classList.add('show');
+}
+function closeFilterSheet(){document.getElementById('filterSheet').classList.remove('show')}
+function applyMobileFilters(){
+  activeFilters.sector=document.getElementById('mFilterSector').value;
+  activeFilters.precio=document.getElementById('mFilterPrecio').value;
+  activeFilters.tipo=document.getElementById('mFilterTipo').value;
+  document.getElementById('filterSector').value=activeFilters.sector;
+  document.getElementById('filterPrecio').value=activeFilters.precio;
+  document.getElementById('filterTipo').value=activeFilters.tipo;
+  updateFilterBadge();
+  renderProjects();
+  closeFilterSheet();
+}
+function clearMobileFilters(){
+  document.getElementById('mFilterSector').value='todos';
+  document.getElementById('mFilterPrecio').value='0';
+  document.getElementById('mFilterTipo').value='todos';
+}
+function updateFilterBadge(){
+  let c=0;
+  if(activeFilters.sector!=='todos')c++;
+  if(activeFilters.precio!=='0')c++;
+  if(activeFilters.tipo!=='todos')c++;
+  const badge=document.getElementById('filterCount');
+  if(badge){badge.textContent=c;badge.style.display=c?'inline-block':'none'}
+}
+
+// ======================== COTIZADOR MODAL ========================
+function openCotizador(id){
+  currentProject=projects.find(p=>p.id===id);
+  document.getElementById('cotizadorModal').classList.add('show');
+  document.getElementById('projectDetail').innerHTML=`
+    <div style="border-radius:12px;overflow:hidden;margin-bottom:18px">
+      <img src="${currentProject.img}" style="width:100%;height:180px;object-fit:cover">
+    </div>
+    <h3 style="color:var(--navy);font-size:1.3rem;font-weight:800">${currentProject.name}</h3>
+    <p style="color:var(--gray);margin-bottom:14px">${currentProject.location} · <span style="color:var(--primary);cursor:pointer;font-weight:600" onclick="openBuilder('${currentProject.constructorId}')">${currentProject.constructor}</span></p>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:14px">
+      <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Precio</small><br><strong style="color:var(--navy)">$${fmt(currentProject.price)}</strong></div>
+      <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Área</small><br><strong style="color:var(--navy)">${currentProject.area} m²</strong></div>
+      <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Distribución</small><br><strong style="color:var(--navy)">${currentProject.rooms} hab / ${currentProject.baths} baños</strong></div>
+      <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Entrega</small><br><strong style="color:var(--navy)">${currentProject.delivery}</strong></div>
+    </div>
+    <div style="background:#EFF6FF;padding:12px;border-radius:10px;font-size:.9rem"><strong>Amenidades:</strong> ${currentProject.amenities}</div>`;
+  nextStep(1);
+}
+function closeModal(id){document.getElementById(id).classList.remove('show')}
+function nextStep(n){
+  document.querySelectorAll('#cotizadorModal .step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('cot-step'+n).classList.add('active');
+  const titles=["Tu nuevo hogar","Cuéntanos de ti","Tu plan listo","Último paso","¡Listo!"];
+  document.getElementById('modalTitle').textContent=titles[n-1]||'';
+}
+
+// ======================== CÁLCULO PLAN DE PAGOS (FLUJO 1) ========================
+function toggleBoost(chk,id){
+  const el=document.getElementById(id);
+  if(chk.checked)el.classList.add('active'); else el.classList.remove('active');
+}
+function selectHorario(el,val){
+  el.parentElement.querySelectorAll('.horario-chip').forEach(c=>c.classList.remove('active'));
+  el.classList.add('active');
+  document.getElementById('lead-horario').value=val;
+}
+function clearErr(id,input){
+  document.getElementById(id).classList.remove('show');
+  if(input)input.classList.remove('input-error');
+}
+function formatPhoneCO(el){
+  let v=el.value.replace(/\D/g,'').slice(0,10);
+  if(v.length>6)v=v.slice(0,3)+' '+v.slice(3,6)+' '+v.slice(6);
+  else if(v.length>3)v=v.slice(0,3)+' '+v.slice(3);
+  el.value=v;
+  clearErr('err-tel',el);
+}
+function validatePhoneCO(raw){
+  const digits=raw.replace(/\D/g,'');
+  return digits.length===10&&digits.startsWith('3');
+}
+function validateEmail(e){
+  return /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(e.trim());
+}
+
+function calcularCotizacion(){
+  const p=currentProject;
+  const empleo=document.getElementById('cot-empleo').value;
+  const ingresos=parseMoney(document.getElementById('cot-ingresos').value);
+  const separacion=parseMoney(document.getElementById('cot-separacion').value);
+  const cuotaComoda=parseMoney(document.getElementById('cot-cuotaComoda').value);
+  const extras=parseMoney(document.getElementById('cot-extras').value);
+  const usarPrimas=document.querySelector('#boost-primas input').checked&&empleo==='empleado';
+  const usarCesantias=document.querySelector('#boost-cesantias input').checked&&empleo==='empleado';
+
+  if(!ingresos||!cuotaComoda){alert('Completa tus ingresos y la cuota mensual que puedes asumir');return}
+
+  const metaInicial=p.price*0.30;
+  const meses=p.months;
+  const anos=meses/12;
+
+  // Aportes mes a mes (cuota cómoda × meses)
+  const aportesMensuales=cuotaComoda*meses;
+  // Primas: 2 por año × (ingreso mensual aprox como prima)
+  const totalPrimas=usarPrimas?ingresos*2*Math.floor(anos):0;
+  // Cesantías: 1 por año
+  const totalCesantias=usarCesantias?ingresos*Math.floor(anos):0;
+  // Cuota TRADICIONAL: solo separación + cuota mensual plana (sin boosts)
+  const planTradFaltante=Math.max(0,metaInicial-separacion-extras);
+  const cuotaTradicional=planTradFaltante/meses;
+  // Cuota INTELIGENTE: separación + primas + cesantías + extras, repartir faltante en meses
+  const aportesExtras=separacion+totalPrimas+totalCesantias+extras;
+  const faltanteSmart=Math.max(0,metaInicial-aportesExtras);
+  const cuotaInteligente=faltanteSmart/meses;
+
+  const ahorroMensual=Math.max(0,cuotaTradicional-cuotaInteligente);
+  const ahorroTotal=ahorroMensual*meses;
+
+  // ¿Alcanza con cuota cómoda al plan inteligente?
+  const aportesTotales=aportesExtras+cuotaComoda*meses;
+  const llegaAMeta=aportesTotales>=metaInicial;
+  const brecha=Math.max(0,metaInicial-aportesTotales);
+  const cuotaNecesaria=(metaInicial-aportesExtras)/meses;
+
+  planCalculado={
+    proyecto:p.name, constructora:p.constructor, precio:p.price,
+    metaInicial, cuotaTradicional, cuotaInteligente, ahorroTotal,
+    separacion, cuotaComoda, extras, usarPrimas, usarCesantias,
+    empleo, ingresos, llegaAMeta, brecha, cuotaNecesaria
+  };
+
+  const viabilidadBlock = llegaAMeta
+    ? `<div class="gap-ok">✅ <strong>¡Felicidades!</strong> Con este plan cubres el ${((aportesTotales/metaInicial)*100).toFixed(0)}% de tu cuota inicial requerida${aportesTotales>metaInicial?` y te sobran <strong>$${fmt(aportesTotales-metaInicial)}</strong> para empezar a abonar al crédito.`:'.'}</div>`
+    : `<div class="gap-alert">💡 <strong>¡Casi lo logras!</strong> Estás a un paso de tu meta. Con este plan te faltan <strong>$${fmt(brecha)}</strong>. Para llegar a la meta, tu cuota mensual debería ser de <strong>$${fmt(cuotaNecesaria)}</strong>.<br>¿Quieres ajustar tu cuota mensual o sumar más ahorros para cerrar la brecha?</div>`;
+
+  const html=`
+    <div class="wow-hero">
+      <div class="wow-celebrate">✨</div>
+      <div class="wow-title" style="font-size:2.4rem">Tu plan, 2 caminos</div>
+      <div class="wow-sub">Mira cuánto puedes ahorrar activando tus superpoderes para <strong>${p.name}</strong>.</div>
+    </div>
+
+    <div class="compare-grid">
+      <div class="compare-card trad">
+        <h4>Plan Tradicional</h4>
+        <span class="tag-mini">Solo tu cuota mensual</span>
+        <div class="big-q">$${fmt(cuotaTradicional)}<small>/mes durante ${meses} meses</small></div>
+        <div class="saving">Meta a cubrir: $${fmt(metaInicial)}</div>
+      </div>
+      <div class="compare-card smart">
+        <h4>Plan Inteligente</h4>
+        <span class="tag-mini">Con Primas + Cesantías + Extras</span>
+        <div class="big-q">$${fmt(cuotaInteligente)}<small>/mes durante ${meses} meses</small></div>
+        <div class="saving">💰 Ahorras en total: $${fmt(ahorroTotal)}</div>
+      </div>
+    </div>
+
+    ${viabilidadBlock}
+
+    <div class="wow-plan">
+      <h3 style="color:var(--navy)">Resumen de tu plan inteligente</h3>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
+        <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Capital de separación</small><br><strong>$${fmt(separacion)}</strong></div>
+        <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Cuota cómoda</small><br><strong>$${fmt(cuotaComoda)}/mes</strong></div>
+        ${usarPrimas?`<div style="background:#ECFDF5;padding:12px;border-radius:10px"><small style="color:#065F46">Primas activas</small><br><strong style="color:#065F46">$${fmt(totalPrimas)}</strong></div>`:''}
+        ${usarCesantias?`<div style="background:#ECFDF5;padding:12px;border-radius:10px"><small style="color:#065F46">Cesantías activas</small><br><strong style="color:#065F46">$${fmt(totalCesantias)}</strong></div>`:''}
+        ${extras>0?`<div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Extras aportados</small><br><strong>$${fmt(extras)}</strong></div>`:''}
+      </div>
+      <p style="margin-top:14px;font-size:.88rem;color:var(--gray)">Al entregar el apto (${p.delivery}), inicia tu crédito hipotecario. Te ayudamos a conseguir el mejor.</p>
+    </div>
+
+    <button class="cta-giant" onclick="nextStep(4)">¡Este plan es perfecto para mí, que me contacten! →</button>
+    <button class="cta-subtle" onclick="nextStep(2)">← Ajustar mis datos</button>
+  `;
+  document.getElementById('cotResult').innerHTML=html;
+  nextStep(3);
+  fbq('trackCustom','CotizacionCalculada',{projectId:p.id,llegaAMeta:llegaAMeta});
+}
+
+function enviarLead(){
+  const nombreEl=document.getElementById('lead-nombre');
+  const telEl=document.getElementById('lead-tel');
+  const emailEl=document.getElementById('lead-email');
+  const horario=document.getElementById('lead-horario').value;
+  let ok=true;
+  // Nombre
+  if(!nombreEl.value.trim()){
+    nombreEl.classList.add('input-error');
+    document.getElementById('err-nombre').classList.add('show');
+    ok=false;
+  } else { nombreEl.classList.remove('input-error'); document.getElementById('err-nombre').classList.remove('show'); }
+  // Teléfono Colombia
+  if(!validatePhoneCO(telEl.value)){
+    telEl.classList.add('input-error');
+    document.getElementById('err-tel').classList.add('show');
+    ok=false;
+  } else { telEl.classList.remove('input-error'); document.getElementById('err-tel').classList.remove('show'); }
+  // Email
+  if(!validateEmail(emailEl.value)){
+    emailEl.classList.add('input-error');
+    document.getElementById('err-email').classList.add('show');
+    ok=false;
+  } else { emailEl.classList.remove('input-error'); document.getElementById('err-email').classList.remove('show'); }
+  if(!ok)return;
+
+  const nombre=nombreEl.value.trim();
+  const tel=telEl.value;
+  const email=emailEl.value.trim();
+  const horarioLbl={manana:'Mañana',tarde:'Tarde',cuandosea:'Cuando sea'}[horario]||horario;
+
+  // Construir radiografía financiera del plan
+  const pc=planCalculado||{};
+  document.getElementById('leadSuccessTitle').textContent='¡Listo! Tu plan está en manos del equipo de '+(pc.proyecto||currentProject.name);
+  document.getElementById('leadSuccessMsg').textContent='Estás muy cerca de recibir las llaves de tu próximo hogar. Te contactaremos en el horario que elegiste.';
+  document.getElementById('leadSummary').innerHTML=`
+    <p><strong>Proyecto:</strong> ${currentProject.name}</p>
+    <p><strong>Constructora:</strong> ${currentProject.constructor}</p>
+    <p><strong>Cuota inteligente propuesta:</strong> $${fmt(pc.cuotaInteligente||0)}/mes</p>
+    ${pc.usarPrimas?'<p><strong>Extras activos:</strong> Primas ✨</p>':''}
+    ${pc.usarCesantias?'<p><strong>Extras activos:</strong> Cesantías ✨</p>':''}
+    <hr style="margin:10px 0;border:0;border-top:1px solid var(--border)">
+    <p><strong>Contacto:</strong> ${nombre} · ${tel}</p>
+    <p><strong>Email:</strong> ${email}</p>
+    <p><strong>Horario preferido:</strong> ${horarioLbl}</p>
+  `;
+  nextStep(5);
+  fbq('track','Lead',{content_name:currentProject.name});
+  gtag('event','generate_lead',{currency:'COP',value:currentProject.price});
+}
+
+// ======================== FLUJO 2: CRÉDITO ========================
+function selectCreditType(type,el){
+  selectedCreditType=type;
+  document.querySelectorAll('.credit-type-card').forEach(c=>c.classList.remove('selected'));
+  el.classList.add('selected');
+  setTimeout(()=>{
+    document.querySelectorAll('#sec-credito .step').forEach(s=>s.classList.remove('active'));
+    document.getElementById('credit-step2').classList.add('active');
+  },280);
+}
+function creditBack(from){
+  document.querySelectorAll('#sec-credito .step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('credit-step'+from).classList.add('active');
+}
+let creditOffer=null;
+function calcularCredito(){
+  const valor=parseMoney(document.getElementById('cr-valor').value);
+  const financiar=parseMoney(document.getElementById('cr-financiar').value);
+  const ingresos=parseMoney(document.getElementById('cr-ingresos').value);
+  const deudas=parseMoney(document.getElementById('cr-deudas').value);
+  const plazo=parseInt(document.getElementById('cr-plazo').value);
+  const empleo=document.getElementById('cr-empleo').value;
+  const prioridad=document.getElementById('cr-prioridad').value;
+
+  if(!valor||!ingresos||!financiar){alert('Completa el valor del inmueble, el monto a financiar y tus ingresos');return}
+
+  const capacidad=(ingresos-deudas)*0.3;
+  // Ajuste de tasa según perfil: pensionado obtiene -0.08pp, independiente +0.05pp
+  const tasaAdj={empleado:0, pensionado:-0.08, independiente:0.05}[empleo]||0;
+
+  const results=[];
+  banks.forEach(b=>{
+    const tasaMensual=(b.rate+tasaAdj)/100;
+    const mesesPlazo=Math.min(plazo,b.maxPlazo)*12;
+    const cuota=financiar*(tasaMensual*Math.pow(1+tasaMensual,mesesPlazo))/(Math.pow(1+tasaMensual,mesesPlazo)-1);
+    const totalPagar=cuota*mesesPlazo;
+    const califica=ingresos>=b.minIncome&&capacidad>=cuota;
+    if(califica){
+      results.push({...b,cuota,meses:mesesPlazo,totalPagar,montoCredito:financiar,tasaEA:((Math.pow(1+tasaMensual,12)-1)*100).toFixed(2),rateAdj:tasaAdj});
+    }
+  });
+
+  // Ordenamiento según prioridad
+  if(prioridad==='cuota')results.sort((a,b)=>a.cuota-b.cuota);
+  else if(prioridad==='monto')results.sort((a,b)=>b.montoCredito-a.montoCredito||a.cuota-b.cuota);
+  else if(prioridad==='rapidez')results.sort((a,b)=>b.minIncome-a.minIncome); // bancos grandes suelen ser más ágiles
+
+  // Mensaje de transparencia
+  const empleoLabel={empleado:'Empleado',independiente:'Independiente',pensionado:'Pensionado'}[empleo];
+  document.getElementById('marketTransparency').textContent=`Tasa calculada según perfil ${empleoLabel} e ingresos declarados${empleo==='pensionado'?' (con descuento de convenio aplicado)':''}.`;
+
+  const container=document.getElementById('bankResults');
+  if(!results.length){
+    container.innerHTML=`<div class="wow-hero" style="background:linear-gradient(135deg,#F59E0B,#EF4444)"><div class="wow-celebrate">💪</div><div class="wow-title" style="font-size:2rem">Aún no, pero vas</div><div class="wow-sub">Con tus datos actuales ningún banco aprueba hoy. Tu capacidad de pago: $${fmt(capacidad)}/mes.</div></div><p style="text-align:center;color:var(--gray);margin-top:16px">Prueba reducir deudas, aumentar ingresos o ver proyectos de menor valor.</p>`;
+  } else {
+    container.innerHTML=results.map((r,i)=>`
+      <div class="bank-card ${i===0?'best':''}">
+        <div class="bank-info">
+          <div class="bank-name">
+            <strong>${r.name}</strong>
+            <small>${selectedCreditType==='leasing'?'Leasing Habitacional':'Crédito Hipotecario'}</small>
+          </div>
+          <div class="bank-rate">
+            <div class="rate">${r.tasaEA}%</div>
+            <small>Tasa EA</small>
+          </div>
+          <div class="bank-monthly">
+            <div class="amount">$${fmt(r.cuota)}</div>
+            <small>/mes · ${r.meses/12} años</small>
+          </div>
+        </div>
+        <button class="btn-select-bank" onclick='selectBank(${JSON.stringify(r).replace(/'/g,"&#39;")})'>Enviar mi solicitud a ${r.name} →</button>
+      </div>`).join('');
+  }
+  document.querySelectorAll('#sec-credito .step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('credit-step3').classList.add('active');
+  fbq('trackCustom','CreditoCalculado',{options:results.length});
+}
+
+function selectBank(offer){
+  creditOffer=offer;
+  document.getElementById('closeBankName').textContent=offer.name;
+  document.querySelectorAll('#sec-credito .step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('credit-step-close').classList.add('active');
+  window.scrollTo({top:0,behavior:'smooth'});
+}
+
+function confirmCreditLead(){
+  const nombreEl=document.getElementById('credit-lead-nombre');
+  const telEl=document.getElementById('credit-lead-tel');
+  let ok=true;
+  if(!nombreEl.value.trim()){
+    nombreEl.classList.add('input-error');
+    document.getElementById('err-cnombre').classList.add('show');
+    ok=false;
+  } else { nombreEl.classList.remove('input-error'); document.getElementById('err-cnombre').classList.remove('show'); }
+  if(!validatePhoneCO(telEl.value)){
+    telEl.classList.add('input-error');
+    document.getElementById('err-ctel').classList.add('show');
+    ok=false;
+  } else { telEl.classList.remove('input-error'); document.getElementById('err-ctel').classList.remove('show'); }
+  if(!ok)return;
+
+  const nombre=nombreEl.value.trim();
+  const tel=telEl.value;
+  const r=creditOffer;
+  const empleo=document.getElementById('cr-empleo').value;
+  const empleoLabel={empleado:'Empleado',independiente:'Independiente',pensionado:'Pensionado'}[empleo];
+  const ingresos=parseMoney(document.getElementById('cr-ingresos').value);
+  const prioridad=document.getElementById('cr-prioridad').value;
+  const prioLabel={cuota:'Cuota más baja',monto:'Máximo préstamo',rapidez:'Rapidez en desembolso'}[prioridad];
+
+  document.getElementById('creditSuccessTitle').textContent=`¡Listo! Tu perfil ha sido enviado a ${r.name}`;
+  document.getElementById('creditSuccessMsg').textContent='Un asesor se contactará contigo para iniciar el proceso de radicación formal.';
+  document.getElementById('creditSummary').innerHTML=`
+    <p><strong>Banco elegido:</strong> ${r.name}</p>
+    <p><strong>Tipo:</strong> ${selectedCreditType==='leasing'?'Leasing Habitacional':'Crédito Hipotecario'}</p>
+    <p><strong>Monto crédito:</strong> $${fmt(r.montoCredito)} COP</p>
+    <p><strong>Tasa:</strong> ${r.tasaEA}% EA</p>
+    <p><strong>Cuota mensual:</strong> $${fmt(r.cuota)} COP</p>
+    <p><strong>Plazo:</strong> ${r.meses/12} años</p>
+    <hr style="margin:10px 0;border:0;border-top:1px solid var(--border)">
+    <p><strong>Perfil:</strong> ${empleoLabel} · Ingresos $${fmt(ingresos)}</p>
+    <p><strong>Prioridad:</strong> ${prioLabel}</p>
+    <p><strong>Contacto:</strong> ${nombre} · ${tel}</p>
+    <p style="margin-top:10px;color:var(--success);font-weight:700">✓ Este cliente ya aceptó este plan específico.</p>`;
+  document.querySelectorAll('#sec-credito .step').forEach(s=>s.classList.remove('active'));
+  document.getElementById('credit-step4').classList.add('active');
+  fbq('track','Lead',{content_name:'Credito '+r.name});
+  gtag('event','generate_lead',{currency:'COP',value:r.montoCredito});
+}
+
+// ======================== BUILDER PROFILE ========================
+function openBuilder(id){
+  const b=constructoras[id]; if(!b)return;
+  const otros=projects.filter(p=>p.constructorId===id);
+  document.getElementById('builderBody').innerHTML=`
+    <div class="builder-hero">
+      <div class="builder-logo-big">${b.initial}</div>
+      <h2>${b.name}</h2>
+      <div class="builder-verified">✓ Constructora verificada por Tu Cuota</div>
+    </div>
+    <div class="builder-desc"><p>${b.desc}</p><p style="margin-top:10px">${b.desc2}</p></div>
+    <div class="builder-stats">
+      <div class="builder-stat"><div class="n">${b.years}+</div><div class="l">años en el mercado</div></div>
+      <div class="builder-stat"><div class="n">${fmt(b.delivered)}</div><div class="l">unidades entregadas</div></div>
+      <div class="builder-stat"><div class="n">${b.projects}</div><div class="l">proyectos activos</div></div>
+    </div>
+    <div class="builder-projects">
+      <h3>Proyectos activos en la plataforma</h3>
+      <div class="builder-projects-grid">
+        ${otros.map(p=>`<div class="mini-proj" onclick="closeModal('builderModal');openCotizador(${p.id})"><div class="n">${p.name}</div><div class="l">${p.location}</div><div class="p">$${fmt(p.price)}</div></div>`).join('')||'<p style="color:var(--gray)">Próximamente nuevos proyectos.</p>'}
+      </div>
+    </div>
+    <button class="btn-wa" style="width:100%" onclick="openWhatsAppBuilder('${b.wa}','${b.name}')">💬 Contactar a ${b.name} por WhatsApp</button>
+  `;
+  document.getElementById('builderModal').classList.add('show');
+}
+
+// ======================== LEGAL MODALS ========================
+function openLegal(key){
+  const c=legalContent[key]; if(!c)return;
+  document.getElementById('legalTitle').textContent=c.title;
+  document.getElementById('legalBody').innerHTML=c.body;
+  document.getElementById('legalModal').classList.add('show');
+}
+
+// ======================== WHATSAPP ========================
+function openWhatsApp(){
+  const msg=encodeURIComponent('Hola, estoy cotizando en Tu Cuota y quiero hablar con un asesor.');
+  window.open('https://wa.me/573000000000?text='+msg,'_blank');
+  fbq('track','Contact');
+}
+function openWhatsAppBuilder(num,name){
+  const msg=encodeURIComponent(`Hola, vi el perfil de ${name} en Tu Cuota y me interesan sus proyectos.`);
+  window.open('https://wa.me/'+num+'?text='+msg,'_blank');
+}
+
+// ======================== HABEAS ========================
+function acceptHabeas(){
+  localStorage.setItem('habeasAccepted','1');
+  document.getElementById('habeasBanner').classList.remove('show');
+}
+
+// ======================== COUNTERS ========================
+function animateCounters(){
+  document.querySelectorAll('.trust-stat .num[data-target]').forEach(el=>{
+    const target=parseInt(el.dataset.target), duration=1200, start=Date.now();
+    const prefix=target>=1000?'+':'+';
+    (function tick(){
+      const p=Math.min(1,(Date.now()-start)/duration);
+      el.textContent=prefix+fmt(Math.floor(target*p));
+      if(p<1)requestAnimationFrame(tick);
+    })();
+  });
+}
+
+// ======================== INIT ========================
+renderProjects();
+toggleCesantias();
+updateFilterBadge();
+animateCounters();
+if(!localStorage.getItem('habeasAccepted'))setTimeout(()=>document.getElementById('habeasBanner').classList.add('show'),1500);
+
+// Close modals on overlay click
+document.querySelectorAll('.modal-overlay').forEach(o=>o.addEventListener('click',e=>{if(e.target===o)o.classList.remove('show')}));
+
+// Deep links por URL (?proyecto=1 o ?constructora=planner)
+const params=new URLSearchParams(window.location.search);
+if(params.get('proyecto'))setTimeout(()=>openCotizador(parseInt(params.get('proyecto'))),300);
+if(params.get('constructora'))setTimeout(()=>openBuilder(params.get('constructora')),300);
+if(params.get('credito'))setTimeout(()=>showSection('credito'),300);
+</script>
+</body>
+</html>
