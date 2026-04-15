@@ -272,6 +272,20 @@ nav.scrolled .logo{font-size:2rem}
 .wow-key .context{color:var(--success);font-weight:700;margin-top:10px;font-size:.95rem}
 .wow-plan{background:#fff;border-radius:16px;padding:24px;margin-bottom:24px;border:1px solid var(--border)}
 .wow-plan h3{color:var(--navy);margin-bottom:14px;font-size:1.15rem}
+.chip-months{display:block;margin-top:6px;font-size:.72rem;color:var(--gray);font-weight:500;line-height:1.4}
+.btn-plan-detail{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--primary);border:1.5px solid var(--primary);border-radius:50px;padding:10px 18px;font-size:.88rem;font-weight:700;cursor:pointer;transition:.2s;margin-top:14px}
+.btn-plan-detail:hover{background:var(--primary);color:#fff}
+.plan-detail-wrap{margin-top:6px}
+.plan-table-wrap{margin-top:14px;overflow-x:auto;border-radius:12px;border:1px solid var(--border);animation:fadeSlide .3s ease}
+.plan-table{width:100%;border-collapse:collapse;font-size:.82rem;background:#fff;min-width:640px}
+.plan-table thead{background:var(--light)}
+.plan-table th{padding:12px 10px;text-align:left;font-weight:800;color:var(--navy);font-size:.72rem;text-transform:uppercase;letter-spacing:.4px;border-bottom:2px solid var(--border);white-space:nowrap}
+.plan-table td{padding:11px 10px;border-bottom:1px solid var(--border);color:var(--dark);white-space:nowrap}
+.plan-table tbody tr:hover{background:#FAFBFC}
+.plan-table td.mes{font-weight:700;color:var(--navy)}
+.plan-table td.dash{color:#CBD5E1}
+.plan-table td.total{font-weight:800;color:var(--success)}
+.plan-table tfoot td{padding:13px 10px;background:var(--light);font-weight:800;color:var(--navy);border-top:2px solid var(--border)}
 .plan-timeline{display:grid;grid-template-columns:repeat(auto-fill,minmax(110px,1fr));gap:8px;margin-bottom:14px}
 .plan-month{background:var(--light);border-radius:8px;padding:10px;text-align:center;font-size:.78rem;border:1px solid var(--border)}
 .plan-month.boost{background:#ECFDF5;border-color:var(--success)}
@@ -1321,6 +1335,35 @@ function fmtMonthYear(v){
   const meses=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
   return meses[parseInt(m)-1]+' '+y;
 }
+function buildSchedule(totalMonths){
+  const mesesCortos=['Ene','Feb','Mar','Abr','May','Jun','Jul','Ago','Sep','Oct','Nov','Dic'];
+  const schedule=[];
+  const d=new Date();
+  d.setDate(1);
+  for(let i=0;i<totalMonths;i++){
+    const mm=d.getMonth()+1;
+    const yy=d.getFullYear();
+    schedule.push({
+      label: mesesCortos[d.getMonth()]+' '+yy,
+      month: mm,
+      year: yy,
+      key: yy+'-'+String(mm).padStart(2,'0')
+    });
+    d.setMonth(d.getMonth()+1);
+  }
+  return schedule;
+}
+function togglePlanDetail(){
+  const wrap=document.getElementById('planDetailWrap');
+  const btn=document.getElementById('btnPlanDetail');
+  if(wrap.style.display==='none'){
+    wrap.style.display='block';
+    btn.innerHTML='📊 Ocultar plan mes a mes';
+  }else{
+    wrap.style.display='none';
+    btn.innerHTML='📊 Ver plan mes a mes';
+  }
+}
 
 function calcularCotizacion(){
   const p=currentProject;
@@ -1339,12 +1382,17 @@ function calcularCotizacion(){
   const meses=p.months;
   const anos=meses/12;
 
+  // Schedule mes a mes desde hoy
+  const schedule=buildSchedule(meses);
+  const mesesPrimas=schedule.filter(m=>m.month===6||m.month===12);
+  const mesesCesantias=schedule.filter(m=>m.month===2);
+
   // Aportes mes a mes (cuota cómoda × meses)
   const aportesMensuales=cuotaComoda*meses;
-  // Primas: 2 por año × (ingreso mensual aprox como prima)
-  const totalPrimas=usarPrimas?ingresos*2*Math.floor(anos):0;
-  // Cesantías: 1 por año
-  const totalCesantias=usarCesantias?ingresos*Math.floor(anos):0;
+  // Primas: un salario en cada junio y diciembre del schedule
+  const totalPrimas=usarPrimas?ingresos*mesesPrimas.length:0;
+  // Cesantías: un salario en cada febrero del schedule
+  const totalCesantias=usarCesantias?ingresos*mesesCesantias.length:0;
   // Cuota TRADICIONAL: solo separación + cuota mensual plana (sin boosts)
   const planTradFaltante=Math.max(0,metaInicial-separacion-extras);
   const cuotaTradicional=planTradFaltante/meses;
@@ -1364,14 +1412,38 @@ function calcularCotizacion(){
 
   planCalculado={
     proyecto:p.name, constructora:p.constructor, precio:p.price,
-    metaInicial, cuotaTradicional, cuotaInteligente, ahorroTotal,
+    metaInicial, cuotaTradicional, cuotaInteligente, ahorroTotal, ahorroMensual,
     separacion, cuotaComoda, extras, extrasFecha, usarPrimas, usarCesantias,
-    empleo, ingresos, llegaAMeta, brecha, cuotaNecesaria
+    empleo, ingresos, llegaAMeta, brecha, cuotaNecesaria, schedule,
+    totalPrimas, totalCesantias, mesesPrimas, mesesCesantias
   };
 
   const viabilidadBlock = llegaAMeta
-    ? `<div class="gap-ok">✅ <strong>¡Felicidades!</strong> Con este plan cubres el ${((aportesTotales/metaInicial)*100).toFixed(0)}% de tu cuota inicial requerida${aportesTotales>metaInicial?` y te sobran <strong>$${fmt(aportesTotales-metaInicial)}</strong> para empezar a abonar al crédito.`:'.'}</div>`
+    ? `<div class="gap-ok">✅ <strong>¡Felicidades!</strong> Con este plan cubres el ${((aportesTotales/metaInicial)*100).toFixed(0)}% de tu cuota inicial requerida${aportesTotales>metaInicial?` y tienes <strong>$${fmt(aportesTotales-metaInicial)}</strong> adicionales que te reducen el crédito.`:'.'}</div>`
     : `<div class="gap-alert">💡 <strong>¡Casi lo logras!</strong> Estás a un paso de tu meta. Con este plan te faltan <strong>$${fmt(brecha)}</strong>. Para llegar a la meta, tu cuota mensual debería ser de <strong>$${fmt(cuotaNecesaria)}</strong>.<br>¿Quieres ajustar tu cuota mensual o sumar más ahorros para cerrar la brecha?</div>`;
+
+  // Filas del plan mes a mes
+  const tableRows=schedule.map((m,i)=>{
+    const isPrima=usarPrimas&&(m.month===6||m.month===12);
+    const isCes=usarCesantias&&m.month===2;
+    const isExtra=extras>0&&extrasFecha&&m.key===extrasFecha;
+    const isSep=i===0&&separacion>0;
+    const mPrima=isPrima?ingresos:0;
+    const mCes=isCes?ingresos:0;
+    const mExtra=isExtra?extras:0;
+    const mSep=isSep?separacion:0;
+    const total=cuotaComoda+mPrima+mCes+mExtra+mSep;
+    return `<tr>
+      <td class="mes">${m.label}</td>
+      <td>$${fmt(cuotaComoda)}</td>
+      <td class="${mSep?'':'dash'}">${mSep?'$'+fmt(mSep):'—'}</td>
+      <td class="${mPrima?'':'dash'}">${mPrima?'$'+fmt(mPrima):'—'}</td>
+      <td class="${mCes?'':'dash'}">${mCes?'$'+fmt(mCes):'—'}</td>
+      <td class="${mExtra?'':'dash'}">${mExtra?'$'+fmt(mExtra):'—'}</td>
+      <td class="total">$${fmt(total)}</td>
+    </tr>`;
+  }).join('');
+  const totalPlan=cuotaComoda*meses+totalPrimas+totalCesantias+extras+separacion;
 
   const html=`
     <div class="compare-grid">
@@ -1385,7 +1457,7 @@ function calcularCotizacion(){
         <h4>Plan Inteligente</h4>
         <span class="tag-mini">Con Primas + Cesantías + Extras</span>
         <div class="big-q">$${fmt(cuotaInteligente)}<small>/mes durante ${meses} meses</small></div>
-        <div class="saving">💰 Ahorras en total: $${fmt(ahorroTotal)}</div>
+        <div class="saving">💰 Con esos aportes extra, tu cuota base mensual baja <strong>$${fmt(ahorroMensual)}/mes</strong></div>
       </div>
     </div>
 
@@ -1396,10 +1468,26 @@ function calcularCotizacion(){
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
         <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Capital de separación</small><br><strong>$${fmt(separacion)}</strong></div>
         <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Cuota cómoda</small><br><strong>$${fmt(cuotaComoda)}/mes</strong></div>
-        ${usarPrimas?`<div style="background:#ECFDF5;padding:12px;border-radius:10px"><small style="color:#065F46">Primas activas</small><br><strong style="color:#065F46">$${fmt(totalPrimas)}</strong></div>`:''}
-        ${usarCesantias?`<div style="background:#ECFDF5;padding:12px;border-radius:10px"><small style="color:#065F46">Cesantías activas</small><br><strong style="color:#065F46">$${fmt(totalCesantias)}</strong></div>`:''}
+        ${usarPrimas?`<div style="background:#ECFDF5;padding:12px;border-radius:10px"><small style="color:#065F46">Primas</small><br><strong style="color:#065F46">$${fmt(totalPrimas)}</strong><span class="chip-months" style="color:#065F46">${mesesPrimas.map(m=>m.label).join(' · ')}</span></div>`:''}
+        ${usarCesantias?`<div style="background:#ECFDF5;padding:12px;border-radius:10px"><small style="color:#065F46">Cesantías</small><br><strong style="color:#065F46">$${fmt(totalCesantias)}</strong><span class="chip-months" style="color:#065F46">${mesesCesantias.map(m=>m.label).join(' · ')}</span></div>`:''}
         ${extras>0?`<div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Abono extra${extrasFecha?' · '+fmtMonthYear(extrasFecha):''}</small><br><strong>$${fmt(extras)}</strong></div>`:''}
       </div>
+
+      <div class="plan-detail-wrap">
+        <button class="btn-plan-detail" id="btnPlanDetail" onclick="togglePlanDetail()">📊 Ver plan mes a mes</button>
+        <div id="planDetailWrap" class="plan-table-wrap" style="display:none">
+          <table class="plan-table">
+            <thead>
+              <tr><th>Mes</th><th>Cuota</th><th>Separación</th><th>Prima</th><th>Cesantías</th><th>Extra</th><th>Total</th></tr>
+            </thead>
+            <tbody>${tableRows}</tbody>
+            <tfoot>
+              <tr><td>Total</td><td>$${fmt(cuotaComoda*meses)}</td><td>$${fmt(separacion)}</td><td>$${fmt(totalPrimas)}</td><td>$${fmt(totalCesantias)}</td><td>$${fmt(extras)}</td><td>$${fmt(totalPlan)}</td></tr>
+            </tfoot>
+          </table>
+        </div>
+      </div>
+
       <p style="margin-top:14px;font-size:.88rem;color:var(--gray)">Al entregar el apto (${p.delivery}), inicia tu crédito hipotecario. Te ayudamos a conseguir el mejor.</p>
     </div>
 
