@@ -273,9 +273,18 @@ nav.scrolled .logo{font-size:2rem}
 .wow-plan{background:#fff;border-radius:16px;padding:24px;margin-bottom:24px;border:1px solid var(--border)}
 .wow-plan h3{color:var(--navy);margin-bottom:14px;font-size:1.15rem}
 .chip-months{display:block;margin-top:6px;font-size:.72rem;color:var(--gray);font-weight:500;line-height:1.4}
-.btn-plan-detail{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--primary);border:1.5px solid var(--primary);border-radius:50px;padding:10px 18px;font-size:.88rem;font-weight:700;cursor:pointer;transition:.2s;margin-top:14px}
-.btn-plan-detail:hover{background:var(--primary);color:#fff}
-.plan-detail-wrap{margin-top:6px}
+.plan-compact{display:flex;flex-wrap:wrap;gap:8px;margin:14px 0 4px}
+.plan-chip{display:flex;flex-direction:column;gap:2px;padding:10px 14px;background:var(--light);border-radius:10px;min-width:120px;flex:1 1 auto}
+.plan-chip small{color:var(--gray);font-size:.68rem;font-weight:700;text-transform:uppercase;letter-spacing:.4px}
+.plan-chip strong{color:var(--navy);font-weight:800;font-size:.95rem}
+.plan-chip.boost{background:#ECFDF5}
+.plan-chip.boost small{color:#047857}
+.plan-chip.boost strong{color:#065F46}
+.plan-chip .sub{font-size:.68rem;color:var(--gray);margin-top:2px;line-height:1.3}
+.plan-chip.boost .sub{color:#047857}
+.btn-plan-detail{display:inline-flex;align-items:center;gap:8px;background:#fff;color:var(--primary);border:2px solid var(--primary);border-radius:50px;padding:14px 28px;font-size:.98rem;font-weight:800;cursor:pointer;transition:.2s;box-shadow:0 4px 14px rgba(30,64,175,.12)}
+.btn-plan-detail:hover{background:var(--primary);color:#fff;transform:translateY(-1px);box-shadow:0 6px 18px rgba(30,64,175,.22)}
+.plan-detail-wrap{margin-top:18px;text-align:center}
 .plan-table-wrap{margin-top:14px;overflow-x:auto;border-radius:12px;border:1px solid var(--border);animation:fadeSlide .3s ease}
 .plan-table{width:100%;border-collapse:collapse;font-size:.82rem;background:#fff;min-width:640px}
 .plan-table thead{background:var(--light)}
@@ -1468,24 +1477,23 @@ function calcularCotizacion(){
         <h4>Plan Inteligente</h4>
         <span class="tag-mini">Con Primas + Cesantías + Extras</span>
         <div class="big-q">$${fmt(cuotaInteligente)}<small>/mes durante ${meses} meses</small></div>
-        <div class="saving">💰 Con esos aportes extra, tu cuota base mensual baja <strong>$${fmt(ahorroMensual)}/mes</strong></div>
+        <div class="saving">Meta a cubrir: $${fmt(metaInicial)}</div>
       </div>
     </div>
 
     ${viabilidadBlock}
 
     <div class="wow-plan">
-      <h3 style="color:var(--navy)">Resumen de tu plan inteligente</h3>
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px">
-        <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Capital de separación</small><br><strong>$${fmt(separacion)}</strong></div>
-        <div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Cuota cómoda</small><br><strong>$${fmt(cuotaComoda)}/mes</strong></div>
-        ${usarPrimas?`<div style="background:#ECFDF5;padding:12px;border-radius:10px"><small style="color:#065F46">Primas</small><br><strong style="color:#065F46">$${fmt(totalPrimas)}</strong><span class="chip-months" style="color:#065F46">${mesesPrimas.map(m=>m.label).join(' · ')}</span></div>`:''}
-        ${usarCesantias?`<div style="background:#ECFDF5;padding:12px;border-radius:10px"><small style="color:#065F46">Cesantías</small><br><strong style="color:#065F46">$${fmt(totalCesantias)}</strong><span class="chip-months" style="color:#065F46">${mesesCesantias.map(m=>m.label).join(' · ')}</span></div>`:''}
-        ${extras>0?`<div style="background:var(--light);padding:12px;border-radius:10px"><small style="color:var(--gray)">Abono extra${extrasFecha?' · '+fmtMonthYear(extrasFecha):''}</small><br><strong>$${fmt(extras)}</strong></div>`:''}
+      <div class="plan-compact">
+        ${separacion>0?`<div class="plan-chip"><small>Separación</small><strong>$${fmt(separacion)}</strong></div>`:''}
+        <div class="plan-chip"><small>Cuota mensual</small><strong>$${fmt(cuotaComoda)}</strong></div>
+        ${usarPrimas?`<div class="plan-chip boost"><small>Primas (${mesesPrimas.length})</small><strong>$${fmt(totalPrimas)}</strong><span class="sub">${mesesPrimas.map(m=>m.label).join(' · ')}</span></div>`:''}
+        ${usarCesantias?`<div class="plan-chip boost"><small>Cesantías (${mesesCesantias.length})</small><strong>$${fmt(totalCesantias)}</strong><span class="sub">${mesesCesantias.map(m=>m.label).join(' · ')}</span></div>`:''}
+        ${extras>0?`<div class="plan-chip"><small>Abono extra</small><strong>$${fmt(extras)}</strong>${extrasFecha?`<span class="sub">${fmtMonthYear(extrasFecha)}</span>`:''}</div>`:''}
       </div>
 
       <div class="plan-detail-wrap">
-        <button class="btn-plan-detail" id="btnPlanDetail" onclick="togglePlanDetail()">📊 Ver plan mes a mes</button>
+        <button class="btn-plan-detail" id="btnPlanDetail" onclick="togglePlanDetail()">📊 Ver mi plan de pagos mes a mes</button>
         <div id="planDetailWrap" class="plan-table-wrap" style="display:none">
           <table class="plan-table">
             <thead>
@@ -1499,7 +1507,7 @@ function calcularCotizacion(){
         </div>
       </div>
 
-      <p style="margin-top:14px;font-size:.88rem;color:var(--gray)">Al entregar el apto (${p.delivery}), inicia tu crédito hipotecario. Te ayudamos a conseguir el mejor.</p>
+      <p style="margin-top:18px;font-size:.88rem;color:var(--gray);text-align:center">Al entregar el apto (${p.delivery}), inicia tu crédito hipotecario. Te ayudamos a conseguir el mejor.</p>
     </div>
 
     <button class="cta-giant" onclick="nextStep(4)">¡Este plan es perfecto para mí, que me contacten! →</button>
