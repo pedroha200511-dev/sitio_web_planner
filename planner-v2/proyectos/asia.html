@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Proyecto Asia | Apartamentos en Vía Machado, Bello — Planner Constructora</title>
+  <meta name="description" content="Proyecto Asia: apartamentos desde $259.000.000 en Vía Machado, Bello. Entrega 2027. 2-3 habitaciones, 58-72 m². Subsidio Mi Casa Ya disponible. Financiación fácil." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link rel="stylesheet" href="../css/styles.css" />
+  <style>
+    .proyecto-hero { padding-top:72px; background:linear-gradient(135deg,#0D2A1A 0%,#313133 100%); padding-bottom:0; }
+    .proyecto-hero__inner { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; padding:64px 0 0; }
+    .gallery-main { width:100%; height:380px; object-fit:cover; display:block; }
+    .gallery-thumbs { display:flex; gap:8px; padding:8px; background:rgba(0,0,0,.4); }
+    .gallery-thumb { width:70px; height:50px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:border-color .2s; }
+    .gallery-thumb.active { border-color:#C8A96E; }
+    .proyecto-hero__gallery { position:relative; border-radius:20px 20px 0 0; overflow:hidden; }
+    .proyecto-hero__info { padding-bottom:48px; }
+    .proyecto-badge-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+    .proyecto-hero__title { color:#fff; margin-bottom:8px; }
+    .proyecto-hero__location { color:rgba(255,255,255,.6); display:flex; align-items:center; gap:6px; margin-bottom:24px; }
+    .precio-grande { font-family:'Poppins',sans-serif; font-size:2.4rem; font-weight:800; color:#C8A96E; margin-bottom:4px; }
+    .precio-note { font-size:.82rem; color:rgba(255,255,255,.5); margin-bottom:28px; }
+    .specs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:28px; }
+    .spec-box { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:16px; text-align:center; }
+    .spec-box i { color:#C8A96E; font-size:1.2rem; margin-bottom:6px; display:block; }
+    .spec-box strong { display:block; color:#fff; font-size:1.1rem; }
+    .spec-box span { font-size:.78rem; color:rgba(255,255,255,.5); }
+    .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; }
+    .subsidy-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(200,169,110,.2); border:1px solid rgba(200,169,110,.4); color:#C8A96E; padding:8px 16px; border-radius:20px; font-size:.82rem; font-weight:600; margin-bottom:20px; }
+    .tabs-nav { display:flex; gap:4px; border-bottom:2px solid #E5E7EB; margin-bottom:40px; flex-wrap:wrap; }
+    .tab-btn { padding:12px 20px; font-family:'Poppins',sans-serif; font-size:.9rem; font-weight:600; color:#6B7280; border-bottom:3px solid transparent; margin-bottom:-2px; cursor:pointer; transition:color .2s,border-color .2s; }
+    .tab-btn.active { color:#313133; border-bottom-color:#313133; }
+    .tab-panel { display:none; }
+    .tab-panel.active { display:block; }
+    .amenidades-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; }
+    .amenidad-item { display:flex; align-items:center; gap:12px; background:#F8F6F2; border-radius:10px; padding:14px 16px; font-size:.88rem; font-weight:500; color:#1F2937; }
+    .amenidad-item i { color:#313133; font-size:1.1rem; width:20px; text-align:center; }
+    .tipologia-card { background:#F8F6F2; border-radius:16px; padding:24px; border:1px solid #E5E7EB; display:flex; align-items:center; gap:24px; margin-bottom:16px; }
+    .tipologia-img { width:120px; height:100px; background:#E5E7EB; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:.75rem; color:#9CA3AF; text-align:center; flex-direction:column; gap:4px; }
+    .avance-item { background:#F8F6F2; border-radius:12px; padding:20px; border-left:4px solid #313133; margin-bottom:16px; }
+    .avance-date { font-size:.78rem; color:#9CA3AF; margin-bottom:4px; }
+    .avance-item h4 { color:#1F2937; margin-bottom:6px; }
+    .avance-item p { font-size:.875rem; color:#4B5563; }
+    .progress-bar { background:#E5E7EB; border-radius:4px; height:8px; margin-top:10px; }
+    .progress-fill { height:100%; border-radius:4px; background:linear-gradient(90deg,#313133,#4A4A4D); transition:width 1.2s ease; }
+    .subsidio-box { background:linear-gradient(135deg,rgba(49,49,51,.06),rgba(200,169,110,.08)); border:1px solid rgba(200,169,110,.25); border-radius:16px; padding:28px; margin-bottom:24px; }
+    @media(max-width:768px){ .proyecto-hero__inner{grid-template-columns:1fr;} .specs-grid{grid-template-columns:repeat(3,1fr);} .hero-ctas{flex-direction:column;} .tipologia-card{flex-direction:column;align-items:flex-start;} }
+  </style>
+</head>
+<body>
+
+<nav class="navbar" id="navbar">
+  <div class="container">
+    <div class="navbar__inner">
+      <a href="../index.html" class="navbar__logo">
+        <img src="../img/planner-logo-black.svg" alt="Planner Constructora" style="height:40px;width:auto" />
+      </a>
+      <ul class="navbar__nav">
+        <li><a href="../index.html">Inicio</a></li>
+        <li><a href="../index.html#proyectos" class="active">Proyectos</a></li>
+        <li><a href="../index.html#nosotros">Nosotros</a></li>
+        <li><a href="../index.html#contacto">Contacto</a></li>
+      </ul>
+      <div class="navbar__actions">
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia')">
+          <i class="fab fa-whatsapp"></i> Cotizar ahora
+        </button>
+      </div>
+      <button class="navbar__hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
+    </div>
+  </div>
+</nav>
+<div class="mobile-nav" id="mobile-nav">
+  <a href="../index.html">Inicio</a>
+  <a href="../index.html#proyectos">Proyectos</a>
+  <a href="../index.html#nosotros">Nosotros</a>
+  <a href="../index.html#contacto">Contacto</a>
+  <button class="btn btn-whatsapp" onclick="openWhatsApp('Asia')"><i class="fab fa-whatsapp"></i> Cotizar ahora</button>
+</div>
+
+<!-- HERO -->
+<section class="proyecto-hero">
+  <div class="container">
+    <div class="proyecto-hero__inner">
+      <div class="proyecto-hero__gallery reveal">
+        <img id="gallery-main-img"
+          src="../img/asia-card.png"
+          alt="Render Proyecto Asia, Vía Machado Bello"
+          class="gallery-main" width="800" height="380" />
+        <div class="gallery-thumbs">
+          <img src="../img/asia-card.png" alt="" class="gallery-thumb active" onclick="changeImg(this,'../img/asia-card.png')" />
+          <img src="../img/terralta-card.png" alt="" class="gallery-thumb" onclick="changeImg(this,'../img/terralta-card.png')" />
+          <img src="../img/altea-card.png" alt="" class="gallery-thumb" onclick="changeImg(this,'../img/altea-card.png')" />
+          <img src="../img/servicio-construccion.png" alt="" class="gallery-thumb" onclick="changeImg(this,'../img/servicio-construccion.png')" />
+        </div>
+      </div>
+
+      <div class="proyecto-hero__info">
+        <div class="proyecto-badge-row">
+          <span class="proyecto-card__badge badge-2026" style="position:static">Entrega 2027</span>
+          <span class="proyecto-card__badge" style="position:static;background:#10B981;color:#fff">Aplica Mi Casa Ya</span>
+        </div>
+        <div class="subsidy-badge">
+          <i class="fas fa-hand-holding-usd"></i> Subsidio hasta <strong>$30M</strong> disponible para cuota inicial
+        </div>
+        <h1 class="proyecto-hero__title">Proyecto Asia</h1>
+        <div class="proyecto-hero__location">
+          <i class="fas fa-map-marker-alt" style="color:#C8A96E"></i>
+          Vía Machado, Bello, Antioquia
+        </div>
+        <div class="precio-grande">Desde $259.000.000</div>
+        <div class="precio-note">Aplica subsidio Mi Casa Ya · Parqueadero incluido · Sin IVA adicional</div>
+
+        <div class="specs-grid">
+          <div class="spec-box"><i class="fas fa-ruler-combined"></i><strong>58–72 m²</strong><span>Área privada</span></div>
+          <div class="spec-box"><i class="fas fa-bed"></i><strong>2–3</strong><span>Habitaciones</span></div>
+          <div class="spec-box"><i class="fas fa-layer-group"></i><strong>10 pisos</strong><span>Torre única</span></div>
+          <div class="spec-box"><i class="fas fa-car"></i><strong>1</strong><span>Parqueadero</span></div>
+          <div class="spec-box"><i class="fas fa-building"></i><strong>40 apts</strong><span>Total unidades</span></div>
+          <div class="spec-box"><i class="fas fa-star"></i><strong>Estrato 3</strong><span>Clasificación</span></div>
+        </div>
+
+        <div class="hero-ctas">
+          <button class="btn btn-whatsapp btn-lg" onclick="openWhatsApp('Asia')">
+            <i class="fab fa-whatsapp"></i> Cotizar ahora
+          </button>
+          <a href="../index.html#calculadora" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.4);color:#fff">
+            <i class="fas fa-calculator"></i> Simular cuota
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TABS -->
+<section style="padding-top:64px;padding-bottom:96px">
+  <div class="container">
+    <div class="tabs-nav">
+      <button class="tab-btn active" onclick="switchTab('descripcion',this)">Descripción</button>
+      <button class="tab-btn"        onclick="switchTab('amenidades',this)">Amenidades</button>
+      <button class="tab-btn"        onclick="switchTab('tipologias',this)">Tipologías</button>
+      <button class="tab-btn"        onclick="switchTab('subsidio',this)">Subsidio Mi Casa Ya</button>
+      <button class="tab-btn"        onclick="switchTab('avances',this)">Avances de obra</button>
+      <button class="tab-btn"        onclick="switchTab('ubicacion',this)">Ubicación</button>
+    </div>
+
+    <!-- Descripción -->
+    <div class="tab-panel active" id="tab-descripcion">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+        <div>
+          <h2 style="margin-bottom:20px">Calidad y tranquilidad en Vía Machado</h2>
+          <p style="color:#4B5563;margin-bottom:16px">Proyecto Asia es nuestra propuesta más accesible sin sacrificar calidad. Diseñado para familias que buscan su primer hogar en una de las zonas de mayor crecimiento de Bello.</p>
+          <p style="color:#4B5563;margin-bottom:16px">Su ubicación sobre Vía Machado garantiza excelente acceso vial, cerca a centros comerciales, colegios y transporte público. Perfecta para quienes trabajan tanto en Bello como en Medellín.</p>
+          <p style="color:#4B5563;margin-bottom:24px">El proyecto califica para el subsidio <strong>Mi Casa Ya</strong> del Gobierno Nacional, lo que puede representar hasta $30 millones de ahorro en tu cuota inicial.</p>
+          <div class="certs-row">
+            <div class="cert-badge"><i class="fas fa-shield-alt"></i> Fiducia bancaria</div>
+            <div class="cert-badge"><i class="fas fa-certificate"></i> NSR-10</div>
+            <div class="cert-badge"><i class="fas fa-check-circle"></i> Aplica Mi Casa Ya</div>
+          </div>
+        </div>
+        <div>
+          <h3 style="margin-bottom:16px">Acabados incluidos</h3>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Pisos en porcelanato 60×60 cm en sala y comedor</span></div>
+            <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Cocina integral con mesón en granito</span></div>
+            <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Baños con enchape en cerámica importada</span></div>
+            <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Ventanas en aluminio con vidrio 6mm</span></div>
+            <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Parqueadero cubierto con acceso automatizado</span></div>
+            <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Cuarto útil independiente por apartamento</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Amenidades -->
+    <div class="tab-panel" id="tab-amenidades">
+      <h2 style="margin-bottom:8px">Áreas comunes pensadas para toda la familia</h2>
+      <p style="color:#4B5563;margin-bottom:32px">Un proyecto completo donde cada espacio fue diseñado con intención.</p>
+      <div class="amenidades-grid">
+        <div class="amenidad-item"><i class="fas fa-swimming-pool"></i> Piscina adultos y niños</div>
+        <div class="amenidad-item"><i class="fas fa-dumbbell"></i> Gimnasio equipado</div>
+        <div class="amenidad-item"><i class="fas fa-users"></i> Salón comunal</div>
+        <div class="amenidad-item"><i class="fas fa-fire"></i> Zona BBQ cubierta</div>
+        <div class="amenidad-item"><i class="fas fa-child"></i> Parque infantil</div>
+        <div class="amenidad-item"><i class="fas fa-tree"></i> Jardines interiores</div>
+        <div class="amenidad-item"><i class="fas fa-car"></i> Parqueadero visitantes</div>
+        <div class="amenidad-item"><i class="fas fa-shield-alt"></i> Portería 24/7</div>
+        <div class="amenidad-item"><i class="fas fa-bicycle"></i> Cicloparqueadero</div>
+        <div class="amenidad-item"><i class="fas fa-camera"></i> CCTV completo</div>
+        <div class="amenidad-item"><i class="fas fa-dog"></i> Zona mascotas</div>
+        <div class="amenidad-item"><i class="fas fa-bolt"></i> Planta eléctrica</div>
+      </div>
+    </div>
+
+    <!-- Tipologías -->
+    <div class="tab-panel" id="tab-tipologias">
+      <h2 style="margin-bottom:8px">Elige tu tipología ideal</h2>
+      <p style="color:#4B5563;margin-bottom:32px">Tres opciones para adaptarse a tu familia y presupuesto.</p>
+
+      <div class="tipologia-card">
+        <div class="tipologia-img"><i class="fas fa-home" style="font-size:2rem;color:#9CA3AF"></i><span>Tipo A</span></div>
+        <div style="flex:1">
+          <h3 style="margin-bottom:8px">Tipo A — 58 m² · 2 Hab.</h3>
+          <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">Ideal para parejas o familia pequeña. Cocina integrada, sala-comedor, 2 habitaciones, 1 baño completo y social.</p>
+          <div style="display:flex;gap:20px;flex-wrap:wrap">
+            <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 58 m²</span>
+            <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $259.000.000</span>
+            <span style="font-size:.875rem;color:#10B981;font-weight:600"><i class="fas fa-check-circle"></i> Aplica Mi Casa Ya</span>
+          </div>
+        </div>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia — Tipo A 58m²')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
+      </div>
+
+      <div class="tipologia-card">
+        <div class="tipologia-img"><i class="fas fa-home" style="font-size:2rem;color:#9CA3AF"></i><span>Tipo B</span></div>
+        <div style="flex:1">
+          <h3 style="margin-bottom:8px">Tipo B — 65 m² · 2 Hab. + Estudio</h3>
+          <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">Para quienes trabajan desde casa. 2 habitaciones, estudio versátil, balcón y 2 baños.</p>
+          <div style="display:flex;gap:20px;flex-wrap:wrap">
+            <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 65 m²</span>
+            <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $278.000.000</span>
+            <span style="font-size:.875rem;color:#10B981;font-weight:600"><i class="fas fa-check-circle"></i> Aplica Mi Casa Ya</span>
+          </div>
+        </div>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia — Tipo B 65m²')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
+      </div>
+
+      <div class="tipologia-card">
+        <div class="tipologia-img"><i class="fas fa-home" style="font-size:2rem;color:#9CA3AF"></i><span>Tipo C</span></div>
+        <div style="flex:1">
+          <h3 style="margin-bottom:8px">Tipo C — 72 m² · 3 Hab.</h3>
+          <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">La opción más espaciosa. 3 habitaciones, 2 baños, sala-comedor amplio y balcón privado con vista.</p>
+          <div style="display:flex;gap:20px;flex-wrap:wrap">
+            <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 72 m²</span>
+            <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $295.000.000</span>
+            <span style="font-size:.875rem;color:#10B981;font-weight:600"><i class="fas fa-check-circle"></i> Aplica Mi Casa Ya</span>
+          </div>
+        </div>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia — Tipo C 72m²')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
+      </div>
+    </div>
+
+    <!-- Subsidio Mi Casa Ya -->
+    <div class="tab-panel" id="tab-subsidio">
+      <h2 style="margin-bottom:8px">Subsidio Mi Casa Ya — Proyecto Asia califica</h2>
+      <p style="color:#4B5563;margin-bottom:32px">El Gobierno Nacional te ayuda con hasta $30 millones para tu cuota inicial. Te acompañamos en todo el proceso.</p>
+
+      <div class="subsidio-box">
+        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
+          <div style="width:48px;height:48px;background:rgba(200,169,110,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fas fa-home" style="color:#C8A96E;font-size:1.3rem"></i></div>
+          <div><h3 style="margin:0">Mi Casa Ya</h3><p style="font-size:.875rem;color:#6B7280;margin:0">Programa del Ministerio de Vivienda</p></div>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="background:#fff;border-radius:10px;padding:16px">
+            <div style="font-size:.78rem;color:#9CA3AF;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Subsidio máximo</div>
+            <div style="font-size:1.5rem;font-weight:800;color:#313133;font-family:'Poppins',sans-serif">$30.000.000</div>
+          </div>
+          <div style="background:#fff;border-radius:10px;padding:16px">
+            <div style="font-size:.78rem;color:#9CA3AF;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Cobertura de tasa</div>
+            <div style="font-size:1.5rem;font-weight:800;color:#313133;font-family:'Poppins',sans-serif">Hasta 5 p.p.</div>
+          </div>
+        </div>
+      </div>
+
+      <h3 style="margin-bottom:16px">Requisitos para aplicar</h3>
+      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
+        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">Ser colombiano o residente legal en Colombia</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">No ser propietario de vivienda en ningún municipio del país</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">Ingresos familiares entre 2 y 8 SMMLV</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">Crédito hipotecario aprobado por entidad financiera</span></div>
+        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">No haber recibido subsidio de vivienda anteriormente</span></div>
+      </div>
+
+      <div style="text-align:center">
+        <button class="btn btn-primary btn-lg" onclick="openWhatsApp('Asia — quiero asesoría sobre el subsidio Mi Casa Ya')">
+          <i class="fab fa-whatsapp"></i> Quiero asesoría para aplicar al subsidio
+        </button>
+        <p style="font-size:.8rem;color:#9CA3AF;margin-top:12px">Nuestros asesores te acompañan en todo el proceso sin costo adicional.</p>
+      </div>
+    </div>
+
+    <!-- Avances de obra -->
+    <div class="tab-panel" id="tab-avances">
+      <h2 style="margin-bottom:8px">Avances de obra — Proyecto Asia</h2>
+      <p style="color:#4B5563;margin-bottom:32px">Actualizamos mensualmente para que sigas el progreso de tu futuro hogar.</p>
+
+      <div style="background:#F8F6F2;border-radius:16px;padding:24px;margin-bottom:32px">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <h3>Avance general de obra</h3>
+          <span style="font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:800;color:#313133">42%</span>
+        </div>
+        <div class="progress-bar"><div class="progress-fill" style="width:42%"></div></div>
+        <p style="font-size:.82rem;color:#6B7280;margin-top:10px">Actualizado: Abril 2026 · Entrega estimada: 2027</p>
+      </div>
+
+      <div class="avance-item">
+        <div class="avance-date">Abril 2026</div>
+        <h4>Estructura pisos 3, 4 y 5 en progreso</h4>
+        <p>Completados cimientos y primeros 2 pisos. Iniciamos fundición de columnas y placas de pisos 3 al 5. Ritmo de construcción: 1 piso cada 6 semanas.</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:42%"></div></div>
+      </div>
+      <div class="avance-item" style="border-left-color:#C8A96E">
+        <div class="avance-date">Marzo 2026</div>
+        <h4>Piso 1 y 2 terminados — Mampostería iniciada</h4>
+        <p>Estructura de los primeros dos pisos al 100%. Inicio de mampostería en piso 1. Instalación de redes eléctricas y sanitarias en avance.</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:28%"></div></div>
+      </div>
+      <div class="avance-item" style="border-left-color:#C8A96E">
+        <div class="avance-date">Enero 2026</div>
+        <h4>Cimientos y placa de contrapiso completados</h4>
+        <p>Finalización de excavaciones y cimentación profunda. Placa de contrapiso fundida. Inicio de columnas piso 1.</p>
+        <div class="progress-bar"><div class="progress-fill" style="width:15%"></div></div>
+      </div>
+
+      <div style="text-align:center;margin-top:32px">
+        <button class="btn btn-primary" onclick="openWhatsApp('Asia — quisiera recibir fotos de avances de obra mensualmente')">
+          <i class="fab fa-whatsapp"></i> Recibir fotos de avance por WhatsApp
+        </button>
+      </div>
+    </div>
+
+    <!-- Ubicación -->
+    <div class="tab-panel" id="tab-ubicacion">
+      <h2 style="margin-bottom:8px">Vía Machado — Una de las zonas de mayor valorización en Bello</h2>
+      <p style="color:#4B5563;margin-bottom:24px">Excelente conectividad con Medellín, servicios completos y alto potencial de valorización.</p>
+      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start">
+        <div class="map-embed" style="margin-top:0">
+          <iframe
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966!2d-75.545!3d6.355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zBmUwyA!5e0!3m2!1ses!2sco!4v1700000000!5m2!1ses!2sco"
+            width="100%" height="340" style="border:0" allowfullscreen loading="lazy"
+            title="Ubicación Proyecto Asia, Vía Machado Bello">
+          </iframe>
+        </div>
+        <div>
+          <h3 style="margin-bottom:16px">¿Qué hay cerca?</h3>
+          <div style="display:flex;flex-direction:column;gap:10px">
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#F8F6F2;border-radius:8px"><span style="display:flex;align-items:center;gap:8px;font-size:.9rem"><i class="fas fa-subway" style="color:#313133"></i> Terminal Norte / Metro</span><span style="font-size:.82rem;color:#6B7280;font-weight:600">15 min</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#F8F6F2;border-radius:8px"><span style="display:flex;align-items:center;gap:8px;font-size:.9rem"><i class="fas fa-shopping-cart" style="color:#313133"></i> CC Puerta del Norte</span><span style="font-size:.82rem;color:#6B7280;font-weight:600">10 min</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#F8F6F2;border-radius:8px"><span style="display:flex;align-items:center;gap:8px;font-size:.9rem"><i class="fas fa-school" style="color:#313133"></i> Colegios y jardines</span><span style="font-size:.82rem;color:#6B7280;font-weight:600">5 min</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#F8F6F2;border-radius:8px"><span style="display:flex;align-items:center;gap:8px;font-size:.9rem"><i class="fas fa-hospital" style="color:#313133"></i> Clínica Bello</span><span style="font-size:.82rem;color:#6B7280;font-weight:600">8 min</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#F8F6F2;border-radius:8px"><span style="display:flex;align-items:center;gap:8px;font-size:.9rem"><i class="fas fa-road" style="color:#313133"></i> Autopista Norte</span><span style="font-size:.82rem;color:#6B7280;font-weight:600">5 min</span></div>
+            <div style="display:flex;justify-content:space-between;align-items:center;padding:10px 14px;background:#F8F6F2;border-radius:8px"><span style="display:flex;align-items:center;gap:8px;font-size:.9rem"><i class="fas fa-city" style="color:#313133"></i> Centro de Medellín</span><span style="font-size:.82rem;color:#6B7280;font-weight:600">25 min</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-banner">
+  <div class="container">
+    <span class="section-label" style="color:var(--color-gold)">Subsidio disponible</span>
+    <h2>Ahorra hasta $30M con Mi Casa Ya</h2>
+    <p>Te ayudamos a aplicar al subsidio sin costo. Separa tu apartamento hoy con $1.000.000.</p>
+    <div class="cta-banner__btns">
+      <button class="btn btn-white btn-lg" onclick="openWhatsApp('Asia — quiero aplicar al subsidio Mi Casa Ya')">
+        <i class="fab fa-whatsapp"></i> Empezar proceso ahora
+      </button>
+      <a href="../index.html#contacto" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
+        <i class="fas fa-envelope"></i> Solicitar información
+      </a>
+    </div>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="container">
+    <div style="display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding:32px 0">
+      <a href="../index.html" class="navbar__logo"><span style="color:#fff">Planner Constructora</span></a>
+      <span style="font-size:.875rem">+57 318 548 1730 · contacto@plannerconstructora.com</span>
+      <a href="../index.html#proyectos" style="color:#9CA3AF;font-size:.875rem">← Ver todos los proyectos</a>
+    </div>
+    <div class="footer-bottom" style="font-size:.78rem">
+      <span>© 2026 Planner Constructora. Todos los derechos reservados.</span>
+      <span>Medellín, Colombia 🇨🇴</span>
+    </div>
+  </div>
+</footer>
+
+<div class="wa-float" id="wa-float">
+  <div class="wa-float__popup" id="wa-popup">
+    <div class="wa-float__popup-header">
+      <div class="wa-float__avatar"><i class="fab fa-whatsapp"></i></div>
+      <div><h5>Asesor Proyecto Asia</h5><p><span class="wa-float__status"></span> Disponible ahora</p></div>
+    </div>
+    <div class="wa-float__popup-body">
+      <div class="wa-message">¡Hola! ¿Tienes preguntas sobre el subsidio Mi Casa Ya o financiación?</div>
+      <div class="wa-options">
+        <div class="wa-option" onclick="openWhatsApp('Asia — quiero cotizar')"><i class="fas fa-tag"></i> Cotizar</div>
+        <div class="wa-option" onclick="openWhatsApp('Asia — quiero info sobre Mi Casa Ya')"><i class="fas fa-hand-holding-usd"></i> Info subsidio Mi Casa Ya</div>
+        <div class="wa-option" onclick="openWhatsApp('Asia — quiero agendar visita')"><i class="fas fa-calendar"></i> Agendar visita</div>
+      </div>
+    </div>
+  </div>
+  <button class="wa-float__btn" id="wa-btn" aria-label="Abrir WhatsApp"><i class="fab fa-whatsapp"></i></button>
+</div>
+
+<script>
+function openWhatsApp(project){ const msg=`Hola! Me interesa el proyecto *${project}*. ¿Pueden enviarme información?`; window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`,'_blank'); }
+function changeImg(thumb,src){ document.getElementById('gallery-main-img').src=src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); thumb.classList.add('active'); }
+function switchTab(id,btn){ document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); document.getElementById('tab-'+id).classList.add('active'); btn.classList.add('active'); }
+const navbar=document.getElementById('navbar'); window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>20));
+document.getElementById('hamburger')?.addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('open'));
+document.getElementById('wa-btn')?.addEventListener('click',e=>{e.stopPropagation();document.getElementById('wa-popup').classList.toggle('open');});
+document.addEventListener('click',e=>{if(!document.getElementById('wa-float')?.contains(e.target))document.getElementById('wa-popup')?.classList.remove('open');});
+const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.12});
+document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
+setTimeout(()=>{document.querySelectorAll('.progress-fill').forEach(el=>{const w=el.style.width;el.style.width='0';requestAnimationFrame(()=>{el.style.transition='width 1.2s ease';el.style.width=w;});});},300);
+</script>
+</body>
+</html>
