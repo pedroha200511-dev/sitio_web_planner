@@ -164,7 +164,7 @@
       <div class="hero__text">
         <div class="hero__badge">
           <span class="hero__badge-dot"></span>
-          3 Proyectos activos en Bello y Medellín
+          Proyecto Asia — disponible ahora en Bello
         </div>
 
         <h1 id="hero-title" class="hero__title">
@@ -173,7 +173,7 @@
         </h1>
 
         <p class="hero__subtitle">
-          Más de 15 años construyendo hogares con los más altos estándares de calidad y seguridad en Antioquia. Apartamentos desde <strong style="color:#C8A96E">$235 millones</strong>.
+          Más de 15 años construyendo hogares con los más altos estándares de calidad y seguridad en Antioquia. Apartamentos desde <strong style="color:#C8A96E">$259 millones</strong> con subsidio Mi Casa Ya.
         </p>
 
         <div class="hero__ctas">
@@ -205,17 +205,8 @@
         </div>
       </div>
 
-      <!-- Tarjeta proyecto destacado -->
+      <!-- Card Asia destacado -->
       <div class="hero__visual reveal" style="position:relative">
-
-        <!-- Floating card: última venta -->
-        <div class="hero__float-card hero__float-card--sale">
-          <div class="hero__float-dot"></div>
-          <div>
-            <strong>Unidad vendida hace 2 días</strong>
-            <p>Proyecto Terralta · Tipo B 75m²</p>
-          </div>
-        </div>
 
         <!-- Floating card: rating -->
         <div class="hero__float-card hero__float-card--rating">
@@ -224,26 +215,54 @@
           <div class="rating-label">38 reseñas Google</div>
         </div>
 
-        <div class="hero__project-card">
-          <div class="hero__project-img" role="img" aria-label="Render Proyecto Terralta"
-            style="background-image:url('img/terralta-card.png');background-size:cover;background-position:center">
+        <div class="hero__asia-card">
+          <!-- Header con estado -->
+          <div class="hero__asia-card-header">
+            <span class="hero__asia-badge"><span class="hero__badge-dot"></span>En construcción · Entrega 2027</span>
+            <span class="hero__asia-subsidy"><i class="fas fa-home"></i> Aplica Mi Casa Ya</span>
           </div>
-          <div class="hero__project-info">
-            <span class="hero__project-tag">🔥 Más vendido · Q1 2026</span>
-            <div class="hero__project-name">Proyecto Terralta</div>
-            <div class="hero__project-location"><i class="fas fa-map-marker-alt"></i> Barrio Suárez, Bello</div>
-            <div style="display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:8px">
+
+          <!-- Info principal -->
+          <div class="hero__asia-card-body">
+            <div class="hero__asia-name">Proyecto Asia</div>
+            <div class="hero__asia-location"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
+
+            <div class="hero__asia-price-row">
               <div>
-                <div style="font-size:.75rem;color:rgba(255,255,255,.5);margin-bottom:2px">Precio desde</div>
-                <div class="hero__project-price">$317.685.000</div>
+                <div class="hero__asia-price-label">Precio desde</div>
+                <div class="hero__asia-price">$259.000.000</div>
               </div>
-              <div>
-                <div style="font-size:.75rem;color:rgba(255,255,255,.5);margin-bottom:2px">Área</div>
-                <div style="color:#C8A96E;font-weight:700;font-family:var(--font-heading)">65–85 m²</div>
+              <div class="hero__asia-thumb-wrap">
+                <img src="img/asia-card.png" alt="Proyecto Asia" class="hero__asia-thumb" />
               </div>
             </div>
-            <div class="hero__project-units">
-              <i class="fas fa-fire-alt"></i> Solo 4 unidades disponibles
+
+            <!-- Specs -->
+            <div class="hero__asia-specs">
+              <div class="hero__asia-spec">
+                <i class="fas fa-ruler-combined"></i>
+                <span>50–72 m²</span>
+              </div>
+              <div class="hero__asia-spec">
+                <i class="fas fa-bed"></i>
+                <span>2–3 hab.</span>
+              </div>
+              <div class="hero__asia-spec">
+                <i class="fas fa-swimming-pool"></i>
+                <span>Piscina</span>
+              </div>
+              <div class="hero__asia-spec">
+                <i class="fas fa-car"></i>
+                <span>Parqueadero</span>
+              </div>
+            </div>
+
+            <!-- CTAs -->
+            <div class="hero__asia-ctas">
+              <a href="proyectos/asia.html" class="btn btn-white btn-sm">Ver proyecto completo</a>
+              <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia')">
+                <i class="fab fa-whatsapp"></i> Cotizar
+              </button>
             </div>
           </div>
         </div>
@@ -283,279 +302,402 @@
 </div>
 
 
-<!-- ======================== PROYECTOS ======================== -->
-<section id="proyectos" aria-labelledby="proyectos-title" style="padding-top:96px">
+<!-- ======================== PROYECTO ASIA (FEATURED) ======================== -->
+<section id="proyectos" aria-labelledby="proyectos-title" style="padding-top:96px;padding-bottom:96px">
   <div class="container">
 
     <div class="section-header reveal">
-      <span class="section-label">Nuestros proyectos</span>
-      <h2 class="section-title" id="proyectos-title">Encuentra el hogar perfecto para tu familia</h2>
-      <p class="section-subtitle">Tres desarrollos únicos en las mejores zonas de Bello y Medellín. Escoge el tuyo con confianza.</p>
+      <span class="section-label">Proyecto en venta</span>
+      <h2 class="section-title" id="proyectos-title">Proyecto Asia — tu próximo hogar</h2>
+      <p class="section-subtitle">Apartamentos en Vía Machado, Bello. Aplica subsidio Mi Casa Ya. Entrega 2027.</p>
     </div>
 
-    <div class="proyectos-grid">
-
-      <!-- Proyecto Asia -->
-      <article class="proyecto-card reveal" aria-label="Proyecto Asia">
-        <div class="proyecto-card__img-wrap">
-          <img src="img/asia-card.png"
-            alt="Render Proyecto Asia - Vía Machado, Bello" class="proyecto-card__img"
-            loading="lazy" width="600" height="220" />
-          <div class="proyecto-card__tour-overlay">
-            <a href="proyectos/asia.html" class="tour-btn">
-              <i class="fas fa-expand-alt"></i> Ver ficha completa
-            </a>
-          </div>
-          <span class="proyecto-card__badge badge-2026">Entrega 2027</span>
-          <span class="proyecto-card__units">8 unidades disponibles</span>
+    <!-- Asia: card grande 2 columnas -->
+    <article class="asia-featured reveal" aria-label="Proyecto Asia">
+      <div class="asia-featured__img">
+        <img src="img/asia-card.png" alt="Render Proyecto Asia - Vía Machado, Bello"
+          width="700" height="480" loading="eager" />
+        <span class="asia-featured__badge"><i class="fas fa-circle" style="font-size:.5rem;color:#10B981"></i> 8 unidades disponibles</span>
+      </div>
+      <div class="asia-featured__info">
+        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+          <span class="proyecto-card__badge badge-2026" style="position:static">Entrega 2027</span>
+          <span class="proyecto-card__badge" style="position:static;background:#10B981;color:#fff">Aplica Mi Casa Ya</span>
+          <span class="proyecto-card__badge" style="position:static;background:#313133;color:#fff">VIS</span>
         </div>
-        <div class="proyecto-card__body">
-          <div class="proyecto-card__location"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
-          <h3 class="proyecto-card__name">Proyecto Asia</h3>
-          <p class="proyecto-card__desc">Apartamentos con amplias áreas sociales, parqueadero y zonas verdes en una de las mejores zonas de Bello.</p>
-          <div class="proyecto-card__specs">
-            <div class="spec-item">
-              <span class="spec-label">Área</span>
-              <span class="spec-value">58–72 m²</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Habitaciones</span>
-              <span class="spec-value">2–3</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Estrato</span>
-              <span class="spec-value">3</span>
-            </div>
+        <div class="asia-featured__location"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
+        <h3 class="asia-featured__name">Proyecto Asia</h3>
+        <div class="asia-featured__price">Desde <strong>$259.000.000</strong></div>
+        <p style="color:var(--color-gray-600);margin-bottom:28px;line-height:1.7">
+          Apartamentos de 2 y 3 habitaciones en una de las zonas de mayor valorización de Bello.
+          Áreas sociales completas, parqueadero incluido, zonas verdes y vista al Valle de Aburrá.
+          Financiación con todos los bancos y asesoría en subsidios de vivienda sin costo.
+        </p>
+
+        <div class="asia-featured__specs">
+          <div class="asia-spec-item">
+            <i class="fas fa-ruler-combined"></i>
+            <strong>50–72 m²</strong>
+            <span>Área privada</span>
           </div>
-          <div class="proyecto-card__price">Desde $259.000.000</div>
-          <div class="proyecto-card__delivery">Entrega: <span>2027</span></div>
-          <div class="proyecto-card__ctas">
-            <a href="proyectos/asia.html" class="btn btn-outline btn-sm">Ver ficha técnica</a>
-            <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia')">
-              <i class="fab fa-whatsapp"></i> Cotizar
-            </button>
+          <div class="asia-spec-item">
+            <i class="fas fa-bed"></i>
+            <strong>2–3</strong>
+            <span>Habitaciones</span>
+          </div>
+          <div class="asia-spec-item">
+            <i class="fas fa-swimming-pool"></i>
+            <strong>Piscina</strong>
+            <span>Área social</span>
+          </div>
+          <div class="asia-spec-item">
+            <i class="fas fa-car"></i>
+            <strong>Parqueadero</strong>
+            <span>Incluido</span>
+          </div>
+        </div>
+
+        <div style="background:rgba(200,169,110,.08);border:1px solid rgba(200,169,110,.25);border-radius:12px;padding:16px;margin-bottom:28px;display:flex;align-items:center;gap:12px">
+          <i class="fas fa-home" style="color:#C8A96E;font-size:1.2rem;flex-shrink:0"></i>
+          <div>
+            <strong style="display:block;font-size:.9rem">Subsidio Mi Casa Ya disponible</strong>
+            <span style="font-size:.82rem;color:var(--color-gray-600)">Hasta $30.000.000 en subsidio del Gobierno. Te ayudamos con todo el proceso.</span>
+          </div>
+        </div>
+
+        <div style="display:flex;gap:12px;flex-wrap:wrap">
+          <a href="proyectos/asia.html" class="btn btn-primary btn-lg">
+            <i class="fas fa-expand-alt"></i> Ver proyecto completo
+          </a>
+          <button class="btn btn-whatsapp btn-lg" onclick="openWhatsApp('Asia')">
+            <i class="fab fa-whatsapp"></i> Cotizar ahora
+          </button>
+        </div>
+      </div>
+    </article>
+
+  </div>
+</section>
+
+
+<!-- ======================== PROYECTOS ENTREGADOS ======================== -->
+<section id="proyectos-entregados" style="padding:72px 0;background:var(--color-gray-100)">
+  <div class="container">
+    <div class="section-header reveal" style="margin-bottom:48px">
+      <span class="section-label">Trayectoria</span>
+      <h2 class="section-title">Proyectos entregados</h2>
+      <p class="section-subtitle">Más de 500 familias ya viven en los proyectos que construimos y entregamos a tiempo. Esta es nuestra historia.</p>
+    </div>
+
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px" class="entregados-grid reveal">
+
+      <!-- Terralta -->
+      <article class="entregado-card">
+        <div class="entregado-card__img">
+          <img src="img/terralta-card.png" alt="Proyecto Terralta — entregado" loading="lazy" />
+          <div class="entregado-card__overlay">
+            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado Q1 2026</span>
+          </div>
+        </div>
+        <div class="entregado-card__body">
+          <div class="entregado-card__location"><i class="fas fa-map-marker-alt"></i> Barrio Suárez, Bello</div>
+          <h3 class="entregado-card__name">Proyecto Terralta</h3>
+          <p class="entregado-card__desc">Diseño contemporáneo con gimnasio, salón comunal y vista panorámica al Valle de Aburrá. 100% vendido y entregado.</p>
+          <div class="entregado-card__stats">
+            <div><strong>65–85 m²</strong><span>Área</span></div>
+            <div><strong>2–3 hab.</strong><span>Habitaciones</span></div>
+            <div><strong>100%</strong><span>Vendido</span></div>
           </div>
         </div>
       </article>
 
-      <!-- Proyecto Terralta -->
-      <article class="proyecto-card reveal" aria-label="Proyecto Terralta" style="transition-delay:.1s">
-        <div class="proyecto-card__img-wrap">
-          <img src="img/terralta-card.png"
-            alt="Render Proyecto Terralta - Barrio Suárez, Bello" class="proyecto-card__img"
-            loading="lazy" width="600" height="220" />
-          <div class="proyecto-card__tour-overlay">
-            <a href="proyectos/terralta.html" class="tour-btn">
-              <i class="fas fa-expand-alt"></i> Ver ficha completa
-            </a>
+      <!-- Altea Plaza -->
+      <article class="entregado-card" style="transition-delay:.1s">
+        <div class="entregado-card__img">
+          <img src="img/altea-card.png" alt="Altea Plaza — entregado" loading="lazy" />
+          <div class="entregado-card__overlay">
+            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado 2025</span>
           </div>
-          <span class="proyecto-card__badge badge-preventa">🔥 Más vendido</span>
-          <span class="proyecto-card__units">4 unidades disponibles</span>
         </div>
-        <div class="proyecto-card__body">
-          <div class="proyecto-card__location"><i class="fas fa-map-marker-alt"></i> Barrio Suárez, Bello</div>
-          <h3 class="proyecto-card__name">Proyecto Terralta</h3>
-          <p class="proyecto-card__desc">Diseño contemporáneo con acabados de primera, salón comunal, gimnasio y vista panorámica al Valle de Aburrá.</p>
-          <div class="proyecto-card__specs">
-            <div class="spec-item">
-              <span class="spec-label">Área</span>
-              <span class="spec-value">65–85 m²</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Habitaciones</span>
-              <span class="spec-value">2–3</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Estrato</span>
-              <span class="spec-value">3</span>
-            </div>
-          </div>
-          <div class="proyecto-card__price">Desde $317.685.000</div>
-          <div class="proyecto-card__delivery">Entrega: <span>Q1 2026</span></div>
-          <div class="proyecto-card__ctas">
-            <a href="proyectos/terralta.html" class="btn btn-outline btn-sm">Ver ficha técnica</a>
-            <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Terralta')">
-              <i class="fab fa-whatsapp"></i> Cotizar
-            </button>
+        <div class="entregado-card__body">
+          <div class="entregado-card__location"><i class="fas fa-map-marker-alt"></i> Niquia, Bello</div>
+          <h3 class="entregado-card__name">Altea Plaza</h3>
+          <p class="entregado-card__desc">Apartamentos con piscina, zonas BBQ y acceso directo al Metro Cable. Todas las unidades entregadas a sus propietarios.</p>
+          <div class="entregado-card__stats">
+            <div><strong>52–68 m²</strong><span>Área</span></div>
+            <div><strong>2–3 hab.</strong><span>Habitaciones</span></div>
+            <div><strong>100%</strong><span>Entregado</span></div>
           </div>
         </div>
       </article>
 
-      <!-- Proyecto Altea Plaza -->
-      <article class="proyecto-card reveal" aria-label="Proyecto Altea Plaza" style="transition-delay:.2s">
-        <div class="proyecto-card__img-wrap">
-          <img src="img/altea-card.png"
-            alt="Render Proyecto Altea Plaza - Niquia, Bello" class="proyecto-card__img"
-            loading="lazy" width="600" height="220" />
-          <div class="proyecto-card__tour-overlay">
-            <a href="proyectos/altea-plaza.html" class="tour-btn">
-              <i class="fas fa-key"></i> Estrenar hoy
-            </a>
-          </div>
-          <span class="proyecto-card__badge badge-disponible">Entrega inmediata</span>
-        </div>
-        <div class="proyecto-card__body">
-          <div class="proyecto-card__location"><i class="fas fa-map-marker-alt"></i> Niquia, Bello</div>
-          <h3 class="proyecto-card__name">Altea Plaza</h3>
-          <p class="proyecto-card__desc">¡Listo para estrenar! Apartamentos de entrega inmediata con piscina, zonas BBQ y acceso a Metro Cable.</p>
-          <div class="proyecto-card__specs">
-            <div class="spec-item">
-              <span class="spec-label">Área</span>
-              <span class="spec-value">52–68 m²</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Habitaciones</span>
-              <span class="spec-value">2–3</span>
-            </div>
-            <div class="spec-item">
-              <span class="spec-label">Estrato</span>
-              <span class="spec-value">3</span>
-            </div>
-          </div>
-          <div class="proyecto-card__price">Desde $235.400.000</div>
-          <div class="proyecto-card__delivery">Entrega: <span>Inmediata ✓</span></div>
-          <div class="proyecto-card__ctas">
-            <a href="proyectos/altea-plaza.html" class="btn btn-outline btn-sm">Ver ficha técnica</a>
-            <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Altea Plaza')">
-              <i class="fab fa-whatsapp"></i> Cotizar
-            </button>
-          </div>
-        </div>
-      </article>
+    </div>
 
+    <!-- Sello de confianza -->
+    <div class="entregados-trust reveal" style="margin-top:48px;text-align:center;padding:32px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--color-gray-200)">
+      <p style="font-size:1.05rem;color:var(--color-gray-600);max-width:560px;margin:0 auto 20px">
+        <strong style="color:var(--color-dark)">Entrega garantizada.</strong> Todos nuestros proyectos fueron entregados en los plazos prometidos a cada familia.
+      </p>
+      <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap">
+        <div style="text-align:center">
+          <div style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:#313133">500+</div>
+          <div style="font-size:.875rem;color:var(--color-gray-600)">Familias beneficiadas</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:#313133">100%</div>
+          <div style="font-size:.875rem;color:var(--color-gray-600)">Entregas a tiempo</div>
+        </div>
+        <div style="text-align:center">
+          <div style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:#313133">15+</div>
+          <div style="font-size:.875rem;color:var(--color-gray-600)">Años de experiencia</div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 
-<!-- ======================== CALCULADORA ======================== -->
+<!-- ======================== COTIZADOR CUOTA INICIAL ======================== -->
 <section id="calculadora" class="calc-section" aria-labelledby="calc-title">
   <div class="container">
     <div class="calc-grid">
 
+      <!-- Izquierda: contexto fijo -->
       <div class="calc-left reveal">
-        <span class="section-label">Simulador financiero</span>
-        <h2 class="section-title" id="calc-title" style="color:#fff">Conoce tu cuota<br>en 2 minutos</h2>
-        <p class="section-subtitle">Sin compromiso. Ingresa tus datos y te mostramos un estimado real de tu plan de pagos con financiación bancaria.</p>
-        <div style="margin-top:32px;display:flex;flex-direction:column;gap:16px">
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <div style="background:rgba(200,169,110,.15);border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#C8A96E;font-size:1rem"><i class="fas fa-percentage"></i></div>
+        <span class="section-label">Cotizador</span>
+        <h2 class="section-title" id="calc-title" style="color:#fff">¿Puedo comprar<br>en Proyecto Asia?</h2>
+        <p class="section-subtitle" style="color:rgba(255,255,255,.7)">En 1 minuto te decimos cuánto necesitas ahorrar, si aplicas al subsidio y cuál sería tu cuota hipotecaria.</p>
+
+        <!-- Datos fijos del proyecto -->
+        <div style="margin-top:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px">
+          <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px">Proyecto Asia — datos clave</div>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
             <div>
-              <strong style="color:#fff;display:block;margin-bottom:2px">Tasa preferencial</strong>
-              <span style="color:rgba(255,255,255,.6);font-size:.88rem">Accede a crédito hipotecario desde 11.5% E.A. con los principales bancos del país.</span>
+              <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:3px">Precio</div>
+              <div style="font-weight:700;color:#fff;font-size:.95rem">$259.000.000</div>
             </div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <div style="background:rgba(200,169,110,.15);border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#C8A96E;font-size:1rem"><i class="fas fa-hands-helping"></i></div>
             <div>
-              <strong style="color:#fff;display:block;margin-bottom:2px">Asesoría en subsidios</strong>
-              <span style="color:rgba(255,255,255,.6);font-size:.88rem">Te ayudamos a aplicar a subsidios del Gobierno como Mi Casa Ya y Semillero de Propietarios.</span>
+              <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:3px">Cuota inicial (30%)</div>
+              <div style="font-weight:700;color:#C8A96E;font-size:.95rem">$77.700.000</div>
             </div>
-          </div>
-          <div style="display:flex;align-items:flex-start;gap:12px">
-            <div style="background:rgba(200,169,110,.15);border-radius:8px;width:40px;height:40px;display:flex;align-items:center;justify-content:center;flex-shrink:0;color:#C8A96E;font-size:1rem"><i class="fas fa-file-contract"></i></div>
             <div>
-              <strong style="color:#fff;display:block;margin-bottom:2px">Proceso 100% transparente</strong>
-              <span style="color:rgba(255,255,255,.6);font-size:.88rem">Sin letras pequeñas. Te explicamos cada costo antes de firmar cualquier documento.</span>
+              <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:3px">Plazo de pago</div>
+              <div style="font-weight:700;color:#fff;font-size:.95rem">36 meses de obra</div>
+            </div>
+            <div>
+              <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:3px">Subsidio Mi Casa Ya</div>
+              <div style="font-weight:700;color:#10B981;font-size:.95rem">Hasta $30.000.000</div>
             </div>
           </div>
         </div>
+
+        <div style="margin-top:20px;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.45);font-size:.8rem">
+          <i class="fas fa-shield-alt" style="color:#C8A96E"></i>
+          Sin compromiso · 100% gratuito · Sin consulta en centrales
+        </div>
       </div>
 
+      <!-- Derecha: wizard cotizador (4 pasos) -->
       <div class="reveal" style="transition-delay:.15s">
-        <div class="calc-card">
-          <h3><i class="fas fa-calculator" style="color:var(--color-primary);margin-right:8px"></i>Simulador de cuota</h3>
+        <div class="calc-card" style="padding:0;overflow:hidden">
 
-          <div class="calc-field">
-            <label for="calc-proyecto">¿Qué proyecto te interesa?</label>
-            <select id="calc-proyecto">
-              <option value="altea">Altea Plaza — desde $235.400.000</option>
-              <option value="asia">Asia — desde $259.000.000</option>
-              <option value="terralta" selected>Terralta — desde $317.685.000</option>
-            </select>
+          <!-- Barra de progreso -->
+          <div class="cotiz-progress">
+            <div class="cotiz-progress-bar" id="cotiz-bar" style="width:25%"></div>
+          </div>
+          <div style="padding:18px 24px 0;display:flex;justify-content:space-between;align-items:center">
+            <span class="cotiz-step-label" id="cotiz-step-label">Paso 1 de 4</span>
+            <span style="font-size:.75rem;color:var(--color-gray-400);font-weight:600">Proyecto Asia</span>
           </div>
 
-          <div class="calc-field">
-            <label>Cuota inicial: <strong id="inicial-label">20%</strong></label>
-            <div class="range-wrap">
-              <input type="range" id="calc-inicial" min="10" max="50" step="5" value="20" aria-label="Porcentaje cuota inicial" />
-              <div class="range-labels"><span>10%</span><span>50%</span></div>
+          <!-- ══ PASO 1: Intro del proyecto ══ -->
+          <div class="cotiz-step active" id="cotiz-s1" style="padding:18px 24px 24px">
+            <div style="text-align:center;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--color-gray-200)">
+              <div style="font-size:2rem;margin-bottom:6px">🏠</div>
+              <h4 style="color:var(--color-dark);margin-bottom:4px">Descubre si puedes comprarlo</h4>
+              <p style="font-size:.82rem;color:var(--color-gray-600)">Te calculamos un plan personalizado en 60 segundos</p>
             </div>
-          </div>
 
-          <div class="calc-field">
-            <label>Plazo de financiación: <strong id="plazo-label">120 meses</strong></label>
-            <div class="range-wrap">
-              <input type="range" id="calc-plazo" min="60" max="360" step="12" value="120" aria-label="Plazo en meses" />
-              <div class="range-labels"><span>60 meses</span><span>360 meses</span></div>
-            </div>
-          </div>
-
-          <div class="calc-result" role="region" aria-live="polite" aria-label="Resultado de la calculadora">
-            <div class="calc-result-title">Tu plan de pago estimado</div>
-            <div class="calc-result-row">
-              <span>Valor del proyecto</span>
-              <span id="res-precio">$317.685.000</span>
-            </div>
-            <div class="calc-result-row">
-              <span>Cuota inicial</span>
-              <span id="res-inicial">$63.537.000</span>
-            </div>
-            <div class="calc-result-row">
-              <span>Valor a financiar</span>
-              <span id="res-financiado">$254.148.000</span>
-            </div>
-            <div class="calc-result-row highlight">
-              <span><strong>Cuota mensual est.</strong></span>
-              <span id="res-cuota">$3.034.000</span>
-            </div>
-            <div class="calc-result-row">
-              <span>Plazo</span>
-              <span id="res-plazo">120 meses</span>
-            </div>
-          </div>
-
-          <p style="font-size:.75rem;color:var(--color-gray-400);margin-top:12px;line-height:1.5">
-            * Simulación aproximada con tasa 11.5% E.A. Los valores reales dependen del banco y perfil crediticio. Sin compromiso.
-          </p>
-
-          <!-- Donut visual breakdown -->
-          <div class="calc-donut-wrap" id="calc-donut-wrap">
-            <div class="calc-donut">
-              <svg width="72" height="72" viewBox="0 0 72 72">
-                <circle cx="36" cy="36" r="28" fill="none" stroke="#E5E7EB" stroke-width="10"/>
-                <circle id="donut-inicial" cx="36" cy="36" r="28" fill="none"
-                  stroke="#313133" stroke-width="10"
-                  stroke-dasharray="175.93" stroke-dashoffset="140.7"
-                  stroke-linecap="round"/>
-                <circle id="donut-financiado" cx="36" cy="36" r="28" fill="none"
-                  stroke="#C8A96E" stroke-width="10"
-                  stroke-dasharray="175.93" stroke-dashoffset="0"
-                  stroke-linecap="round" opacity="0.5"/>
-              </svg>
-              <div class="calc-donut-center" id="donut-pct">20%<br>inicial</div>
-            </div>
-            <div class="calc-legend">
-              <div class="calc-legend-item">
-                <div class="calc-legend-dot" style="background:#313133"></div>
-                <span style="font-size:.8rem;color:#4B5563">Cuota inicial: <strong id="legend-inicial">$63.5M</strong></span>
+            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
+              <div class="cotiz-data-box">
+                <span>Precio</span>
+                <strong>$259.000.000</strong>
               </div>
-              <div class="calc-legend-item">
-                <div class="calc-legend-dot" style="background:#C8A96E"></div>
-                <span style="font-size:.8rem;color:#4B5563">Financiado: <strong id="legend-financiado">$254.2M</strong></span>
+              <div class="cotiz-data-box">
+                <span>Cuota inicial (30%)</span>
+                <strong>$77.700.000</strong>
               </div>
-              <div class="calc-legend-item" style="margin-top:4px;padding-top:8px;border-top:1px solid #E5E7EB">
-                <i class="fas fa-calendar-alt" style="color:#C8A96E;font-size:.8rem"></i>
-                <span style="font-size:.8rem;color:#4B5563">Cuota mensual est.: <strong id="legend-cuota" style="color:#C8A96E">$3.03M</strong></span>
+              <div class="cotiz-data-box">
+                <span>Subsidio Mi Casa Ya</span>
+                <strong style="color:#10B981">−$30.000.000</strong>
+              </div>
+              <div class="cotiz-data-box">
+                <span>Tu cuota neta</span>
+                <strong style="color:#C8A96E">$47.700.000</strong>
               </div>
             </div>
-          </div>
 
-          <div class="calc-cta">
-            <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="openWhatsApp('—quiero asesoría sobre opciones de financiación')">
-              <i class="fab fa-whatsapp"></i> Hablar con un asesor financiero
+            <div style="background:rgba(200,169,110,.08);border-left:3px solid #C8A96E;border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:20px;font-size:.82rem;color:var(--color-dark);line-height:1.5">
+              📅 Tienes <strong>36 meses</strong> durante la construcción para pagar esta cuota en cómodas cuotas mensuales.
+            </div>
+
+            <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="cotizNext(2)">
+              ¡Sí, quiero saber si puedo! <i class="fas fa-arrow-right"></i>
             </button>
+            <p style="text-align:center;font-size:.75rem;color:var(--color-gray-400);margin-top:10px">
+              <i class="fas fa-lock" style="font-size:.65rem"></i> Sin consulta en centrales de riesgo
+            </p>
           </div>
+
+          <!-- ══ PASO 2: Perfil financiero ══ -->
+          <div class="cotiz-step" id="cotiz-s2" style="padding:18px 24px 24px">
+            <h4 style="color:var(--color-dark);margin-bottom:4px">Tu perfil financiero</h4>
+            <p style="font-size:.82rem;color:var(--color-gray-600);margin-bottom:18px">Con estos datos te calculamos el plan personalizado.</p>
+
+            <!-- Tipo de empleo -->
+            <div style="margin-bottom:14px">
+              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">Situación laboral</label>
+              <div class="cotiz-chips">
+                <button class="cotiz-chip active" id="chip-empleado" onclick="cotizSelectEmpleo('empleado',this)">👔 Empleado</button>
+                <button class="cotiz-chip" id="chip-independiente" onclick="cotizSelectEmpleo('independiente',this)">💼 Independiente</button>
+                <button class="cotiz-chip" id="chip-pensionado" onclick="cotizSelectEmpleo('pensionado',this)">🏖️ Pensionado</button>
+              </div>
+              <input type="hidden" id="cotiz-empleo" value="empleado" />
+            </div>
+
+            <!-- Ingresos -->
+            <div style="margin-bottom:14px">
+              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">¿Cuánto ganas al mes?</label>
+              <div class="cotiz-money-field">
+                <span class="cotiz-prefix">$</span>
+                <input type="text" id="cotiz-ingreso" placeholder="0" inputmode="numeric" oninput="formatCotizField(this)" />
+                <span class="cotiz-suffix">/mes</span>
+              </div>
+              <div class="cotiz-chips" style="margin-top:8px">
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ingreso',3000000)">$3M</button>
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ingreso',4500000)">$4.5M</button>
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ingreso',6000000)">$6M</button>
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ingreso',8000000)">$8M</button>
+              </div>
+            </div>
+
+            <!-- Ahorros actuales -->
+            <div style="margin-bottom:14px">
+              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">¿Cuánto tienes ahorrado hoy?</label>
+              <div class="cotiz-money-field">
+                <span class="cotiz-prefix">$</span>
+                <input type="text" id="cotiz-ahorro" placeholder="0" inputmode="numeric" oninput="formatCotizField(this)" />
+                <span class="cotiz-suffix">COP</span>
+              </div>
+              <div class="cotiz-chips" style="margin-top:8px">
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ahorro',0)">$0</button>
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ahorro',5000000)">$5M</button>
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ahorro',15000000)">$15M</button>
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ahorro',30000000)">$30M</button>
+              </div>
+            </div>
+
+            <!-- Cuota mensual cómoda -->
+            <div style="margin-bottom:14px">
+              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">¿Cuánto puedes aportar por mes?</label>
+              <div class="cotiz-money-field">
+                <span class="cotiz-prefix">$</span>
+                <input type="text" id="cotiz-mensual" placeholder="0" inputmode="numeric" oninput="formatCotizField(this)" />
+                <span class="cotiz-suffix">/mes</span>
+              </div>
+              <div class="cotiz-chips" style="margin-top:8px">
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-mensual',800000)">$800K</button>
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-mensual',1300000)">$1.3M</button>
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-mensual',2000000)">$2M</button>
+                <button class="cotiz-chip" onclick="setCotizVal('cotiz-mensual',3000000)">$3M</button>
+              </div>
+            </div>
+
+            <!-- Potenciadores (solo si es empleado) -->
+            <div id="cotiz-potenciadores" style="margin-bottom:14px">
+              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">⚡ Potenciadores (reducen lo que debes ahorrar)</label>
+
+              <label class="cotiz-boost-check boost-active" id="boost-primas-wrap">
+                <input type="checkbox" id="boost-primas" checked />
+                <div class="cotiz-boost-box">
+                  <i class="fas fa-check" style="font-size:.65rem;color:#fff"></i>
+                </div>
+                <div>
+                  <strong>Incluir mis Primas</strong>
+                  <span>Junio y Diciembre — ½ salario c/u. Te ayudan a llegar más rápido.</span>
+                </div>
+              </label>
+
+              <label class="cotiz-boost-check boost-active" id="boost-ces-wrap">
+                <input type="checkbox" id="boost-cesantias" checked />
+                <div class="cotiz-boost-box">
+                  <i class="fas fa-check" style="font-size:.65rem;color:#fff"></i>
+                </div>
+                <div>
+                  <strong>Incluir mis Cesantías</strong>
+                  <span>Consignadas en Marzo — 1 mes de salario al año.</span>
+                </div>
+              </label>
+            </div>
+
+            <div style="display:flex;gap:10px">
+              <button class="btn btn-outline btn-sm" onclick="cotizNext(1)" style="flex:0 0 auto">
+                <i class="fas fa-arrow-left"></i>
+              </button>
+              <button class="btn btn-primary" style="flex:1;justify-content:center" onclick="cotizNext(3)">
+                Ver mi plan <i class="fas fa-arrow-right"></i>
+              </button>
+            </div>
+          </div>
+
+          <!-- ══ PASO 3: Resultado ══ -->
+          <div class="cotiz-step" id="cotiz-s3" style="padding:18px 24px 24px">
+            <div id="cotiz-resultado"></div>
+            <div style="display:flex;gap:10px;margin-top:14px">
+              <button class="btn btn-outline btn-sm" onclick="cotizNext(2)" style="flex:0 0 auto">
+                <i class="fas fa-arrow-left"></i>
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="cotizNext(1)" style="flex:1;justify-content:center;font-size:.8rem">
+                <i class="fas fa-redo"></i> Volver a empezar
+              </button>
+            </div>
+          </div>
+
+          <!-- ══ PASO 4: Lead / WhatsApp ══ -->
+          <div class="cotiz-step" id="cotiz-s4" style="padding:18px 24px 24px">
+            <div id="cotiz-lead-content">
+              <div style="text-align:center;margin-bottom:20px">
+                <div style="font-size:2rem;margin-bottom:8px">🎉</div>
+                <h4 style="color:var(--color-dark);margin-bottom:4px">¡Tu plan está listo!</h4>
+                <p style="font-size:.82rem;color:var(--color-gray-600)">Un asesor te llama para acompañarte en el siguiente paso.</p>
+              </div>
+
+              <div style="margin-bottom:14px">
+                <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:7px">Nombre completo</label>
+                <input type="text" id="cotiz-nombre" placeholder="Tu nombre"
+                  style="width:100%;padding:12px 14px;border:2px solid var(--color-gray-200);border-radius:10px;font-size:1rem;outline:none;font-family:inherit;transition:border-color .2s"
+                  onfocus="this.style.borderColor='#313133'" onblur="this.style.borderColor='var(--color-gray-200)'" />
+              </div>
+
+              <div style="margin-bottom:20px">
+                <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:7px">Celular (WhatsApp)</label>
+                <input type="tel" id="cotiz-telefono" placeholder="3XX XXX XXXX" maxlength="13"
+                  style="width:100%;padding:12px 14px;border:2px solid var(--color-gray-200);border-radius:10px;font-size:1rem;outline:none;font-family:inherit;transition:border-color .2s"
+                  onfocus="this.style.borderColor='#313133'" onblur="this.style.borderColor='var(--color-gray-200)'" />
+              </div>
+
+              <button class="btn btn-whatsapp" style="width:100%;justify-content:center;font-size:1rem" onclick="cotizEnviarLead()">
+                <i class="fab fa-whatsapp"></i> Enviar mi plan al asesor
+              </button>
+              <button class="btn btn-outline btn-sm" onclick="cotizNext(3)" style="width:100%;justify-content:center;margin-top:8px;font-size:.8rem">
+                ← Volver a mi resultado
+              </button>
+              <p style="text-align:center;font-size:.72rem;color:var(--color-gray-400);margin-top:10px">
+                Tus datos solo se usan para contactarte. Nunca los compartimos.
+              </p>
+            </div>
+          </div>
+
         </div>
       </div>
 
