@@ -99,19 +99,16 @@ function openWhatsApp(projectName = '') {
 }
 
 // ─── COTIZADOR CUOTA INICIAL — PROYECTO ASIA ─────────
-const PRECIO_ASIA      = 259000000;
-const CUOTA_INICIAL_A  = PRECIO_ASIA * 0.30;   // $77.700.000
-const HIPOTECA_A       = PRECIO_ASIA * 0.70;   // $181.300.000
-const SUBSIDIO_MAX     = 30000000;
-const CUOTA_NETA_A     = CUOTA_INICIAL_A - SUBSIDIO_MAX; // $47.700.000
-const PLAZO_OBRA       = 36;                    // meses de construcción
-const TASA_MENS        = 0.115 / 12;            // 11.5% E.A.
-const PLAZO_HIPO       = 240;                   // 20 años en meses
+const PRECIO_ASIA       = 259000000;
+const CUOTA_INICIAL_A   = PRECIO_ASIA * 0.30;   // $77.700.000
+const HIPOTECA_A        = PRECIO_ASIA * 0.70;   // $181.300.000
+const PLAZO_OBRA        = 36;
+const TASA_MENS         = 0.115 / 12;
+const PLAZO_HIPO        = 240;
 const CUOTA_HIPOTECARIA = Math.round(
   HIPOTECA_A * TASA_MENS / (1 - Math.pow(1 + TASA_MENS, -PLAZO_HIPO))
 );
 
-// Helpers de formato
 function fmtCOP(n) {
   if (n >= 1e9) return '$' + (n/1e9).toFixed(2) + 'B';
   if (n >= 1e6) return '$' + (n/1e6).toFixed(1).replace('.0','') + 'M';
@@ -127,147 +124,116 @@ function formatCotizField(el) {
   const v = parseMoney(el.value);
   el.value = v > 0 ? v.toLocaleString('es-CO') : '';
 }
-function setCotizVal(id, val) {
+function wizSet(id, val) {
   const el = document.getElementById(id);
   if (!el) return;
   el.value = val > 0 ? val.toLocaleString('es-CO') : '';
 }
 
-// Selección de tipo de empleo
-function cotizSelectEmpleo(tipo, btn) {
-  document.querySelectorAll('.cotiz-chip[id^="chip-"]').forEach(c => c.classList.remove('active'));
-  btn.classList.add('active');
-  const h = document.getElementById('cotiz-empleo');
-  if (h) h.value = tipo;
-  // Mostrar/ocultar potenciadores
-  const pot = document.getElementById('cotiz-potenciadores');
-  if (pot) pot.style.display = tipo === 'empleado' ? 'block' : 'none';
-}
+// ─ Wizard state
+let wizEmpleo = 'empleado';
+const WIZ_STEPS = 5;
 
-// Toggle visual de boost-check
-function cotizBoostToggle(wrapId, checkbox) {
-  const wrap = document.getElementById(wrapId);
-  if (!wrap) return;
-  if (checkbox.checked) {
-    wrap.classList.add('boost-active');
-  } else {
-    wrap.classList.remove('boost-active');
+function wizUpdateDots(step) {
+  for (let i = 1; i <= WIZ_STEPS; i++) {
+    const dot = document.getElementById('wd' + i);
+    if (!dot) continue;
+    dot.className = 'wiz-dot' + (i < step ? ' done' : i === step ? ' active' : '');
   }
 }
 
-// Navegación de pasos
-let cotizStep = 1;
-function cotizNext(step) {
-  if (step === 3) cotizCalcular();
+function wizGo(step) {
+  if (step === WIZ_STEPS) wizCalcular();
   document.querySelectorAll('.cotiz-step').forEach(s => s.classList.remove('active'));
-  const target = document.getElementById(`cotiz-s${step}`);
-  if (target) target.classList.add('active');
-  cotizStep = step;
-  const pct = (step / 4) * 100;
-  const bar = document.getElementById('cotiz-bar');
-  if (bar) bar.style.width = pct + '%';
-  const lbl = document.getElementById('cotiz-step-label');
-  if (lbl) {
-    const labels = ['', 'Paso 1 de 4', 'Paso 2 de 4', 'Tu resultado', 'Último paso'];
-    lbl.textContent = labels[step] || '';
-  }
-  // Scroll al card si está fuera de vista
-  target?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+  document.getElementById('cotiz-s' + step)?.classList.add('active');
+  wizUpdateDots(step);
+  document.getElementById('calculadora')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
-// Cálculo principal
-function cotizCalcular() {
+function wizSelectEmpleo(tipo, btn) {
+  wizEmpleo = tipo;
+  document.querySelectorAll('.wiz-emp-chip').forEach(c => c.classList.remove('sel'));
+  btn.classList.add('sel');
+  document.getElementById('cotiz-empleo').value = tipo;
+  const boosts = document.getElementById('wiz-boosts');
+  if (boosts) boosts.style.display = tipo === 'empleado' ? 'block' : 'none';
+}
+
+function wizBoostChange(cb) {
+  cb.closest('.wiz-boost')?.classList.toggle('on', cb.checked);
+}
+
+// ─ Cálculo principal
+function wizCalcular() {
   const ahorro  = parseMoney(document.getElementById('cotiz-ahorro')?.value);
   const mensual = parseMoney(document.getElementById('cotiz-mensual')?.value);
   const ingreso = parseMoney(document.getElementById('cotiz-ingreso')?.value);
-  const empleo  = document.getElementById('cotiz-empleo')?.value || 'independiente';
-  const usaPrimas    = document.getElementById('boost-primas')?.checked && empleo === 'empleado';
-  const usaCesantias = document.getElementById('boost-cesantias')?.checked && empleo === 'empleado';
+  const empleo  = wizEmpleo;
+  const usaPrimas    = empleo === 'empleado' && !!document.getElementById('boost-primas')?.checked;
+  const usaCesantias = empleo === 'empleado' && !!document.getElementById('boost-cesantias')?.checked;
 
-  // Potenciadores: 3 años de obra
-  // Primas: Jun y Dic = 2 × (ingreso/2) × 3 años = 3 × ingreso
-  // Cesantías: Mar = 1 × ingreso × 3 años = 3 × ingreso
   const totalPrimas    = usaPrimas    ? (ingreso / 2) * 2 * 3 : 0;
   const totalCesantias = usaCesantias ? ingreso * 3 : 0;
-
-  // Total que acumula durante la obra
-  const acumMensual  = mensual * PLAZO_OBRA;
+  const acumMensual    = mensual * PLAZO_OBRA;
   const totalAcumulado = ahorro + acumMensual + totalPrimas + totalCesantias;
-  const falta = Math.max(0, CUOTA_NETA_A - totalAcumulado);
+  const listo          = totalAcumulado >= CUOTA_INICIAL_A;
 
-  // ¿En cuántos meses completa (sin boosts)?
   let mesesBase = Infinity;
-  const faltaSinBoosts = Math.max(0, CUOTA_NETA_A - ahorro - acumMensual);
-  if (faltaSinBoosts <= 0) { mesesBase = 0; }
-  else if (mensual > 0)   { mesesBase = Math.ceil((CUOTA_NETA_A - ahorro) / mensual); }
+  if (ahorro >= CUOTA_INICIAL_A) { mesesBase = 0; }
+  else if (mensual > 0) { mesesBase = Math.ceil((CUOTA_INICIAL_A - ahorro) / mensual); }
+  const semAmarillo = !listo && mesesBase <= PLAZO_OBRA;
 
-  // Calificación hipotecaria
   const maxCuotaBanco   = ingreso * 0.30;
   const calificaCredito = ingreso > 0 ? CUOTA_HIPOTECARIA <= maxCuotaBanco : null;
 
-  // Semáforo
-  const listo   = falta <= 0;
-  const semVerde = listo;
-  const semAmarillo = !listo && mesesBase <= PLAZO_OBRA;
-  const sem = semVerde
-    ? { color: '#10B981', bg: '#ECFDF5', border: '#A7F3D0', icon: 'fa-check-circle',       txt: '¡Puedes hacerlo! Tienes o acumulas la cuota inicial en el plazo de obra.' }
+  const sem = listo
+    ? { color:'#10B981', bg:'#ECFDF5', border:'#A7F3D0', icon:'fa-check-circle',      txt:'¡Puedes hacerlo! Tienes o acumulas la cuota inicial en el plazo de obra.' }
     : semAmarillo
-    ? { color: '#C8A96E', bg: '#FEF9EE', border: '#E5D5AA', icon: 'fa-clock',               txt: 'Puedes lograrlo ahorrando durante los 36 meses de construcción.' }
-    : { color: '#EF4444', bg: '#FEF2F2', border: '#FCA5A5', icon: 'fa-exclamation-circle',  txt: 'Con tu ahorro actual no alcanzas en los 36 meses. Ajusta el plan abajo.' };
+    ? { color:'#C8A96E', bg:'#FEF9EE', border:'#E5D5AA', icon:'fa-clock',              txt:'Puedes lograrlo ahorrando durante los 36 meses de construcción.' }
+    : { color:'#EF4444', bg:'#FEF2F2', border:'#FCA5A5', icon:'fa-exclamation-circle', txt:'Con tu ahorro actual no alcanzas en los 36 meses. Ajusta el plan.' };
 
   let html = '';
 
-  // Banner semáforo
   html += `<div style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:${sem.bg};border:1.5px solid ${sem.border};border-radius:12px;margin-bottom:16px">
     <i class="fas ${sem.icon}" style="color:${sem.color};font-size:1.4rem;flex-shrink:0;margin-top:1px"></i>
     <span style="font-size:.875rem;color:#1F2937;font-weight:600;line-height:1.45">${sem.txt}</span>
   </div>`;
 
-  // Desglose cuota inicial
   html += `<div style="background:#F8F6F2;border-radius:12px;padding:14px 16px;margin-bottom:12px">
     <div style="font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9CA3AF;margin-bottom:10px">Cuota inicial</div>
     <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Precio Proyecto Asia</span><span style="font-weight:600">${fmtCOPFull(PRECIO_ASIA)}</span></div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Cuota inicial (30%)</span><span style="font-weight:600;color:#313133">${fmtCOPFull(CUOTA_INICIAL_A)}</span></div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#10B981"><i class="fas fa-home"></i> Subsidio Mi Casa Ya</span><span style="font-weight:600;color:#10B981">− ${fmtCOPFull(SUBSIDIO_MAX)}</span></div>
     <div style="border-top:1px solid #E5E7EB;margin:8px 0 6px"></div>
-    <div style="display:flex;justify-content:space-between;font-size:.9rem"><span style="font-weight:700">Tu cuota neta</span><span style="font-weight:800;color:#C8A96E;font-size:1rem">${fmtCOPFull(CUOTA_NETA_A)}</span></div>
+    <div style="display:flex;justify-content:space-between;font-size:.9rem"><span style="font-weight:700">Cuota inicial (30%)</span><span style="font-weight:800;color:#C8A96E;font-size:1rem">${fmtCOPFull(CUOTA_INICIAL_A)}</span></div>
   </div>`;
 
-  // Plan de acumulación
   html += `<div style="background:#F8F6F2;border-radius:12px;padding:14px 16px;margin-bottom:12px">
     <div style="font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9CA3AF;margin-bottom:10px">Tu plan de ahorro (36 meses)</div>`;
-
-  if (ahorro > 0) {
+  if (ahorro > 0)
     html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Ahorros actuales</span><span style="font-weight:600;color:#10B981">${fmtCOPFull(ahorro)}</span></div>`;
-  }
-  if (mensual > 0) {
-    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Cuotas mensuales (${PLAZO_OBRA} meses)</span><span style="font-weight:600">${fmtCOPFull(acumMensual)}</span></div>`;
-  }
-  if (usaPrimas && totalPrimas > 0) {
+  if (mensual > 0)
+    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Cuotas mensuales (36 meses)</span><span style="font-weight:600">${fmtCOPFull(acumMensual)}</span></div>`;
+  if (usaPrimas && totalPrimas > 0)
     html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#10B981">⚡ Primas (Jun/Dic × 3 años)</span><span style="font-weight:600;color:#10B981">+ ${fmtCOPFull(totalPrimas)}</span></div>`;
-  }
-  if (usaCesantias && totalCesantias > 0) {
+  if (usaCesantias && totalCesantias > 0)
     html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#10B981">⚡ Cesantías (Mar × 3 años)</span><span style="font-weight:600;color:#10B981">+ ${fmtCOPFull(totalCesantias)}</span></div>`;
-  }
 
-  const pctTotal = Math.min(100, Math.round((totalAcumulado / CUOTA_NETA_A) * 100));
+  const pctTotal = Math.min(100, Math.round((totalAcumulado / CUOTA_INICIAL_A) * 100));
   html += `<div style="border-top:1px solid #E5E7EB;margin:8px 0 8px"></div>
     <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:.9rem"><span style="font-weight:700">Total que acumulas</span><span style="font-weight:800;color:${listo?'#10B981':'#313133'}">${fmtCOPFull(totalAcumulado)}</span></div>
     <div style="background:#E5E7EB;border-radius:6px;height:10px;overflow:hidden;margin-bottom:6px">
       <div style="width:${pctTotal}%;height:100%;background:${listo?'#10B981':pctTotal>=60?'#C8A96E':'#EF4444'};border-radius:6px;transition:width .8s ease"></div>
     </div>
-    <div style="font-size:.78rem;color:#6B7280;text-align:right">${pctTotal}% de la cuota neta</div>`;
+    <div style="font-size:.78rem;color:#6B7280;text-align:right">${pctTotal}% de la cuota inicial</div>`;
 
   if (!listo && mensual > 0) {
-    const necesario = Math.ceil(CUOTA_NETA_A / PLAZO_OBRA);
+    const necesario = Math.ceil(CUOTA_INICIAL_A / PLAZO_OBRA);
     html += `<div style="margin-top:10px;padding:10px 12px;background:#FEF9EE;border-left:3px solid #C8A96E;border-radius:0 8px 8px 0;font-size:.8rem;color:#1F2937;line-height:1.45">
-      💡 Para completarlo en los 36 meses necesitarías aportar <strong>${fmtCOP(necesario)}/mes</strong> (sin contar potenciadores).
+      💡 Para completarlo en 36 meses necesitarías <strong>${fmtCOP(necesario)}/mes</strong> (sin potenciadores).
     </div>`;
   }
   html += `</div>`;
 
-  // Crédito hipotecario
-  html += `<div style="background:#F8F6F2;border-radius:12px;padding:14px 16px;margin-bottom:14px">
+  html += `<div style="background:#F8F6F2;border-radius:12px;padding:14px 16px;margin-bottom:12px">
     <div style="font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9CA3AF;margin-bottom:10px">Crédito hipotecario (70%)</div>
     <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Monto a financiar</span><span style="font-weight:600">${fmtCOPFull(HIPOTECA_A)}</span></div>
     <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Plazo</span><span style="font-weight:600">20 años · 11.5% E.A.</span></div>
@@ -281,42 +247,29 @@ function cotizCalcular() {
     </div>` : ''}
   </div>`;
 
-  // CTA: ir al paso 4 (lead)
-  html += `<button class="btn btn-whatsapp" style="width:100%;justify-content:center;margin-bottom:8px" onclick="cotizNext(4)">
-    <i class="fab fa-whatsapp"></i> Quiero hablar con un asesor
+  html += `<div style="background:rgba(200,169,110,.08);border:1px solid rgba(200,169,110,.25);border-radius:10px;padding:12px 14px;margin-bottom:14px;display:flex;gap:10px;align-items:flex-start">
+    <i class="fas fa-home" style="color:#C8A96E;margin-top:2px;flex-shrink:0"></i>
+    <div style="font-size:.8rem;color:#374151;line-height:1.5">
+      <strong style="display:block;margin-bottom:2px">¿Aplicas al subsidio Mi Casa Ya?</strong>
+      El Gobierno puede cubrir hasta <strong>$30.000.000</strong> de tu cuota inicial. Te asesoramos sin costo.
+    </div>
+  </div>`;
+
+  html += `<button class="wiz-btn-wa" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-size:1rem;font-weight:700;padding:17px;border-radius:14px" onclick="wizEnviarLead()">
+    <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Hablar con un asesor
   </button>`;
 
-  const res = document.getElementById('cotiz-resultado');
+  const res = document.getElementById('wiz-resultado');
   if (res) res.innerHTML = html;
 }
 
-// Lead desde cotizador
-function cotizEnviarLead() {
-  const nombre = document.getElementById('cotiz-nombre')?.value?.trim() || '';
-  const tel    = document.getElementById('cotiz-telefono')?.value?.trim() || '';
-
+function wizEnviarLead() {
+  const ingreso = fmtCOP(parseMoney(document.getElementById('cotiz-ingreso')?.value));
   const ahorro  = fmtCOP(parseMoney(document.getElementById('cotiz-ahorro')?.value));
   const mensual = fmtCOP(parseMoney(document.getElementById('cotiz-mensual')?.value));
-  const ingreso = fmtCOP(parseMoney(document.getElementById('cotiz-ingreso')?.value));
-  const empleo  = document.getElementById('cotiz-empleo')?.value || '';
-
-  const msg = `Hola! Soy ${nombre || 'un interesado'} y hice la simulación en su sitio web para *Proyecto Asia*.%0A`
-    + `• Tipo de empleo: ${empleo}%0A`
-    + `• Ingresos: ${ingreso}/mes%0A`
-    + `• Ahorros: ${ahorro}%0A`
-    + `• Ahorro mensual: ${mensual}/mes%0A`
-    + `¿Me pueden asesorar? Gracias.`;
-
-  window.open(`https://wa.me/573185481730?text=${msg}`, '_blank');
+  const msg = `Hola! Hice la simulación en el sitio de Planner para *Proyecto Asia*.\n• Empleo: ${wizEmpleo}\n• Ingresos: ${ingreso}/mes\n• Ahorros: ${ahorro}\n• Ahorro mensual: ${mensual}/mes\n¿Me pueden asesorar? Gracias.`;
+  window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
 }
-
-// Inicializar potenciadores toggle (event listeners)
-document.addEventListener('DOMContentLoaded', () => {
-  const pBoost = document.getElementById('boost-primas');
-  const cBoost = document.getElementById('boost-cesantias');
-  if (pBoost) pBoost.addEventListener('change', () => cotizBoostToggle('boost-primas-wrap', pBoost));
-  if (cBoost) cBoost.addEventListener('change', () => cotizBoostToggle('boost-ces-wrap', cBoost));
-});
 
 // ─── MULTI-STEP FORM ────────────────────────────────
 let currentStep = 1;

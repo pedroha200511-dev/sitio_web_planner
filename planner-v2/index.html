@@ -458,7 +458,7 @@
 
 
 <!-- ======================== COTIZADOR CUOTA INICIAL ======================== -->
-<section id="calculadora" class="calc-section" aria-labelledby="calc-title">
+<section id="calculadora" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
   <div class="container">
     <div class="calc-grid">
 
@@ -466,235 +466,190 @@
       <div class="calc-left reveal">
         <span class="section-label">Cotizador</span>
         <h2 class="section-title" id="calc-title" style="color:#fff">¿Puedo comprar<br>en Proyecto Asia?</h2>
-        <p class="section-subtitle" style="color:rgba(255,255,255,.7)">En 1 minuto te decimos cuánto necesitas ahorrar, si aplicas al subsidio y cuál sería tu cuota hipotecaria.</p>
+        <p class="section-subtitle" style="color:rgba(255,255,255,.7)">Cuéntanos un poco y en 1 minuto te decimos cuánto necesitas ahorrar y si calificas al crédito.</p>
 
-        <!-- Datos fijos del proyecto -->
         <div style="margin-top:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px">
-          <div style="font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:16px">Proyecto Asia — datos clave</div>
+          <div style="font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:16px">Proyecto Asia — datos clave</div>
           <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
             <div>
-              <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:3px">Precio</div>
-              <div style="font-weight:700;color:#fff;font-size:.95rem">$259.000.000</div>
+              <div style="font-size:.7rem;color:rgba(255,255,255,.38);margin-bottom:3px">Precio</div>
+              <div style="font-weight:700;color:#fff">$259.000.000</div>
             </div>
             <div>
-              <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:3px">Cuota inicial (30%)</div>
-              <div style="font-weight:700;color:#C8A96E;font-size:.95rem">$77.700.000</div>
+              <div style="font-size:.7rem;color:rgba(255,255,255,.38);margin-bottom:3px">Cuota inicial (30%)</div>
+              <div style="font-weight:700;color:#C8A96E">$77.700.000</div>
             </div>
             <div>
-              <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:3px">Plazo de pago</div>
-              <div style="font-weight:700;color:#fff;font-size:.95rem">36 meses de obra</div>
+              <div style="font-size:.7rem;color:rgba(255,255,255,.38);margin-bottom:3px">Plazo de pago</div>
+              <div style="font-weight:700;color:#fff">36 meses de obra</div>
             </div>
             <div>
-              <div style="font-size:.72rem;color:rgba(255,255,255,.4);margin-bottom:3px">Subsidio Mi Casa Ya</div>
-              <div style="font-weight:700;color:#10B981;font-size:.95rem">Hasta $30.000.000</div>
+              <div style="font-size:.7rem;color:rgba(255,255,255,.38);margin-bottom:3px">Cuota hipotecaria est.</div>
+              <div style="font-weight:700;color:#fff">~$1.82M / mes</div>
             </div>
           </div>
         </div>
 
-        <div style="margin-top:20px;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.45);font-size:.8rem">
+        <div style="margin-top:20px;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.4);font-size:.78rem">
           <i class="fas fa-shield-alt" style="color:#C8A96E"></i>
           Sin compromiso · 100% gratuito · Sin consulta en centrales
         </div>
       </div>
 
-      <!-- Derecha: wizard cotizador (4 pasos) -->
+      <!-- Derecha: wizard interactivo (5 pasos — 1 pregunta a la vez) -->
       <div class="reveal" style="transition-delay:.15s">
-        <div class="calc-card" style="padding:0;overflow:hidden">
+        <div class="calc-card" style="padding:0;overflow:hidden;min-height:500px;display:flex;flex-direction:column">
 
-          <!-- Barra de progreso -->
-          <div class="cotiz-progress">
-            <div class="cotiz-progress-bar" id="cotiz-bar" style="width:25%"></div>
-          </div>
-          <div style="padding:18px 24px 0;display:flex;justify-content:space-between;align-items:center">
-            <span class="cotiz-step-label" id="cotiz-step-label">Paso 1 de 4</span>
-            <span style="font-size:.75rem;color:var(--color-gray-400);font-weight:600">Proyecto Asia</span>
-          </div>
-
-          <!-- ══ PASO 1: Intro del proyecto ══ -->
-          <div class="cotiz-step active" id="cotiz-s1" style="padding:18px 24px 24px">
-            <div style="text-align:center;margin-bottom:18px;padding-bottom:18px;border-bottom:1px solid var(--color-gray-200)">
-              <div style="font-size:2rem;margin-bottom:6px">🏠</div>
-              <h4 style="color:var(--color-dark);margin-bottom:4px">Descubre si puedes comprarlo</h4>
-              <p style="font-size:.82rem;color:var(--color-gray-600)">Te calculamos un plan personalizado en 60 segundos</p>
-            </div>
-
-            <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:16px">
-              <div class="cotiz-data-box">
-                <span>Precio</span>
-                <strong>$259.000.000</strong>
-              </div>
-              <div class="cotiz-data-box">
-                <span>Cuota inicial (30%)</span>
-                <strong>$77.700.000</strong>
-              </div>
-              <div class="cotiz-data-box">
-                <span>Subsidio Mi Casa Ya</span>
-                <strong style="color:#10B981">−$30.000.000</strong>
-              </div>
-              <div class="cotiz-data-box">
-                <span>Tu cuota neta</span>
-                <strong style="color:#C8A96E">$47.700.000</strong>
-              </div>
-            </div>
-
-            <div style="background:rgba(200,169,110,.08);border-left:3px solid #C8A96E;border-radius:0 8px 8px 0;padding:10px 14px;margin-bottom:20px;font-size:.82rem;color:var(--color-dark);line-height:1.5">
-              📅 Tienes <strong>36 meses</strong> durante la construcción para pagar esta cuota en cómodas cuotas mensuales.
-            </div>
-
-            <button class="btn btn-primary" style="width:100%;justify-content:center" onclick="cotizNext(2)">
-              ¡Sí, quiero saber si puedo! <i class="fas fa-arrow-right"></i>
-            </button>
-            <p style="text-align:center;font-size:.75rem;color:var(--color-gray-400);margin-top:10px">
-              <i class="fas fa-lock" style="font-size:.65rem"></i> Sin consulta en centrales de riesgo
-            </p>
+          <!-- Dots de progreso -->
+          <div class="wiz-dots" id="wiz-dots">
+            <div class="wiz-dot active"  id="wd1"></div>
+            <div class="wiz-dot"         id="wd2"></div>
+            <div class="wiz-dot"         id="wd3"></div>
+            <div class="wiz-dot"         id="wd4"></div>
+            <div class="wiz-dot"         id="wd5"></div>
           </div>
 
-          <!-- ══ PASO 2: Perfil financiero ══ -->
-          <div class="cotiz-step" id="cotiz-s2" style="padding:18px 24px 24px">
-            <h4 style="color:var(--color-dark);margin-bottom:4px">Tu perfil financiero</h4>
-            <p style="font-size:.82rem;color:var(--color-gray-600);margin-bottom:18px">Con estos datos te calculamos el plan personalizado.</p>
+          <!-- ══ PASO 1: Tipo de empleo ══ -->
+          <div class="cotiz-step active" id="cotiz-s1">
+            <div class="wiz-body">
+              <div class="wiz-icon">👤</div>
+              <h3 class="wiz-title">¿Cómo generas tus ingresos?</h3>
+              <p class="wiz-sub">Con esto calculamos tus beneficios adicionales</p>
 
-            <!-- Tipo de empleo -->
-            <div style="margin-bottom:14px">
-              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">Situación laboral</label>
-              <div class="cotiz-chips">
-                <button class="cotiz-chip active" id="chip-empleado" onclick="cotizSelectEmpleo('empleado',this)">👔 Empleado</button>
-                <button class="cotiz-chip" id="chip-independiente" onclick="cotizSelectEmpleo('independiente',this)">💼 Independiente</button>
-                <button class="cotiz-chip" id="chip-pensionado" onclick="cotizSelectEmpleo('pensionado',this)">🏖️ Pensionado</button>
+              <div class="wiz-emp-row">
+                <button class="wiz-emp-chip sel" id="wchip-empleado" onclick="wizSelectEmpleo('empleado',this)">
+                  <span class="e-ico">👔</span>Empleado
+                </button>
+                <button class="wiz-emp-chip" id="wchip-independiente" onclick="wizSelectEmpleo('independiente',this)">
+                  <span class="e-ico">💼</span>Independiente
+                </button>
+                <button class="wiz-emp-chip" id="wchip-pensionado" onclick="wizSelectEmpleo('pensionado',this)">
+                  <span class="e-ico">🏖️</span>Pensionado
+                </button>
               </div>
               <input type="hidden" id="cotiz-empleo" value="empleado" />
-            </div>
 
-            <!-- Ingresos -->
-            <div style="margin-bottom:14px">
-              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">¿Cuánto ganas al mes?</label>
-              <div class="cotiz-money-field">
-                <span class="cotiz-prefix">$</span>
-                <input type="text" id="cotiz-ingreso" placeholder="0" inputmode="numeric" oninput="formatCotizField(this)" />
-                <span class="cotiz-suffix">/mes</span>
-              </div>
-              <div class="cotiz-chips" style="margin-top:8px">
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ingreso',3000000)">$3M</button>
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ingreso',4500000)">$4.5M</button>
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ingreso',6000000)">$6M</button>
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ingreso',8000000)">$8M</button>
-              </div>
-            </div>
-
-            <!-- Ahorros actuales -->
-            <div style="margin-bottom:14px">
-              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">¿Cuánto tienes ahorrado hoy?</label>
-              <div class="cotiz-money-field">
-                <span class="cotiz-prefix">$</span>
-                <input type="text" id="cotiz-ahorro" placeholder="0" inputmode="numeric" oninput="formatCotizField(this)" />
-                <span class="cotiz-suffix">COP</span>
-              </div>
-              <div class="cotiz-chips" style="margin-top:8px">
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ahorro',0)">$0</button>
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ahorro',5000000)">$5M</button>
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ahorro',15000000)">$15M</button>
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-ahorro',30000000)">$30M</button>
-              </div>
-            </div>
-
-            <!-- Cuota mensual cómoda -->
-            <div style="margin-bottom:14px">
-              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">¿Cuánto puedes aportar por mes?</label>
-              <div class="cotiz-money-field">
-                <span class="cotiz-prefix">$</span>
-                <input type="text" id="cotiz-mensual" placeholder="0" inputmode="numeric" oninput="formatCotizField(this)" />
-                <span class="cotiz-suffix">/mes</span>
-              </div>
-              <div class="cotiz-chips" style="margin-top:8px">
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-mensual',800000)">$800K</button>
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-mensual',1300000)">$1.3M</button>
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-mensual',2000000)">$2M</button>
-                <button class="cotiz-chip" onclick="setCotizVal('cotiz-mensual',3000000)">$3M</button>
-              </div>
-            </div>
-
-            <!-- Potenciadores (solo si es empleado) -->
-            <div id="cotiz-potenciadores" style="margin-bottom:14px">
-              <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:8px;text-transform:uppercase;letter-spacing:.04em">⚡ Potenciadores (reducen lo que debes ahorrar)</label>
-
-              <label class="cotiz-boost-check boost-active" id="boost-primas-wrap">
-                <input type="checkbox" id="boost-primas" checked />
-                <div class="cotiz-boost-box">
-                  <i class="fas fa-check" style="font-size:.65rem;color:#fff"></i>
-                </div>
-                <div>
-                  <strong>Incluir mis Primas</strong>
-                  <span>Junio y Diciembre — ½ salario c/u. Te ayudan a llegar más rápido.</span>
-                </div>
-              </label>
-
-              <label class="cotiz-boost-check boost-active" id="boost-ces-wrap">
-                <input type="checkbox" id="boost-cesantias" checked />
-                <div class="cotiz-boost-box">
-                  <i class="fas fa-check" style="font-size:.65rem;color:#fff"></i>
-                </div>
-                <div>
-                  <strong>Incluir mis Cesantías</strong>
-                  <span>Consignadas en Marzo — 1 mes de salario al año.</span>
-                </div>
-              </label>
-            </div>
-
-            <div style="display:flex;gap:10px">
-              <button class="btn btn-outline btn-sm" onclick="cotizNext(1)" style="flex:0 0 auto">
-                <i class="fas fa-arrow-left"></i>
-              </button>
-              <button class="btn btn-primary" style="flex:1;justify-content:center" onclick="cotizNext(3)">
-                Ver mi plan <i class="fas fa-arrow-right"></i>
-              </button>
-            </div>
-          </div>
-
-          <!-- ══ PASO 3: Resultado ══ -->
-          <div class="cotiz-step" id="cotiz-s3" style="padding:18px 24px 24px">
-            <div id="cotiz-resultado"></div>
-            <div style="display:flex;gap:10px;margin-top:14px">
-              <button class="btn btn-outline btn-sm" onclick="cotizNext(2)" style="flex:0 0 auto">
-                <i class="fas fa-arrow-left"></i>
-              </button>
-              <button class="btn btn-outline btn-sm" onclick="cotizNext(1)" style="flex:1;justify-content:center;font-size:.8rem">
-                <i class="fas fa-redo"></i> Volver a empezar
-              </button>
-            </div>
-          </div>
-
-          <!-- ══ PASO 4: Lead / WhatsApp ══ -->
-          <div class="cotiz-step" id="cotiz-s4" style="padding:18px 24px 24px">
-            <div id="cotiz-lead-content">
-              <div style="text-align:center;margin-bottom:20px">
-                <div style="font-size:2rem;margin-bottom:8px">🎉</div>
-                <h4 style="color:var(--color-dark);margin-bottom:4px">¡Tu plan está listo!</h4>
-                <p style="font-size:.82rem;color:var(--color-gray-600)">Un asesor te llama para acompañarte en el siguiente paso.</p>
-              </div>
-
-              <div style="margin-bottom:14px">
-                <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:7px">Nombre completo</label>
-                <input type="text" id="cotiz-nombre" placeholder="Tu nombre"
-                  style="width:100%;padding:12px 14px;border:2px solid var(--color-gray-200);border-radius:10px;font-size:1rem;outline:none;font-family:inherit;transition:border-color .2s"
-                  onfocus="this.style.borderColor='#313133'" onblur="this.style.borderColor='var(--color-gray-200)'" />
-              </div>
-
-              <div style="margin-bottom:20px">
-                <label style="display:block;font-size:.78rem;font-weight:700;color:var(--color-dark);margin-bottom:7px">Celular (WhatsApp)</label>
-                <input type="tel" id="cotiz-telefono" placeholder="3XX XXX XXXX" maxlength="13"
-                  style="width:100%;padding:12px 14px;border:2px solid var(--color-gray-200);border-radius:10px;font-size:1rem;outline:none;font-family:inherit;transition:border-color .2s"
-                  onfocus="this.style.borderColor='#313133'" onblur="this.style.borderColor='var(--color-gray-200)'" />
-              </div>
-
-              <button class="btn btn-whatsapp" style="width:100%;justify-content:center;font-size:1rem" onclick="cotizEnviarLead()">
-                <i class="fab fa-whatsapp"></i> Enviar mi plan al asesor
-              </button>
-              <button class="btn btn-outline btn-sm" onclick="cotizNext(3)" style="width:100%;justify-content:center;margin-top:8px;font-size:.8rem">
-                ← Volver a mi resultado
-              </button>
-              <p style="text-align:center;font-size:.72rem;color:var(--color-gray-400);margin-top:10px">
-                Tus datos solo se usan para contactarte. Nunca los compartimos.
+              <button class="wiz-btn" onclick="wizGo(2)">Continuar <i class="fas fa-arrow-right"></i></button>
+              <p style="font-size:.75rem;color:var(--color-gray-400);margin-top:12px;text-align:center">
+                <i class="fas fa-lock" style="font-size:.65rem"></i> Sin consulta en centrales de riesgo
               </p>
+            </div>
+          </div>
+
+          <!-- ══ PASO 2: Ingresos ══ -->
+          <div class="cotiz-step" id="cotiz-s2">
+            <div class="wiz-body">
+              <div class="wiz-icon">💰</div>
+              <h3 class="wiz-title">¿Cuánto ganas al mes?</h3>
+              <p class="wiz-sub">Solo para ver si calificas al crédito hipotecario</p>
+
+              <div class="wiz-money">
+                <span class="wiz-money-sym">$</span>
+                <input type="text" id="cotiz-ingreso" placeholder="0" inputmode="numeric"
+                  oninput="formatCotizField(this)" autocomplete="off" />
+              </div>
+              <p class="wiz-hint">Puedes sumar tus ingresos con los de tu pareja o codeudor.</p>
+              <div class="wiz-quick">
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',2000000)">$2M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',3000000)">$3M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',4500000)">$4.5M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',6000000)">$6M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',8000000)">$8M</button>
+              </div>
+
+              <button class="wiz-btn" onclick="wizGo(3)">Continuar <i class="fas fa-arrow-right"></i></button>
+              <button class="wiz-back" onclick="wizGo(1)">← Atrás</button>
+            </div>
+          </div>
+
+          <!-- ══ PASO 3: Ahorros actuales ══ -->
+          <div class="cotiz-step" id="cotiz-s3">
+            <div class="wiz-body">
+              <div class="wiz-icon">🏦</div>
+              <h3 class="wiz-title">¿Cuánto tienes ahorrado hoy?</h3>
+              <p class="wiz-sub">Incluye cuentas, CDTs, cesantías disponibles…<br>pon 0 si empiezas de cero</p>
+
+              <div class="wiz-money">
+                <span class="wiz-money-sym">$</span>
+                <input type="text" id="cotiz-ahorro" placeholder="0" inputmode="numeric"
+                  oninput="formatCotizField(this)" autocomplete="off" />
+              </div>
+              <p class="wiz-hint">La cuota inicial de Proyecto Asia es <strong>$77.700.000</strong> (30% del precio).</p>
+              <div class="wiz-quick">
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',0)">$0</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',5000000)">$5M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',15000000)">$15M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',30000000)">$30M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',50000000)">$50M</button>
+              </div>
+
+              <button class="wiz-btn" onclick="wizGo(4)">Continuar <i class="fas fa-arrow-right"></i></button>
+              <button class="wiz-back" onclick="wizGo(2)">← Atrás</button>
+            </div>
+          </div>
+
+          <!-- ══ PASO 4: Aporte mensual + potenciadores ══ -->
+          <div class="cotiz-step" id="cotiz-s4">
+            <div class="wiz-body">
+              <div class="wiz-icon">📅</div>
+              <h3 class="wiz-title">¿Cuánto puedes aportar cada mes?</h3>
+              <p class="wiz-sub">Lo que pondrías mes a mes durante los 36 meses de obra</p>
+
+              <div class="wiz-money">
+                <span class="wiz-money-sym">$</span>
+                <input type="text" id="cotiz-mensual" placeholder="0" inputmode="numeric"
+                  oninput="formatCotizField(this)" autocomplete="off" />
+              </div>
+              <p class="wiz-hint">Para cubrir $77.7M en 36 meses necesitas ~$2.158.000/mes (sin ahorros previos).</p>
+              <div class="wiz-quick">
+                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',1000000)">$1M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',1500000)">$1.5M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',2000000)">$2M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',2500000)">$2.5M</button>
+                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',3000000)">$3M</button>
+              </div>
+
+              <!-- Potenciadores (solo empleados — visible por defecto porque el chip inicial es Empleado) -->
+              <div id="wiz-boosts" style="width:100%;margin-bottom:20px">
+                <p style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-dark);margin-bottom:8px;text-align:left">⚡ Activa tus potenciadores</p>
+
+                <label class="wiz-boost on" id="wb-primas">
+                  <input type="checkbox" id="boost-primas" checked onchange="wizBoostChange(this)" />
+                  <div class="wiz-boost-box">
+                    <i class="fas fa-check" style="font-size:.6rem;color:#fff"></i>
+                  </div>
+                  <div>
+                    <strong>Incluir mis Primas</strong>
+                    <span>Junio y Diciembre — ½ salario c/u</span>
+                    <span class="wiz-boost-pow">✨ Aportes extra 2× al año</span>
+                  </div>
+                </label>
+
+                <label class="wiz-boost on" id="wb-ces">
+                  <input type="checkbox" id="boost-cesantias" checked onchange="wizBoostChange(this)" />
+                  <div class="wiz-boost-box">
+                    <i class="fas fa-check" style="font-size:.6rem;color:#fff"></i>
+                  </div>
+                  <div>
+                    <strong>Incluir mis Cesantías</strong>
+                    <span>Consignadas en Marzo — 1 mes/año</span>
+                    <span class="wiz-boost-pow">✨ Abono extra en marzo</span>
+                  </div>
+                </label>
+              </div>
+
+              <button class="wiz-btn" onclick="wizGo(5)">Ver mi resultado <i class="fas fa-arrow-right"></i></button>
+              <button class="wiz-back" onclick="wizGo(3)">← Atrás</button>
+            </div>
+          </div>
+
+          <!-- ══ PASO 5: Resultado ══ -->
+          <div class="cotiz-step" id="cotiz-s5">
+            <div class="wiz-body" style="max-width:480px">
+              <div id="wiz-resultado"></div>
+              <button class="wiz-back" onclick="wizGo(1)" style="margin-top:16px">
+                <i class="fas fa-redo" style="font-size:.75rem"></i> Recalcular desde el inicio
+              </button>
             </div>
           </div>
 
