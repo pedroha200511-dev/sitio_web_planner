@@ -3,7 +3,7 @@
    =================================================== */
 
 // ─── TAB NAVIGATION ─────────────────────────────────
-const VALID_TABS = ['inicio','proyectos','cotizar','proceso','nosotros','avances','blog','exterior','contacto'];
+const VALID_TABS = ['inicio','proyectos','proceso','nosotros','avances','blog','exterior','contacto'];
 let currentTab = 'inicio';
 
 function switchTab(name) {
@@ -252,19 +252,31 @@ function wizCalcular() {
   }
   html += `</div>`;
 
-  html += `<button class="wiz-btn-wa" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-size:1rem;font-weight:700;padding:17px;border-radius:14px" onclick="wizEnviarLead()">
-    <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Hablar con un asesor
-  </button>`;
+  if (listo || semAmarillo) {
+    html += `<button class="wiz-btn-wa" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-size:1rem;font-weight:700;padding:17px;border-radius:14px;background:#10B981;color:#fff" onclick="wizEnviarLead('positivo')">
+      <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Pedir información
+    </button>
+    <button class="wiz-btn-wa" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-size:.9rem;font-weight:600;padding:13px;border-radius:14px;background:transparent;color:var(--color-gray-600);border:1.5px solid var(--color-gray-200);margin-top:8px" onclick="wizEnviarLead('asesor')">
+      <i class="fab fa-whatsapp" style="font-size:1rem"></i> Hablar con un asesor
+    </button>`;
+  } else {
+    html += `<button class="wiz-btn-wa" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-size:1rem;font-weight:700;padding:17px;border-radius:14px" onclick="wizEnviarLead('asesor')">
+      <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Hablar con un asesor
+    </button>`;
+  }
 
   const res = document.getElementById('wiz-resultado');
   if (res) res.innerHTML = html;
 }
 
-function wizEnviarLead() {
+function wizEnviarLead(tipo = 'asesor') {
   const ingreso = fmtCOP(parseMoney(document.getElementById('cotiz-ingreso')?.value));
   const ahorro  = fmtCOP(parseMoney(document.getElementById('cotiz-ahorro')?.value));
   const mensual = fmtCOP(parseMoney(document.getElementById('cotiz-mensual')?.value));
-  const msg = `Hola! Hice la simulación en el sitio de Planner para *Proyecto Asia*.\n• Empleo: ${wizEmpleo}\n• Ingresos: ${ingreso}/mes\n• Ahorros: ${ahorro}\n• Ahorro mensual: ${mensual}/mes\n¿Me pueden asesorar? Gracias.`;
+  const intro = tipo === 'positivo'
+    ? `Hola! Simulé mi cuota en el sitio de Planner para *Proyecto Asia* y me interesa. Quisiera más información para avanzar.`
+    : `Hola! Hice la simulación en el sitio de Planner para *Proyecto Asia* y quisiera que me ayuden a encontrar la mejor opción.`;
+  const msg = `${intro}\n• Empleo: ${wizEmpleo}\n• Ingresos: ${ingreso}/mes\n• Ahorros: ${ahorro}\n• Ahorro mensual: ${mensual}/mes\n¿Me pueden asesorar? Gracias.`;
   window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
 }
 

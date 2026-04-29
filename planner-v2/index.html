@@ -110,7 +110,7 @@
       <ul class="navbar__nav" role="list">
         <li><a href="#" data-nav-tab="inicio"    onclick="switchTab('inicio');return false;"    class="active">Inicio</a></li>
         <li><a href="#" data-nav-tab="proyectos" onclick="switchTab('proyectos');return false;"          >Proyectos</a></li>
-        <li><a href="#" data-nav-tab="cotizar"   onclick="switchTab('cotizar');return false;"   style="color:var(--color-accent);font-weight:700">Cotizar</a></li>
+        <li><a href="#" data-nav-tab="cotizar"   onclick="switchTab('proyectos');setTimeout(()=>document.getElementById('calculadora').scrollIntoView({behavior:'smooth'}),80);return false;"   style="color:var(--color-accent);font-weight:700">Cotizar</a></li>
         <li><a href="#" data-nav-tab="proceso"   onclick="switchTab('proceso');return false;"            >Cómo comprar</a></li>
         <li><a href="#" data-nav-tab="nosotros"  onclick="switchTab('nosotros');return false;"           >Nosotros</a></li>
         <li><a href="#" data-nav-tab="avances"   onclick="switchTab('avances');return false;"            >Avances</a></li>
@@ -137,7 +137,7 @@
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menú móvil">
   <a href="#" onclick="switchTab('inicio');return false;">Inicio</a>
   <a href="#" onclick="switchTab('proyectos');return false;">Proyectos</a>
-  <a href="#" onclick="switchTab('cotizar');return false;" style="color:var(--color-accent);font-weight:700">Cotizar</a>
+  <a href="#" onclick="switchTab('proyectos');setTimeout(()=>document.getElementById('calculadora').scrollIntoView({behavior:'smooth'}),80);return false;" style="color:var(--color-accent);font-weight:700">Cotizar</a>
   <a href="#" onclick="switchTab('proceso');return false;">Cómo comprar</a>
   <a href="#" onclick="switchTab('nosotros');return false;">Nosotros</a>
   <a href="#" onclick="switchTab('avances');return false;">Avances de obra</a>
@@ -343,8 +343,8 @@
           <a href="proyectos/asia.html" class="btn btn-primary btn-lg">
             <i class="fas fa-expand-alt"></i> Ver proyecto completo
           </a>
-          <button class="btn btn-whatsapp btn-lg" onclick="switchTab('cotizar')">
-            <i class="fab fa-whatsapp"></i> Cotizar ahora
+          <button class="btn btn-whatsapp btn-lg" onclick="document.getElementById('calculadora').scrollIntoView({behavior:'smooth'})">
+            <i class="fas fa-calculator"></i> Cotizar ahora
           </button>
         </div>
       </div>
@@ -432,7 +432,7 @@
 
 
 <!-- ======================== COTIZADOR CUOTA INICIAL ======================== -->
-<section id="calculadora" data-tab="cotizar" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
+<section id="calculadora" data-tab="proyectos" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
   <div class="container">
     <div class="calc-grid">
 
@@ -814,7 +814,7 @@
 
       <div class="testimonio-card reveal" style="transition-delay:.1s">
         <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="testimonio-text">"La financiación fue mucho más fácil de lo que pensé. El equipo de Planner explicó cada paso con paciencia. Me ayudaron a acceder al subsidio Mi Casa Ya y bajé la cuota mensual considerablemente."</p>
+        <p class="testimonio-text">"La financiación fue mucho más fácil de lo que pensé. El equipo de Planner explicó cada paso con paciencia y me acompañó desde la simulación hasta el día que recibí las llaves."</p>
         <div class="testimonio-author">
           <div class="testimonio-avatar">RD</div>
           <div>
