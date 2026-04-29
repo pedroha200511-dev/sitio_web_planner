@@ -99,15 +99,9 @@ function openWhatsApp(projectName = '') {
 }
 
 // ─── COTIZADOR CUOTA INICIAL — PROYECTO ASIA ─────────
-const PRECIO_ASIA       = 259000000;
-const CUOTA_INICIAL_A   = PRECIO_ASIA * 0.30;   // $77.700.000
-const HIPOTECA_A        = PRECIO_ASIA * 0.70;   // $181.300.000
-const PLAZO_OBRA        = 36;
-const TASA_MENS         = 0.115 / 12;
-const PLAZO_HIPO        = 240;
-const CUOTA_HIPOTECARIA = Math.round(
-  HIPOTECA_A * TASA_MENS / (1 - Math.pow(1 + TASA_MENS, -PLAZO_HIPO))
-);
+const PRECIO_ASIA     = 259000000;
+const CUOTA_INICIAL_A = PRECIO_ASIA * 0.30;   // $77.700.000
+const PLAZO_OBRA      = 20;
 
 function fmtCOP(n) {
   if (n >= 1e9) return '$' + (n/1e9).toFixed(2) + 'B';
@@ -183,14 +177,11 @@ function wizCalcular() {
   else if (mensual > 0) { mesesBase = Math.ceil((CUOTA_INICIAL_A - ahorro) / mensual); }
   const semAmarillo = !listo && mesesBase <= PLAZO_OBRA;
 
-  const maxCuotaBanco   = ingreso * 0.30;
-  const calificaCredito = ingreso > 0 ? CUOTA_HIPOTECARIA <= maxCuotaBanco : null;
-
   const sem = listo
-    ? { color:'#10B981', bg:'#ECFDF5', border:'#A7F3D0', icon:'fa-check-circle',      txt:'¡Puedes hacerlo! Tienes o acumulas la cuota inicial en el plazo de obra.' }
+    ? { color:'#10B981', bg:'#ECFDF5', border:'#A7F3D0', icon:'fa-check-circle',      txt:'¡Puedes hacerlo! Tienes o acumulas la cuota inicial en los 20 meses de obra.' }
     : semAmarillo
-    ? { color:'#C8A96E', bg:'#FEF9EE', border:'#E5D5AA', icon:'fa-clock',              txt:'Puedes lograrlo ahorrando durante los 36 meses de construcción.' }
-    : { color:'#EF4444', bg:'#FEF2F2', border:'#FCA5A5', icon:'fa-exclamation-circle', txt:'Con tu ahorro actual no alcanzas en los 36 meses. Ajusta el plan.' };
+    ? { color:'#C8A96E', bg:'#FEF9EE', border:'#E5D5AA', icon:'fa-clock',              txt:'Puedes lograrlo ahorrando durante los 20 meses de construcción.' }
+    : { color:'#EF4444', bg:'#FEF2F2', border:'#FCA5A5', icon:'fa-exclamation-circle', txt:'Con tu ahorro actual no alcanzas en los 20 meses. Habla con un asesor.' };
 
   let html = '';
 
@@ -206,16 +197,16 @@ function wizCalcular() {
     <div style="display:flex;justify-content:space-between;font-size:.9rem"><span style="font-weight:700">Cuota inicial (30%)</span><span style="font-weight:800;color:#C8A96E;font-size:1rem">${fmtCOPFull(CUOTA_INICIAL_A)}</span></div>
   </div>`;
 
-  html += `<div style="background:#F8F6F2;border-radius:12px;padding:14px 16px;margin-bottom:12px">
-    <div style="font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9CA3AF;margin-bottom:10px">Tu plan de ahorro (36 meses)</div>`;
+  html += `<div style="background:#F8F6F2;border-radius:12px;padding:14px 16px;margin-bottom:16px">
+    <div style="font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9CA3AF;margin-bottom:10px">Tu plan de ahorro (20 meses)</div>`;
   if (ahorro > 0)
     html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Ahorros actuales</span><span style="font-weight:600;color:#10B981">${fmtCOPFull(ahorro)}</span></div>`;
   if (mensual > 0)
-    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Cuotas mensuales (36 meses)</span><span style="font-weight:600">${fmtCOPFull(acumMensual)}</span></div>`;
+    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Cuotas mensuales (20 meses)</span><span style="font-weight:600">${fmtCOPFull(acumMensual)}</span></div>`;
   if (usaPrimas && totalPrimas > 0)
-    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#10B981">⚡ Primas (Jun/Dic × 3 años)</span><span style="font-weight:600;color:#10B981">+ ${fmtCOPFull(totalPrimas)}</span></div>`;
+    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#10B981">⚡ Primas (Jun/Dic)</span><span style="font-weight:600;color:#10B981">+ ${fmtCOPFull(totalPrimas)}</span></div>`;
   if (usaCesantias && totalCesantias > 0)
-    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#10B981">⚡ Cesantías (Mar × 3 años)</span><span style="font-weight:600;color:#10B981">+ ${fmtCOPFull(totalCesantias)}</span></div>`;
+    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#10B981">⚡ Cesantías (marzo)</span><span style="font-weight:600;color:#10B981">+ ${fmtCOPFull(totalCesantias)}</span></div>`;
 
   const pctTotal = Math.min(100, Math.round((totalAcumulado / CUOTA_INICIAL_A) * 100));
   html += `<div style="border-top:1px solid #E5E7EB;margin:8px 0 8px"></div>
@@ -228,32 +219,10 @@ function wizCalcular() {
   if (!listo && mensual > 0) {
     const necesario = Math.ceil(CUOTA_INICIAL_A / PLAZO_OBRA);
     html += `<div style="margin-top:10px;padding:10px 12px;background:#FEF9EE;border-left:3px solid #C8A96E;border-radius:0 8px 8px 0;font-size:.8rem;color:#1F2937;line-height:1.45">
-      💡 Para completarlo en 36 meses necesitarías <strong>${fmtCOP(necesario)}/mes</strong> (sin potenciadores).
+      💡 Para completarlo en 20 meses necesitarías <strong>${fmtCOP(necesario)}/mes</strong> (sin potenciadores).
     </div>`;
   }
   html += `</div>`;
-
-  html += `<div style="background:#F8F6F2;border-radius:12px;padding:14px 16px;margin-bottom:12px">
-    <div style="font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9CA3AF;margin-bottom:10px">Crédito hipotecario (70%)</div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Monto a financiar</span><span style="font-weight:600">${fmtCOPFull(HIPOTECA_A)}</span></div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Plazo</span><span style="font-weight:600">20 años · 11.5% E.A.</span></div>
-    <div style="border-top:1px solid #E5E7EB;margin:8px 0 6px"></div>
-    <div style="display:flex;justify-content:space-between;font-size:.9rem"><span style="font-weight:700">Cuota hipotecaria est.</span><span style="font-weight:800;color:#313133;font-size:.95rem">${fmtCOPFull(CUOTA_HIPOTECARIA)}/mes</span></div>
-    ${ingreso > 0 ? `<div style="margin-top:10px;padding:8px 10px;border-radius:8px;background:${calificaCredito?'#ECFDF5':'#FEF2F2'};font-size:.8rem;color:${calificaCredito?'#065F46':'#B91C1C'}">
-      <i class="fas fa-${calificaCredito?'check':'times'}-circle"></i>
-      ${calificaCredito
-        ? `Con ingresos de ${fmtCOP(ingreso)}/mes, <strong>sí calificas</strong> al crédito hipotecario.`
-        : `Con ingresos de ${fmtCOP(ingreso)}/mes necesitarías al menos <strong>${fmtCOP(Math.ceil(CUOTA_HIPOTECARIA/0.30))}/mes</strong> para calificar.`}
-    </div>` : ''}
-  </div>`;
-
-  html += `<div style="background:rgba(200,169,110,.08);border:1px solid rgba(200,169,110,.25);border-radius:10px;padding:12px 14px;margin-bottom:14px;display:flex;gap:10px;align-items:flex-start">
-    <i class="fas fa-home" style="color:#C8A96E;margin-top:2px;flex-shrink:0"></i>
-    <div style="font-size:.8rem;color:#374151;line-height:1.5">
-      <strong style="display:block;margin-bottom:2px">¿Aplicas al subsidio Mi Casa Ya?</strong>
-      El Gobierno puede cubrir hasta <strong>$30.000.000</strong> de tu cuota inicial. Te asesoramos sin costo.
-    </div>
-  </div>`;
 
   html += `<button class="wiz-btn-wa" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-size:1rem;font-weight:700;padding:17px;border-radius:14px" onclick="wizEnviarLead()">
     <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Hablar con un asesor
