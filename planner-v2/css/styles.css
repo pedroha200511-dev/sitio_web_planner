@@ -171,20 +171,22 @@ p  { font-size: 1rem; line-height: 1.7; }
   font-weight: 800;
 }
 
-.navbar__nav { display: flex; align-items: center; gap: 8px; }
+.navbar__nav { display: flex; align-items: center; gap: 2px; }
 .navbar__nav a {
-  padding: 8px 16px;
+  padding: 7px 11px;
   border-radius: var(--radius-sm);
-  font-size: .9rem;
+  font-size: .8rem;
   font-weight: 500;
   color: var(--color-gray-600);
   transition: var(--transition);
+  white-space: nowrap;
+  letter-spacing: .01em;
 }
 .navbar__nav a:hover { color: var(--color-primary); background: var(--color-gray-100); }
-.navbar__nav a.active { color: var(--color-primary); font-weight: 600; }
+.navbar__nav a.active { color: var(--color-primary); font-weight: 700; }
 
 .navbar__actions { display: flex; align-items: center; gap: 12px; }
-.navbar__social { display: flex; gap: 8px; }
+.navbar__social { display: none; }
 .navbar__social a {
   width: 36px; height: 36px;
   display: flex; align-items: center; justify-content: center;
