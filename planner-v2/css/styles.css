@@ -268,12 +268,14 @@ p  { font-size: 1rem; line-height: 1.7; }
 }
 .hero__badge-dot { width: 6px; height: 6px; background: var(--color-gold); border-radius: 50%; animation: pulse 2s infinite; }
 
+.hero__text { text-align: center; }
+
 .hero__title { color: var(--color-white); margin-bottom: 20px; }
 .hero__title span { color: var(--color-gold); }
 
-.hero__subtitle { color: rgba(255,255,255,.75); font-size: 1.1rem; margin-bottom: 36px; max-width: 480px; }
+.hero__subtitle { color: rgba(255,255,255,.75); font-size: 1.1rem; margin-bottom: 36px; max-width: 480px; margin-left: auto; margin-right: auto; }
 
-.hero__ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; }
+.hero__ctas { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 48px; justify-content: center; }
 
 .hero__trust {
   display: flex;
