@@ -1559,6 +1559,53 @@ section { padding: var(--section-py) 0; }
 .wiz-boost span   { font-size: .76rem; color: var(--color-gray-600); line-height: 1.4; display: block; }
 .wiz-boost-pow    { color: #10B981; font-weight: 700; font-size: .73rem; margin-top: 3px; display: block; }
 
+/* Tarjetas selección de proyecto (paso 0) */
+.wiz-proj-card {
+  width: 100%;
+  border: 2px solid var(--color-gray-200);
+  border-radius: 14px;
+  padding: 18px 20px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: border-color .2s, box-shadow .2s, transform .2s;
+  text-align: left;
+  background: #fff;
+}
+.wiz-proj-card:hover {
+  border-color: var(--color-primary);
+  box-shadow: 0 4px 16px rgba(49,49,51,.1);
+  transform: translateY(-2px);
+}
+.wiz-proj-badge {
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .06em;
+  text-transform: uppercase;
+  color: #10B981;
+  margin-bottom: 4px;
+}
+.wiz-proj-name {
+  font-family: var(--font-heading);
+  font-size: 1.1rem;
+  font-weight: 800;
+  color: var(--color-dark);
+  margin-bottom: 3px;
+}
+.wiz-proj-loc {
+  font-size: .8rem;
+  color: var(--color-gray-600);
+  margin-bottom: 14px;
+}
+.wiz-proj-stats {
+  display: flex;
+  gap: 24px;
+}
+.wiz-proj-stats div { display: flex; flex-direction: column; gap: 2px; }
+.wiz-proj-stats strong { font-size: .95rem; font-weight: 800; color: var(--color-dark); font-family: var(--font-heading); }
+.wiz-proj-stats span  { font-size: .7rem; color: var(--color-gray-500); }
+.wiz-proj-soon { cursor: default; opacity: .45; pointer-events: none; }
+.wiz-proj-badge-soon { color: var(--color-gray-500) !important; }
+
 /* Resultado */
 .wiz-result-box {
   background: var(--color-gray-100);

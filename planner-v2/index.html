@@ -110,7 +110,7 @@
       <ul class="navbar__nav" role="list">
         <li><a href="#" data-nav-tab="inicio"    onclick="switchTab('inicio');return false;"    class="active">Inicio</a></li>
         <li><a href="#" data-nav-tab="proyectos" onclick="switchTab('proyectos');return false;"          >Proyectos</a></li>
-        <li><a href="#" data-nav-tab="cotizar"   onclick="switchTab('proyectos');setTimeout(()=>document.getElementById('calculadora').scrollIntoView({behavior:'smooth'}),80);return false;"   style="color:var(--color-accent);font-weight:700">Cotizar</a></li>
+        <li><a href="#" data-nav-tab="cotizar"   onclick="switchTab('cotizar');return false;"   style="color:var(--color-accent);font-weight:700">Cotizar</a></li>
         <li><a href="#" data-nav-tab="proceso"   onclick="switchTab('proceso');return false;"            >Cómo comprar</a></li>
         <li><a href="#" data-nav-tab="nosotros"  onclick="switchTab('nosotros');return false;"           >Nosotros</a></li>
         <li><a href="#" data-nav-tab="avances"   onclick="switchTab('avances');return false;"            >Avances</a></li>
@@ -137,7 +137,7 @@
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menú móvil">
   <a href="#" onclick="switchTab('inicio');return false;">Inicio</a>
   <a href="#" onclick="switchTab('proyectos');return false;">Proyectos</a>
-  <a href="#" onclick="switchTab('proyectos');setTimeout(()=>document.getElementById('calculadora').scrollIntoView({behavior:'smooth'}),80);return false;" style="color:var(--color-accent);font-weight:700">Cotizar</a>
+  <a href="#" onclick="switchTab('cotizar');return false;" style="color:var(--color-accent);font-weight:700">Cotizar</a>
   <a href="#" onclick="switchTab('proceso');return false;">Cómo comprar</a>
   <a href="#" onclick="switchTab('nosotros');return false;">Nosotros</a>
   <a href="#" onclick="switchTab('avances');return false;">Avances de obra</a>
@@ -331,7 +331,7 @@
           <a href="proyectos/asia.html" class="btn btn-primary btn-lg">
             <i class="fas fa-expand-alt"></i> Ver proyecto completo
           </a>
-          <button class="btn btn-whatsapp btn-lg" onclick="document.getElementById('calculadora').scrollIntoView({behavior:'smooth'})">
+          <button class="btn btn-whatsapp btn-lg" onclick="switchTab('cotizar')">
             <i class="fas fa-calculator"></i> Cotizar ahora
           </button>
         </div>
@@ -420,7 +420,7 @@
 
 
 <!-- ======================== COTIZADOR CUOTA INICIAL ======================== -->
-<section id="calculadora" data-tab="proyectos" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
+<section id="calculadora" data-tab="cotizar" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
   <div class="container">
     <div class="calc-grid">
 
@@ -471,8 +471,36 @@
             <div class="wiz-dot"         id="wd5"></div>
           </div>
 
+          <!-- ══ PASO 0: Selección de proyecto ══ -->
+          <div class="cotiz-step active" id="cotiz-s0">
+            <div class="wiz-body" style="max-width:460px">
+              <div class="wiz-icon">🏢</div>
+              <h3 class="wiz-title">¿Qué proyecto quieres cotizar?</h3>
+              <p class="wiz-sub">Selecciona el proyecto y en 1 minuto te calculamos un plan personalizado para tu cuota inicial.</p>
+
+              <!-- Asia — disponible -->
+              <div class="wiz-proj-card" onclick="wizSelectProject('asia')">
+                <div class="wiz-proj-badge"><span style="color:#10B981">●</span> Disponible ahora</div>
+                <div class="wiz-proj-name">Proyecto Asia</div>
+                <div class="wiz-proj-loc"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
+                <div class="wiz-proj-stats">
+                  <div><strong>$259M</strong><span>Precio</span></div>
+                  <div><strong>50.31 m²</strong><span>Área</span></div>
+                  <div><strong>2027</strong><span>Entrega</span></div>
+                </div>
+              </div>
+
+              <!-- Próximamente -->
+              <div class="wiz-proj-card wiz-proj-soon">
+                <div class="wiz-proj-badge wiz-proj-badge-soon">Próximamente</div>
+                <div class="wiz-proj-name">Nuevos proyectos</div>
+                <div class="wiz-proj-loc">Más opciones en camino</div>
+              </div>
+            </div>
+          </div>
+
           <!-- ══ PASO 1: Tipo de empleo ══ -->
-          <div class="cotiz-step active" id="cotiz-s1">
+          <div class="cotiz-step" id="cotiz-s1">
             <div class="wiz-body">
               <div class="wiz-icon">👤</div>
               <h3 class="wiz-title">¿Cómo generas tus ingresos?</h3>

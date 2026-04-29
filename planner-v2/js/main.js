@@ -3,7 +3,7 @@
    =================================================== */
 
 // ─── TAB NAVIGATION ─────────────────────────────────
-const VALID_TABS = ['inicio','proyectos','proceso','nosotros','avances','blog','exterior','contacto'];
+const VALID_TABS = ['inicio','proyectos','cotizar','proceso','nosotros','avances','blog','exterior','contacto'];
 let currentTab = 'inicio';
 
 function switchTab(name) {
@@ -18,6 +18,7 @@ function switchTab(name) {
   history.replaceState(null, '', '#' + name);
   currentTab = name;
   document.getElementById('mobile-nav')?.classList.remove('open');
+  if (name === 'cotizar') wizGo(0);
 }
 
 function openWhatsAppExterior() {
@@ -154,7 +155,13 @@ function wizSet(id, val) {
 
 // ─ Wizard state
 let wizEmpleo = 'empleado';
+let wizProject = '';
 const WIZ_STEPS = 5;
+
+function wizSelectProject(name) {
+  wizProject = name;
+  wizGo(1);
+}
 
 function wizUpdateDots(step) {
   for (let i = 1; i <= WIZ_STEPS; i++) {
@@ -166,9 +173,11 @@ function wizUpdateDots(step) {
 
 function wizGo(step) {
   if (step === WIZ_STEPS) wizCalcular();
+  const dots = document.getElementById('wiz-dots');
+  if (dots) dots.style.display = step === 0 ? 'none' : 'flex';
   document.querySelectorAll('.cotiz-step').forEach(s => s.classList.remove('active'));
   document.getElementById('cotiz-s' + step)?.classList.add('active');
-  wizUpdateDots(step);
+  if (step > 0) wizUpdateDots(step);
   document.getElementById('calculadora')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 }
 
