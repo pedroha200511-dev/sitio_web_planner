@@ -1969,3 +1969,7 @@ body.has-announcement #scroll-top    { bottom: 100px; }
   .hero__ctas .btn   { width: 100%; justify-content: center; }
   .hero__trust-number { font-size: 1.4rem; }
 }
+
+/* ─── TAB NAVIGATION ───────────────────────────────── */
+[data-tab]          { display: none; }
+[data-tab].tab-active { display: block; }

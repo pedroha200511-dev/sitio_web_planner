@@ -2,6 +2,34 @@
    PLANNER CONSTRUCTORA v2 — JavaScript
    =================================================== */
 
+// ─── TAB NAVIGATION ─────────────────────────────────
+const VALID_TABS = ['inicio','proyectos','proceso','nosotros','avances','blog','exterior','contacto'];
+let currentTab = 'inicio';
+
+function switchTab(name) {
+  if (!VALID_TABS.includes(name)) name = 'inicio';
+  document.querySelectorAll('[data-tab]').forEach(el => {
+    el.classList.toggle('tab-active', el.dataset.tab === name);
+  });
+  document.querySelectorAll('[data-nav-tab]').forEach(a => {
+    a.classList.toggle('active', a.dataset.navTab === name);
+  });
+  window.scrollTo({ top: 0, behavior: 'instant' });
+  history.replaceState(null, '', '#' + name);
+  currentTab = name;
+  document.getElementById('mobile-nav')?.classList.remove('open');
+}
+
+function openWhatsAppExterior() {
+  const msg = 'Hola! Estoy en el exterior y me interesa comprar un apartamento en Proyecto Asia para mi familia en Colombia. ¿Me pueden asesorar? Gracias.';
+  window.open('https://wa.me/573185481730?text=' + encodeURIComponent(msg), '_blank');
+}
+
+window.addEventListener('DOMContentLoaded', () => {
+  const hash = location.hash.replace('#', '');
+  switchTab(VALID_TABS.includes(hash) ? hash : 'inicio');
+});
+
 // ─── PAGE LOADER ────────────────────────────────────
 const loader = document.getElementById('page-loader');
 window.addEventListener('load', () => {

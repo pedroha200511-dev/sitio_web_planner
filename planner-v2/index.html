@@ -115,13 +115,14 @@
       </a>
 
       <ul class="navbar__nav" role="list">
-        <li><a href="#inicio"    class="active">Inicio</a></li>
-        <li><a href="#proyectos">Proyectos</a></li>
-        <li><a href="#proceso"  >Cómo comprar</a></li>
-        <li><a href="#nosotros" >Nosotros</a></li>
-        <li><a href="#avances"  >Avances</a></li>
-        <li><a href="#blog"     >Blog</a></li>
-        <li><a href="#contacto" >Contacto</a></li>
+        <li><a href="#" data-nav-tab="inicio"    onclick="switchTab('inicio');return false;"    class="active">Inicio</a></li>
+        <li><a href="#" data-nav-tab="proyectos" onclick="switchTab('proyectos');return false;"          >Proyectos</a></li>
+        <li><a href="#" data-nav-tab="proceso"   onclick="switchTab('proceso');return false;"            >Cómo comprar</a></li>
+        <li><a href="#" data-nav-tab="nosotros"  onclick="switchTab('nosotros');return false;"           >Nosotros</a></li>
+        <li><a href="#" data-nav-tab="avances"   onclick="switchTab('avances');return false;"            >Avances</a></li>
+        <li><a href="#" data-nav-tab="blog"      onclick="switchTab('blog');return false;"               >Blog</a></li>
+        <li><a href="#" data-nav-tab="exterior"  onclick="switchTab('exterior');return false;"  style="color:var(--color-accent);font-weight:700">🌎 Desde el exterior</a></li>
+        <li><a href="#" data-nav-tab="contacto"  onclick="switchTab('contacto');return false;"           >Contacto</a></li>
       </ul>
 
       <div class="navbar__actions">
@@ -129,7 +130,7 @@
           <a href="https://www.facebook.com/plannerconstructora" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/plannerconstructora" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
-        <a href="#contacto" class="btn btn-primary btn-sm">Cotizar ahora</a>
+        <a href="#" onclick="switchTab('contacto');return false;" class="btn btn-primary btn-sm">Cotizar ahora</a>
       </div>
 
       <button class="navbar__hamburger" id="hamburger" aria-label="Menú" aria-expanded="false">
@@ -141,21 +142,22 @@
 
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menú móvil">
-  <a href="#inicio"    onclick="document.getElementById('mobile-nav').classList.remove('open')">Inicio</a>
-  <a href="#proyectos" onclick="document.getElementById('mobile-nav').classList.remove('open')">Proyectos</a>
-  <a href="#proceso"   onclick="document.getElementById('mobile-nav').classList.remove('open')">Cómo comprar</a>
-  <a href="#nosotros"  onclick="document.getElementById('mobile-nav').classList.remove('open')">Nosotros</a>
-  <a href="#avances"   onclick="document.getElementById('mobile-nav').classList.remove('open')">Avances de obra</a>
-  <a href="#blog"      onclick="document.getElementById('mobile-nav').classList.remove('open')">Blog</a>
-  <a href="#contacto"  onclick="document.getElementById('mobile-nav').classList.remove('open')">Contacto</a>
-  <button class="btn btn-whatsapp" onclick="openWhatsApp();document.getElementById('mobile-nav').classList.remove('open')">
+  <a href="#" onclick="switchTab('inicio');return false;">Inicio</a>
+  <a href="#" onclick="switchTab('proyectos');return false;">Proyectos</a>
+  <a href="#" onclick="switchTab('proceso');return false;">Cómo comprar</a>
+  <a href="#" onclick="switchTab('nosotros');return false;">Nosotros</a>
+  <a href="#" onclick="switchTab('avances');return false;">Avances de obra</a>
+  <a href="#" onclick="switchTab('blog');return false;">Blog</a>
+  <a href="#" onclick="switchTab('exterior');return false;" style="color:var(--color-accent);font-weight:700">🌎 Desde el exterior</a>
+  <a href="#" onclick="switchTab('contacto');return false;">Contacto</a>
+  <button class="btn btn-whatsapp" onclick="openWhatsApp()">
     <i class="fab fa-whatsapp"></i> Hablar con un asesor
   </button>
 </div>
 
 
 <!-- ======================== HERO ======================== -->
-<section class="hero" id="inicio" aria-labelledby="hero-title">
+<section class="hero" id="inicio" data-tab="inicio" aria-labelledby="hero-title">
   <div class="hero__bg" aria-hidden="true"></div>
   <div class="container">
     <div class="hero__content">
@@ -177,10 +179,10 @@
         </p>
 
         <div class="hero__ctas">
-          <a href="#proyectos" class="btn btn-white btn-lg">
+          <a href="#" onclick="switchTab('proyectos');return false;" class="btn btn-white btn-lg">
             <i class="fas fa-building"></i> Ver proyectos
           </a>
-          <a href="#calculadora" class="btn btn-accent btn-lg">
+          <a href="#" onclick="switchTab('proyectos');return false;" class="btn btn-accent btn-lg">
             <i class="fas fa-calculator"></i> Calcular mi cuota
           </a>
         </div>
@@ -233,7 +235,7 @@
             <div class="hero__asia-specs">
               <div class="hero__asia-spec">
                 <i class="fas fa-ruler-combined"></i>
-                <span>50–72 m²</span>
+                <span>50.31 m²</span>
               </div>
               <div class="hero__asia-spec">
                 <i class="fas fa-bed"></i>
@@ -266,7 +268,7 @@
 
 
 <!-- ======================== TRUST BAND ======================== -->
-<div class="trust-band" role="complementary" aria-label="Garantías">
+<div class="trust-band" data-tab="inicio" role="complementary" aria-label="Garantías">
   <div class="container">
     <div class="trust-band__inner">
       <div class="trust-band__item">
@@ -295,7 +297,7 @@
 
 
 <!-- ======================== PROYECTO ASIA (FEATURED) ======================== -->
-<section id="proyectos" aria-labelledby="proyectos-title" style="padding-top:96px;padding-bottom:96px">
+<section id="proyectos" data-tab="proyectos" aria-labelledby="proyectos-title" style="padding-top:96px;padding-bottom:96px">
   <div class="container">
 
     <div class="section-header reveal">
@@ -328,7 +330,7 @@
         <div class="asia-featured__specs">
           <div class="asia-spec-item">
             <i class="fas fa-ruler-combined"></i>
-            <strong>50–72 m²</strong>
+            <strong>50.31 m²</strong>
             <span>Área privada</span>
           </div>
           <div class="asia-spec-item">
@@ -365,7 +367,7 @@
 
 
 <!-- ======================== PROYECTOS ENTREGADOS ======================== -->
-<section id="proyectos-entregados" style="padding:72px 0;background:var(--color-gray-100)">
+<section id="proyectos-entregados" data-tab="proyectos" style="padding:72px 0;background:var(--color-gray-100)">
   <div class="container">
     <div class="section-header reveal" style="margin-bottom:48px">
       <span class="section-label">Trayectoria</span>
@@ -442,7 +444,7 @@
 
 
 <!-- ======================== COTIZADOR CUOTA INICIAL ======================== -->
-<section id="calculadora" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
+<section id="calculadora" data-tab="proyectos" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
   <div class="container">
     <div class="calc-grid">
 
@@ -646,7 +648,7 @@
 
 
 <!-- ======================== PROCESO DE COMPRA ======================== -->
-<section id="proceso" aria-labelledby="proceso-title" style="background:var(--color-off-white)">
+<section id="proceso" data-tab="proceso" aria-labelledby="proceso-title" style="background:var(--color-off-white)">
   <div class="container">
 
     <div class="section-header centered reveal">
@@ -718,7 +720,7 @@
 
 
 <!-- ======================== NOSOTROS ======================== -->
-<section id="nosotros" aria-labelledby="nosotros-title">
+<section id="nosotros" data-tab="nosotros" aria-labelledby="nosotros-title">
   <div class="container">
     <div class="nosotros-grid">
 
@@ -799,7 +801,7 @@
 
 
 <!-- ======================== TESTIMONIOS ======================== -->
-<section id="testimonios" aria-labelledby="testimonios-title" style="background:var(--color-off-white)">
+<section id="testimonios" data-tab="nosotros" aria-labelledby="testimonios-title" style="background:var(--color-off-white)">
   <div class="container">
 
     <div class="section-header centered reveal">
@@ -868,7 +870,7 @@
 
 
 <!-- ======================== AVANCES DE OBRA ======================== -->
-<section id="avances" aria-labelledby="avances-title">
+<section id="avances" data-tab="avances" aria-labelledby="avances-title">
   <div class="container">
 
     <div class="section-header reveal">
@@ -971,7 +973,7 @@
 
 
 <!-- ======================== SERVICIOS ======================== -->
-<section id="servicios" aria-labelledby="servicios-title">
+<section id="servicios" data-tab="nosotros" aria-labelledby="servicios-title">
   <div class="container">
 
     <div class="section-header reveal">
@@ -1006,7 +1008,7 @@
 
 
 <!-- ======================== FAQs ======================== -->
-<section id="faqs" aria-labelledby="faqs-title" style="background:var(--color-off-white)">
+<section id="faqs" data-tab="contacto" aria-labelledby="faqs-title" style="background:var(--color-off-white)">
   <div class="container">
 
     <div class="section-header centered reveal">
@@ -1071,7 +1073,7 @@
 
 
 <!-- ======================== BLOG ======================== -->
-<section id="blog" aria-labelledby="blog-title">
+<section id="blog" data-tab="blog" aria-labelledby="blog-title">
   <div class="container">
 
     <div class="section-header reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:48px">
@@ -1144,8 +1146,106 @@
 </section>
 
 
+<!-- ======================== COLOMBIANOS DESDE EL EXTERIOR ======================== -->
+<section id="exterior" data-tab="exterior" aria-labelledby="exterior-title" style="padding:96px 0">
+  <div class="container">
+
+    <div class="section-header centered reveal">
+      <span class="section-label">Para la diáspora colombiana</span>
+      <h2 class="section-title" id="exterior-title">Invierte en Colombia<br>desde donde estés</h2>
+      <p class="section-subtitle">Millones de colombianos en el exterior sueñan con tener un hogar en su tierra. Ahora es posible — sin volver al país, sin complicaciones.</p>
+    </div>
+
+    <!-- Países -->
+    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:64px">
+      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇺🇸 Estados Unidos</span>
+      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇪🇸 España</span>
+      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇨🇦 Canadá</span>
+      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇬🇧 Reino Unido</span>
+      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇨🇱 Chile</span>
+      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🌎 Y más</span>
+    </div>
+
+    <!-- Grid beneficios -->
+    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-bottom:64px">
+
+      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm)">
+        <div style="width:48px;height:48px;background:rgba(200,169,110,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <i class="fas fa-laptop-house" style="color:var(--color-accent);font-size:1.3rem"></i>
+        </div>
+        <h4 style="font-size:1rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">100% remoto</h4>
+        <p style="font-size:.875rem;color:var(--color-gray-600);line-height:1.6">Todo el proceso se hace en línea. Consultas, documentos y firma de promesa — sin que tengas que tomar un vuelo.</p>
+      </div>
+
+      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm);transition-delay:.1s">
+        <div style="width:48px;height:48px;background:rgba(200,169,110,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <i class="fas fa-dollar-sign" style="color:var(--color-accent);font-size:1.3rem"></i>
+        </div>
+        <h4 style="font-size:1rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Giros internacionales</h4>
+        <p style="font-size:.875rem;color:var(--color-gray-600);line-height:1.6">Acepta pagos en USD, EUR y GBP. Transfiere directamente al proyecto desde tu banco en el exterior.</p>
+      </div>
+
+      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm);transition-delay:.2s">
+        <div style="width:48px;height:48px;background:rgba(200,169,110,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <i class="fas fa-file-signature" style="color:var(--color-accent);font-size:1.3rem"></i>
+        </div>
+        <h4 style="font-size:1rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Poder notarial</h4>
+        <p style="font-size:.875rem;color:var(--color-gray-600);line-height:1.6">Un familiar de confianza firma por ti en Colombia con poder notarial. Te asesoramos en cada paso del trámite.</p>
+      </div>
+
+      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm);transition-delay:.3s">
+        <div style="width:48px;height:48px;background:rgba(200,169,110,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
+          <i class="fas fa-headset" style="color:var(--color-accent);font-size:1.3rem"></i>
+        </div>
+        <h4 style="font-size:1rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Asesor en tu zona horaria</h4>
+        <p style="font-size:.875rem;color:var(--color-gray-600);line-height:1.6">Te asignamos un asesor dedicado que atiende en horario EST, CET o PST. Siempre disponible por WhatsApp o videollamada.</p>
+      </div>
+
+    </div>
+
+    <!-- Proceso simplificado -->
+    <div style="background:var(--color-primary);border-radius:var(--radius-xl);padding:56px 48px;color:#fff;margin-bottom:48px">
+      <h3 style="text-align:center;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;margin-bottom:8px">Así de simple es el proceso</h3>
+      <p style="text-align:center;color:rgba(255,255,255,.6);margin-bottom:40px">4 pasos, sin salir de tu país</p>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
+        <div style="text-align:center">
+          <div style="width:48px;height:48px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;margin:0 auto 12px">1</div>
+          <strong style="display:block;margin-bottom:6px">Contáctanos</strong>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.6)">WhatsApp o videollamada — te explicamos todo</span>
+        </div>
+        <div style="text-align:center">
+          <div style="width:48px;height:48px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;margin:0 auto 12px">2</div>
+          <strong style="display:block;margin-bottom:6px">Escoge tu unidad</strong>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.6)">Seleccionas piso, apartamento y forma de pago</span>
+        </div>
+        <div style="text-align:center">
+          <div style="width:48px;height:48px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;margin:0 auto 12px">3</div>
+          <strong style="display:block;margin-bottom:6px">Poder notarial</strong>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.6)">Autorizas a un familiar para firmar en tu nombre</span>
+        </div>
+        <div style="text-align:center">
+          <div style="width:48px;height:48px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;margin:0 auto 12px">4</div>
+          <strong style="display:block;margin-bottom:6px">¡Tu apartamento!</strong>
+          <span style="font-size:.82rem;color:rgba(255,255,255,.6)">Escritura firmada, tu familia en su nuevo hogar</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CTA -->
+    <div style="text-align:center">
+      <p style="font-size:1rem;color:var(--color-gray-600);margin-bottom:24px">¿Estás en el exterior y quieres comprar para tu familia? Escríbenos ahora.</p>
+      <button class="btn btn-whatsapp btn-lg" onclick="openWhatsAppExterior()" style="margin-bottom:12px">
+        <i class="fab fa-whatsapp"></i> Quiero comprar desde el exterior
+      </button>
+      <p style="font-size:.78rem;color:var(--color-gray-400)">Respondemos en menos de 2 horas · Sin compromiso</p>
+    </div>
+
+  </div>
+</section>
+
+
 <!-- ======================== CTA BANNER ======================== -->
-<section class="cta-banner" aria-labelledby="cta-title">
+<section class="cta-banner" data-tab="contacto" aria-labelledby="cta-title">
   <div class="container">
     <span class="section-label" style="color:var(--color-gold)">Oferta limitada</span>
     <h2 id="cta-title">¿Listo para conocer tu futuro hogar?</h2>
@@ -1154,7 +1254,7 @@
       <button class="btn btn-white btn-lg" onclick="openWhatsApp()">
         <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
       </button>
-      <a href="#contacto" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
+      <a href="#" onclick="switchTab('contacto');return false;" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
         <i class="fas fa-envelope"></i> Enviar mensaje
       </a>
     </div>
@@ -1163,7 +1263,7 @@
 
 
 <!-- ======================== CONTACTO ======================== -->
-<section id="contacto" aria-labelledby="contacto-title">
+<section id="contacto" data-tab="contacto" aria-labelledby="contacto-title">
   <div class="container">
     <div class="contacto-grid">
 
