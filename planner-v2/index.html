@@ -81,7 +81,7 @@
   <!-- Styles -->
   <link rel="stylesheet" href="css/styles.css" />
 </head>
-<body class="has-announcement">
+<body>
 
 <!-- Loader -->
 <div id="page-loader">
@@ -94,13 +94,6 @@
 
 <!-- Scroll progress -->
 <div id="scroll-progress" role="progressbar" aria-hidden="true"></div>
-
-<!-- Announcement bar -->
-<div class="announcement-bar" id="announcement-bar">
-  <span>🔥 <strong>Altea Plaza</strong> — Entrega inmediata. Solo quedan 6 unidades al precio actual.</span>
-  <a href="proyectos/altea-plaza.html">Ver apartamentos →</a>
-  <button class="announcement-close" id="announcement-close" aria-label="Cerrar">✕</button>
-</div>
 
 <!-- Scroll to top -->
 <button id="scroll-top" aria-label="Volver arriba"><i class="fas fa-arrow-up"></i></button>
@@ -117,11 +110,11 @@
       <ul class="navbar__nav" role="list">
         <li><a href="#" data-nav-tab="inicio"    onclick="switchTab('inicio');return false;"    class="active">Inicio</a></li>
         <li><a href="#" data-nav-tab="proyectos" onclick="switchTab('proyectos');return false;"          >Proyectos</a></li>
+        <li><a href="#" data-nav-tab="cotizar"   onclick="switchTab('cotizar');return false;"   style="color:var(--color-accent);font-weight:700">Cotizar</a></li>
         <li><a href="#" data-nav-tab="proceso"   onclick="switchTab('proceso');return false;"            >Cómo comprar</a></li>
         <li><a href="#" data-nav-tab="nosotros"  onclick="switchTab('nosotros');return false;"           >Nosotros</a></li>
         <li><a href="#" data-nav-tab="avances"   onclick="switchTab('avances');return false;"            >Avances</a></li>
-        <li><a href="#" data-nav-tab="blog"      onclick="switchTab('blog');return false;"               >Blog</a></li>
-        <li><a href="#" data-nav-tab="exterior"  onclick="switchTab('exterior');return false;"  style="color:var(--color-accent);font-weight:700">Exterior</a></li>
+        <li><a href="#" data-nav-tab="exterior"  onclick="switchTab('exterior');return false;"           >Exterior</a></li>
         <li><a href="#" data-nav-tab="contacto"  onclick="switchTab('contacto');return false;"           >Contacto</a></li>
       </ul>
 
@@ -144,11 +137,11 @@
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menú móvil">
   <a href="#" onclick="switchTab('inicio');return false;">Inicio</a>
   <a href="#" onclick="switchTab('proyectos');return false;">Proyectos</a>
+  <a href="#" onclick="switchTab('cotizar');return false;" style="color:var(--color-accent);font-weight:700">Cotizar</a>
   <a href="#" onclick="switchTab('proceso');return false;">Cómo comprar</a>
   <a href="#" onclick="switchTab('nosotros');return false;">Nosotros</a>
   <a href="#" onclick="switchTab('avances');return false;">Avances de obra</a>
-  <a href="#" onclick="switchTab('blog');return false;">Blog</a>
-  <a href="#" onclick="switchTab('exterior');return false;" style="color:var(--color-accent);font-weight:700">Exterior</a>
+  <a href="#" onclick="switchTab('exterior');return false;">Exterior</a>
   <a href="#" onclick="switchTab('contacto');return false;">Contacto</a>
   <button class="btn btn-whatsapp" onclick="openWhatsApp()">
     <i class="fab fa-whatsapp"></i> Hablar con un asesor
@@ -200,10 +193,6 @@
             <div class="hero__trust-number" data-count="100" data-suffix="%">0%</div>
             <div class="hero__trust-label">Entregas<br>a tiempo</div>
           </div>
-          <div class="hero__trust-item">
-            <div class="hero__trust-number">4.8★</div>
-            <div class="hero__trust-label">Calificación<br>Google</div>
-          </div>
         </div>
       </div>
 
@@ -254,8 +243,8 @@
             <!-- CTAs -->
             <div class="hero__asia-ctas">
               <a href="proyectos/asia.html" class="btn btn-white btn-sm">Ver proyecto completo</a>
-              <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia')">
-                <i class="fab fa-whatsapp"></i> Cotizar
+              <button class="btn btn-whatsapp btn-sm" onclick="switchTab('cotizar')">
+                <i class="fas fa-calculator"></i> Cotizar
               </button>
             </div>
           </div>
@@ -289,7 +278,7 @@
       </div>
       <div class="trust-band__item">
         <i class="fas fa-home"></i>
-        <span>Subsidios <strong>VIS disponibles</strong></span>
+        <span>Proceso <strong>100% asesorado</strong></span>
       </div>
     </div>
   </div>
@@ -316,7 +305,6 @@
       <div class="asia-featured__info">
         <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap">
           <span class="proyecto-card__badge badge-2026" style="position:static">Entrega 2027</span>
-          <span class="proyecto-card__badge" style="position:static;background:#313133;color:#fff">VIS</span>
         </div>
         <div class="asia-featured__location"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
         <h3 class="asia-featured__name">Proyecto Asia</h3>
@@ -324,7 +312,7 @@
         <p style="color:var(--color-gray-600);margin-bottom:28px;line-height:1.7">
           Apartamentos de 2 y 3 habitaciones en una de las zonas de mayor valorización de Bello.
           Áreas sociales completas, parqueadero incluido, zonas verdes y vista al Valle de Aburrá.
-          Financiación con todos los bancos y asesoría en subsidios de vivienda sin costo.
+          Financiación con todos los bancos del país. Asesoría personalizada sin costo.
         </p>
 
         <div class="asia-featured__specs">
@@ -355,7 +343,7 @@
           <a href="proyectos/asia.html" class="btn btn-primary btn-lg">
             <i class="fas fa-expand-alt"></i> Ver proyecto completo
           </a>
-          <button class="btn btn-whatsapp btn-lg" onclick="openWhatsApp('Asia')">
+          <button class="btn btn-whatsapp btn-lg" onclick="switchTab('cotizar')">
             <i class="fab fa-whatsapp"></i> Cotizar ahora
           </button>
         </div>
@@ -444,7 +432,7 @@
 
 
 <!-- ======================== COTIZADOR CUOTA INICIAL ======================== -->
-<section id="calculadora" data-tab="proyectos" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
+<section id="calculadora" data-tab="cotizar" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
   <div class="container">
     <div class="calc-grid">
 
@@ -671,7 +659,7 @@
         <div class="proceso-step__num">2</div>
         <div class="proceso-step__icon"><i class="fas fa-calculator"></i></div>
         <h4>Simula tu cuota</h4>
-        <p>Usa nuestra calculadora para conocer tu cuota mensual estimada y verificar si aplicas a subsidios del Gobierno como Mi Casa Ya.</p>
+        <p>Usa nuestra calculadora para conocer exactamente cuánto necesitas y cómo llegar a tu cuota inicial.</p>
         <a href="#calculadora" class="btn btn-outline btn-sm">Calcular ahora</a>
       </div>
 
@@ -849,17 +837,7 @@
       </div>
 
     </div>
-
-    <!-- Google Badge -->
-    <div class="google-badge reveal" style="transition-delay:.3s" role="complementary" aria-label="Calificación en Google">
-      <div class="google-badge__logo">🇬</div>
-      <div>
-        <div style="display:flex;align-items:center">
-          <span class="google-badge__score">4.8</span>
-          <div style="display:flex;gap:2px;color:#F59E0B;font-size:.9rem">
-            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i>
-          </div>
-        </div>
+    </div>
         <div class="google-badge__info">Basado en 38+ reseñas verificadas en Google</div>
       </div>
       <a href="https://g.co/kgs/plannerconstructora" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-left:auto">Ver reseñas</a>
@@ -894,12 +872,12 @@
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
             <span style="font-size:.875rem;color:#4B5563;font-weight:600">Avance general</span>
-            <span style="font-family:'Poppins',sans-serif;font-weight:800;color:#313133;font-size:1.1rem">42%</span>
+            <span style="font-family:'Poppins',sans-serif;font-weight:800;color:#313133;font-size:1.1rem">8%</span>
           </div>
           <div style="background:#E5E7EB;border-radius:4px;height:8px;margin-bottom:14px">
-            <div class="progress-fill" data-width="42%" style="height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#313133,#4A4A4D);transition:width 1.2s ease"></div>
+            <div class="progress-fill" data-width="8%" style="height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#313133,#4A4A4D);transition:width 1.2s ease"></div>
           </div>
-          <p style="font-size:.82rem;color:#6B7280;margin-bottom:14px">Estructura pisos 3–5 en fundición. Ritmo: 1 piso cada 6 semanas.</p>
+          <p style="font-size:.82rem;color:#6B7280;margin-bottom:14px">Cimentación y estructura del primer piso en ejecución. Inicio de obra Mayo 2025.</p>
           <button class="btn btn-outline btn-sm" style="width:100%;justify-content:center" onclick="openWhatsApp('Asia — quiero recibir fotos de avance de obra mensualmente')">
             <i class="fab fa-whatsapp"></i> Recibir actualizaciones
           </button>
@@ -914,17 +892,17 @@
                style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)"></div>
           <span style="position:absolute;bottom:12px;left:16px;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem">Proyecto Terralta</span>
-          <span style="position:absolute;top:12px;right:12px;background:#C8A96E;color:#fff;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:12px">Q1 2026</span>
+          <span style="position:absolute;top:12px;right:12px;background:#10B981;color:#fff;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:12px">✅ Entregado</span>
         </div>
         <div style="padding:20px">
           <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
             <span style="font-size:.875rem;color:#4B5563;font-weight:600">Avance general</span>
-            <span style="font-family:'Poppins',sans-serif;font-weight:800;color:#313133;font-size:1.1rem">87%</span>
+            <span style="font-family:'Poppins',sans-serif;font-weight:800;color:#10B981;font-size:1.1rem">100%</span>
           </div>
           <div style="background:#E5E7EB;border-radius:4px;height:8px;margin-bottom:14px">
-            <div class="progress-fill" data-width="87%" style="height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#313133,#4A4A4D);transition:width 1.2s ease"></div>
+            <div class="progress-fill" data-width="100%" style="height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#10B981,#059669);transition:width 1.2s ease"></div>
           </div>
-          <p style="font-size:.82rem;color:#6B7280;margin-bottom:14px">Acabados interiores y enchapes en curso. Entrega confirmada Q1 2026.</p>
+          <p style="font-size:.82rem;color:#6B7280;margin-bottom:14px">Obra terminada y entregada. 100% de propietarios recibieron sus llaves.</p>
           <button class="btn btn-outline btn-sm" style="width:100%;justify-content:center" onclick="openWhatsApp('Terralta — quiero recibir fotos de avance de obra mensualmente')">
             <i class="fab fa-whatsapp"></i> Recibir actualizaciones
           </button>
@@ -958,16 +936,6 @@
 
     </div>
 
-    <!-- Link a fichas detalladas -->
-    <div style="text-align:center" class="reveal">
-      <p style="color:var(--color-gray-600);margin-bottom:16px">¿Quieres ver los avances detallados por proyecto?</p>
-      <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap">
-        <a href="proyectos/asia.html#tab-avances"       class="btn btn-outline btn-sm">Avances Asia</a>
-        <a href="proyectos/terralta.html#tab-avances"   class="btn btn-outline btn-sm">Avances Terralta</a>
-        <a href="proyectos/altea-plaza.html"            class="btn btn-primary btn-sm">Ver Altea Plaza</a>
-      </div>
-    </div>
-
   </div>
 </section>
 
@@ -992,7 +960,7 @@
       <div class="servicio-card reveal" style="transition-delay:.1s">
         <div class="servicio-icon"><i class="fas fa-handshake"></i></div>
         <h3>Asesoría en ventas</h3>
-        <p>Nuestro equipo comercial te guía en la selección del apartamento, opciones de financiación, subsidios disponibles y trámites notariales.</p>
+        <p>Nuestro equipo comercial te guía en la selección del apartamento, opciones de financiación y trámites notariales.</p>
         <a href="#contacto">Saber más <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="servicio-card reveal" style="transition-delay:.2s">
@@ -1032,14 +1000,6 @@
           <i class="fas fa-chevron-down"></i>
         </button>
         <div class="faq-answer">Trabajamos con todos los bancos del sistema financiero colombiano: Bancolombia, Davivienda, BBVA, Banco de Bogotá, entre otros. El proceso es: 1) Separas con una cuota de $1M, 2) Aplicamos juntos al crédito hipotecario, 3) Pagas la cuota inicial en cuotas durante la construcción, 4) El saldo con el banco lo pagas al recibir el apartamento.</div>
-      </div>
-
-      <div class="faq-item reveal" style="transition-delay:.1s">
-        <button class="faq-question" aria-expanded="false">
-          ¿Puedo aplicar al subsidio Mi Casa Ya?
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">Sí. Los proyectos Altea Plaza y Asia califican para el programa Mi Casa Ya del Gobierno Nacional, que otorga subsidios de hasta 30 SMMLV para la cuota inicial. Nuestros asesores te acompañan en todo el proceso de postulación sin costo adicional.</div>
       </div>
 
       <div class="faq-item reveal" style="transition-delay:.15s">
@@ -1086,42 +1046,6 @@
 
     <div class="blog-grid">
 
-      <article class="blog-card reveal">
-        <img
-          src="img/servicio-construccion.png"
-          alt="Guía para comprar apartamento en Bello 2026"
-          class="blog-card__img"
-          loading="lazy" width="500" height="180"
-        />
-        <div class="blog-card__body">
-          <div class="blog-tag">Guía de compra</div>
-          <h3>Guía completa para comprar tu primer apartamento en Bello en 2026</h3>
-          <p>Todo lo que necesitas saber: desde elegir el proyecto hasta recibir las llaves. Paso a paso y sin tecnicismos.</p>
-          <div class="blog-meta">
-            <span><i class="far fa-calendar"></i> 15 Ene 2026</span>
-            <span><i class="far fa-clock"></i> 7 min lectura</span>
-          </div>
-        </div>
-      </article>
-
-      <article class="blog-card reveal" style="transition-delay:.1s">
-        <img
-          src="img/servicio-venta.png"
-          alt="Subsidio Mi Casa Ya Colombia 2026"
-          class="blog-card__img"
-          loading="lazy" width="500" height="180"
-        />
-        <div class="blog-card__body">
-          <div class="blog-tag">Financiación</div>
-          <h3>Subsidio Mi Casa Ya 2026: ¿quién aplica y cómo postularse?</h3>
-          <p>El programa del Gobierno puede darte hasta $30 millones para tu cuota inicial. Aquí te explicamos los requisitos.</p>
-          <div class="blog-meta">
-            <span><i class="far fa-calendar"></i> 8 Feb 2026</span>
-            <span><i class="far fa-clock"></i> 5 min lectura</span>
-          </div>
-        </div>
-      </article>
-
       <article class="blog-card reveal" style="transition-delay:.2s">
         <img
           src="img/servicio-gerencia.png"
@@ -1147,97 +1071,137 @@
 
 
 <!-- ======================== COLOMBIANOS DESDE EL EXTERIOR ======================== -->
-<section id="exterior" data-tab="exterior" aria-labelledby="exterior-title" style="padding:96px 0">
-  <div class="container">
+<section id="exterior" data-tab="exterior" aria-labelledby="exterior-title">
 
-    <div class="section-header centered reveal">
-      <span class="section-label">Para la diáspora colombiana</span>
-      <h2 class="section-title" id="exterior-title">Invierte en Colombia<br>desde donde estés</h2>
-      <p class="section-subtitle">Millones de colombianos en el exterior sueñan con tener un hogar en su tierra. Ahora es posible — sin volver al país, sin complicaciones.</p>
-    </div>
-
-    <!-- Países -->
-    <div style="display:flex;justify-content:center;gap:16px;flex-wrap:wrap;margin-bottom:64px">
-      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇺🇸 Estados Unidos</span>
-      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇪🇸 España</span>
-      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇨🇦 Canadá</span>
-      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇬🇧 Reino Unido</span>
-      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🇨🇱 Chile</span>
-      <span style="padding:8px 20px;background:var(--color-gray-100);border-radius:20px;font-size:.85rem;font-weight:600;color:var(--color-dark)">🌎 Y más</span>
-    </div>
-
-    <!-- Grid beneficios -->
-    <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:24px;margin-bottom:64px">
-
-      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm)">
-        <div style="width:48px;height:48px;background:rgba(200,169,110,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <i class="fas fa-laptop-house" style="color:var(--color-accent);font-size:1.3rem"></i>
-        </div>
-        <h4 style="font-size:1rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">100% remoto</h4>
-        <p style="font-size:.875rem;color:var(--color-gray-600);line-height:1.6">Todo el proceso se hace en línea. Consultas, documentos y firma de promesa — sin que tengas que tomar un vuelo.</p>
+  <!-- 1. GANCHO EMOCIONAL — lo primero que ve el colombiano del exterior -->
+  <div style="background:var(--color-primary);padding:80px 0 64px">
+    <div class="container" style="max-width:760px;text-align:center">
+      <span class="section-label" style="color:var(--color-accent)">Para colombianos en el exterior</span>
+      <h2 id="exterior-title" style="color:#fff;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:800;margin:16px 0 20px;line-height:1.2">
+        ¿Tu familia sigue pagando arriendo<br>mientras tú trabajas en el exterior?
+      </h2>
+      <p style="color:rgba(255,255,255,.72);font-size:1.05rem;line-height:1.7;margin-bottom:36px">
+        Cada remesa que envías puede estar construyendo el patrimonio de tu familia en Colombia. Con Proyecto Asia, la cuota inicial cabe en lo que ya estás mandando — y el proceso se hace sin que tengas que volver.
+      </p>
+      <!-- Países -->
+      <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-bottom:40px">
+        <span style="padding:7px 18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:.82rem;font-weight:600;color:#fff">Estados Unidos</span>
+        <span style="padding:7px 18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:.82rem;font-weight:600;color:#fff">España</span>
+        <span style="padding:7px 18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:.82rem;font-weight:600;color:#fff">Canadá</span>
+        <span style="padding:7px 18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:.82rem;font-weight:600;color:#fff">Reino Unido</span>
+        <span style="padding:7px 18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:.82rem;font-weight:600;color:#fff">Chile</span>
+        <span style="padding:7px 18px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.2);border-radius:20px;font-size:.82rem;font-weight:600;color:#fff">Y más países</span>
       </div>
-
-      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm);transition-delay:.1s">
-        <div style="width:48px;height:48px;background:rgba(200,169,110,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <i class="fas fa-dollar-sign" style="color:var(--color-accent);font-size:1.3rem"></i>
-        </div>
-        <h4 style="font-size:1rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Giros internacionales</h4>
-        <p style="font-size:.875rem;color:var(--color-gray-600);line-height:1.6">Acepta pagos en USD, EUR y GBP. Transfiere directamente al proyecto desde tu banco en el exterior.</p>
-      </div>
-
-      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm);transition-delay:.2s">
-        <div style="width:48px;height:48px;background:rgba(200,169,110,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <i class="fas fa-file-signature" style="color:var(--color-accent);font-size:1.3rem"></i>
-        </div>
-        <h4 style="font-size:1rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Poder notarial</h4>
-        <p style="font-size:.875rem;color:var(--color-gray-600);line-height:1.6">Un familiar de confianza firma por ti en Colombia con poder notarial. Te asesoramos en cada paso del trámite.</p>
-      </div>
-
-      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:32px;box-shadow:var(--shadow-sm);transition-delay:.3s">
-        <div style="width:48px;height:48px;background:rgba(200,169,110,.12);border-radius:12px;display:flex;align-items:center;justify-content:center;margin-bottom:16px">
-          <i class="fas fa-headset" style="color:var(--color-accent);font-size:1.3rem"></i>
-        </div>
-        <h4 style="font-size:1rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Asesor en tu zona horaria</h4>
-        <p style="font-size:.875rem;color:var(--color-gray-600);line-height:1.6">Te asignamos un asesor dedicado que atiende en horario EST, CET o PST. Siempre disponible por WhatsApp o videollamada.</p>
-      </div>
-
-    </div>
-
-    <!-- Proceso simplificado -->
-    <div style="background:var(--color-primary);border-radius:var(--radius-xl);padding:56px 48px;color:#fff;margin-bottom:48px">
-      <h3 style="text-align:center;font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;margin-bottom:8px">Así de simple es el proceso</h3>
-      <p style="text-align:center;color:rgba(255,255,255,.6);margin-bottom:40px">4 pasos, sin salir de tu país</p>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(180px,1fr));gap:24px">
-        <div style="text-align:center">
-          <div style="width:48px;height:48px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;margin:0 auto 12px">1</div>
-          <strong style="display:block;margin-bottom:6px">Contáctanos</strong>
-          <span style="font-size:.82rem;color:rgba(255,255,255,.6)">WhatsApp o videollamada — te explicamos todo</span>
-        </div>
-        <div style="text-align:center">
-          <div style="width:48px;height:48px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;margin:0 auto 12px">2</div>
-          <strong style="display:block;margin-bottom:6px">Escoge tu unidad</strong>
-          <span style="font-size:.82rem;color:rgba(255,255,255,.6)">Seleccionas piso, apartamento y forma de pago</span>
-        </div>
-        <div style="text-align:center">
-          <div style="width:48px;height:48px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;margin:0 auto 12px">3</div>
-          <strong style="display:block;margin-bottom:6px">Poder notarial</strong>
-          <span style="font-size:.82rem;color:rgba(255,255,255,.6)">Autorizas a un familiar para firmar en tu nombre</span>
-        </div>
-        <div style="text-align:center">
-          <div style="width:48px;height:48px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.1rem;margin:0 auto 12px">4</div>
-          <strong style="display:block;margin-bottom:6px">¡Tu apartamento!</strong>
-          <span style="font-size:.82rem;color:rgba(255,255,255,.6)">Escritura firmada, tu familia en su nuevo hogar</span>
-        </div>
-      </div>
-    </div>
-
-    <!-- CTA -->
-    <div style="text-align:center">
-      <p style="font-size:1rem;color:var(--color-gray-600);margin-bottom:24px">¿Estás en el exterior y quieres comprar para tu familia? Escríbenos ahora.</p>
-      <button class="btn btn-whatsapp btn-lg" onclick="openWhatsAppExterior()" style="margin-bottom:12px">
-        <i class="fab fa-whatsapp"></i> Quiero comprar desde el exterior
+      <button class="btn btn-accent btn-lg" onclick="openWhatsAppExterior()">
+        Quiero darle un hogar a mi familia
       </button>
-      <p style="font-size:.78rem;color:var(--color-gray-400)">Respondemos en menos de 2 horas · Sin compromiso</p>
+    </div>
+  </div>
+
+  <div class="container" style="padding-top:72px;padding-bottom:80px">
+
+    <!-- 2. LA OPORTUNIDAD — por qué ahora y por qué Asia -->
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:center;margin-bottom:72px">
+      <div class="reveal">
+        <span class="section-label">La oportunidad</span>
+        <h3 style="font-size:clamp(1.4rem,3vw,2rem);font-weight:800;color:var(--color-dark);margin:12px 0 16px;line-height:1.3">
+          Bello es una de las zonas de mayor valorización del Área Metropolitana
+        </h3>
+        <p style="color:var(--color-gray-600);line-height:1.7;margin-bottom:20px">
+          Vía Machado concentra los proyectos de mayor demanda de Antioquia. Con <strong>$259 millones</strong> — equivalente a unos <strong>USD $63.000</strong> — tu familia tendría su propio apartamento nuevo con piscina, parqueadero y zonas sociales.
+        </p>
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
+          <div style="background:var(--color-gray-100);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:1.5rem;font-weight:800;color:var(--color-dark);font-family:var(--font-heading)">$259M</div>
+            <div style="font-size:.78rem;color:var(--color-gray-600);margin-top:4px">Precio desde</div>
+          </div>
+          <div style="background:var(--color-gray-100);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:1.5rem;font-weight:800;color:var(--color-accent);font-family:var(--font-heading)">$77.7M</div>
+            <div style="font-size:.78rem;color:var(--color-gray-600);margin-top:4px">Cuota inicial (30%)</div>
+          </div>
+          <div style="background:var(--color-gray-100);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:1.5rem;font-weight:800;color:var(--color-dark);font-family:var(--font-heading)">20 meses</div>
+            <div style="font-size:.78rem;color:var(--color-gray-600);margin-top:4px">Para pagar la cuota</div>
+          </div>
+          <div style="background:var(--color-gray-100);border-radius:12px;padding:16px;text-align:center">
+            <div style="font-size:1.5rem;font-weight:800;color:var(--color-dark);font-family:var(--font-heading)">50.31 m²</div>
+            <div style="font-size:.78rem;color:var(--color-gray-600);margin-top:4px">Área privada</div>
+          </div>
+        </div>
+      </div>
+      <div class="reveal" style="transition-delay:.15s;background:var(--color-gray-100);border-radius:var(--radius-xl);overflow:hidden;height:340px">
+        <img src="img/asia-card.png" alt="Proyecto Asia" style="width:100%;height:100%;object-fit:cover" />
+      </div>
+    </div>
+
+    <!-- 3. CÓMO FUNCIONA — proceso claro antes de las objeciones -->
+    <div style="margin-bottom:72px">
+      <div class="section-header centered reveal" style="margin-bottom:40px">
+        <span class="section-label">El proceso</span>
+        <h3 style="font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;color:var(--color-dark)">4 pasos. Sin volver a Colombia.</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px">
+        <div class="reveal" style="text-align:center;padding:28px 16px;background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm)">
+          <div style="width:52px;height:52px;background:var(--color-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;color:#fff;margin:0 auto 16px;font-family:var(--font-heading)">1</div>
+          <strong style="display:block;font-size:.95rem;color:var(--color-dark);margin-bottom:8px">Videollamada</strong>
+          <span style="font-size:.82rem;color:var(--color-gray-600);line-height:1.5">Conoces el proyecto y resuelves todas tus dudas</span>
+        </div>
+        <div class="reveal" style="text-align:center;padding:28px 16px;background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);transition-delay:.1s">
+          <div style="width:52px;height:52px;background:var(--color-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;color:#fff;margin:0 auto 16px;font-family:var(--font-heading)">2</div>
+          <strong style="display:block;font-size:.95rem;color:var(--color-dark);margin-bottom:8px">Separas tu unidad</strong>
+          <span style="font-size:.82rem;color:var(--color-gray-600);line-height:1.5">Giro internacional desde tu banco en el exterior</span>
+        </div>
+        <div class="reveal" style="text-align:center;padding:28px 16px;background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);transition-delay:.2s">
+          <div style="width:52px;height:52px;background:var(--color-primary);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;color:#fff;margin:0 auto 16px;font-family:var(--font-heading)">3</div>
+          <strong style="display:block;font-size:.95rem;color:var(--color-dark);margin-bottom:8px">Poder notarial</strong>
+          <span style="font-size:.82rem;color:var(--color-gray-600);line-height:1.5">Un familiar firma por ti — te guiamos en el trámite</span>
+        </div>
+        <div class="reveal" style="text-align:center;padding:28px 16px;background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);box-shadow:var(--shadow-sm);transition-delay:.3s">
+          <div style="width:52px;height:52px;background:var(--color-accent);border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1.2rem;color:#fff;margin:0 auto 16px;font-family:var(--font-heading)">4</div>
+          <strong style="display:block;font-size:.95rem;color:var(--color-dark);margin-bottom:8px">Tu familia estrena</strong>
+          <span style="font-size:.82rem;color:var(--color-gray-600);line-height:1.5">Llaves en mano. Patrimonio real en Colombia.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4. ELIMINAR OBJECIONES — las 4 preguntas que siempre hacen -->
+    <div style="margin-bottom:64px">
+      <div class="section-header centered reveal" style="margin-bottom:40px">
+        <span class="section-label">Sin complicaciones</span>
+        <h3 style="font-size:clamp(1.3rem,3vw,1.8rem);font-weight:800;color:var(--color-dark)">Lo que necesitas saber</h3>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(240px,1fr));gap:20px">
+        <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:28px;box-shadow:var(--shadow-sm)">
+          <i class="fas fa-laptop-house" style="color:var(--color-accent);font-size:1.4rem;margin-bottom:14px;display:block"></i>
+          <h4 style="font-size:.95rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Todo se firma en línea</h4>
+          <p style="font-size:.84rem;color:var(--color-gray-600);line-height:1.6">Promesa de compraventa, actas y comunicaciones — todo por correo y WhatsApp. No tienes que viajar.</p>
+        </div>
+        <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:28px;box-shadow:var(--shadow-sm);transition-delay:.1s">
+          <i class="fas fa-exchange-alt" style="color:var(--color-accent);font-size:1.4rem;margin-bottom:14px;display:block"></i>
+          <h4 style="font-size:.95rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Giros desde tu banco</h4>
+          <p style="font-size:.84rem;color:var(--color-gray-600);line-height:1.6">Pagas desde tu cuenta en el exterior. USD, EUR o GBP — te damos la cuenta fiduciaria con los datos exactos.</p>
+        </div>
+        <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:28px;box-shadow:var(--shadow-sm);transition-delay:.2s">
+          <i class="fas fa-shield-alt" style="color:var(--color-accent);font-size:1.4rem;margin-bottom:14px;display:block"></i>
+          <h4 style="font-size:.95rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Tu dinero está protegido</h4>
+          <p style="font-size:.84rem;color:var(--color-gray-600);line-height:1.6">Los pagos van a una fiducia, no directamente a Planner. Póliza de cumplimiento y respaldo de La Lonja de Antioquia.</p>
+        </div>
+        <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-xl);padding:28px;box-shadow:var(--shadow-sm);transition-delay:.3s">
+          <i class="fas fa-headset" style="color:var(--color-accent);font-size:1.4rem;margin-bottom:14px;display:block"></i>
+          <h4 style="font-size:.95rem;font-weight:700;color:var(--color-dark);margin-bottom:8px">Asesor en tu horario</h4>
+          <p style="font-size:.84rem;color:var(--color-gray-600);line-height:1.6">Atendemos en horario EST, CET y PST. Videollamada, WhatsApp o correo — como prefieras.</p>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5. CTA FINAL -->
+    <div style="background:var(--color-gray-100);border-radius:var(--radius-xl);padding:48px;text-align:center">
+      <h3 style="font-size:clamp(1.2rem,3vw,1.6rem);font-weight:800;color:var(--color-dark);margin-bottom:12px">¿Listo para hablar con un asesor?</h3>
+      <p style="color:var(--color-gray-600);margin-bottom:28px;max-width:480px;margin-left:auto;margin-right:auto">Escríbenos hoy. En menos de 2 horas te explicamos todo sobre el proceso de compra desde tu país.</p>
+      <button class="btn btn-whatsapp btn-lg" onclick="openWhatsAppExterior()" style="margin-bottom:10px">
+        <i class="fab fa-whatsapp"></i> Escribir al asesor ahora
+      </button>
+      <p style="font-size:.78rem;color:var(--color-gray-400)">Sin compromiso · Respondemos en menos de 2 horas</p>
     </div>
 
   </div>
@@ -1394,7 +1358,7 @@
               <div class="form-panel" id="step-panel-3">
                 <div class="form-group">
                   <label for="f-mensaje">¿Tienes alguna pregunta específica?</label>
-                  <textarea id="f-mensaje" name="mensaje" placeholder="Ej: Quisiera saber si aplico al subsidio Mi Casa Ya, o si hay parqueadero incluido..." rows="4"></textarea>
+                  <textarea id="f-mensaje" name="mensaje" placeholder="Ej: Quisiera información sobre el Proyecto Asia y opciones de financiación..." rows="4"></textarea>
                 </div>
                 <div class="form-group" style="display:flex;align-items:flex-start;gap:10px">
                   <input type="checkbox" id="f-privacy" name="privacidad" required style="width:18px;height:18px;margin-top:2px;flex-shrink:0" />
@@ -1521,7 +1485,7 @@
         ¡Hola! 👋 ¿En qué proyecto estás interesado? Cuéntanos y te enviamos toda la información.
       </div>
       <div class="wa-options">
-        <div class="wa-option" onclick="openWhatsApp('Asia')">
+        <div class="wa-option" onclick="switchTab('cotizar')">
           <i class="fas fa-building"></i> Proyecto Asia — desde $259M
         </div>
         <div class="wa-option" onclick="openWhatsApp('Terralta')">

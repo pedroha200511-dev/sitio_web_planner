@@ -3,7 +3,7 @@
    =================================================== */
 
 // ─── TAB NAVIGATION ─────────────────────────────────
-const VALID_TABS = ['inicio','proyectos','proceso','nosotros','avances','blog','exterior','contacto'];
+const VALID_TABS = ['inicio','proyectos','cotizar','proceso','nosotros','avances','blog','exterior','contacto'];
 let currentTab = 'inicio';
 
 function switchTab(name) {
