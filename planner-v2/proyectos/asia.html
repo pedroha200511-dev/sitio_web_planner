@@ -4,7 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Proyecto Asia | Apartamentos en Vía Machado, Bello — Planner Constructora</title>
-  <meta name="description" content="Proyecto Asia: apartamentos desde $259.000.000 en Vía Machado, Bello. Entrega 2027. 2-3 habitaciones, 58-72 m². Subsidio Mi Casa Ya disponible. Financiación fácil." />
+  <meta name="description" content="Proyecto Asia: apartamentos desde $259.000.000 en Vía Machado, Bello. Entrega 2027. 50.31 m², 2 habitaciones, parqueadero incluido. Financiación con todos los bancos." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap" rel="stylesheet" />
@@ -47,7 +47,6 @@
     .avance-item p { font-size:.875rem; color:#4B5563; }
     .progress-bar { background:#E5E7EB; border-radius:4px; height:8px; margin-top:10px; }
     .progress-fill { height:100%; border-radius:4px; background:linear-gradient(90deg,#313133,#4A4A4D); transition:width 1.2s ease; }
-    .subsidio-box { background:linear-gradient(135deg,rgba(49,49,51,.06),rgba(200,169,110,.08)); border:1px solid rgba(200,169,110,.25); border-radius:16px; padding:28px; margin-bottom:24px; }
     @media(max-width:768px){ .proyecto-hero__inner{grid-template-columns:1fr;} .specs-grid{grid-template-columns:repeat(3,1fr);} .hero-ctas{flex-direction:column;} .tipologia-card{flex-direction:column;align-items:flex-start;} }
   </style>
 </head>
@@ -67,7 +66,7 @@
       </ul>
       <div class="navbar__actions">
         <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia')">
-          <i class="fab fa-whatsapp"></i> Cotizar ahora
+          <i class="fab fa-whatsapp"></i> Hablar con un asesor
         </button>
       </div>
       <button class="navbar__hamburger" id="hamburger" aria-label="Menú"><span></span><span></span><span></span></button>
@@ -79,7 +78,7 @@
   <a href="../index.html#proyectos">Proyectos</a>
   <a href="../index.html#nosotros">Nosotros</a>
   <a href="../index.html#contacto">Contacto</a>
-  <button class="btn btn-whatsapp" onclick="openWhatsApp('Asia')"><i class="fab fa-whatsapp"></i> Cotizar ahora</button>
+  <button class="btn btn-whatsapp" onclick="openWhatsApp('Asia')"><i class="fab fa-whatsapp"></i> Hablar con un asesor</button>
 </div>
 
 <!-- HERO -->
@@ -102,10 +101,6 @@
       <div class="proyecto-hero__info">
         <div class="proyecto-badge-row">
           <span class="proyecto-card__badge badge-2026" style="position:static">Entrega 2027</span>
-          <span class="proyecto-card__badge" style="position:static;background:#10B981;color:#fff">Aplica Mi Casa Ya</span>
-        </div>
-        <div class="subsidy-badge">
-          <i class="fas fa-hand-holding-usd"></i> Subsidio hasta <strong>$30M</strong> disponible para cuota inicial
         </div>
         <h1 class="proyecto-hero__title">Proyecto Asia</h1>
         <div class="proyecto-hero__location">
@@ -113,7 +108,7 @@
           Vía Machado, Bello, Antioquia
         </div>
         <div class="precio-grande">Desde $259.000.000</div>
-        <div class="precio-note">Aplica subsidio Mi Casa Ya · Parqueadero incluido · Sin IVA adicional</div>
+        <div class="precio-note">Parqueadero incluido · Sin IVA adicional · Financiación con todos los bancos</div>
 
         <div class="specs-grid">
           <div class="spec-box"><i class="fas fa-ruler-combined"></i><strong>58–72 m²</strong><span>Área privada</span></div>
@@ -141,7 +136,6 @@
       <button class="tab-btn active" onclick="switchTab('descripcion',this)">Descripción</button>
       <button class="tab-btn"        onclick="switchTab('amenidades',this)">Amenidades</button>
       <button class="tab-btn"        onclick="switchTab('tipologias',this)">Tipologías</button>
-      <button class="tab-btn"        onclick="switchTab('subsidio',this)">Subsidio Mi Casa Ya</button>
       <button class="tab-btn"        onclick="switchTab('avances',this)">Avances de obra</button>
       <button class="tab-btn"        onclick="switchTab('ubicacion',this)">Ubicación</button>
     </div>
@@ -153,11 +147,10 @@
           <h2 style="margin-bottom:20px">Calidad y tranquilidad en Vía Machado</h2>
           <p style="color:#4B5563;margin-bottom:16px">Proyecto Asia es nuestra propuesta más accesible sin sacrificar calidad. Diseñado para familias que buscan su primer hogar en una de las zonas de mayor crecimiento de Bello.</p>
           <p style="color:#4B5563;margin-bottom:16px">Su ubicación sobre Vía Machado garantiza excelente acceso vial, cerca a centros comerciales, colegios y transporte público. Perfecta para quienes trabajan tanto en Bello como en Medellín.</p>
-          <p style="color:#4B5563;margin-bottom:24px">El proyecto califica para el subsidio <strong>Mi Casa Ya</strong> del Gobierno Nacional, lo que puede representar hasta $30 millones de ahorro en tu cuota inicial.</p>
+          <p style="color:#4B5563;margin-bottom:24px">Financiación disponible con todos los bancos del país. Nuestros asesores te acompañan en cada paso del proceso sin costo adicional.</p>
           <div class="certs-row">
             <div class="cert-badge"><i class="fas fa-shield-alt"></i> Fiducia bancaria</div>
             <div class="cert-badge"><i class="fas fa-certificate"></i> NSR-10</div>
-            <div class="cert-badge"><i class="fas fa-check-circle"></i> Aplica Mi Casa Ya</div>
           </div>
         </div>
         <div>
@@ -207,7 +200,6 @@
           <div style="display:flex;gap:20px;flex-wrap:wrap">
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 58 m²</span>
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $259.000.000</span>
-            <span style="font-size:.875rem;color:#10B981;font-weight:600"><i class="fas fa-check-circle"></i> Aplica Mi Casa Ya</span>
           </div>
         </div>
         <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia — Tipo A 58m²')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
@@ -221,7 +213,6 @@
           <div style="display:flex;gap:20px;flex-wrap:wrap">
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 65 m²</span>
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $278.000.000</span>
-            <span style="font-size:.875rem;color:#10B981;font-weight:600"><i class="fas fa-check-circle"></i> Aplica Mi Casa Ya</span>
           </div>
         </div>
         <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia — Tipo B 65m²')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
@@ -235,49 +226,9 @@
           <div style="display:flex;gap:20px;flex-wrap:wrap">
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 72 m²</span>
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $295.000.000</span>
-            <span style="font-size:.875rem;color:#10B981;font-weight:600"><i class="fas fa-check-circle"></i> Aplica Mi Casa Ya</span>
           </div>
         </div>
         <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia — Tipo C 72m²')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
-      </div>
-    </div>
-
-    <!-- Subsidio Mi Casa Ya -->
-    <div class="tab-panel" id="tab-subsidio">
-      <h2 style="margin-bottom:8px">Subsidio Mi Casa Ya — Proyecto Asia califica</h2>
-      <p style="color:#4B5563;margin-bottom:32px">El Gobierno Nacional te ayuda con hasta $30 millones para tu cuota inicial. Te acompañamos en todo el proceso.</p>
-
-      <div class="subsidio-box">
-        <div style="display:flex;align-items:center;gap:12px;margin-bottom:20px">
-          <div style="width:48px;height:48px;background:rgba(200,169,110,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><i class="fas fa-home" style="color:#C8A96E;font-size:1.3rem"></i></div>
-          <div><h3 style="margin:0">Mi Casa Ya</h3><p style="font-size:.875rem;color:#6B7280;margin:0">Programa del Ministerio de Vivienda</p></div>
-        </div>
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px">
-          <div style="background:#fff;border-radius:10px;padding:16px">
-            <div style="font-size:.78rem;color:#9CA3AF;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Subsidio máximo</div>
-            <div style="font-size:1.5rem;font-weight:800;color:#313133;font-family:'Poppins',sans-serif">$30.000.000</div>
-          </div>
-          <div style="background:#fff;border-radius:10px;padding:16px">
-            <div style="font-size:.78rem;color:#9CA3AF;margin-bottom:4px;text-transform:uppercase;letter-spacing:.06em">Cobertura de tasa</div>
-            <div style="font-size:1.5rem;font-weight:800;color:#313133;font-family:'Poppins',sans-serif">Hasta 5 p.p.</div>
-          </div>
-        </div>
-      </div>
-
-      <h3 style="margin-bottom:16px">Requisitos para aplicar</h3>
-      <div style="display:flex;flex-direction:column;gap:10px;margin-bottom:32px">
-        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">Ser colombiano o residente legal en Colombia</span></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">No ser propietario de vivienda en ningún municipio del país</span></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">Ingresos familiares entre 2 y 8 SMMLV</span></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">Crédito hipotecario aprobado por entidad financiera</span></div>
-        <div style="display:flex;align-items:center;gap:10px;padding:14px;background:#F8F6F2;border-radius:10px"><i class="fas fa-check-circle" style="color:#10B981;flex-shrink:0;font-size:1.1rem"></i><span style="font-size:.9rem">No haber recibido subsidio de vivienda anteriormente</span></div>
-      </div>
-
-      <div style="text-align:center">
-        <button class="btn btn-primary btn-lg" onclick="openWhatsApp('Asia — quiero asesoría sobre el subsidio Mi Casa Ya')">
-          <i class="fab fa-whatsapp"></i> Quiero asesoría para aplicar al subsidio
-        </button>
-        <p style="font-size:.8rem;color:#9CA3AF;margin-top:12px">Nuestros asesores te acompañan en todo el proceso sin costo adicional.</p>
       </div>
     </div>
 
@@ -353,12 +304,12 @@
 <!-- CTA -->
 <section class="cta-banner">
   <div class="container">
-    <span class="section-label" style="color:var(--color-gold)">Subsidio disponible</span>
-    <h2>Ahorra hasta $30M con Mi Casa Ya</h2>
-    <p>Te ayudamos a aplicar al subsidio sin costo. Separa tu apartamento hoy con $1.000.000.</p>
+    <span class="section-label" style="color:var(--color-gold)">Proyecto Asia</span>
+    <h2>¿Listo para dar el primer paso?</h2>
+    <p>Un asesor te acompaña en todo el proceso, desde la primera consulta hasta recibir las llaves.</p>
     <div class="cta-banner__btns">
-      <button class="btn btn-white btn-lg" onclick="openWhatsApp('Asia — quiero aplicar al subsidio Mi Casa Ya')">
-        <i class="fab fa-whatsapp"></i> Empezar proceso ahora
+      <button class="btn btn-white btn-lg" onclick="openWhatsApp('Asia — quiero información'">
+        <i class="fab fa-whatsapp"></i> Hablar con un asesor
       </button>
       <a href="../index.html#contacto" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
         <i class="fas fa-envelope"></i> Solicitar información
@@ -388,10 +339,9 @@
       <div><h5>Asesor Proyecto Asia</h5><p><span class="wa-float__status"></span> Disponible ahora</p></div>
     </div>
     <div class="wa-float__popup-body">
-      <div class="wa-message">¡Hola! ¿Tienes preguntas sobre el subsidio Mi Casa Ya o financiación?</div>
+      <div class="wa-message">¡Hola! ¿Tienes preguntas sobre Proyecto Asia o financiación?</div>
       <div class="wa-options">
         <div class="wa-option" onclick="openWhatsApp('Asia — quiero cotizar')"><i class="fas fa-tag"></i> Cotizar</div>
-        <div class="wa-option" onclick="openWhatsApp('Asia — quiero info sobre Mi Casa Ya')"><i class="fas fa-hand-holding-usd"></i> Info subsidio Mi Casa Ya</div>
         <div class="wa-option" onclick="openWhatsApp('Asia — quiero agendar visita')"><i class="fas fa-calendar"></i> Agendar visita</div>
       </div>
     </div>
