@@ -186,7 +186,7 @@ p  { font-size: 1rem; line-height: 1.7; }
 .navbar__nav a.active { color: var(--color-primary); font-weight: 700; }
 
 .navbar__actions { display: flex; align-items: center; gap: 12px; }
-.navbar__social { display: none; }
+.navbar__social { display: flex; align-items: center; gap: 4px; }
 .navbar__social a {
   width: 36px; height: 36px;
   display: flex; align-items: center; justify-content: center;
