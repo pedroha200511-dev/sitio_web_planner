@@ -3,7 +3,7 @@
    =================================================== */
 
 // ─── TAB NAVIGATION ─────────────────────────────────
-const VALID_TABS = ['inicio','proyectos','proceso','nosotros','blog','exterior','contacto'];
+const VALID_TABS = ['inicio','proyectos','proceso','nosotros','blog','contacto'];
 let currentTab = 'inicio';
 
 function switchTab(name) {
@@ -35,6 +35,17 @@ function changeAsiaThumb(thumb, src) {
 function openWhatsAppExterior() {
   const msg = 'Hola! Estoy en el exterior y me interesa comprar un apartamento en Proyecto Asia para mi familia en Colombia. ¿Me pueden asesorar? Gracias.';
   window.open('https://wa.me/573185481730?text=' + encodeURIComponent(msg), '_blank');
+}
+
+function setBuyerMode(mode) {
+  document.querySelectorAll('[data-buyer-mode]').forEach(el => {
+    const active = el.dataset.buyerMode === mode;
+    el.classList.toggle('is-active', active);
+    el.style.display = active ? '' : 'none';
+  });
+  document.querySelectorAll('[data-buyer-btn]').forEach(btn => {
+    btn.classList.toggle('is-active', btn.dataset.buyerBtn === mode);
+  });
 }
 
 window.addEventListener('DOMContentLoaded', () => {
