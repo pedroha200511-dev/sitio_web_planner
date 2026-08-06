@@ -103,17 +103,15 @@
   <div class="container">
     <div class="navbar__inner">
 
-      <a href="#inicio" class="navbar__logo" aria-label="Planner Constructora - Inicio">
+      <a href="#" onclick="switchTab('inicio');return false;" class="navbar__logo" aria-label="Planner Constructora - Inicio">
         <img src="img/planner-logo-black.svg" alt="Planner Constructora" width="160" height="51" style="height:40px;width:auto" />
       </a>
 
       <ul class="navbar__nav" role="list">
         <li><a href="#" data-nav-tab="inicio"    onclick="switchTab('inicio');return false;"    class="active">Inicio</a></li>
         <li><a href="#" data-nav-tab="proyectos" onclick="switchTab('proyectos');return false;"          >Proyectos</a></li>
-        <li><a href="#" data-nav-tab="cotizar"   onclick="switchTab('cotizar');return false;"           >Cotizar</a></li>
         <li><a href="#" data-nav-tab="proceso"   onclick="switchTab('proceso');return false;"            >Cómo comprar</a></li>
         <li><a href="#" data-nav-tab="nosotros"  onclick="switchTab('nosotros');return false;"           >Nosotros</a></li>
-        <li><a href="#" data-nav-tab="avances"   onclick="switchTab('avances');return false;"            >Avances</a></li>
         <li><a href="#" data-nav-tab="exterior"  onclick="switchTab('exterior');return false;"           >Exterior</a></li>
         <li><a href="#" data-nav-tab="contacto"  onclick="switchTab('contacto');return false;"           >Contacto</a></li>
       </ul>
@@ -135,11 +133,9 @@
 <!-- Mobile Nav -->
 <div class="mobile-nav" id="mobile-nav" role="dialog" aria-label="Menú móvil">
   <a href="#" onclick="switchTab('inicio');return false;">Inicio</a>
-  <a href="#" onclick="switchTab('proyectos');return false;">Proyectos</a>
-  <a href="#" onclick="switchTab('cotizar');return false;" style="color:var(--color-accent);font-weight:700">Cotizar</a>
+  <a href="#" onclick="switchTab('proyectos');return false;" style="color:var(--color-accent);font-weight:700">Proyectos</a>
   <a href="#" onclick="switchTab('proceso');return false;">Cómo comprar</a>
   <a href="#" onclick="switchTab('nosotros');return false;">Nosotros</a>
-  <a href="#" onclick="switchTab('avances');return false;">Avances de obra</a>
   <a href="#" onclick="switchTab('exterior');return false;">Exterior</a>
   <a href="#" onclick="switchTab('contacto');return false;">Contacto</a>
   <button class="btn btn-whatsapp" onclick="openWhatsApp()">
@@ -158,57 +154,43 @@
       <div class="hero__text">
         <div class="hero__badge">
           <span class="hero__badge-dot"></span>
-          Proyecto Asia — disponible ahora en Bello
+          Más que construir, acompañamos
         </div>
 
         <h1 id="hero-title" class="hero__title">
-          Vivienda nueva en Bello,<br>
-          <span>con respaldo de 15 años</span>
+          Elegir vivienda es una gran decisión.<br>
+          <span>Elegir la constructora también.</span>
         </h1>
 
         <p class="hero__subtitle">
-          Constructora con más de 15 años de trayectoria en el desarrollo de proyectos residenciales en el Área Metropolitana de Medellín. Unidades desde <strong style="color:#C8A96E">$259 millones</strong> en Bello, Antioquia.
+          Sabemos que detrás de cada compra hay una historia, una familia y un gran esfuerzo. Nuestro compromiso es acompañarte para que tomes esa decisión con tranquilidad.
         </p>
-
-        <div class="hero__trust" aria-label="Indicadores de confianza">
-          <div class="hero__trust-item">
-            <div class="hero__trust-number" data-count="500" data-suffix="+">0+</div>
-            <div class="hero__trust-label">Familias<br>satisfechas</div>
-          </div>
-          <div class="hero__trust-item">
-            <div class="hero__trust-number" data-count="15" data-suffix=" años">0</div>
-            <div class="hero__trust-label">De experiencia<br>en el mercado</div>
-          </div>
-          <div class="hero__trust-item">
-            <div class="hero__trust-number" data-count="100" data-suffix="%">0%</div>
-            <div class="hero__trust-label">Entregas<br>a tiempo</div>
-          </div>
-        </div>
       </div>
 
       <!-- Card Asia destacado -->
       <div class="hero__visual reveal" style="position:relative">
 
-        <div class="hero__asia-card">
-          <!-- Header con estado -->
-          <div class="hero__asia-card-header">
+        <a href="proyectos/asia.html" class="hero__asia-card" aria-label="Ver Proyecto Asia">
+          <!-- Imagen de portada -->
+          <div class="hero__asia-card-image">
+            <img src="img/asia-card-clean.jpg" alt="Render Proyecto Asia — Vía Machado, Bello" width="700" height="480" loading="eager" />
             <span class="hero__asia-badge"><span class="hero__badge-dot"></span>En construcción · Entrega 2027</span>
           </div>
 
           <!-- Info principal -->
           <div class="hero__asia-card-body">
             <div class="hero__asia-name">Proyecto Asia</div>
-            <div class="hero__asia-location"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
 
             <div class="hero__asia-price-row">
               <div>
                 <div class="hero__asia-price-label">Precio desde</div>
                 <div class="hero__asia-price">$259.000.000</div>
               </div>
-              <div class="hero__asia-thumb-wrap">
-                <img src="img/asia-card.png" alt="Proyecto Asia" class="hero__asia-thumb" />
-              </div>
             </div>
+
+            <div class="hero__asia-location"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
+
+            <div class="hero__asia-price-note"><i class="fas fa-lock"></i> VIS · Precio fijo</div>
 
             <!-- Specs -->
             <div class="hero__asia-specs">
@@ -221,21 +203,21 @@
                 <span>2–3 hab.</span>
               </div>
               <div class="hero__asia-spec">
-                <i class="fas fa-swimming-pool"></i>
-                <span>Piscina</span>
+                <i class="fas fa-tree"></i>
+                <span>Zonas comunes</span>
               </div>
               <div class="hero__asia-spec">
                 <i class="fas fa-car"></i>
-                <span>Parqueadero</span>
+                <span>Parqueadero opcional</span>
               </div>
             </div>
 
-            <!-- CTAs -->
+            <!-- CTA -->
             <div class="hero__asia-ctas">
-              <a href="proyectos/asia.html" class="btn btn-white btn-sm" style="width:100%;justify-content:center">Ver proyecto</a>
+              <span class="btn btn-white btn-sm" style="width:100%;justify-content:center">Conocer Proyecto Asia</span>
             </div>
           </div>
-        </div>
+        </a>
       </div>
 
     </div>
@@ -248,24 +230,20 @@
   <div class="container">
     <div class="trust-band__inner">
       <div class="trust-band__item">
-        <i class="fas fa-shield-alt"></i>
-        <span>Escrituración <strong>garantizada</strong></span>
+        <i class="fas fa-users"></i>
+        <span>Más de <strong>500 familias</strong> satisfechas</span>
       </div>
       <div class="trust-band__item">
-        <i class="fas fa-university"></i>
-        <span>Vinculación con el <strong>sistema financiero nacional</strong></span>
+        <i class="fas fa-award"></i>
+        <span><strong>25 años</strong> de experiencia</span>
       </div>
       <div class="trust-band__item">
         <i class="fas fa-calendar-check"></i>
         <span><strong>100%</strong> entregas a tiempo</span>
       </div>
       <div class="trust-band__item">
-        <i class="fas fa-headset"></i>
-        <span>Asesoría comercial <strong>sin costo</strong></span>
-      </div>
-      <div class="trust-band__item">
-        <i class="fas fa-home"></i>
-        <span>Acompañamiento integral <strong>en la compraventa</strong></span>
+        <i class="fas fa-lock"></i>
+        <span>Fondos protegidos por <strong>fiducia bancaria</strong></span>
       </div>
     </div>
   </div>
@@ -273,34 +251,42 @@
 
 
 <!-- ======================== PROYECTO ASIA (FEATURED) ======================== -->
-<section id="proyectos" data-tab="proyectos" aria-labelledby="proyectos-title" style="padding-top:96px;padding-bottom:96px">
+<section id="proyectos" data-tab="proyectos" aria-labelledby="proyectos-title" style="padding-top:88px;padding-bottom:80px">
   <div class="container">
-
-    <div class="section-header reveal">
-      <span class="section-label">Proyecto en comercialización</span>
-      <h2 class="section-title" id="proyectos-title">Proyecto Asia — Vivienda Nueva en Bello</h2>
-      <p class="section-subtitle">Unidades residenciales sobre planos en Vía Machado, Bello. Entrega programada diciembre de 2027.</p>
-    </div>
 
     <!-- Asia: card grande 2 columnas -->
     <article class="asia-featured reveal" aria-label="Proyecto Asia">
       <div class="asia-featured__img">
-        <img src="img/asia-card.png" alt="Render Proyecto Asia - Vía Machado, Bello"
-          width="700" height="480" loading="eager" />
-        <span class="asia-featured__badge"><i class="fas fa-circle" style="font-size:.5rem;color:#10B981"></i> 8 unidades disponibles</span>
+        <div class="asia-featured__img-main">
+          <img id="proyectos-asia-main-img" src="img/asia-card-clean.jpg" alt="Render Proyecto Asia - Vía Machado, Bello"
+            width="700" height="480" loading="eager" />
+          <span class="asia-featured__badge"><i class="fas fa-circle" style="font-size:.5rem;color:#10B981"></i> Últimas 8 unidades disponibles</span>
+        </div>
+        <div class="asia-featured__gallery">
+          <img src="img/asia-card-clean.jpg" alt="Fachada" class="asia-gallery-thumb active" onclick="changeAsiaThumb(this,'img/asia-card-clean.jpg')" />
+          <img src="img/asia-piscina-adultos.png" alt="Piscina" class="asia-gallery-thumb" onclick="changeAsiaThumb(this,'img/asia-piscina-adultos.png')" />
+          <img src="img/asia-gym.png" alt="Gimnasio" class="asia-gallery-thumb" onclick="changeAsiaThumb(this,'img/asia-gym.png')" />
+          <img src="img/asia-salon.png" alt="Salón social" class="asia-gallery-thumb" onclick="changeAsiaThumb(this,'img/asia-salon.png')" />
+          <img src="img/asia-cancha.png" alt="Cancha deportiva" class="asia-gallery-thumb" onclick="changeAsiaThumb(this,'img/asia-cancha.png')" />
+        </div>
       </div>
       <div class="asia-featured__info">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px;flex-wrap:wrap">
+        <h3 class="asia-featured__name" id="proyectos-title">Proyecto Asia</h3>
+        <div class="asia-featured__price"><span class="asia-featured__price-label">Desde</span><strong>$259.000.000</strong></div>
+        <div style="display:flex;align-items:center;gap:14px;margin-bottom:28px;flex-wrap:wrap">
+          <div class="asia-featured__location" style="margin-bottom:0"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
           <span class="proyecto-card__badge badge-2026" style="position:static">Entrega 2027</span>
         </div>
-        <div class="asia-featured__location"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
-        <h3 class="asia-featured__name">Proyecto Asia</h3>
-        <div class="asia-featured__price">Desde <strong>$259.000.000</strong></div>
-        <p style="color:var(--color-gray-600);margin-bottom:28px;line-height:1.7">
-          Unidades de 2 habitaciones con 50.31 m² en una de las zonas de mayor valorización del Área Metropolitana. Áreas sociales completas, parqueadero incluido y zonas verdes con vista al Valle de Aburrá. Financiación hipotecaria con todas las entidades del sistema financiero colombiano.
+        <p style="color:var(--color-gray-600);margin-bottom:24px;line-height:1.7">
+          Ubicación estratégica en una de las zonas de mayor valorización del Área Metropolitana, acabados de calidad y financiación hipotecaria con todas las entidades del sistema financiero colombiano.
         </p>
 
         <div class="asia-featured__specs">
+          <div class="asia-spec-item">
+            <i class="fas fa-shield-alt"></i>
+            <strong>VIS</strong>
+            <span>Precio fijo</span>
+          </div>
           <div class="asia-spec-item">
             <i class="fas fa-ruler-combined"></i>
             <strong>50.31 m²</strong>
@@ -325,8 +311,8 @@
 
 
         <div style="display:flex;gap:12px;flex-wrap:wrap">
-          <a href="proyectos/asia.html" class="btn btn-primary btn-lg">
-            <i class="fas fa-expand-alt"></i> Ver proyecto
+          <a href="proyectos/asia.html" class="btn btn-primary btn-lg btn-gold-hover btn-featured-cta">
+            <i class="fas fa-expand-alt"></i> Conocer Proyecto
           </a>
         </div>
       </div>
@@ -337,33 +323,31 @@
 
 
 <!-- ======================== PROYECTOS ENTREGADOS ======================== -->
-<section id="proyectos-entregados" data-tab="proyectos" style="padding:72px 0;background:var(--color-gray-100)">
+<section id="proyectos-entregados" data-tab="proyectos" style="padding:72px 0 96px">
   <div class="container">
-    <div class="section-header reveal" style="margin-bottom:48px">
-      <span class="section-label">Trayectoria</span>
-      <h2 class="section-title">Proyectos entregados con cumplimiento</h2>
-      <p class="section-subtitle">Más de 500 unidades residenciales entregadas en los términos contractuales pactados. Un historial de cumplimiento que respalda cada negociación.</p>
+    <div class="section-header reveal centered" style="margin-bottom:40px">
+      <h2 class="section-title">Proyectos entregados</h2>
+      <p class="section-subtitle" style="margin:0 auto">Cada proyecto entregado representa una promesa cumplida y una familia que confió en Planner.</p>
     </div>
 
-    <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px" class="entregados-grid reveal">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:32px" class="entregados-grid reveal">
 
-      <!-- Terralta -->
+      <!-- Bari -->
       <article class="entregado-card">
-        <div class="entregado-card__img">
-          <img src="img/terralta-card.png" alt="Proyecto Terralta — entregado" loading="lazy" />
+        <div class="entregado-card__img entregado-card__img--pending">
+          <div class="entregado-card__pending-icon"><i class="fas fa-building"></i><span>Foto próximamente</span></div>
           <div class="entregado-card__overlay">
-            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado Q1 2026</span>
+            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado 2019</span>
           </div>
         </div>
         <div class="entregado-card__body">
-          <div class="entregado-card__location"><i class="fas fa-map-marker-alt"></i> Barrio Suárez, Bello</div>
-          <h3 class="entregado-card__name">Proyecto Terralta</h3>
-          <p class="entregado-card__desc">Proyecto residencial de arquitectura contemporánea con gimnasio, salón social y vistas al Valle de Aburrá. Comercializado y escriturado en su totalidad.</p>
+          <h3 class="entregado-card__name">Proyecto Bari</h3>
           <div class="entregado-card__stats">
-            <div><strong>65–85 m²</strong><span>Área</span></div>
-            <div><strong>2–3 hab.</strong><span>Habitaciones</span></div>
+            <div><strong>88</strong><span>Apartamentos</span></div>
+            <div><strong>2019</strong><span>Año entrega</span></div>
             <div><strong>100%</strong><span>Vendido</span></div>
           </div>
+          <p class="entregado-card__desc">El primer gran proyecto entregado por Planner, en el Área Metropolitana de Medellín.</p>
         </div>
       </article>
 
@@ -376,269 +360,34 @@
           </div>
         </div>
         <div class="entregado-card__body">
-          <div class="entregado-card__location"><i class="fas fa-map-marker-alt"></i> Niquia, Bello</div>
           <h3 class="entregado-card__name">Altea Plaza</h3>
-          <p class="entregado-card__desc">Unidades residenciales con zona húmeda, área BBQ y acceso directo al Metro Cable de Medellín. Escrituración y entrega completada al 100%.</p>
           <div class="entregado-card__stats">
             <div><strong>52–68 m²</strong><span>Área</span></div>
             <div><strong>2–3 hab.</strong><span>Habitaciones</span></div>
             <div><strong>100%</strong><span>Entregado</span></div>
           </div>
+          <p class="entregado-card__desc">En Niquia, Bello, a pasos del Metro Cable, con acabados completos.</p>
         </div>
       </article>
 
-    </div>
-
-    <!-- Sello de confianza -->
-    <div class="entregados-trust reveal" style="margin-top:48px;text-align:center;padding:32px;background:#fff;border-radius:var(--radius-lg);border:1px solid var(--color-gray-200)">
-      <p style="font-size:1.05rem;color:var(--color-gray-600);max-width:560px;margin:0 auto 20px">
-        <strong style="color:var(--color-dark)">Entrega garantizada.</strong> Todos nuestros proyectos fueron entregados en los plazos prometidos a cada familia.
-      </p>
-      <div style="display:flex;justify-content:center;gap:40px;flex-wrap:wrap">
-        <div style="text-align:center">
-          <div style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:#313133">500+</div>
-          <div style="font-size:.875rem;color:var(--color-gray-600)">Familias beneficiadas</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:#313133">100%</div>
-          <div style="font-size:.875rem;color:var(--color-gray-600)">Entregas a tiempo</div>
-        </div>
-        <div style="text-align:center">
-          <div style="font-family:var(--font-heading);font-size:2rem;font-weight:800;color:#313133">15+</div>
-          <div style="font-size:.875rem;color:var(--color-gray-600)">Años de experiencia</div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-
-<!-- ======================== COTIZADOR CUOTA INICIAL ======================== -->
-<section id="calculadora" data-tab="cotizar" class="calc-section" aria-labelledby="calc-title" style="--calc-section:1">
-  <div class="container">
-    <div class="calc-grid">
-
-      <!-- Izquierda: contexto fijo -->
-      <div class="calc-left reveal">
-        <span class="section-label">Cotizador</span>
-        <h2 class="section-title" id="calc-title" style="color:#fff">¿Puedo comprar<br>en Proyecto Asia?</h2>
-        <p class="section-subtitle" style="color:rgba(255,255,255,.7)">Cuéntanos un poco y en 1 minuto te calculamos un plan personalizado para tu cuota inicial.</p>
-
-        <div style="margin-top:32px;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.1);border-radius:16px;padding:24px">
-          <div style="font-size:.7rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;color:rgba(255,255,255,.38);margin-bottom:16px">Proyecto Asia — datos clave</div>
-          <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
-            <div>
-              <div style="font-size:.7rem;color:rgba(255,255,255,.38);margin-bottom:3px">Precio</div>
-              <div style="font-weight:700;color:#fff">$259.000.000</div>
-            </div>
-            <div>
-              <div style="font-size:.7rem;color:rgba(255,255,255,.38);margin-bottom:3px">Cuota inicial (30%)</div>
-              <div style="font-weight:700;color:#C8A96E">$77.700.000</div>
-            </div>
-            <div>
-              <div style="font-size:.7rem;color:rgba(255,255,255,.38);margin-bottom:3px">Plazo de pago</div>
-              <div style="font-weight:700;color:#fff">20 meses de obra</div>
-            </div>
-            <div>
-              <div style="font-size:.7rem;color:rgba(255,255,255,.38);margin-bottom:3px">Entrega</div>
-              <div style="font-weight:700;color:#fff">Diciembre 2027</div>
-            </div>
+      <!-- Terralta -->
+      <article class="entregado-card" style="transition-delay:.2s">
+        <div class="entregado-card__img">
+          <img src="img/terralta-card.png" alt="Proyecto Terralta — entregado" loading="lazy" />
+          <div class="entregado-card__overlay">
+            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado Q1 2026</span>
           </div>
         </div>
-
-        <div style="margin-top:20px;display:flex;align-items:center;gap:10px;color:rgba(255,255,255,.4);font-size:.78rem">
-          <i class="fas fa-shield-alt" style="color:#C8A96E"></i>
-          Sin compromiso · 100% gratuito · Sin consulta en centrales
+        <div class="entregado-card__body">
+          <h3 class="entregado-card__name">Proyecto Terralta</h3>
+          <div class="entregado-card__stats">
+            <div><strong>65–85 m²</strong><span>Área</span></div>
+            <div><strong>2–3 hab.</strong><span>Habitaciones</span></div>
+            <div><strong>100%</strong><span>Vendido</span></div>
+          </div>
+          <p class="entregado-card__desc">En Barrio Suárez, Bello, con arquitectura contemporánea y gimnasio propio.</p>
         </div>
-      </div>
-
-      <!-- Derecha: wizard interactivo (5 pasos — 1 pregunta a la vez) -->
-      <div class="reveal" style="transition-delay:.15s">
-        <div class="calc-card" style="padding:0;overflow:hidden;min-height:500px;display:flex;flex-direction:column">
-
-          <!-- Dots de progreso -->
-          <div class="wiz-dots" id="wiz-dots">
-            <div class="wiz-dot active"  id="wd1"></div>
-            <div class="wiz-dot"         id="wd2"></div>
-            <div class="wiz-dot"         id="wd3"></div>
-            <div class="wiz-dot"         id="wd4"></div>
-            <div class="wiz-dot"         id="wd5"></div>
-          </div>
-
-          <!-- ══ PASO 0: Selección de proyecto ══ -->
-          <div class="cotiz-step active" id="cotiz-s0">
-            <div class="wiz-body" style="max-width:460px">
-              <div class="wiz-icon">🏢</div>
-              <h3 class="wiz-title">¿Qué proyecto quieres cotizar?</h3>
-              <p class="wiz-sub">Selecciona el proyecto y en 1 minuto te calculamos un plan personalizado para tu cuota inicial.</p>
-
-              <!-- Asia — disponible -->
-              <div class="wiz-proj-card" onclick="wizSelectProject('asia')">
-                <div class="wiz-proj-badge"><span style="color:#10B981">●</span> Disponible ahora</div>
-                <div class="wiz-proj-name">Proyecto Asia</div>
-                <div class="wiz-proj-loc"><i class="fas fa-map-marker-alt"></i> Vía Machado, Bello</div>
-                <div class="wiz-proj-stats">
-                  <div><strong>$259M</strong><span>Precio</span></div>
-                  <div><strong>50.31 m²</strong><span>Área</span></div>
-                  <div><strong>2027</strong><span>Entrega</span></div>
-                </div>
-              </div>
-
-              <!-- Próximamente -->
-              <div class="wiz-proj-card wiz-proj-soon">
-                <div class="wiz-proj-badge wiz-proj-badge-soon">Próximamente</div>
-                <div class="wiz-proj-name">Nuevos proyectos</div>
-                <div class="wiz-proj-loc">Más opciones en camino</div>
-              </div>
-            </div>
-          </div>
-
-          <!-- ══ PASO 1: Tipo de empleo ══ -->
-          <div class="cotiz-step" id="cotiz-s1">
-            <div class="wiz-body">
-              <div class="wiz-icon">👤</div>
-              <h3 class="wiz-title">¿Cómo generas tus ingresos?</h3>
-              <p class="wiz-sub">Con esto calculamos tus beneficios adicionales</p>
-
-              <div class="wiz-emp-row">
-                <button class="wiz-emp-chip sel" id="wchip-empleado" onclick="wizSelectEmpleo('empleado',this)">
-                  <span class="e-ico">👔</span>Empleado
-                </button>
-                <button class="wiz-emp-chip" id="wchip-independiente" onclick="wizSelectEmpleo('independiente',this)">
-                  <span class="e-ico">💼</span>Independiente
-                </button>
-                <button class="wiz-emp-chip" id="wchip-pensionado" onclick="wizSelectEmpleo('pensionado',this)">
-                  <span class="e-ico">🏖️</span>Pensionado
-                </button>
-              </div>
-              <input type="hidden" id="cotiz-empleo" value="empleado" />
-
-              <button class="wiz-btn" onclick="wizGo(2)">Continuar <i class="fas fa-arrow-right"></i></button>
-              <p style="font-size:.75rem;color:var(--color-gray-400);margin-top:12px;text-align:center">
-                <i class="fas fa-lock" style="font-size:.65rem"></i> Sin consulta en centrales de riesgo
-              </p>
-            </div>
-          </div>
-
-          <!-- ══ PASO 2: Ingresos ══ -->
-          <div class="cotiz-step" id="cotiz-s2">
-            <div class="wiz-body">
-              <div class="wiz-icon">💰</div>
-              <h3 class="wiz-title">¿Cuánto ganas al mes?</h3>
-              <p class="wiz-sub">Necesario para calcular tus potenciadores y tu capacidad de ahorro</p>
-
-              <div class="wiz-money">
-                <span class="wiz-money-sym">$</span>
-                <input type="text" id="cotiz-ingreso" placeholder="0" inputmode="numeric"
-                  oninput="formatCotizField(this)" autocomplete="off" />
-              </div>
-              <p class="wiz-hint">Puedes sumar tus ingresos con los de tu pareja o codeudor.</p>
-              <div class="wiz-quick">
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',2000000)">$2M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',3000000)">$3M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',4500000)">$4.5M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',6000000)">$6M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ingreso',8000000)">$8M</button>
-              </div>
-
-              <button class="wiz-btn" onclick="wizGo(3)">Continuar <i class="fas fa-arrow-right"></i></button>
-              <button class="wiz-back" onclick="wizGo(1)">← Atrás</button>
-            </div>
-          </div>
-
-          <!-- ══ PASO 3: Ahorros actuales ══ -->
-          <div class="cotiz-step" id="cotiz-s3">
-            <div class="wiz-body">
-              <div class="wiz-icon">🏦</div>
-              <h3 class="wiz-title">¿Cuánto tienes ahorrado hoy?</h3>
-              <p class="wiz-sub">Incluye cuentas, CDTs, cesantías disponibles…<br>pon 0 si empiezas de cero</p>
-
-              <div class="wiz-money">
-                <span class="wiz-money-sym">$</span>
-                <input type="text" id="cotiz-ahorro" placeholder="0" inputmode="numeric"
-                  oninput="formatCotizField(this)" autocomplete="off" />
-              </div>
-              <p class="wiz-hint">La cuota inicial de Proyecto Asia es <strong>$77.700.000</strong> (30% del precio).</p>
-              <div class="wiz-quick">
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',0)">$0</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',5000000)">$5M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',15000000)">$15M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',30000000)">$30M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-ahorro',50000000)">$50M</button>
-              </div>
-
-              <button class="wiz-btn" onclick="wizGo(4)">Continuar <i class="fas fa-arrow-right"></i></button>
-              <button class="wiz-back" onclick="wizGo(2)">← Atrás</button>
-            </div>
-          </div>
-
-          <!-- ══ PASO 4: Aporte mensual + potenciadores ══ -->
-          <div class="cotiz-step" id="cotiz-s4">
-            <div class="wiz-body">
-              <div class="wiz-icon">📅</div>
-              <h3 class="wiz-title">¿Cuánto puedes aportar cada mes?</h3>
-              <p class="wiz-sub">Lo que pondrías mes a mes durante los 20 meses de obra</p>
-
-              <div class="wiz-money">
-                <span class="wiz-money-sym">$</span>
-                <input type="text" id="cotiz-mensual" placeholder="0" inputmode="numeric"
-                  oninput="formatCotizField(this)" autocomplete="off" />
-              </div>
-              <p class="wiz-hint">Para cubrir $77.7M en 20 meses necesitas ~$3.885.000/mes (sin ahorros previos).</p>
-              <div class="wiz-quick">
-                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',1000000)">$1M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',1500000)">$1.5M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',2000000)">$2M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',2500000)">$2.5M</button>
-                <button class="wiz-qchip" onclick="wizSet('cotiz-mensual',3000000)">$3M</button>
-              </div>
-
-              <!-- Potenciadores (solo empleados — visible por defecto porque el chip inicial es Empleado) -->
-              <div id="wiz-boosts" style="width:100%;margin-bottom:20px">
-                <p style="font-size:.78rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em;color:var(--color-dark);margin-bottom:8px;text-align:left">⚡ Activa tus potenciadores</p>
-
-                <label class="wiz-boost on" id="wb-primas">
-                  <input type="checkbox" id="boost-primas" checked onchange="wizBoostChange(this)" />
-                  <div class="wiz-boost-box">
-                    <i class="fas fa-check" style="font-size:.6rem;color:#fff"></i>
-                  </div>
-                  <div>
-                    <strong>Incluir mis Primas</strong>
-                    <span>Junio y Diciembre — ½ salario c/u</span>
-                    <span class="wiz-boost-pow">✨ Aportes extra 2× al año</span>
-                  </div>
-                </label>
-
-                <label class="wiz-boost on" id="wb-ces">
-                  <input type="checkbox" id="boost-cesantias" checked onchange="wizBoostChange(this)" />
-                  <div class="wiz-boost-box">
-                    <i class="fas fa-check" style="font-size:.6rem;color:#fff"></i>
-                  </div>
-                  <div>
-                    <strong>Incluir mis Cesantías</strong>
-                    <span>Consignadas en Marzo — 1 mes/año</span>
-                    <span class="wiz-boost-pow">✨ Abono extra en marzo</span>
-                  </div>
-                </label>
-              </div>
-
-              <button class="wiz-btn" onclick="wizGo(5)">Ver mi resultado <i class="fas fa-arrow-right"></i></button>
-              <button class="wiz-back" onclick="wizGo(3)">← Atrás</button>
-            </div>
-          </div>
-
-          <!-- ══ PASO 5: Resultado ══ -->
-          <div class="cotiz-step" id="cotiz-s5">
-            <div class="wiz-body" style="max-width:480px">
-              <div id="wiz-resultado"></div>
-              <button class="wiz-back" onclick="wizGo(1)" style="margin-top:16px">
-                <i class="fas fa-redo" style="font-size:.75rem"></i> Recalcular desde el inicio
-              </button>
-            </div>
-          </div>
-
-        </div>
-      </div>
+      </article>
 
     </div>
   </div>
@@ -662,15 +411,15 @@
         <div class="proceso-step__icon"><i class="fas fa-search"></i></div>
         <h4>Conoce el proyecto</h4>
         <p>Evalúa las opciones disponibles según área, precio y localización. Un asesor le presentará las condiciones comerciales vigentes y la disponibilidad de unidades.</p>
-        <a href="#proyectos" class="btn btn-outline btn-sm">Ver proyectos</a>
+        <a href="#" onclick="switchTab('proyectos');return false;" class="btn btn-outline btn-sm">Ver proyectos</a>
       </div>
 
       <div class="proceso-step reveal" style="transition-delay:.1s">
         <div class="proceso-step__num">2</div>
         <div class="proceso-step__icon"><i class="fas fa-calculator"></i></div>
         <h4>Evalúa tu capacidad financiera</h4>
-        <p>Utilice nuestro simulador para proyectar el plan de cuota inicial y determinar la viabilidad del crédito hipotecario según sus ingresos.</p>
-        <a href="#calculadora" class="btn btn-outline btn-sm">Calcular ahora</a>
+        <p>Un asesor te ayuda a proyectar el plan de cuota inicial y determinar la viabilidad del crédito hipotecario según tus ingresos.</p>
+        <button class="btn btn-outline btn-sm" onclick="openWhatsApp('Asia')">Hablar con un asesor</button>
       </div>
 
       <div class="proceso-step reveal" style="transition-delay:.2s">
@@ -686,7 +435,7 @@
         <div class="proceso-step__icon"><i class="fas fa-key"></i></div>
         <h4>Escrituración y entrega</h4>
         <p>Formalizamos la promesa de compraventa, gestionamos el desembolso hipotecario con la entidad financiera y coordinamos la entrega técnica del inmueble.</p>
-        <a href="#contacto" class="btn btn-primary btn-sm">Empezar ahora</a>
+        <a href="#" onclick="switchTab('contacto');return false;" class="btn btn-primary btn-sm">Empezar ahora</a>
       </div>
 
     </div>
@@ -695,11 +444,11 @@
     <div class="reveal" style="margin-top:56px;background:linear-gradient(135deg,var(--color-primary),var(--color-primary-light));border-radius:var(--radius-xl);padding:40px 48px;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:24px">
       <div>
         <h3 style="color:#fff;margin-bottom:8px">100% de nuestros proyectos entregados a tiempo</h3>
-        <p style="color:rgba(255,255,255,.7);font-size:.95rem">En 15 años nunca hemos incumplido una fecha de entrega. Tu inversión está respaldada por fiducia bancaria.</p>
+        <p style="color:rgba(255,255,255,.7);font-size:.95rem">En 25 años nunca hemos incumplido una fecha de entrega. Tu inversión está respaldada por fiducia bancaria.</p>
       </div>
       <div style="display:flex;gap:32px;flex-shrink:0">
         <div style="text-align:center">
-          <div style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:800;color:#C8A96E">15</div>
+          <div style="font-family:'Poppins',sans-serif;font-size:2rem;font-weight:800;color:#C8A96E">25</div>
           <div style="font-size:.78rem;color:rgba(255,255,255,.6)">Años de<br>trayectoria</div>
         </div>
         <div style="text-align:center">
@@ -725,7 +474,7 @@
       <!-- Izquierda: info y stats -->
       <div class="reveal">
         <span class="section-label">Quiénes somos</span>
-        <h2 class="section-title" id="nosotros-title">Más de 15 años en el<br>desarrollo inmobiliario</h2>
+        <h2 class="section-title" id="nosotros-title">Más de 25 años en el<br>desarrollo inmobiliario</h2>
         <p style="color:var(--color-gray-600);margin-bottom:16px">Somos una empresa constructora con sede en Medellín, especializada en el desarrollo de proyectos residenciales de vivienda nueva en el Área Metropolitana de Antioquia. Nuestro modelo de gestión integra planificación técnica, control de obra y asesoría comercial bajo estándares NSR-10.</p>
         <p style="color:var(--color-gray-600);margin-bottom:32px">Cada proyecto integra diseño arquitectónico contemporáneo, especificaciones técnicas de alto estándar y una selección de localizaciones con alto potencial de valorización en el mercado inmobiliario antioqueño.</p>
 
@@ -735,7 +484,7 @@
             <div class="stat-card__label">Apartamentos entregados</div>
           </div>
           <div class="stat-card">
-            <div class="stat-card__number" data-count="15" data-suffix="">0</div>
+            <div class="stat-card__number" data-count="25" data-suffix="">0</div>
             <div class="stat-card__label">Años de experiencia</div>
           </div>
           <div class="stat-card">
@@ -847,104 +596,17 @@
       </div>
 
     </div>
-    </div>
+
+    <a href="https://g.co/kgs/plannerconstructora" target="_blank" rel="noopener" class="google-badge reveal" style="text-decoration:none">
+      <div class="google-badge__logo"><i class="fab fa-google" style="color:#4285F4"></i></div>
+      <div>
+        <div style="display:flex;align-items:baseline">
+          <span class="google-badge__score">4.9</span>
+          <span class="stars" style="font-size:.8rem"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
+        </div>
         <div class="google-badge__info">Basado en 38+ reseñas verificadas en Google</div>
       </div>
-      <a href="https://g.co/kgs/plannerconstructora" target="_blank" rel="noopener" class="btn btn-outline btn-sm" style="margin-left:auto">Ver reseñas</a>
-    </div>
-
-  </div>
-</section>
-
-
-<!-- ======================== AVANCES DE OBRA ======================== -->
-<section id="avances" data-tab="avances" aria-labelledby="avances-title">
-  <div class="container">
-
-    <div class="section-header reveal">
-      <span class="section-label">Trazabilidad de obra</span>
-      <h2 class="section-title" id="avances-title">Avances de obra en tiempo real</h2>
-      <p class="section-subtitle">Reportes mensuales de avance constructivo con porcentaje de ejecución verificable.</p>
-    </div>
-
-    <div data-animate-bars style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-bottom:48px">
-
-      <!-- Asia -->
-      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card)">
-        <div style="position:relative;height:180px;overflow:hidden">
-          <img src="img/asia-card.png"
-               alt="Avance obra Proyecto Asia" loading="lazy" width="500" height="180"
-               style="width:100%;height:100%;object-fit:cover" />
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)"></div>
-          <span style="position:absolute;bottom:12px;left:16px;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem">Proyecto Asia</span>
-          <span style="position:absolute;top:12px;right:12px;background:#313133;color:#fff;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:12px">Entrega 2027</span>
-        </div>
-        <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <span style="font-size:.875rem;color:#4B5563;font-weight:600">Avance general</span>
-            <span style="font-family:'Poppins',sans-serif;font-weight:800;color:#313133;font-size:1.1rem">8%</span>
-          </div>
-          <div style="background:#E5E7EB;border-radius:4px;height:8px;margin-bottom:14px">
-            <div class="progress-fill" data-width="8%" style="height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#313133,#4A4A4D);transition:width 1.2s ease"></div>
-          </div>
-          <p style="font-size:.82rem;color:#6B7280;margin-bottom:14px">Cimentación y estructura del primer piso en ejecución. Inicio de obra Mayo 2025.</p>
-          <button class="btn btn-outline btn-sm" style="width:100%;justify-content:center" onclick="openWhatsApp('Asia — quiero recibir fotos de avance de obra mensualmente')">
-            <i class="fab fa-whatsapp"></i> Recibir actualizaciones
-          </button>
-        </div>
-      </div>
-
-      <!-- Terralta -->
-      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);transition-delay:.1s">
-        <div style="position:relative;height:180px;overflow:hidden">
-          <img src="img/terralta-card.png"
-               alt="Avance obra Proyecto Terralta" loading="lazy" width="500" height="180"
-               style="width:100%;height:100%;object-fit:cover" />
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)"></div>
-          <span style="position:absolute;bottom:12px;left:16px;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem">Proyecto Terralta</span>
-          <span style="position:absolute;top:12px;right:12px;background:#10B981;color:#fff;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:12px">✅ Entregado</span>
-        </div>
-        <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <span style="font-size:.875rem;color:#4B5563;font-weight:600">Avance general</span>
-            <span style="font-family:'Poppins',sans-serif;font-weight:800;color:#10B981;font-size:1.1rem">100%</span>
-          </div>
-          <div style="background:#E5E7EB;border-radius:4px;height:8px;margin-bottom:14px">
-            <div class="progress-fill" data-width="100%" style="height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#10B981,#059669);transition:width 1.2s ease"></div>
-          </div>
-          <p style="font-size:.82rem;color:#6B7280;margin-bottom:14px">Obra terminada y entregada. 100% de propietarios recibieron sus llaves.</p>
-          <button class="btn btn-outline btn-sm" style="width:100%;justify-content:center" onclick="openWhatsApp('Terralta — quiero recibir fotos de avance de obra mensualmente')">
-            <i class="fab fa-whatsapp"></i> Recibir actualizaciones
-          </button>
-        </div>
-      </div>
-
-      <!-- Altea Plaza -->
-      <div class="reveal" style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-card);transition-delay:.2s">
-        <div style="position:relative;height:180px;overflow:hidden">
-          <img src="img/altea-card.png"
-               alt="Altea Plaza entrega inmediata" loading="lazy" width="500" height="180"
-               style="width:100%;height:100%;object-fit:cover" />
-          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,.6),transparent)"></div>
-          <span style="position:absolute;bottom:12px;left:16px;color:#fff;font-family:'Poppins',sans-serif;font-weight:700;font-size:1.05rem">Altea Plaza</span>
-          <span style="position:absolute;top:12px;right:12px;background:#10B981;color:#fff;font-size:.72rem;font-weight:700;padding:4px 10px;border-radius:12px">✅ Entregado</span>
-        </div>
-        <div style="padding:20px">
-          <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:10px">
-            <span style="font-size:.875rem;color:#4B5563;font-weight:600">Avance general</span>
-            <span style="font-family:'Poppins',sans-serif;font-weight:800;color:#10B981;font-size:1.1rem">100%</span>
-          </div>
-          <div style="background:#E5E7EB;border-radius:4px;height:8px;margin-bottom:14px">
-            <div class="progress-fill" data-width="100%" style="height:100%;width:0;border-radius:4px;background:linear-gradient(90deg,#10B981,#059669);transition:width 1.2s ease"></div>
-          </div>
-          <p style="font-size:.82rem;color:#6B7280;margin-bottom:14px">Obra terminada. Apartamentos disponibles para estrenar hoy.</p>
-          <button class="btn btn-primary btn-sm" style="width:100%;justify-content:center" onclick="openWhatsApp('Altea Plaza — quiero agendar visita para ver el apartamento')">
-            <i class="fab fa-whatsapp"></i> Agendar visita hoy
-          </button>
-        </div>
-      </div>
-
-    </div>
+    </a>
 
   </div>
 </section>
@@ -965,19 +627,19 @@
         <div class="servicio-icon"><i class="fas fa-hard-hat"></i></div>
         <h3>Construcción</h3>
         <p>Ejecutamos proyectos residenciales bajo normativa NSR-10 con especificaciones técnicas certificadas, control de calidad permanente en obra y seguimiento al cronograma de ejecución.</p>
-        <a href="#contacto">Saber más <i class="fas fa-arrow-right"></i></a>
+        <a href="#" onclick="switchTab('contacto');return false;">Saber más <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="servicio-card reveal" style="transition-delay:.1s">
         <div class="servicio-icon"><i class="fas fa-handshake"></i></div>
         <h3>Asesoría Comercial</h3>
         <p>Nuestro equipo le asesora en la selección de la unidad, estructuración del crédito hipotecario y gestión notarial hasta la protocolización de la escritura.</p>
-        <a href="#contacto">Saber más <i class="fas fa-arrow-right"></i></a>
+        <a href="#" onclick="switchTab('contacto');return false;">Saber más <i class="fas fa-arrow-right"></i></a>
       </div>
       <div class="servicio-card reveal" style="transition-delay:.2s">
         <div class="servicio-icon"><i class="fas fa-building"></i></div>
         <h3>Gerencia Inmobiliaria</h3>
         <p>Gestionamos portafolios de inversión inmobiliaria: arrendamiento, mantenimiento preventivo y correctivo, y estrategias de maximización de rentabilidad del activo.</p>
-        <a href="#contacto">Saber más <i class="fas fa-arrow-right"></i></a>
+        <a href="#" onclick="switchTab('contacto');return false;">Saber más <i class="fas fa-arrow-right"></i></a>
       </div>
     </div>
 
@@ -1017,7 +679,7 @@
           ¿Cuáles son las garantías jurídicas del proyecto?
           <i class="fas fa-chevron-down"></i>
         </button>
-        <div class="faq-answer">Cada proyecto opera bajo esquema fiduciario de administración y pagos —los recursos son custodiados por una fiduciaria independiente, no por Planner directamente—, respaldado por póliza de cumplimiento y registrado ante la Lonja de Propiedad Raíz de Antioquia. En 15 años de operación, Planner registra un índice de cumplimiento del 100% en entregas.</div>
+        <div class="faq-answer">Cada proyecto opera bajo esquema fiduciario de administración y pagos —los recursos son custodiados por una fiduciaria independiente, no por Planner directamente—, respaldado por póliza de cumplimiento y registrado ante la Lonja de Propiedad Raíz de Antioquia. En 25 años de operación, Planner registra un índice de cumplimiento del 100% en entregas.</div>
       </div>
 
       <div class="faq-item reveal" style="transition-delay:.2s">
@@ -1051,7 +713,7 @@
         <span class="section-label">Blog</span>
         <h2 class="section-title" id="blog-title">Recursos e información<br>para el comprador</h2>
       </div>
-      <a href="#blog" class="btn btn-outline btn-sm">Ver todos los artículos</a>
+      <a href="#" onclick="switchTab('blog');return false;" class="btn btn-outline btn-sm">Ver todos los artículos</a>
     </div>
 
     <div class="blog-grid">
@@ -1140,7 +802,7 @@
         </div>
       </div>
       <div class="reveal" style="transition-delay:.15s;background:var(--color-gray-100);border-radius:var(--radius-xl);overflow:hidden;height:340px">
-        <img src="img/asia-card.png" alt="Proyecto Asia" style="width:100%;height:100%;object-fit:cover" />
+        <img src="img/asia-card-clean.jpg" alt="Proyecto Asia" style="width:100%;height:100%;object-fit:cover" />
       </div>
     </div>
 
@@ -1392,7 +1054,7 @@
             <div class="form-success__icon"><i class="fas fa-check"></i></div>
             <h3>¡Solicitud recibida!</h3>
             <p>Un asesor especializado te contactará en menos de 2 horas. Mientras tanto, te abrimos el chat de WhatsApp para responder preguntas inmediatas.</p>
-            <a href="#proyectos" class="btn btn-primary">Ver proyectos <i class="fas fa-arrow-right"></i></a>
+            <a href="#" onclick="switchTab('proyectos');return false;" class="btn btn-primary">Ver proyectos <i class="fas fa-arrow-right"></i></a>
           </div>
 
         </div>
@@ -1412,7 +1074,7 @@
         <div class="footer-brand__logo">
           <img src="img/planner-logo-footer.svg" alt="Planner Constructora" style="height:40px;width:auto" />
         </div>
-        <p>Construimos hogares que transforman vidas. Más de 15 años de experiencia en el mercado inmobiliario de Antioquia.</p>
+        <p>Construimos hogares que transforman vidas. Más de 25 años de experiencia en el mercado inmobiliario de Antioquia.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/plannerconstructora" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
           <a href="https://www.instagram.com/plannerconstructora" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
@@ -1427,20 +1089,18 @@
           <li><a href="proyectos/asia.html">Proyecto Asia — desde $259M</a></li>
           <li><a href="proyectos/terralta.html">Proyecto Terralta — desde $317M</a></li>
           <li><a href="proyectos/altea-plaza.html">Altea Plaza — Inmediata</a></li>
-          <li><a href="#calculadora">Simulador de cuota</a></li>
-          <li><a href="#avances">Avances de obra</a></li>
         </ul>
       </div>
 
       <div class="footer-col">
         <h5>Empresa</h5>
         <ul>
-          <li><a href="#proceso">Cómo comprar</a></li>
-          <li><a href="#nosotros">Nosotros</a></li>
-          <li><a href="#servicios">Servicios</a></li>
-          <li><a href="#testimonios">Testimonios</a></li>
-          <li><a href="#blog">Blog</a></li>
-          <li><a href="#faqs">Preguntas frecuentes</a></li>
+          <li><a href="#" onclick="switchTab('proceso');return false;">Cómo comprar</a></li>
+          <li><a href="#" onclick="switchTab('nosotros');return false;">Nosotros</a></li>
+          <li><a href="#" onclick="switchTab('nosotros');return false;">Servicios</a></li>
+          <li><a href="#" onclick="switchTab('nosotros');return false;">Testimonios</a></li>
+          <li><a href="#" onclick="switchTab('blog');return false;">Blog</a></li>
+          <li><a href="#" onclick="switchTab('contacto');return false;">Preguntas frecuentes</a></li>
           <li><a href="#">Política de privacidad</a></li>
         </ul>
       </div>
@@ -1495,7 +1155,7 @@
         ¡Hola! 👋 ¿En qué proyecto estás interesado? Cuéntanos y te enviamos toda la información.
       </div>
       <div class="wa-options">
-        <div class="wa-option" onclick="switchTab('cotizar')">
+        <div class="wa-option" onclick="openWhatsApp('Asia')">
           <i class="fas fa-building"></i> Proyecto Asia — desde $259M
         </div>
         <div class="wa-option" onclick="openWhatsApp('Terralta')">
@@ -1519,7 +1179,7 @@
 
 <!-- Barra CTA sticky mobile -->
 <div class="mobile-cta-bar" id="mobile-cta-bar" role="complementary" aria-label="Acciones rápidas">
-  <a href="#proyectos" class="btn btn-outline btn-sm">
+  <a href="#" onclick="switchTab('proyectos');return false;" class="btn btn-outline btn-sm">
     <i class="fas fa-building"></i> Ver proyectos
   </a>
   <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp()">

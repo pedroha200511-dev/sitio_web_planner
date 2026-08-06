@@ -3,7 +3,7 @@
    =================================================== */
 
 // ─── TAB NAVIGATION ─────────────────────────────────
-const VALID_TABS = ['inicio','proyectos','cotizar','proceso','nosotros','avances','blog','exterior','contacto'];
+const VALID_TABS = ['inicio','proyectos','proceso','nosotros','blog','exterior','contacto'];
 let currentTab = 'inicio';
 
 function switchTab(name) {
@@ -18,7 +18,18 @@ function switchTab(name) {
   history.replaceState(null, '', '#' + name);
   currentTab = name;
   document.getElementById('mobile-nav')?.classList.remove('open');
-  if (name === 'cotizar') wizGo(0);
+}
+
+function changeAsiaThumb(thumb, src) {
+  const mainImg = document.getElementById('proyectos-asia-main-img');
+  if (mainImg.src.endsWith(src.replace('../', ''))) return;
+  mainImg.style.opacity = '0';
+  setTimeout(() => {
+    mainImg.src = src;
+    mainImg.style.opacity = '1';
+  }, 200);
+  document.querySelectorAll('.asia-gallery-thumb').forEach(t => t.classList.remove('active'));
+  thumb.classList.add('active');
 }
 
 function openWhatsAppExterior() {
@@ -124,168 +135,6 @@ function openWhatsApp(projectName = '') {
   const msg = projectName
     ? `Hola! Me interesa el proyecto *${projectName}*. ¿Podrían enviarme información sobre opciones de pago y disponibilidad? Gracias.`
     : 'Hola! Quisiera información sobre los proyectos de Planner Constructora. ¿Pueden ayudarme?';
-  window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
-}
-
-// ─── COTIZADOR CUOTA INICIAL — PROYECTO ASIA ─────────
-const PRECIO_ASIA     = 259000000;
-const CUOTA_INICIAL_A = PRECIO_ASIA * 0.30;   // $77.700.000
-const PLAZO_OBRA      = 20;
-
-function fmtCOP(n) {
-  if (n >= 1e9) return '$' + (n/1e9).toFixed(2) + 'B';
-  if (n >= 1e6) return '$' + (n/1e6).toFixed(1).replace('.0','') + 'M';
-  return '$' + Math.round(n).toLocaleString('es-CO');
-}
-function fmtCOPFull(n) {
-  return '$' + Math.round(n).toLocaleString('es-CO');
-}
-function parseMoney(str) {
-  return parseInt((str || '0').replace(/[^0-9]/g, '')) || 0;
-}
-function formatCotizField(el) {
-  const v = parseMoney(el.value);
-  el.value = v > 0 ? v.toLocaleString('es-CO') : '';
-}
-function wizSet(id, val) {
-  const el = document.getElementById(id);
-  if (!el) return;
-  el.value = val > 0 ? val.toLocaleString('es-CO') : '';
-}
-
-// ─ Wizard state
-let wizEmpleo = 'empleado';
-let wizProject = '';
-const WIZ_STEPS = 5;
-
-function wizSelectProject(name) {
-  wizProject = name;
-  wizGo(1);
-}
-
-function wizUpdateDots(step) {
-  for (let i = 1; i <= WIZ_STEPS; i++) {
-    const dot = document.getElementById('wd' + i);
-    if (!dot) continue;
-    dot.className = 'wiz-dot' + (i < step ? ' done' : i === step ? ' active' : '');
-  }
-}
-
-function wizGo(step) {
-  if (step === WIZ_STEPS) wizCalcular();
-  const dots = document.getElementById('wiz-dots');
-  if (dots) dots.style.display = step === 0 ? 'none' : 'flex';
-  document.querySelectorAll('.cotiz-step').forEach(s => s.classList.remove('active'));
-  document.getElementById('cotiz-s' + step)?.classList.add('active');
-  if (step > 0) wizUpdateDots(step);
-  document.getElementById('calculadora')?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
-}
-
-function wizSelectEmpleo(tipo, btn) {
-  wizEmpleo = tipo;
-  document.querySelectorAll('.wiz-emp-chip').forEach(c => c.classList.remove('sel'));
-  btn.classList.add('sel');
-  document.getElementById('cotiz-empleo').value = tipo;
-  const boosts = document.getElementById('wiz-boosts');
-  if (boosts) boosts.style.display = tipo === 'empleado' ? 'block' : 'none';
-}
-
-function wizBoostChange(cb) {
-  cb.closest('.wiz-boost')?.classList.toggle('on', cb.checked);
-}
-
-// ─ Cálculo principal
-function wizCalcular() {
-  const ahorro  = parseMoney(document.getElementById('cotiz-ahorro')?.value);
-  const mensual = parseMoney(document.getElementById('cotiz-mensual')?.value);
-  const ingreso = parseMoney(document.getElementById('cotiz-ingreso')?.value);
-  const empleo  = wizEmpleo;
-  const usaPrimas    = empleo === 'empleado' && !!document.getElementById('boost-primas')?.checked;
-  const usaCesantias = empleo === 'empleado' && !!document.getElementById('boost-cesantias')?.checked;
-
-  const totalPrimas    = usaPrimas    ? (ingreso / 2) * 2 * 3 : 0;
-  const totalCesantias = usaCesantias ? ingreso * 3 : 0;
-  const acumMensual    = mensual * PLAZO_OBRA;
-  const totalAcumulado = ahorro + acumMensual + totalPrimas + totalCesantias;
-  const listo          = totalAcumulado >= CUOTA_INICIAL_A;
-
-  let mesesBase = Infinity;
-  if (ahorro >= CUOTA_INICIAL_A) { mesesBase = 0; }
-  else if (mensual > 0) { mesesBase = Math.ceil((CUOTA_INICIAL_A - ahorro) / mensual); }
-  const semAmarillo = !listo && mesesBase <= PLAZO_OBRA;
-
-  const sem = listo
-    ? { color:'#10B981', bg:'#ECFDF5', border:'#A7F3D0', icon:'fa-check-circle',      txt:'¡Puedes hacerlo! Tienes o acumulas la cuota inicial en los 20 meses de obra.' }
-    : semAmarillo
-    ? { color:'#C8A96E', bg:'#FEF9EE', border:'#E5D5AA', icon:'fa-clock',              txt:'Puedes lograrlo ahorrando durante los 20 meses de construcción.' }
-    : { color:'#EF4444', bg:'#FEF2F2', border:'#FCA5A5', icon:'fa-exclamation-circle', txt:'Con tu ahorro actual no alcanzas en los 20 meses. Habla con un asesor.' };
-
-  let html = '';
-
-  html += `<div style="display:flex;align-items:flex-start;gap:12px;padding:14px 16px;background:${sem.bg};border:1.5px solid ${sem.border};border-radius:12px;margin-bottom:16px">
-    <i class="fas ${sem.icon}" style="color:${sem.color};font-size:1.4rem;flex-shrink:0;margin-top:1px"></i>
-    <span style="font-size:.875rem;color:#1F2937;font-weight:600;line-height:1.45">${sem.txt}</span>
-  </div>`;
-
-  html += `<div style="background:#F8F6F2;border-radius:12px;padding:14px 16px;margin-bottom:12px">
-    <div style="font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9CA3AF;margin-bottom:10px">Cuota inicial</div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Precio Proyecto Asia</span><span style="font-weight:600">${fmtCOPFull(PRECIO_ASIA)}</span></div>
-    <div style="border-top:1px solid #E5E7EB;margin:8px 0 6px"></div>
-    <div style="display:flex;justify-content:space-between;font-size:.9rem"><span style="font-weight:700">Cuota inicial (30%)</span><span style="font-weight:800;color:#C8A96E;font-size:1rem">${fmtCOPFull(CUOTA_INICIAL_A)}</span></div>
-  </div>`;
-
-  html += `<div style="background:#F8F6F2;border-radius:12px;padding:14px 16px;margin-bottom:16px">
-    <div style="font-size:.68rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:#9CA3AF;margin-bottom:10px">Tu plan de ahorro (20 meses)</div>`;
-  if (ahorro > 0)
-    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Ahorros actuales</span><span style="font-weight:600;color:#10B981">${fmtCOPFull(ahorro)}</span></div>`;
-  if (mensual > 0)
-    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#6B7280">Cuotas mensuales (20 meses)</span><span style="font-weight:600">${fmtCOPFull(acumMensual)}</span></div>`;
-  if (usaPrimas && totalPrimas > 0)
-    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#10B981">⚡ Primas (Jun/Dic)</span><span style="font-weight:600;color:#10B981">+ ${fmtCOPFull(totalPrimas)}</span></div>`;
-  if (usaCesantias && totalCesantias > 0)
-    html += `<div style="display:flex;justify-content:space-between;margin-bottom:5px;font-size:.85rem"><span style="color:#10B981">⚡ Cesantías (marzo)</span><span style="font-weight:600;color:#10B981">+ ${fmtCOPFull(totalCesantias)}</span></div>`;
-
-  const pctTotal = Math.min(100, Math.round((totalAcumulado / CUOTA_INICIAL_A) * 100));
-  html += `<div style="border-top:1px solid #E5E7EB;margin:8px 0 8px"></div>
-    <div style="display:flex;justify-content:space-between;margin-bottom:8px;font-size:.9rem"><span style="font-weight:700">Total que acumulas</span><span style="font-weight:800;color:${listo?'#10B981':'#313133'}">${fmtCOPFull(totalAcumulado)}</span></div>
-    <div style="background:#E5E7EB;border-radius:6px;height:10px;overflow:hidden;margin-bottom:6px">
-      <div style="width:${pctTotal}%;height:100%;background:${listo?'#10B981':pctTotal>=60?'#C8A96E':'#EF4444'};border-radius:6px;transition:width .8s ease"></div>
-    </div>
-    <div style="font-size:.78rem;color:#6B7280;text-align:right">${pctTotal}% de la cuota inicial</div>`;
-
-  if (!listo && mensual > 0) {
-    const necesario = Math.ceil(CUOTA_INICIAL_A / PLAZO_OBRA);
-    html += `<div style="margin-top:10px;padding:10px 12px;background:#FEF9EE;border-left:3px solid #C8A96E;border-radius:0 8px 8px 0;font-size:.8rem;color:#1F2937;line-height:1.45">
-      💡 Para completarlo en 20 meses necesitarías <strong>${fmtCOP(necesario)}/mes</strong> (sin potenciadores).
-    </div>`;
-  }
-  html += `</div>`;
-
-  if (listo || semAmarillo) {
-    html += `<button class="wiz-btn-wa" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-size:1rem;font-weight:700;padding:17px;border-radius:14px;background:#10B981;color:#fff" onclick="wizEnviarLead('positivo')">
-      <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Pedir información
-    </button>
-    <button class="wiz-btn-wa" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-size:.9rem;font-weight:600;padding:13px;border-radius:14px;background:transparent;color:var(--color-gray-600);border:1.5px solid var(--color-gray-200);margin-top:8px" onclick="wizEnviarLead('asesor')">
-      <i class="fab fa-whatsapp" style="font-size:1rem"></i> Hablar con un asesor
-    </button>`;
-  } else {
-    html += `<button class="wiz-btn-wa" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px;border:none;cursor:pointer;font-size:1rem;font-weight:700;padding:17px;border-radius:14px" onclick="wizEnviarLead('asesor')">
-      <i class="fab fa-whatsapp" style="font-size:1.2rem"></i> Hablar con un asesor
-    </button>`;
-  }
-
-  const res = document.getElementById('wiz-resultado');
-  if (res) res.innerHTML = html;
-}
-
-function wizEnviarLead(tipo = 'asesor') {
-  const ingreso = fmtCOP(parseMoney(document.getElementById('cotiz-ingreso')?.value));
-  const ahorro  = fmtCOP(parseMoney(document.getElementById('cotiz-ahorro')?.value));
-  const mensual = fmtCOP(parseMoney(document.getElementById('cotiz-mensual')?.value));
-  const intro = tipo === 'positivo'
-    ? `Hola! Simulé mi cuota en el sitio de Planner para *Proyecto Asia* y me interesa. Quisiera más información para avanzar.`
-    : `Hola! Hice la simulación en el sitio de Planner para *Proyecto Asia* y quisiera que me ayuden a encontrar la mejor opción.`;
-  const msg = `${intro}\n• Empleo: ${wizEmpleo}\n• Ingresos: ${ingreso}/mes\n• Ahorros: ${ahorro}\n• Ahorro mensual: ${mensual}/mes\n¿Me pueden asesorar? Gracias.`;
   window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
@@ -410,22 +259,9 @@ const counterObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 
-document.querySelectorAll('.stats-row, .nosotros-stats, .hero__trust').forEach(el => {
+document.querySelectorAll('.stats-row, .nosotros-stats').forEach(el => {
   counterObs.observe(el);
 });
-
-// ─── PROGRESS BAR ANIMATION (avances) ───────────────
-const barObs = new IntersectionObserver(entries => {
-  entries.forEach(e => {
-    if (e.isIntersecting) {
-      e.target.querySelectorAll('.progress-fill[data-width]').forEach(bar => {
-        bar.style.width = bar.dataset.width;
-      });
-      barObs.unobserve(e.target);
-    }
-  });
-}, { threshold: 0.2 });
-document.querySelectorAll('[data-animate-bars]').forEach(el => barObs.observe(el));
 
 // ─── HERO PARALLAX (sutil) ──────────────────────────
 const heroBg = document.querySelector('.hero__bg');
