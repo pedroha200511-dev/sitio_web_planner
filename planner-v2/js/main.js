@@ -1,5 +1,5 @@
 /* ===================================================
-   PLANNER CONSTRUCTORA v2 — JavaScript
+   PLANNER CONSTRUCTORA v2 JavaScript
    =================================================== */
 
 // ─── TAB NAVIGATION ─────────────────────────────────
@@ -149,6 +149,11 @@ function openWhatsApp(projectName = '') {
   window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
+function openWhatsAppVisita() {
+  const msg = 'Hola! Me gustaría agendar una visita al proyecto. ¿Podrían ayudarme a coordinar un horario? Gracias.';
+  window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
+}
+
 // ─── MULTI-STEP FORM ────────────────────────────────
 let currentStep = 1;
 const totalSteps = 3;
@@ -176,7 +181,7 @@ function goStep(next) {
     if (i + 1 === next) s.classList.add('active');
   });
 
-  const labels = ['Tu información', 'Tu presupuesto', 'Preferencias'];
+  const labels = ['Tu información', 'Motivo de contacto', 'Preferencias'];
   const label  = document.getElementById('step-label');
   if (label) label.innerHTML = `Paso ${next} de ${totalSteps}: <strong>${labels[next-1]}</strong>`;
 
@@ -200,6 +205,12 @@ function clearFormError() {
   });
 });
 
+function toggleMotivo() {
+  const esProyecto = document.querySelector('input[name="motivo"]:checked')?.value !== 'empresa';
+  const fields = document.getElementById('motivo-proyecto-fields');
+  if (fields) fields.style.display = esProyecto ? '' : 'none';
+}
+
 function submitForm(e) {
   e?.preventDefault();
   const privacy = document.getElementById('f-privacy');
@@ -207,15 +218,24 @@ function submitForm(e) {
     showFormError('Debes aceptar la política de privacidad para continuar.');
     return;
   }
-  const nombre      = document.getElementById('f-nombre')?.value || 'Cliente';
-  const proyecto    = document.getElementById('f-proyecto')?.value || 'uno de los proyectos';
-  const presupuesto = document.querySelector('input[name="presupuesto"]:checked')?.value || '';
-  const mensaje     = document.getElementById('f-mensaje')?.value || '';
+  const nombre  = document.getElementById('f-nombre')?.value || 'Cliente';
+  const motivo  = document.querySelector('input[name="motivo"]:checked')?.value || 'proyecto';
+  const mensaje = document.getElementById('f-mensaje')?.value || '';
 
-  let msg = `Hola! Soy *${nombre}*. Me interesa el proyecto *${proyecto}*.`;
-  if (presupuesto) msg += ` Mi presupuesto mensual es *${presupuesto}*.`;
-  if (mensaje)     msg += ` Comentario: ${mensaje}`;
+  let msg;
+  if (motivo === 'empresa') {
+    msg = `Hola! Soy *${nombre}*. Tengo una consulta de *servicio al cliente / información general* de Planner Constructora.`;
+  } else {
+    const proyecto    = document.getElementById('f-proyecto')?.value || 'uno de los proyectos';
+    const presupuesto = document.querySelector('input[name="presupuesto"]:checked')?.value || '';
+    msg = `Hola! Soy *${nombre}*. Me interesa el proyecto *${proyecto}*.`;
+    if (presupuesto) msg += ` Mi presupuesto mensual es *${presupuesto}*.`;
+  }
+  if (mensaje) msg += ` Comentario: ${mensaje}`;
   msg += ' Solicité información desde el sitio web.';
+
+  // Nota: hoy todo llega al mismo WhatsApp. Si en el futuro hay un número
+  // distinto para servicio al cliente, aquí se puede elegir el destino según `motivo`.
 
   const container = document.getElementById('form-container');
   const success   = document.getElementById('form-success');
@@ -226,17 +246,6 @@ function submitForm(e) {
     window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
   }, 700);
 }
-
-// ─── FAQs ACCORDION ─────────────────────────────────
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', () => {
-    const item   = btn.closest('.faq-item');
-    const isOpen = item.classList.contains('open');
-    document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
-    if (!isOpen) item.classList.add('open');
-    btn.setAttribute('aria-expanded', !isOpen);
-  });
-});
 
 // ─── REVEAL ON SCROLL ───────────────────────────────
 const revealObs = new IntersectionObserver(entries => {
@@ -270,7 +279,7 @@ const counterObs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.3 });
 
-document.querySelectorAll('.stats-row, .nosotros-stats').forEach(el => {
+document.querySelectorAll('.trayectoria-strip').forEach(el => {
   counterObs.observe(el);
 });
 

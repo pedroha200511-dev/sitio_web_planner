@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyecto Asia | Apartamentos en Vía Machado, Bello — Planner Constructora</title>
+  <title>Proyecto Asia | Apartamentos en Vía Machado, Bello | Planner Constructora</title>
   <meta name="description" content="Proyecto Asia: vivienda nueva desde $259.000.000 en Vía Machado, Bello. Entrega diciembre 2027. Unidades de 50.31 m², 2 habitaciones. Proyecto VIS. Financiación con el sistema bancario colombiano." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,28 +12,34 @@
   <link rel="stylesheet" href="../css/styles.css" />
   <style>
     .proyecto-hero { padding-top:72px; background:linear-gradient(135deg,#1F2937 0%,#313133 100%); padding-bottom:0; }
-    .proyecto-hero__inner { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; padding:64px 0 0; }
-    .gallery-main { width:100%; height:380px; object-fit:cover; display:block; }
+    .proyecto-hero .container { max-width:1360px; }
+    .proyecto-breadcrumb { display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.6); font-size:.85rem; font-weight:500; text-decoration:none; margin-top:20px; transition:color 200ms ease; }
+    .proyecto-breadcrumb:hover { color:#C8A96E; }
+    .proyecto-hero__inner { display:grid; grid-template-columns:56fr 44fr; gap:56px; align-items:start; padding:24px 0 0; }
+    .gallery-main { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
     .gallery-thumbs { display:flex; gap:8px; padding:8px; background:rgba(0,0,0,.4); }
     .gallery-thumb { width:70px; height:50px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:border-color .2s; }
     .gallery-thumb.active { border-color:#C8A96E; }
-    .proyecto-hero__gallery { position:relative; border-radius:20px 20px 0 0; overflow:hidden; }
-    .proyecto-hero__info { padding-bottom:48px; }
-    .proyecto-badge-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
-    .proyecto-hero__title { color:#fff; margin-bottom:8px; }
+    .proyecto-hero__gallery { position:relative; border-radius:20px 20px 0 0; overflow:hidden; align-self:center; }
+    .proyecto-hero__info { padding-bottom:48px; margin-top:-6px; }
+    .proyecto-badge-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; }
+    .proyecto-hero__title { color:#fff; margin-bottom:12px; }
     .proyecto-hero__location { color:rgba(255,255,255,.6); display:flex; align-items:center; gap:6px; margin-bottom:24px; }
     .precio-grande { font-family:'Poppins',sans-serif; font-size:2.4rem; font-weight:800; color:#C8A96E; margin-bottom:4px; }
     .precio-note { font-size:.82rem; color:rgba(255,255,255,.5); margin-bottom:28px; }
-    .specs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:28px; }
+    .specs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-bottom:32px; }
     .spec-box { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:16px; text-align:center; }
     .spec-box i { color:#C8A96E; font-size:1.2rem; margin-bottom:6px; display:block; }
     .spec-box strong { display:block; color:#fff; font-size:1.1rem; }
     .spec-box span { font-size:.78rem; color:rgba(255,255,255,.5); }
     .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; }
+    .hero-ctas .btn { min-height:50px; padding:15px 32px; }
+    .hero-ctas .btn-whatsapp { background:#26B36A; box-shadow:0 3px 10px rgba(38,179,106,.3); }
+    .hero-ctas .btn-whatsapp:hover { background:#20A05E; }
     .subsidy-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(200,169,110,.2); border:1px solid rgba(200,169,110,.4); color:#C8A96E; padding:8px 16px; border-radius:20px; font-size:.82rem; font-weight:600; margin-bottom:20px; }
     .tabs-nav { display:flex; gap:4px; border-bottom:2px solid #E5E7EB; margin-bottom:40px; flex-wrap:wrap; }
-    .tab-btn { padding:12px 20px; font-family:'Poppins',sans-serif; font-size:.9rem; font-weight:600; color:#6B7280; border-bottom:3px solid transparent; margin-bottom:-2px; cursor:pointer; transition:color .2s,border-color .2s; }
-    .tab-btn.active { color:#313133; border-bottom-color:#313133; }
+    .tab-btn { padding:12px 20px; font-family:'Poppins',sans-serif; font-size:.9rem; font-weight:600; color:#6B7280; border-bottom:3px solid transparent; margin-bottom:-2px; cursor:pointer; transition:color 280ms ease,border-color 280ms ease; }
+    .tab-btn.active { color:#1A1A1A; border-bottom-color:#C8A96E; }
     .tab-panel { display:none; }
     .tab-panel.active { display:block; }
     .amenidades-grid { display:grid; grid-template-columns:repeat(auto-fill,minmax(180px,1fr)); gap:16px; }
@@ -41,12 +47,6 @@
     .amenidad-item i { color:#313133; font-size:1.1rem; width:20px; text-align:center; }
     .tipologia-card { background:#F8F6F2; border-radius:16px; padding:24px; border:1px solid #E5E7EB; display:flex; align-items:center; gap:24px; margin-bottom:16px; }
     .tipologia-img { width:120px; height:100px; background:#E5E7EB; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:.75rem; color:#9CA3AF; text-align:center; flex-direction:column; gap:4px; }
-    .avance-item { background:#F8F6F2; border-radius:12px; padding:20px; border-left:4px solid #313133; margin-bottom:16px; }
-    .avance-date { font-size:.78rem; color:#9CA3AF; margin-bottom:4px; }
-    .avance-item h4 { color:#1F2937; margin-bottom:6px; }
-    .avance-item p { font-size:.875rem; color:#4B5563; }
-    .progress-bar { background:#E5E7EB; border-radius:4px; height:8px; margin-top:10px; }
-    .progress-fill { height:100%; border-radius:4px; background:linear-gradient(90deg,#313133,#4A4A4D); transition:width 1.2s ease; }
     @media(max-width:768px){ .proyecto-hero__inner{grid-template-columns:1fr;} .specs-grid{grid-template-columns:repeat(3,1fr);} .hero-ctas{flex-direction:column;} .tipologia-card{flex-direction:column;align-items:flex-start;} }
   </style>
 </head>
@@ -61,6 +61,7 @@
       <ul class="navbar__nav">
         <li><a href="../index.html">Inicio</a></li>
         <li><a href="../index.html#proyectos" class="active">Proyectos</a></li>
+        <li><a href="../index.html#proceso">Cómo comprar</a></li>
         <li><a href="../index.html#nosotros">Nosotros</a></li>
         <li><a href="../index.html#contacto">Contacto</a></li>
       </ul>
@@ -72,6 +73,7 @@
 <div class="mobile-nav" id="mobile-nav">
   <a href="../index.html">Inicio</a>
   <a href="../index.html#proyectos">Proyectos</a>
+  <a href="../index.html#proceso">Cómo comprar</a>
   <a href="../index.html#nosotros">Nosotros</a>
   <a href="../index.html#contacto">Contacto</a>
   <button class="btn btn-whatsapp" onclick="openWhatsApp('Asia')"><i class="fab fa-whatsapp"></i> Hablar con un asesor</button>
@@ -80,6 +82,7 @@
 <!-- HERO -->
 <section class="proyecto-hero">
   <div class="container">
+    <a href="../index.html#proyectos" class="proyecto-breadcrumb"><i class="fas fa-arrow-left"></i> Volver a proyectos</a>
     <div class="proyecto-hero__inner">
       <div class="proyecto-hero__gallery reveal">
         <img id="gallery-main-img"
@@ -103,7 +106,7 @@
           <span style="font-size:.52em;font-weight:600;color:rgba(200,169,110,.7);letter-spacing:.22em;text-transform:uppercase;display:block;margin-bottom:6px">Proyecto</span>
           ASIA
         </h1>
-        <p style="color:rgba(255,255,255,.72);font-size:.97rem;line-height:1.6;margin-bottom:20px;max-width:400px">Invierta en el sector de mayor crecimiento y plusvalía de Medellín. Diseño exclusivo para una vida moderna.</p>
+        <p style="color:rgba(255,255,255,.72);font-size:.97rem;line-height:1.6;margin-bottom:24px;max-width:400px">Invierta en el sector de mayor crecimiento y plusvalía de Medellín. Diseño exclusivo para una vida moderna.</p>
         <div class="proyecto-hero__location">
           <i class="fas fa-map-marker-alt" style="color:#C8A96E"></i>
           Vía Machado, Bello, Antioquia
@@ -121,46 +124,11 @@
         </div>
 
         <div class="hero-ctas">
-          <button class="btn btn-whatsapp btn-lg" onclick="openWhatsApp('Asia — quiero cotizar un apartamento')">
+          <button class="btn btn-whatsapp btn-lg" onclick="openWhatsApp('Asia: quiero cotizar un apartamento')">
             <i class="fab fa-whatsapp"></i> Cotizar Apartamento
           </button>
         </div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- VALORIZACIÓN -->
-<section style="background:#0D1F13;padding:56px 0;border-top:1px solid rgba(200,169,110,.15)">
-  <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;background:rgba(200,169,110,.08);border:1px solid rgba(200,169,110,.2);border-radius:20px;overflow:hidden">
-      <div style="padding:36px 32px;border-right:1px solid rgba(200,169,110,.15)">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-          <div style="width:40px;height:40px;background:rgba(200,169,110,.15);border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fas fa-chart-line" style="color:#C8A96E;font-size:1.1rem"></i></div>
-          <span style="color:#C8A96E;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em">Plusvalía</span>
-        </div>
-        <div style="font-family:'Poppins',sans-serif;font-size:2.4rem;font-weight:800;color:#fff;line-height:1">Alta</div>
-        <p style="color:rgba(255,255,255,.55);font-size:.85rem;margin-top:10px;line-height:1.5">Vía Machado es uno de los corredores de mayor valorización en el norte del Área Metropolitana de Medellín.</p>
-      </div>
-      <div style="padding:36px 32px;border-right:1px solid rgba(200,169,110,.15)">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-          <div style="width:40px;height:40px;background:rgba(200,169,110,.15);border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fas fa-home" style="color:#C8A96E;font-size:1.1rem"></i></div>
-          <span style="color:#C8A96E;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em">Renta</span>
-        </div>
-        <div style="font-family:'Poppins',sans-serif;font-size:2.4rem;font-weight:800;color:#fff;line-height:1">Alta demanda</div>
-        <p style="color:rgba(255,255,255,.55);font-size:.85rem;margin-top:10px;line-height:1.5">Sector con alta demanda de arrendamiento por proximidad a universidades, clínicas y zonas industriales de Bello.</p>
-      </div>
-      <div style="padding:36px 32px">
-        <div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
-          <div style="width:40px;height:40px;background:rgba(200,169,110,.15);border-radius:10px;display:flex;align-items:center;justify-content:center"><i class="fas fa-shield-alt" style="color:#C8A96E;font-size:1.1rem"></i></div>
-          <span style="color:#C8A96E;font-weight:700;font-size:.82rem;text-transform:uppercase;letter-spacing:.1em">Seguridad</span>
-        </div>
-        <div style="font-family:'Poppins',sans-serif;font-size:2.4rem;font-weight:800;color:#fff;line-height:1">Fiducia</div>
-        <p style="color:rgba(255,255,255,.55);font-size:.85rem;margin-top:10px;line-height:1.5">Recursos gestionados mediante encargo fiduciario. Su inversión protegida desde el primer peso.</p>
-      </div>
-    </div>
-    <div style="text-align:center;margin-top:20px">
-      <p style="color:rgba(255,255,255,.35);font-size:.78rem">Proyecto VIS · Financiación hipotecaria disponible con todas las entidades del sistema bancario colombiano</p>
     </div>
   </div>
 </section>
@@ -172,33 +140,32 @@
       <button class="tab-btn active" onclick="switchTab('descripcion',this)">Descripción</button>
       <button class="tab-btn"        onclick="switchTab('amenidades',this)">Amenidades</button>
       <button class="tab-btn"        onclick="switchTab('tipologias',this)">Tipologías</button>
-      <button class="tab-btn"        onclick="switchTab('avances',this)">Avances de obra</button>
       <button class="tab-btn"        onclick="switchTab('ubicacion',this)">Ubicación</button>
     </div>
 
     <!-- Descripción -->
     <div class="tab-panel active" id="tab-descripcion">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
         <div>
-          <h2 style="margin-bottom:20px">Calidad y tranquilidad en Vía Machado</h2>
-          <p style="color:#4B5563;margin-bottom:16px">Proyecto Asia es una propuesta residencial de vivienda nueva que combina accesibilidad económica y calidad constructiva. Diseñado para compradores que buscan su primera vivienda en una de las zonas de mayor crecimiento y valorización de Bello.</p>
-          <p style="color:#4B5563;margin-bottom:16px">Su localización sobre Vía Machado garantiza conectividad vial de primer nivel, con proximidad a centros comerciales, instituciones educativas y transporte público. Posición estratégica para residentes que trabajan tanto en Bello como en Medellín.</p>
-          <p style="color:#4B5563;margin-bottom:24px">Financiación hipotecaria disponible con todas las entidades del sistema bancario colombiano. Nuestro equipo de asesores acompaña cada etapa del proceso de adquisición sin costo adicional.</p>
+          <h2 style="margin-bottom:28px">Calidad y tranquilidad en Vía Machado</h2>
+          <p style="color:#4B5563;margin-bottom:22px;line-height:1.75">Proyecto Asia es una propuesta residencial de vivienda nueva que combina accesibilidad económica y calidad constructiva. Diseñado para compradores que buscan su primera vivienda en una de las zonas de mayor crecimiento y valorización de Bello.</p>
+          <p style="color:#4B5563;margin-bottom:22px;line-height:1.75">Su localización sobre Vía Machado garantiza conectividad vial de primer nivel, con proximidad a centros comerciales, instituciones educativas y transporte público. Posición estratégica para residentes que trabajan tanto en Bello como en Medellín.</p>
+          <p style="color:#4B5563;margin-bottom:32px;line-height:1.75">Financiación hipotecaria disponible con todas las entidades del sistema bancario colombiano. Nuestro equipo de asesores acompaña cada etapa del proceso de adquisición sin costo adicional.</p>
           <div class="certs-row">
             <div class="cert-badge"><i class="fas fa-shield-alt"></i> Fiducia bancaria</div>
             <div class="cert-badge"><i class="fas fa-certificate"></i> NSR-10</div>
           </div>
         </div>
         <div>
-          <h3 style="margin-bottom:16px">Entrega en obra gris habitable</h3>
-          <p style="color:#4B5563;font-size:.9rem;margin-bottom:16px">Por ser proyecto VIS, Asia se entrega en obra gris habitable: estructura, redes y mampostería terminadas, listas para que el propietario aplique sus acabados.</p>
-          <div style="display:flex;flex-direction:column;gap:10px">
+          <h3 style="margin-bottom:20px">Entrega en obra gris habitable</h3>
+          <p style="color:#4B5563;font-size:.9rem;margin-bottom:22px;line-height:1.75">Por ser proyecto VIS, Asia se entrega en obra gris habitable: estructura, redes y mampostería terminadas, listas para que el propietario aplique sus acabados.</p>
+          <div style="display:flex;flex-direction:column;gap:14px">
             <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Estructura en concreto reforzado NSR-10</span></div>
             <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Redes eléctricas, hidrosanitarias y de gas instaladas</span></div>
             <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Mampostería y pañete de muros completados</span></div>
             <div style="display:flex;align-items:center;gap:10px;padding:12px;background:#F8F6F2;border-radius:8px"><i class="fas fa-check" style="color:#313133;flex-shrink:0"></i><span style="font-size:.9rem">Ventanas y puertas principales instaladas</span></div>
           </div>
-          <div style="margin-top:16px;padding:14px 16px;background:#EEF9F4;border-radius:10px;border-left:4px solid #10B981">
+          <div style="margin-top:24px;padding:14px 16px;background:#EEF9F4;border-radius:10px;border-left:4px solid #10B981">
             <p style="font-size:.88rem;color:#065F46;font-weight:600;margin-bottom:4px"><i class="fas fa-info-circle"></i> Financiación de acabados disponible</p>
             <p style="font-size:.85rem;color:#047857">Planner ofrece alternativas de financiación para los acabados de su apartamento. Consulte con un asesor.</p>
           </div>
@@ -265,59 +232,38 @@
     <!-- Tipologías -->
     <div class="tab-panel" id="tab-tipologias">
       <h2 style="margin-bottom:8px">Tipologías disponibles</h2>
-      <p style="color:#4B5563;margin-bottom:32px">Dos tipologías sobre el mismo módulo de 50.31 m² — el cliente elige la distribución que mejor se adapta a su núcleo familiar.</p>
+      <p style="color:#4B5563;margin-bottom:32px">Dos tipologías sobre el mismo módulo de 50.31 m². El cliente elige la distribución que mejor se adapta a su núcleo familiar.</p>
 
       <div class="tipologia-card">
         <img src="../img/asia-planta-a.png" alt="Planta Tipo A" style="width:200px;height:160px;object-fit:contain;border-radius:10px;background:#F8F6F2;flex-shrink:0" />
         <div style="flex:1">
-          <h3 style="margin-bottom:8px">Tipo A — 50.31 m² · 3 Hab.</h3>
+          <h3 style="margin-bottom:8px">Tipo A: 50.31 m² · 3 Hab.</h3>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">Cocina integrada, sala-comedor, 3 habitaciones y 1 baño completo. Distribución funcional para núcleo familiar de hasta 5 personas.</p>
           <div style="display:flex;gap:20px;flex-wrap:wrap">
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 50.31 m²</span>
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $259.000.000</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia — Tipo A 50.31m² 3 hab')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia: Tipo A 50.31m² 3 hab')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
       </div>
 
       <div class="tipologia-card">
         <img src="../img/asia-planta-b.png" alt="Planta Tipo B" style="width:200px;height:160px;object-fit:contain;border-radius:10px;background:#F8F6F2;flex-shrink:0" />
         <div style="flex:1">
-          <h3 style="margin-bottom:8px">Tipo B — 50.31 m² · 2 Hab. + Estudio</h3>
+          <h3 style="margin-bottom:8px">Tipo B: 50.31 m² · 2 Hab. + Estudio</h3>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">Misma área del Tipo A con una distribución diferente: sala-comedor, 2 habitaciones, estudio independiente y 1 baño completo. Ideal para quienes trabajan o estudian desde casa.</p>
           <div style="display:flex;gap:20px;flex-wrap:wrap">
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 50.31 m²</span>
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $259.000.000</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia — Tipo B 50.31m²')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
-      </div>
-    </div>
-
-    <!-- Avances de obra -->
-    <div class="tab-panel" id="tab-avances">
-      <h2 style="margin-bottom:8px">Seguimiento constructivo — Proyecto Asia</h2>
-      <p style="color:#4B5563;margin-bottom:32px">Informes mensuales de avance con porcentaje de ejecución certificado.</p>
-
-      <div style="background:#F8F6F2;border-radius:16px;padding:24px;margin-bottom:32px">
-        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
-          <h3>Avance general de obra</h3>
-          <span style="font-family:'Poppins',sans-serif;font-size:1.6rem;font-weight:800;color:#313133">8%</span>
-        </div>
-        <div class="progress-bar"><div class="progress-fill" style="width:8%"></div></div>
-        <p style="font-size:.82rem;color:#6B7280;margin-top:10px">Actualizado: abril 2026 · Entrega estimada: diciembre 2027</p>
-      </div>
-
-      <div style="text-align:center;margin-top:32px">
-        <button class="btn btn-primary" onclick="openWhatsApp('Asia — quisiera recibir fotos de avances de obra mensualmente')">
-          <i class="fab fa-whatsapp"></i> Recibir fotos de avance por WhatsApp
-        </button>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia: Tipo B 50.31m²')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
       </div>
     </div>
 
     <!-- Ubicación -->
     <div class="tab-panel" id="tab-ubicacion">
-      <h2 style="margin-bottom:8px">Vía Machado — Una de las zonas de mayor valorización en Bello</h2>
+      <h2 style="margin-bottom:8px">Vía Machado: una de las zonas de mayor valorización en Bello</h2>
       <p style="color:#4B5563;margin-bottom:24px">Excelente conectividad con Medellín, servicios completos y alto potencial de valorización.</p>
       <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start">
         <div class="map-embed" style="margin-top:0">
@@ -344,28 +290,11 @@
   </div>
 </section>
 
-<!-- CTA -->
-<section class="cta-banner">
-  <div class="container">
-    <span class="section-label" style="color:var(--color-gold)">Disponibilidad limitada</span>
-    <h2>Solo 8 unidades disponibles en Proyecto Asia</h2>
-    <p>Solicite asesoría comercial sin costo. Nuestro equipo le responde en menos de 2 horas hábiles.</p>
-    <div class="cta-banner__btns">
-      <button class="btn btn-white btn-lg" onclick="openWhatsApp('Asia — quiero información'">
-        <i class="fab fa-whatsapp"></i> Hablar con un asesor
-      </button>
-      <a href="../index.html#contacto" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
-        <i class="fas fa-envelope"></i> Solicitar información
-      </a>
-    </div>
-  </div>
-</section>
-
 <footer class="footer">
   <div class="container">
     <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:48px 0 32px;align-items:start">
       <div>
-        <a href="../index.html" class="navbar__logo" style="margin-bottom:12px;display:inline-block"><span style="color:#fff;font-size:1.1rem;font-weight:700">Planner Constructora</span></a>
+        <a href="../index.html" style="margin-bottom:16px;display:inline-block"><img src="../img/planner-logo-footer.svg" alt="Planner Constructora" style="height:36px;width:auto" /></a>
         <p style="color:#6B7280;font-size:.82rem;line-height:1.6;margin-bottom:8px">NIT: 900.XXX.XXX-X<br>Medellín, Antioquia, Colombia</p>
         <a href="../index.html#proyectos" style="color:#C8A96E;font-size:.82rem">← Ver todos los proyectos</a>
       </div>
@@ -389,23 +318,6 @@
   </div>
 </footer>
 
-<div class="wa-float" id="wa-float">
-  <div class="wa-float__popup" id="wa-popup">
-    <div class="wa-float__popup-header">
-      <div class="wa-float__avatar"><i class="fab fa-whatsapp"></i></div>
-      <div><h5>Asesor Proyecto Asia</h5><p><span class="wa-float__status"></span> Disponible ahora</p></div>
-    </div>
-    <div class="wa-float__popup-body">
-      <div class="wa-message">¿Tiene consultas sobre Proyecto Asia o el proceso de adquisición?</div>
-      <div class="wa-options">
-        <div class="wa-option" onclick="openWhatsApp('Hola, quiero recibir el plan de pagos de Asia')"><i class="fas fa-file-invoice-dollar"></i> Recibir plan de pagos</div>
-        <div class="wa-option" onclick="openWhatsApp('Asia — quiero cotizar un apartamento')"><i class="fas fa-calculator"></i> Cotizar apartamento</div>
-        <div class="wa-option" onclick="openWhatsApp('Asia — quiero agendar visita al proyecto')"><i class="fas fa-calendar"></i> Agendar visita</div>
-      </div>
-    </div>
-  </div>
-  <button class="wa-float__btn" id="wa-btn" aria-label="Abrir WhatsApp"><i class="fab fa-whatsapp"></i></button>
-</div>
 
 <script>
 function openWhatsApp(project){ const msg=`Hola! Me interesa el proyecto *${project}*. ¿Pueden enviarme información?`; window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`,'_blank'); }
@@ -413,11 +325,8 @@ function changeImg(thumb,src){ document.getElementById('gallery-main-img').src=s
 function switchTab(id,btn){ document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); document.getElementById('tab-'+id).classList.add('active'); btn.classList.add('active'); }
 const navbar=document.getElementById('navbar'); window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>20));
 document.getElementById('hamburger')?.addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('open'));
-document.getElementById('wa-btn')?.addEventListener('click',e=>{e.stopPropagation();document.getElementById('wa-popup').classList.toggle('open');});
-document.addEventListener('click',e=>{if(!document.getElementById('wa-float')?.contains(e.target))document.getElementById('wa-popup')?.classList.remove('open');});
 const obs=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');obs.unobserve(e.target);}}),{threshold:.12});
 document.querySelectorAll('.reveal').forEach(el=>obs.observe(el));
-setTimeout(()=>{document.querySelectorAll('.progress-fill').forEach(el=>{const w=el.style.width;el.style.width='0';requestAnimationFrame(()=>{el.style.transition='width 1.2s ease';el.style.width=w;});});},300);
 </script>
 </body>
 </html>

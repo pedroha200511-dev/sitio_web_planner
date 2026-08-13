@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Altea Plaza | Apartamentos en Niquia, Bello — Entrega Inmediata — Planner Constructora</title>
+  <title>Altea Plaza | Apartamentos en Niquia, Bello | Entrega Inmediata | Planner Constructora</title>
   <meta name="description" content="Altea Plaza: apartamentos desde $235.400.000 en Niquia, Bello. Entrega inmediata. 2-3 habitaciones, 52-68 m², piscina, zona Metro Cable. Estrena hoy." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -12,25 +12,31 @@
   <link rel="stylesheet" href="../css/styles.css" />
   <style>
     .proyecto-hero { padding-top:72px; background:linear-gradient(135deg,#0D1E2E 0%,#1B3A4F 60%,#313133 100%); padding-bottom:0; }
-    .proyecto-hero__inner { display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center; padding:64px 0 0; }
-    .gallery-main { width:100%; height:380px; object-fit:cover; display:block; }
+    .proyecto-hero .container { max-width:1360px; }
+    .proyecto-breadcrumb { display:inline-flex; align-items:center; gap:8px; color:rgba(255,255,255,.6); font-size:.85rem; font-weight:500; text-decoration:none; margin-top:20px; transition:color 200ms ease; }
+    .proyecto-breadcrumb:hover { color:#C8A96E; }
+    .proyecto-hero__inner { display:grid; grid-template-columns:56fr 44fr; gap:56px; align-items:start; padding:24px 0 0; }
+    .gallery-main { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
     .gallery-thumbs { display:flex; gap:8px; padding:8px; background:rgba(0,0,0,.4); }
     .gallery-thumb { width:70px; height:50px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:border-color .2s; }
     .gallery-thumb.active { border-color:#C8A96E; }
-    .proyecto-hero__gallery { border-radius:20px 20px 0 0; overflow:hidden; }
-    .proyecto-hero__info { padding-bottom:48px; }
-    .proyecto-badge-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
-    .proyecto-hero__title { color:#fff; margin-bottom:8px; }
+    .proyecto-hero__gallery { position:relative; border-radius:20px 20px 0 0; overflow:hidden; align-self:center; }
+    .proyecto-hero__info { padding-bottom:48px; margin-top:-6px; }
+    .proyecto-badge-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; }
+    .proyecto-hero__title { color:#fff; margin-bottom:12px; }
     .proyecto-hero__location { color:rgba(255,255,255,.6); display:flex; align-items:center; gap:6px; margin-bottom:24px; }
     .precio-grande { font-family:'Poppins',sans-serif; font-size:2.4rem; font-weight:800; color:#C8A96E; margin-bottom:4px; }
     .precio-note { font-size:.82rem; color:rgba(255,255,255,.5); margin-bottom:28px; }
-    .specs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:16px; margin-bottom:28px; }
+    .specs-grid { display:grid; grid-template-columns:repeat(3,1fr); gap:26px; margin-bottom:32px; }
     .spec-box { background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.1); border-radius:12px; padding:16px; text-align:center; }
     .spec-box i { color:#C8A96E; font-size:1.2rem; margin-bottom:6px; display:block; }
     .spec-box strong { display:block; color:#fff; font-size:1.1rem; }
     .spec-box span { font-size:.78rem; color:rgba(255,255,255,.5); }
     .hero-ctas { display:flex; gap:12px; flex-wrap:wrap; }
-    .immediate-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(16,185,129,.2); border:1px solid rgba(16,185,129,.4); color:#6EE7B7; padding:8px 16px; border-radius:20px; font-size:.82rem; font-weight:600; margin-bottom:20px; }
+    .hero-ctas .btn { min-height:50px; padding:15px 32px; }
+    .hero-ctas .btn-whatsapp { background:#26B36A; box-shadow:0 3px 10px rgba(38,179,106,.3); }
+    .hero-ctas .btn-whatsapp:hover { background:#20A05E; }
+    .immediate-badge { display:inline-flex; align-items:center; gap:8px; background:rgba(16,185,129,.2); border:1px solid rgba(16,185,129,.4); color:#6EE7B7; padding:8px 16px; border-radius:20px; font-size:.82rem; font-weight:600; margin-bottom:24px; }
     .tabs-nav { display:flex; gap:4px; border-bottom:2px solid #E5E7EB; margin-bottom:40px; flex-wrap:wrap; }
     .tab-btn { padding:12px 20px; font-family:'Poppins',sans-serif; font-size:.9rem; font-weight:600; color:#6B7280; border-bottom:3px solid transparent; margin-bottom:-2px; cursor:pointer; transition:color .2s,border-color .2s; }
     .tab-btn.active { color:#313133; border-bottom-color:#313133; }
@@ -56,6 +62,7 @@
       <ul class="navbar__nav">
         <li><a href="../index.html">Inicio</a></li>
         <li><a href="../index.html#proyectos" class="active">Proyectos</a></li>
+        <li><a href="../index.html#proceso">Cómo comprar</a></li>
         <li><a href="../index.html#nosotros">Nosotros</a></li>
         <li><a href="../index.html#contacto">Contacto</a></li>
       </ul>
@@ -71,6 +78,7 @@
 <div class="mobile-nav" id="mobile-nav">
   <a href="../index.html">Inicio</a>
   <a href="../index.html#proyectos">Proyectos</a>
+  <a href="../index.html#proceso">Cómo comprar</a>
   <a href="../index.html#nosotros">Nosotros</a>
   <a href="../index.html#contacto">Contacto</a>
   <button class="btn btn-whatsapp" onclick="openWhatsApp('Altea Plaza')"><i class="fab fa-whatsapp"></i> Cotizar ahora</button>
@@ -79,6 +87,7 @@
 <!-- HERO -->
 <section class="proyecto-hero">
   <div class="container">
+    <a href="../index.html#proyectos" class="proyecto-breadcrumb"><i class="fas fa-arrow-left"></i> Volver a proyectos</a>
     <div class="proyecto-hero__inner">
       <div class="proyecto-hero__gallery reveal">
         <img id="gallery-main-img"
@@ -96,12 +105,12 @@
           <span class="proyecto-card__badge" style="position:static;background:#C8A96E;color:#fff">El más accesible</span>
         </div>
         <div class="immediate-badge">
-          <i class="fas fa-key"></i> <strong>¡Listo para estrenar!</strong> — Recibe las llaves este mes
+          <i class="fas fa-key"></i> <strong>¡Listo para estrenar!</strong> Recibe las llaves este mes
         </div>
         <h1 class="proyecto-hero__title">Altea Plaza</h1>
         <div class="proyecto-hero__location">
           <i class="fas fa-map-marker-alt" style="color:#C8A96E"></i>
-          Niquia, Bello — A 3 min del Metro Cable
+          Niquia, Bello, a 3 min del Metro Cable
         </div>
         <div class="precio-grande">Desde $235.400.000</div>
         <div class="precio-note">El precio más accesible del portafolio · Parqueadero incluido · Entrega inmediata</div>
@@ -116,7 +125,7 @@
         </div>
 
         <div class="hero-ctas">
-          <button class="btn btn-whatsapp btn-lg" onclick="openWhatsApp('Altea Plaza — quiero ver el apartamento')">
+          <button class="btn btn-whatsapp btn-lg" onclick="openWhatsApp('Altea Plaza: quiero ver el apartamento')">
             <i class="fab fa-whatsapp"></i> Ver apartamento hoy
           </button>
           <a href="../index.html#calculadora" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.4);color:#fff">
@@ -144,7 +153,7 @@
       <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
         <div>
           <h2 style="margin-bottom:20px">Tu nuevo hogar listo para estrenar en Niquia</h2>
-          <p style="color:#4B5563;margin-bottom:16px">Altea Plaza es la opción perfecta para quienes no quieren esperar. Un edificio terminado, revisado y listo para habitarse, ubicado en Niquia — una de las zonas más conectadas de Bello gracias al Metro y Metro Cable.</p>
+          <p style="color:#4B5563;margin-bottom:16px">Altea Plaza es la opción perfecta para quienes no quieren esperar. Un edificio terminado, revisado y listo para habitarse, ubicado en Niquia, una de las zonas más conectadas de Bello gracias al Metro y Metro Cable.</p>
           <p style="color:#4B5563;margin-bottom:16px">Con el precio más accesible de nuestro portafolio, es la puerta de entrada ideal al mercado inmobiliario para primeros compradores y también una excelente inversión para arrendar.</p>
           <p style="color:#4B5563;margin-bottom:24px">El proyecto cuenta con piscina, zonas BBQ, parque infantil y vigilancia 24/7. Todo lo que necesitas sin salir del conjunto.</p>
           <div class="certs-row">
@@ -189,14 +198,14 @@
 
     <!-- Tipologías -->
     <div class="tab-panel" id="tab-tipologias">
-      <h2 style="margin-bottom:8px">Tipologías disponibles — Entrega inmediata</h2>
+      <h2 style="margin-bottom:8px">Tipologías disponibles, entrega inmediata</h2>
       <p style="color:#4B5563;margin-bottom:32px">Quedan pocas unidades disponibles. Agenda tu visita hoy.</p>
 
       <div class="tipologia-card">
         <div class="tipologia-img"><i class="fas fa-home" style="font-size:2rem;color:#9CA3AF"></i><span>Tipo A</span></div>
         <div style="flex:1">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-            <h3 style="margin:0">Tipo A — 52 m² · 2 Hab.</h3>
+            <h3 style="margin:0">Tipo A: 52 m² · 2 Hab.</h3>
             <span style="background:#10B981;color:#fff;font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:4px">DISPONIBLE</span>
           </div>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">Ideal para parejas. Cocina integrada tipo americano, sala-comedor, 2 habitaciones, 1 baño completo y zona de ropas.</p>
@@ -206,14 +215,14 @@
             <span style="font-size:.875rem;color:#10B981;font-weight:600"><i class="fas fa-key"></i> Entrega inmediata</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Altea Plaza — Tipo A 52m² — quiero agendar visita')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Ver hoy</button>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Altea Plaza: Tipo A 52m²: quiero agendar visita')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Ver hoy</button>
       </div>
 
       <div class="tipologia-card">
         <div class="tipologia-img"><i class="fas fa-home" style="font-size:2rem;color:#9CA3AF"></i><span>Tipo B</span></div>
         <div style="flex:1">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-            <h3 style="margin:0">Tipo B — 60 m² · 2 Hab. + Estudio</h3>
+            <h3 style="margin:0">Tipo B: 60 m² · 2 Hab. + Estudio</h3>
             <span style="background:#10B981;color:#fff;font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:4px">DISPONIBLE</span>
           </div>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">2 habitaciones + estudio que puede ser habitación adicional. Balcón privado con vista al jardín. 2 baños completos.</p>
@@ -223,14 +232,14 @@
             <span style="font-size:.875rem;color:#10B981;font-weight:600"><i class="fas fa-key"></i> Entrega inmediata</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Altea Plaza — Tipo B 60m² — quiero agendar visita')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Ver hoy</button>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Altea Plaza: Tipo B 60m²: quiero agendar visita')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Ver hoy</button>
       </div>
 
       <div class="tipologia-card">
         <div class="tipologia-img"><i class="fas fa-home" style="font-size:2rem;color:#9CA3AF"></i><span>Tipo C</span></div>
         <div style="flex:1">
           <div style="display:flex;align-items:center;gap:8px;margin-bottom:6px">
-            <h3 style="margin:0">Tipo C — 68 m² · 3 Hab.</h3>
+            <h3 style="margin:0">Tipo C: 68 m² · 3 Hab.</h3>
             <span style="background:#F59E0B;color:#fff;font-size:.72rem;font-weight:700;padding:3px 8px;border-radius:4px">ÚLTIMAS 2</span>
           </div>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">La unidad más grande. 3 habitaciones completas, 2 baños, balcón panorámico y habitación principal con closet amplio.</p>
@@ -240,7 +249,7 @@
             <span style="font-size:.875rem;color:#F59E0B;font-weight:600"><i class="fas fa-exclamation-circle"></i> Solo 2 disponibles</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Altea Plaza — Tipo C 68m² — quiero reservar antes de que se agote')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Reservar</button>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Altea Plaza: Tipo C 68m²: quiero reservar antes de que se agote')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Reservar</button>
       </div>
     </div>
 
@@ -272,7 +281,7 @@
             <div><h4 style="margin-bottom:6px;color:#1F2937">Garantía de 5 años</h4><p style="font-size:.875rem;color:#4B5563">Como es obra nueva, tienes garantía legal de 5 años en estructura y 1 año en acabados.</p></div>
           </div>
           <div style="display:flex;gap:16px;align-items:flex-start;align-self:center">
-            <button class="btn btn-primary btn-lg" onclick="openWhatsApp('Altea Plaza — quiero agendar visita esta semana')" style="width:100%;justify-content:center">
+            <button class="btn btn-primary btn-lg" onclick="openWhatsApp('Altea Plaza: quiero agendar visita esta semana')" style="width:100%;justify-content:center">
               <i class="fab fa-whatsapp"></i> Agendar visita
             </button>
           </div>
@@ -282,7 +291,7 @@
 
     <!-- Ubicación -->
     <div class="tab-panel" id="tab-ubicacion">
-      <h2 style="margin-bottom:8px">Niquia — La zona más conectada de Bello</h2>
+      <h2 style="margin-bottom:8px">Niquia: la zona más conectada de Bello</h2>
       <p style="color:#4B5563;margin-bottom:24px">A 3 minutos del Metro Cable Picacho. Acceso directo al centro de Medellín en menos de 30 minutos.</p>
       <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start">
         <div class="map-embed" style="margin-top:0">
@@ -316,7 +325,7 @@
     <h2>Recibe las llaves este mes</h2>
     <p>Quedan pocas unidades. Agenda tu visita hoy y estrénalo sin esperas.</p>
     <div class="cta-banner__btns">
-      <button class="btn btn-white btn-lg" onclick="openWhatsApp('Altea Plaza — quiero agendar visita para ver el apartamento esta semana')">
+      <button class="btn btn-white btn-lg" onclick="openWhatsApp('Altea Plaza: quiero agendar visita para ver el apartamento esta semana')">
         <i class="fab fa-whatsapp"></i> Agendar visita ahora
       </button>
       <a href="../index.html#contacto" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
@@ -349,9 +358,9 @@
     <div class="wa-float__popup-body">
       <div class="wa-message">¡Hola! Altea Plaza tiene entrega inmediata. ¿Agendamos una visita hoy?</div>
       <div class="wa-options">
-        <div class="wa-option" onclick="openWhatsApp('Altea Plaza — quiero agendar visita')"><i class="fas fa-calendar"></i> Agendar visita</div>
-        <div class="wa-option" onclick="openWhatsApp('Altea Plaza — quiero cotizar')"><i class="fas fa-tag"></i> Cotizar</div>
-        <div class="wa-option" onclick="openWhatsApp('Altea Plaza — opciones de financiación')"><i class="fas fa-university"></i> Opciones de pago</div>
+        <div class="wa-option" onclick="openWhatsApp('Altea Plaza: quiero agendar visita')"><i class="fas fa-calendar"></i> Agendar visita</div>
+        <div class="wa-option" onclick="openWhatsApp('Altea Plaza: quiero cotizar')"><i class="fas fa-tag"></i> Cotizar</div>
+        <div class="wa-option" onclick="openWhatsApp('Altea Plaza: opciones de financiación')"><i class="fas fa-university"></i> Opciones de pago</div>
       </div>
     </div>
   </div>

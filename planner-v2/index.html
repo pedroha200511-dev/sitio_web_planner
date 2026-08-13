@@ -40,7 +40,7 @@
         },
         "sameAs": [
           "https://www.facebook.com/plannerconstructora",
-          "https://www.instagram.com/plannerconstructora"
+          "https://www.instagram.com/constructora_planner"
         ]
       },
       {
@@ -118,7 +118,7 @@
       <div class="navbar__actions">
         <div class="navbar__social">
           <a href="https://www.facebook.com/plannerconstructora" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/plannerconstructora" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/constructora_planner" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
         </div>
       </div>
 
@@ -171,7 +171,7 @@
         <a href="proyectos/asia.html" class="hero__asia-card" aria-label="Ver Proyecto Asia">
           <!-- Imagen de portada -->
           <div class="hero__asia-card-image">
-            <img src="img/asia-card-clean.jpg" alt="Render Proyecto Asia — Vía Machado, Bello" width="700" height="480" loading="eager" />
+            <img src="img/asia-card-clean.jpg" alt="Render Proyecto Asia, Vía Machado, Bello" width="700" height="480" loading="eager" />
             <span class="hero__asia-badge"><span class="hero__badge-dot"></span>En construcción · Entrega 2027</span>
           </div>
 
@@ -249,7 +249,7 @@
 
 
 <!-- ======================== PROYECTO ASIA (FEATURED) ======================== -->
-<section id="proyectos" data-tab="proyectos" aria-labelledby="proyectos-title" style="padding-top:140px;padding-bottom:60px">
+<section id="proyectos" data-tab="proyectos" aria-labelledby="proyectos-title">
   <div class="container">
 
     <!-- Asia: card grande 2 columnas -->
@@ -353,7 +353,7 @@
       <!-- Altea Plaza -->
       <article class="entregado-card" style="transition-delay:.1s">
         <div class="entregado-card__img">
-          <img src="img/altea-card.png" alt="Altea Plaza — entregado" loading="lazy" />
+          <img src="img/altea-card.png" alt="Altea Plaza entregado" loading="lazy" />
           <div class="entregado-card__overlay">
             <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado 2025</span>
           </div>
@@ -372,7 +372,7 @@
       <!-- Terralta -->
       <article class="entregado-card" style="transition-delay:.2s">
         <div class="entregado-card__img">
-          <img src="img/terralta-card.png" alt="Proyecto Terralta — entregado" loading="lazy" />
+          <img src="img/terralta-card.png" alt="Proyecto Terralta entregado" loading="lazy" />
           <div class="entregado-card__overlay">
             <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado Q1 2026</span>
           </div>
@@ -400,7 +400,7 @@
     <div class="section-header centered reveal">
       <span class="section-label">Proceso de compra</span>
       <h2 class="section-title" id="proceso-title">Adquisición de vivienda en 4 etapas</h2>
-      <p class="section-subtitle">Un proceso estructurado, transparente y acompañado — estés en Colombia o en el exterior.</p>
+      <p class="section-subtitle">Un proceso estructurado, transparente y acompañado, estés en Colombia o en el exterior.</p>
     </div>
 
     <!-- Selector Colombia / Exterior -->
@@ -434,7 +434,7 @@
           <div class="proceso-step__icon"><i class="fas fa-calendar-check"></i></div>
           <h4>Visite el proyecto</h4>
           <p>Recorra la sala de ventas o el apartamento modelo con un asesor especializado. Revisamos condiciones contractuales y resolvemos consultas técnicas y comerciales.</p>
-          <button class="btn btn-outline btn-sm" onclick="openWhatsApp('—quiero agendar una visita')">Agendar visita</button>
+          <button class="btn btn-outline btn-sm" onclick="openWhatsAppVisita()">Agendar visita</button>
         </div>
 
         <div class="proceso-step reveal" style="transition-delay:.3s">
@@ -451,7 +451,7 @@
     <!-- MODO: EXTERIOR -->
     <div data-buyer-mode="exterior" class="buyer-mode" style="display:none">
       <p class="reveal" style="max-width:620px;margin:0 auto 40px;text-align:center;color:var(--color-gray-600);line-height:1.7">
-        Cada remesa que envías puede estar construyendo el patrimonio de tu familia en Colombia. Con Proyecto Asia, la cuota inicial cabe en lo que ya estás mandando — y el proceso se hace sin que tengas que volver al país.
+        Cada remesa que envías puede estar construyendo el patrimonio de tu familia en Colombia. Con Proyecto Asia, la cuota inicial cabe en lo que ya estás mandando, y el proceso se hace sin que tengas que volver al país.
       </p>
 
       <div class="proceso-grid">
@@ -476,7 +476,7 @@
           <div class="proceso-step__num">3</div>
           <div class="proceso-step__icon"><i class="fas fa-file-signature"></i></div>
           <h4>Poder notarial</h4>
-          <p>Un familiar firma por ti en Colombia, o lo tramitas desde el consulado — te guiamos paso a paso en el proceso.</p>
+          <p>Un familiar firma por ti en Colombia, o lo tramitas desde el consulado. Te guiamos paso a paso en el proceso.</p>
           <button class="btn btn-outline btn-sm" onclick="openWhatsAppExterior()">Resolver dudas</button>
         </div>
 
@@ -501,7 +501,7 @@
         </div>
         <div style="background:#fff;border:1px solid var(--color-gray-200);border-radius:var(--radius-lg);padding:18px;text-align:center">
           <i class="fas fa-headset" style="color:var(--color-accent);font-size:1.1rem;margin-bottom:8px;display:block"></i>
-          <span style="font-size:.82rem;color:var(--color-gray-600);line-height:1.5">Asesor en horario EST, CET y PST — videollamada, WhatsApp o correo, como prefieras.</span>
+          <span style="font-size:.82rem;color:var(--color-gray-600);line-height:1.5">Asesor en horario EST, CET y PST: videollamada, WhatsApp o correo, como prefieras.</span>
         </div>
       </div>
     </div>
@@ -535,241 +535,143 @@
 <!-- ======================== NOSOTROS ======================== -->
 <section id="nosotros" data-tab="nosotros" aria-labelledby="nosotros-title">
   <div class="container">
-    <div class="nosotros-grid">
 
-      <!-- Izquierda: info y stats -->
-      <div class="reveal">
+    <!-- Historia + imagen -->
+    <div class="nosotros-block nosotros-historia-v2 reveal">
+      <div class="nosotros-historia-v2__text">
         <span class="section-label">Quiénes somos</span>
-        <h2 class="section-title" id="nosotros-title">Más de 25 años en el<br>desarrollo inmobiliario</h2>
-        <p style="color:var(--color-gray-600);margin-bottom:16px">Somos una empresa constructora con sede en Medellín, especializada en el desarrollo de proyectos residenciales de vivienda nueva en el Área Metropolitana de Antioquia. Nuestro modelo de gestión integra planificación técnica, control de obra y asesoría comercial bajo estándares NSR-10.</p>
-        <p style="color:var(--color-gray-600);margin-bottom:32px">Cada proyecto integra diseño arquitectónico contemporáneo, especificaciones técnicas de alto estándar y una selección de localizaciones con alto potencial de valorización en el mercado inmobiliario antioqueño.</p>
-
-        <div class="nosotros-stats stats-row">
-          <div class="stat-card">
-            <div class="stat-card__number" data-count="500" data-suffix="+">0+</div>
-            <div class="stat-card__label">Apartamentos entregados</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card__number" data-count="25" data-suffix="">0</div>
-            <div class="stat-card__label">Años de experiencia</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card__number" data-count="12" data-suffix="">0</div>
-            <div class="stat-card__label">Proyectos completados</div>
-          </div>
-          <div class="stat-card">
-            <div class="stat-card__number" data-count="98" data-suffix="%">0%</div>
-            <div class="stat-card__label">Clientes recomendarían</div>
-          </div>
-        </div>
-
-        <div class="certs-row" style="margin-top:32px">
-          <div class="cert-badge"><i class="fas fa-award"></i> Lonja de Propiedad Raíz</div>
-          <div class="cert-badge"><i class="fas fa-certificate"></i> Camacol Antioquia</div>
-          <div class="cert-badge"><i class="fas fa-shield-alt"></i> Fondo Solidario</div>
-          <div class="cert-badge"><i class="fas fa-university"></i> Fiducia bancaria</div>
-        </div>
+        <h2 class="section-title" id="nosotros-title">Más de <span class="title-accent-number">25</span> años en el desarrollo inmobiliario</h2>
+        <span class="gold-rule"></span>
+        <p style="color:var(--color-gray-600);margin-bottom:16px">Detrás de cada proyecto de Planner hay una convicción simple: comprar vivienda es una de las decisiones más importantes en la vida de una familia, y merece acompañamiento real, no solo una transacción. Por eso construimos con transparencia, cumplimos los plazos que prometemos y seguimos junto al comprador desde la primera visita hasta la entrega de las llaves.</p>
+        <p style="color:var(--color-gray-600)">Hoy, con más de 25 años de trayectoria en el Área Metropolitana de Medellín, ese compromiso se refleja en cada proyecto: apartamentos pensados para familias reales, respaldados por procesos claros y verificables.</p>
       </div>
-
-      <!-- Derecha: Timeline -->
-      <div class="reveal" style="transition-delay:.15s">
-        <h3 style="margin-bottom:28px;color:var(--color-dark)">Nuestra historia</h3>
-        <div class="timeline">
-          <div class="timeline-item">
-            <div class="timeline-year">2009</div>
-            <h4>Fundación de Planner Constructora</h4>
-            <p>Constitución de Planner Constructora en Medellín, con enfoque en el desarrollo de proyectos residenciales en el Área Metropolitana de Antioquia.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2013</div>
-            <h4>Primer gran proyecto: Torres del Nogal</h4>
-            <p>Primera entrega formal: 80 unidades residenciales en Bello, cumpliendo el cronograma contractual. Inicio del historial de cumplimiento de la empresa.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2017</div>
-            <h4>Expansión y 200 familias</h4>
-            <p>Superamos las 200 unidades escrituradas. Apertura de sala de ventas en Bello para mayor cobertura comercial en el norte del Valle de Aburrá.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2020</div>
-            <h4>Certificación de calidad y pandemia</h4>
-            <p>Continuidad operacional durante la emergencia sanitaria. Entrega de proyectos en ejecución con protocolos de bioseguridad certificados.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2023</div>
-            <h4>500+ familias y 3 proyectos simultáneos</h4>
-            <p>Ejecución simultánea de tres proyectos: Asia, Terralta y Altea Plaza. Estructura operativa de 60 colaboradores directos.</p>
-          </div>
-          <div class="timeline-item">
-            <div class="timeline-year">2026</div>
-            <h4>Entrega de Terralta — Q1 2026</h4>
-            <p>Entrega formal de Proyecto Terralta, Q1 2026. Planner consolida su trayectoria con índice de cumplimiento del 100% en todos sus proyectos.</p>
-          </div>
-        </div>
+      <div class="nosotros-historia-v2__img">
+        <img src="img/altea-card.png" alt="Altea Plaza, proyecto entregado por Planner Constructora" loading="lazy" />
       </div>
-
-    </div>
-  </div>
-</section>
-
-
-<!-- ======================== TESTIMONIOS ======================== -->
-<section id="testimonios" data-tab="nosotros" aria-labelledby="testimonios-title" style="background:var(--color-off-white)">
-  <div class="container">
-
-    <div class="section-header centered reveal">
-      <span class="section-label">Testimonios</span>
-      <h2 class="section-title" id="testimonios-title">Opinión de nuestros propietarios</h2>
-      <p class="section-subtitle">Más de 500 propietarios avalan nuestra trayectoria constructiva y comercial en el Área Metropolitana.</p>
     </div>
 
-    <div class="testimonios-grid">
-
-      <div class="testimonio-card reveal">
-        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="testimonio-text">"Planner cumplió con exactitud los plazos estipulados en la promesa de compraventa. A dos años de habitar el inmueble, la valorización ha superado las proyecciones iniciales. El proceso de adquisición fue transparente, bien documentado y sin contratiempos."</p>
-        <div class="testimonio-author">
-          <div class="testimonio-avatar">CM</div>
-          <div>
-            <div class="testimonio-name">Carolina Mejía</div>
-            <div class="testimonio-project">Proyecto Asia, Bello · 2023</div>
-          </div>
+    <!-- Estadísticas -->
+    <div class="nosotros-block trayectoria-block reveal" style="transition-delay:.15s">
+      <div class="trayectoria-strip">
+        <div class="trayectoria-item">
+          <div class="trayectoria-item__number">+<span data-count="25" data-suffix="">0</span></div>
+          <div class="trayectoria-item__label">Años construyendo confianza</div>
+        </div>
+        <div class="trayectoria-item">
+          <div class="trayectoria-item__number">+<span data-count="6" data-suffix="">0</span></div>
+          <div class="trayectoria-item__label">Proyectos construidos y entregados</div>
+        </div>
+        <div class="trayectoria-item">
+          <div class="trayectoria-item__number">+<span data-count="123" data-suffix="K">0</span></div>
+          <div class="trayectoria-item__label">Familias con su sueño cumplido</div>
         </div>
       </div>
-
-      <div class="testimonio-card reveal" style="transition-delay:.1s">
-        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
-        <p class="testimonio-text">"El proceso de vinculación bancaria fue más ágil de lo esperado gracias al acompañamiento del equipo comercial. Desde la simulación financiera hasta la escrituración, cada etapa estuvo coordinada y bien explicada."</p>
-        <div class="testimonio-author">
-          <div class="testimonio-avatar">RD</div>
-          <div>
-            <div class="testimonio-name">Roberto Duque</div>
-            <div class="testimonio-project">Proyecto Terralta · 2024</div>
-          </div>
-        </div>
-      </div>
-
-      <div class="testimonio-card reveal" style="transition-delay:.2s">
-        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
-        <p class="testimonio-text">"Adquirí en Altea Plaza bajo modalidad de entrega inmediata. La unidad fue entregada en condiciones técnicas impecables. El servicio posventa respondió oportunamente a los ajustes menores solicitados. Experiencia de compra altamente satisfactoria."</p>
-        <div class="testimonio-author">
-          <div class="testimonio-avatar">LG</div>
-          <div>
-            <div class="testimonio-name">Lucía González</div>
-            <div class="testimonio-project">Altea Plaza, Niquia · 2024</div>
-          </div>
-        </div>
-      </div>
-
     </div>
-
-    <a href="https://g.co/kgs/plannerconstructora" target="_blank" rel="noopener" class="google-badge reveal" style="text-decoration:none">
-      <div class="google-badge__logo"><i class="fab fa-google" style="color:#4285F4"></i></div>
-      <div>
-        <div style="display:flex;align-items:baseline">
-          <span class="google-badge__score">4.9</span>
-          <span class="stars" style="font-size:.8rem"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></span>
-        </div>
-        <div class="google-badge__info">Basado en 38+ reseñas verificadas en Google</div>
-      </div>
-    </a>
 
   </div>
 </section>
 
 
 <!-- ======================== SERVICIOS ======================== -->
-<section id="servicios" data-tab="nosotros" aria-labelledby="servicios-title">
+<section id="servicios" data-tab="nosotros" aria-labelledby="servicios-title" style="background:#fff">
   <div class="container">
 
-    <div class="section-header reveal">
+    <div class="section-header centered reveal">
       <span class="section-label">Líneas de servicio</span>
-      <h2 class="section-title" id="servicios-title">Gestión inmobiliaria<br>integral</h2>
-      <p class="section-subtitle">Cubrimos cada fase del proceso constructivo y comercial: desde la planeación del proyecto hasta la entrega del inmueble y el servicio posventa.</p>
+      <h2 class="section-title" id="servicios-title">Nuestros servicios</h2>
+      <span class="gold-rule gold-rule--center"></span>
     </div>
 
-    <div class="servicios-grid">
-      <div class="servicio-card reveal">
-        <div class="servicio-icon"><i class="fas fa-hard-hat"></i></div>
+    <div class="servicios-foto-grid">
+      <div class="servicio-foto-card reveal">
+        <div class="servicio-foto-card__img"><img src="img/servicio-construccion.png" alt="Construcción" loading="lazy" /></div>
         <h3>Construcción</h3>
-        <p>Ejecutamos proyectos residenciales bajo normativa NSR-10 con especificaciones técnicas certificadas, control de calidad permanente en obra y seguimiento al cronograma de ejecución.</p>
-        <a href="#" onclick="switchTab('contacto');return false;">Saber más <i class="fas fa-arrow-right"></i></a>
+        <p>Somos especialistas en desarrollar proyectos inmobiliarios y llevar adelante obras de construcción, desde su concepción y diseño hasta la entrega final.</p>
       </div>
-      <div class="servicio-card reveal" style="transition-delay:.1s">
-        <div class="servicio-icon"><i class="fas fa-handshake"></i></div>
-        <h3>Asesoría Comercial</h3>
-        <p>Nuestro equipo le asesora en la selección de la unidad, estructuración del crédito hipotecario y gestión notarial hasta la protocolización de la escritura.</p>
-        <a href="#" onclick="switchTab('contacto');return false;">Saber más <i class="fas fa-arrow-right"></i></a>
+      <div class="servicio-foto-card reveal" style="transition-delay:.1s">
+        <div class="servicio-foto-card__img"><img src="img/servicio-venta.png" alt="Venta" loading="lazy" /></div>
+        <h3>Venta</h3>
+        <p>Asesoramos a nuestros clientes con información confiable y alta calidad humana y técnica, que les permite satisfacer sus necesidades de forma rentable.</p>
       </div>
-      <div class="servicio-card reveal" style="transition-delay:.2s">
-        <div class="servicio-icon"><i class="fas fa-building"></i></div>
-        <h3>Gerencia Inmobiliaria</h3>
-        <p>Gestionamos portafolios de inversión inmobiliaria: arrendamiento, mantenimiento preventivo y correctivo, y estrategias de maximización de rentabilidad del activo.</p>
-        <a href="#" onclick="switchTab('contacto');return false;">Saber más <i class="fas fa-arrow-right"></i></a>
+      <div class="servicio-foto-card reveal" style="transition-delay:.2s">
+        <div class="servicio-foto-card__img"><img src="img/servicio-gerencia.png" alt="Gerencia" loading="lazy" /></div>
+        <h3>Gerencia</h3>
+        <p>Administramos recursos y gestionamos el desarrollo de proyectos inmobiliarios garantizando su ejecución a través de una planeación conjunta.</p>
       </div>
     </div>
 
+  </div>
+</section>
+
+
+<!-- ======================== TESTIMONIOS ======================== -->
+<section id="testimonios" data-tab="nosotros" aria-labelledby="testimonios-title">
+  <div class="container">
+
+    <div class="section-header centered reveal">
+      <span class="section-label">Testimonios</span>
+      <h2 class="section-title" id="testimonios-title">Opinión de nuestros propietarios</h2>
+      <span class="gold-rule gold-rule--center"></span>
+      <p class="section-subtitle">Familias que ya confiaron en Planner para comprar su vivienda.</p>
+    </div>
+
+    <div class="testimonios-grid">
+
+      <div class="testimonio-card reveal">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testimonio-text">"Planner cumplió con exactitud los plazos de entrega. Todo el proceso fue transparente y sin contratiempos."</p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar">CM</div>
+          <div>
+            <div class="testimonio-name">Carolina Mejía</div>
+            <div class="testimonio-project">Proyecto Bari, Bello · 2019</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonio-card reveal" style="transition-delay:.15s">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i></div>
+        <p class="testimonio-text">"El proceso de vinculación bancaria fue más ágil de lo esperado gracias al acompañamiento del equipo comercial."</p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar">RD</div>
+          <div>
+            <div class="testimonio-name">Roberto Duque</div>
+            <div class="testimonio-project">Proyecto Terralta · 2025</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="testimonio-card reveal" style="transition-delay:.3s">
+        <div class="stars"><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star-half-alt"></i></div>
+        <p class="testimonio-text">"La unidad fue entregada en condiciones técnicas impecables. Experiencia de compra altamente satisfactoria."</p>
+        <div class="testimonio-author">
+          <div class="testimonio-avatar">LG</div>
+          <div>
+            <div class="testimonio-name">Lucía González</div>
+            <div class="testimonio-project">Altea Plaza, Niquia · 2025</div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<!-- ======================== CTA CIERRE NOSOTROS ======================== -->
+<section class="cta-banner" data-tab="nosotros">
+  <div class="container">
+    <h2>Más de 25 años construyendo hogares con confianza</h2>
+    <p>Descubra nuestros proyectos disponibles y reciba asesoría personalizada.</p>
+    <div class="cta-banner__btns">
+      <a href="#" onclick="switchTab('proyectos');return false;" class="btn btn-white btn-lg"><i class="fas fa-building"></i> Ver proyectos</a>
+      <button class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff" onclick="openWhatsApp()"><i class="fab fa-whatsapp"></i> Hablar con un asesor</button>
+    </div>
   </div>
 </section>
 
 
 <!-- ======================== FAQs ======================== -->
-<section id="faqs" data-tab="contacto" aria-labelledby="faqs-title" style="background:var(--color-off-white)">
-  <div class="container">
-
-    <div class="section-header centered reveal">
-      <span class="section-label">Preguntas frecuentes</span>
-      <h2 class="section-title" id="faqs-title">Preguntas frecuentes del proceso de compra</h2>
-    </div>
-
-    <div class="faqs-grid">
-
-      <div class="faq-item reveal">
-        <button class="faq-question" aria-expanded="false">
-          ¿Qué comprende el precio del inmueble?
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">El precio del inmueble comprende la unidad habitacional con acabados de primera calidad, un parqueadero cubierto, cuarto útil y acceso a la totalidad de zonas comunes (zona húmeda, gimnasio, salón social y área BBQ). Los costos de escrituración e impuestos de registro son adicionales y representan aproximadamente el 0,5% del valor comercial del inmueble.</div>
-      </div>
-
-      <div class="faq-item reveal" style="transition-delay:.05s">
-        <button class="faq-question" aria-expanded="false">
-          ¿Cuál es el esquema de financiación disponible?
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">Operamos con todo el sistema bancario colombiano: Bancolombia, Davivienda, BBVA, Banco de Bogotá y demás entidades financieras. El esquema es: 1) Vinculación con cuota de separación de $1.000.000, 2) Gestión conjunta del estudio de crédito hipotecario, 3) Pago fraccionado de la cuota inicial durante el período de construcción, 4) Desembolso del saldo bancario al momento de la entrega del inmueble.</div>
-      </div>
-
-      <div class="faq-item reveal" style="transition-delay:.15s">
-        <button class="faq-question" aria-expanded="false">
-          ¿Cuáles son las garantías jurídicas del proyecto?
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">Cada proyecto opera bajo esquema fiduciario de administración y pagos —los recursos son custodiados por una fiduciaria independiente, no por Planner directamente—, respaldado por póliza de cumplimiento y registrado ante la Lonja de Propiedad Raíz de Antioquia. En 25 años de operación, Planner registra un índice de cumplimiento del 100% en entregas.</div>
-      </div>
-
-      <div class="faq-item reveal" style="transition-delay:.2s">
-        <button class="faq-question" aria-expanded="false">
-          ¿Cuál es el valor de la cuota de separación?
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">La vinculación inicial requiere una cuota de separación de $1.000.000 (un millón de pesos), valor que se imputa al precio total del inmueble. El comprador dispone de 30 días calendario para formalizar el negocio mediante promesa de compraventa y estructurar el esquema de financiación.</div>
-      </div>
-
-      <div class="faq-item reveal" style="transition-delay:.25s">
-        <button class="faq-question" aria-expanded="false">
-          ¿Es posible visitar el proyecto antes de la adquisición?
-          <i class="fas fa-chevron-down"></i>
-        </button>
-        <div class="faq-answer">Sí. Contamos con sala de ventas y apartamento modelo habilitados de lunes a sábado de 8:00 a.m. a 5:00 p.m. Para compradores ubicados fuera del Área Metropolitana, disponemos de recorrido virtual en 360°. Solicite su cita a través de nuestro canal de WhatsApp.</div>
-      </div>
-
-    </div>
-
-  </div>
-</section>
-
-
 <!-- ======================== BLOG ======================== -->
 <section id="blog" data-tab="blog" aria-labelledby="blog-title">
   <div class="container">
@@ -808,24 +710,6 @@
 </section>
 
 
-<!-- ======================== CTA BANNER ======================== -->
-<section class="cta-banner" data-tab="contacto" aria-labelledby="cta-title">
-  <div class="container">
-    <span class="section-label" style="color:var(--color-gold)">Disponibilidad limitada</span>
-    <h2 id="cta-title">Solo 8 unidades disponibles en Proyecto Asia</h2>
-    <p>Solicite asesoría comercial sin costo. Nuestro equipo le responde en menos de 2 horas hábiles.</p>
-    <div class="cta-banner__btns">
-      <button class="btn btn-white btn-lg" onclick="openWhatsApp()">
-        <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
-      </button>
-      <a href="#" onclick="switchTab('contacto');return false;" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
-        <i class="fas fa-envelope"></i> Enviar mensaje
-      </a>
-    </div>
-  </div>
-</section>
-
-
 <!-- ======================== CONTACTO ======================== -->
 <section id="contacto" data-tab="contacto" aria-labelledby="contacto-title">
   <div class="container">
@@ -834,8 +718,8 @@
       <!-- Info de contacto -->
       <div class="reveal">
         <span class="section-label">Contáctanos</span>
-        <h2 class="section-title" id="contacto-title">Solicite asesoría especializada</h2>
-        <p style="color:var(--color-gray-600);margin-bottom:32px">Indíquenos el proyecto de su interés y un asesor comercial especializado le contactará dentro de las siguientes 2 horas hábiles.</p>
+        <h2 class="section-title" id="contacto-title">Solicita asesoría especializada</h2>
+        <p style="color:var(--color-gray-600);margin-bottom:32px">Indícanos el proyecto de tu interés y un asesor comercial especializado se pondrá en contacto contigo en menos de 2 horas hábiles.</p>
 
         <div class="contacto-detail">
           <div class="contacto-detail__icon"><i class="fas fa-map-marker-alt"></i></div>
@@ -865,23 +749,14 @@
             <div class="contacto-detail__value">Lunes–Viernes: 8:00am – 6:00pm<br>Sábados: 9:00am – 1:00pm</div>
           </div>
         </div>
-
-        <div class="map-embed">
-          <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.2!2d-75.5748!3d6.2442!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zNsKwMTQnMzkuMSJOIDc1wrAzNCczMC4xIlc!5e0!3m2!1ses!2sco!4v1700000000000!5m2!1ses!2sco"
-            width="100%" height="220" style="border:0;" allowfullscreen="" loading="lazy"
-            referrerpolicy="no-referrer-when-downgrade"
-            title="Mapa ubicación Planner Constructora">
-          </iframe>
-        </div>
       </div>
 
       <!-- Formulario multi-step -->
       <div class="reveal" style="transition-delay:.15s">
         <div class="form-card">
           <div id="form-container">
-            <h3 style="margin-bottom:8px">Solicita tu asesoría gratuita</h3>
-            <p style="color:var(--color-gray-400);font-size:.875rem;margin-bottom:24px">Sin compromiso. Respondemos en menos de 2 horas.</p>
+            <h3 style="margin-bottom:8px">Contáctanos</h3>
+            <p style="color:var(--color-gray-400);font-size:.875rem;margin-bottom:16px">Sin compromiso. Respondemos en menos de 2 horas.</p>
 
             <!-- Pasos -->
             <div class="form-steps" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3">
@@ -919,35 +794,52 @@
               <!-- Paso 2 -->
               <div class="form-panel" id="step-panel-2">
                 <div class="form-group">
-                  <label for="f-proyecto">¿Qué proyecto te interesa?</label>
-                  <select id="f-proyecto" name="proyecto">
-                    <option value="Asia">Proyecto Asia — desde $259M (Entrega 2027)</option>
-                    <option value="Terralta">Proyecto Terralta — desde $317M (Q1 2026)</option>
-                    <option value="Altea Plaza">Altea Plaza — desde $235M (Inmediata)</option>
-                    <option value="Todos">Quiero conocer todos los proyectos</option>
-                  </select>
-                </div>
-                <div class="form-group">
-                  <label>¿Cuál es tu presupuesto mensual para la cuota?</label>
+                  <label>¿En qué podemos ayudarte? *</label>
                   <div class="budget-options">
                     <div class="budget-option">
-                      <input type="radio" name="presupuesto" id="b1" value="menos1m" />
-                      <label for="b1">Menos de $1M</label>
+                      <input type="radio" name="motivo" id="m1" value="proyecto" checked onchange="toggleMotivo()" />
+                      <label for="m1">Información de un proyecto</label>
                     </div>
                     <div class="budget-option">
-                      <input type="radio" name="presupuesto" id="b2" value="1-2m" checked />
-                      <label for="b2">$1M – $2M</label>
-                    </div>
-                    <div class="budget-option">
-                      <input type="radio" name="presupuesto" id="b3" value="2-4m" />
-                      <label for="b3">$2M – $4M</label>
-                    </div>
-                    <div class="budget-option">
-                      <input type="radio" name="presupuesto" id="b4" value="mas4m" />
-                      <label for="b4">Más de $4M</label>
+                      <input type="radio" name="motivo" id="m2" value="empresa" onchange="toggleMotivo()" />
+                      <label for="m2">Servicio al cliente / información general</label>
                     </div>
                   </div>
                 </div>
+
+                <div id="motivo-proyecto-fields">
+                  <div class="form-group">
+                    <label for="f-proyecto">¿Qué proyecto te interesa?</label>
+                    <select id="f-proyecto" name="proyecto">
+                      <option value="Asia">Proyecto Asia, desde $259M (Entrega 2027)</option>
+                      <option value="Terralta">Proyecto Terralta, desde $317M (Q1 2026)</option>
+                      <option value="Altea Plaza">Altea Plaza, desde $235M (Inmediata)</option>
+                      <option value="Todos">Quiero conocer todos los proyectos</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label>¿Cuál es tu presupuesto mensual para la cuota?</label>
+                    <div class="budget-options">
+                      <div class="budget-option">
+                        <input type="radio" name="presupuesto" id="b1" value="menos1m" />
+                        <label for="b1">Menos de $1M</label>
+                      </div>
+                      <div class="budget-option">
+                        <input type="radio" name="presupuesto" id="b2" value="1-2m" checked />
+                        <label for="b2">$1M – $2M</label>
+                      </div>
+                      <div class="budget-option">
+                        <input type="radio" name="presupuesto" id="b3" value="2-4m" />
+                        <label for="b3">$2M – $4M</label>
+                      </div>
+                      <div class="budget-option">
+                        <input type="radio" name="presupuesto" id="b4" value="mas4m" />
+                        <label for="b4">Más de $4M</label>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
                 <div class="form-nav">
                   <button type="button" class="btn btn-outline" onclick="goStep(1)"><i class="fas fa-arrow-left"></i> Atrás</button>
                   <button type="button" class="btn btn-primary" onclick="goStep(3)">Continuar <i class="fas fa-arrow-right"></i></button>
@@ -972,6 +864,7 @@
                     <i class="fab fa-whatsapp"></i> Enviar y hablar por WhatsApp
                   </button>
                 </div>
+                <p style="text-align:center;font-size:.78rem;color:var(--color-gray-400);margin-top:14px">Tus datos están protegidos y únicamente serán utilizados para brindarte asesoría.</p>
               </div>
 
             </form>
@@ -989,6 +882,24 @@
       </div>
 
     </div>
+
+  </div>
+</section>
+
+
+<!-- ======================== CTA BANNER ======================== -->
+<section class="cta-banner" data-tab="contacto" aria-labelledby="cta-title">
+  <div class="container">
+    <h2 id="cta-title">¿Hablamos?</h2>
+    <p>Escríbenos y un asesor te responde en menos de 2 horas hábiles.</p>
+    <div class="cta-banner__btns">
+      <button class="btn btn-white btn-lg" onclick="openWhatsApp()">
+        <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
+      </button>
+      <a href="#" onclick="document.getElementById('form-container').scrollIntoView({behavior:'smooth',block:'center'});return false;" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
+        <i class="fas fa-envelope"></i> Enviar mensaje
+      </a>
+    </div>
   </div>
 </section>
 
@@ -1005,7 +916,7 @@
         <p>Construimos hogares que transforman vidas. Más de 25 años de experiencia en el mercado inmobiliario de Antioquia.</p>
         <div class="footer-social">
           <a href="https://www.facebook.com/plannerconstructora" target="_blank" rel="noopener" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-          <a href="https://www.instagram.com/plannerconstructora" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.instagram.com/constructora_planner" target="_blank" rel="noopener" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
           <a href="https://wa.me/573185481730" target="_blank" rel="noopener" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
           <a href="https://www.youtube.com/@plannerconstructora" target="_blank" rel="noopener" aria-label="YouTube"><i class="fab fa-youtube"></i></a>
         </div>
@@ -1014,9 +925,9 @@
       <div class="footer-col">
         <h5>Proyectos</h5>
         <ul>
-          <li><a href="proyectos/asia.html">Proyecto Asia — desde $259M</a></li>
-          <li><a href="proyectos/terralta.html">Proyecto Terralta — desde $317M</a></li>
-          <li><a href="proyectos/altea-plaza.html">Altea Plaza — Inmediata</a></li>
+          <li><a href="proyectos/asia.html">Proyecto Asia, desde $259M</a></li>
+          <li><a href="proyectos/terralta.html">Proyecto Terralta, desde $317M</a></li>
+          <li><a href="proyectos/altea-plaza.html">Altea Plaza, Inmediata</a></li>
         </ul>
       </div>
 
@@ -1028,7 +939,7 @@
           <li><a href="#" onclick="switchTab('nosotros');return false;">Servicios</a></li>
           <li><a href="#" onclick="switchTab('nosotros');return false;">Testimonios</a></li>
           <li><a href="#" onclick="switchTab('blog');return false;">Blog</a></li>
-          <li><a href="#" onclick="switchTab('contacto');return false;">Preguntas frecuentes</a></li>
+          <li><a href="#" onclick="switchTab('contacto');return false;">Contacto</a></li>
           <li><a href="#">Política de privacidad</a></li>
         </ul>
       </div>
@@ -1084,13 +995,13 @@
       </div>
       <div class="wa-options">
         <div class="wa-option" onclick="openWhatsApp('Asia')">
-          <i class="fas fa-building"></i> Proyecto Asia — desde $259M
+          <i class="fas fa-building"></i> Proyecto Asia, desde $259M
         </div>
         <div class="wa-option" onclick="openWhatsApp('Terralta')">
-          <i class="fas fa-building"></i> Proyecto Terralta — desde $317M
+          <i class="fas fa-building"></i> Proyecto Terralta, desde $317M
         </div>
         <div class="wa-option" onclick="openWhatsApp('Altea Plaza')">
-          <i class="fas fa-building"></i> Altea Plaza — desde $235M
+          <i class="fas fa-building"></i> Altea Plaza, desde $235M
         </div>
         <div class="wa-option" onclick="openWhatsApp()">
           <i class="fas fa-question-circle"></i> Tengo una pregunta general

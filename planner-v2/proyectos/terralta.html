@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Proyecto Terralta | Apartamentos en Barrio Suárez, Bello — Planner Constructora</title>
+  <title>Proyecto Terralta | Apartamentos en Barrio Suárez, Bello | Planner Constructora</title>
   <meta name="description" content="Proyecto Terralta: apartamentos desde $317.685.000 en Barrio Suárez, Bello. Entrega Q1 2026. 2-3 habitaciones, 65-85 m², gimnasio, piscina. Financiación disponible." />
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -16,20 +16,31 @@
       background: linear-gradient(135deg, #1C1C1E 0%, #313133 100%);
       padding-bottom: 0;
     }
+    .proyecto-hero .container { max-width: 1360px; }
+    .proyecto-breadcrumb {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: rgba(255,255,255,.6);
+      font-size: .85rem; font-weight: 500;
+      text-decoration: none;
+      margin-top: 20px;
+      transition: color 200ms ease;
+    }
+    .proyecto-breadcrumb:hover { color: #C8A96E; }
     .proyecto-hero__inner {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 56fr 44fr;
       gap: 56px;
-      align-items: center;
-      padding: 64px 0 0;
+      align-items: start;
+      padding: 24px 0 0;
     }
     .proyecto-hero__gallery {
       position: relative;
       border-radius: 20px 20px 0 0;
       overflow: hidden;
+      align-self: center;
     }
     .gallery-main {
-      width: 100%; height: 380px;
+      width: 100%; aspect-ratio: 4/3;
       object-fit: cover;
       display: block;
     }
@@ -48,16 +59,16 @@
     }
     .gallery-thumb.active { border-color: #C8A96E; }
 
-    .proyecto-hero__info { padding-bottom: 48px; }
-    .proyecto-badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 20px; }
-    .proyecto-hero__title { color: #fff; margin-bottom: 8px; }
+    .proyecto-hero__info { padding-bottom: 48px; margin-top: -6px; }
+    .proyecto-badge-row { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 24px; }
+    .proyecto-hero__title { color: #fff; margin-bottom: 12px; }
     .proyecto-hero__location { color: rgba(255,255,255,.6); display: flex; align-items: center; gap: 6px; margin-bottom: 24px; }
     .precio-grande { font-family: 'Poppins',sans-serif; font-size: 2.4rem; font-weight: 800; color: #C8A96E; margin-bottom: 4px; }
     .precio-note { font-size: .82rem; color: rgba(255,255,255,.5); margin-bottom: 28px; }
 
     .specs-grid {
       display: grid; grid-template-columns: repeat(3, 1fr);
-      gap: 16px; margin-bottom: 28px;
+      gap: 26px; margin-bottom: 32px;
     }
     .spec-box {
       background: rgba(255,255,255,.06);
@@ -71,6 +82,9 @@
     .spec-box span { font-size: .78rem; color: rgba(255,255,255,.5); }
 
     .hero-ctas { display: flex; gap: 12px; flex-wrap: wrap; }
+    .hero-ctas .btn { min-height: 50px; padding: 15px 32px; }
+    .hero-ctas .btn-whatsapp { background: #26B36A; box-shadow: 0 3px 10px rgba(38,179,106,.3); }
+    .hero-ctas .btn-whatsapp:hover { background: #20A05E; }
     .units-alert {
       display: inline-flex; align-items: center; gap: 8px;
       background: rgba(183,71,42,.2);
@@ -80,7 +94,7 @@
       border-radius: 20px;
       font-size: .82rem;
       font-weight: 600;
-      margin-bottom: 20px;
+      margin-bottom: 24px;
     }
 
     .tabs-nav {
@@ -168,6 +182,7 @@
       <ul class="navbar__nav">
         <li><a href="../index.html">Inicio</a></li>
         <li><a href="../index.html#proyectos" class="active">Proyectos</a></li>
+        <li><a href="../index.html#proceso">Cómo comprar</a></li>
         <li><a href="../index.html#nosotros">Nosotros</a></li>
         <li><a href="../index.html#contacto">Contacto</a></li>
       </ul>
@@ -185,6 +200,7 @@
 <div class="mobile-nav" id="mobile-nav">
   <a href="../index.html">Inicio</a>
   <a href="../index.html#proyectos">Proyectos</a>
+  <a href="../index.html#proceso">Cómo comprar</a>
   <a href="../index.html#nosotros">Nosotros</a>
   <a href="../index.html#contacto">Contacto</a>
   <button class="btn btn-whatsapp" onclick="openWhatsApp('Terralta')"><i class="fab fa-whatsapp"></i> Cotizar ahora</button>
@@ -193,6 +209,7 @@
 <!-- HERO DEL PROYECTO -->
 <section class="proyecto-hero">
   <div class="container">
+    <a href="../index.html#proyectos" class="proyecto-breadcrumb"><i class="fas fa-arrow-left"></i> Volver a proyectos</a>
     <div class="proyecto-hero__inner">
 
       <!-- Galería -->
@@ -217,7 +234,7 @@
         </div>
 
         <div class="units-alert">
-          <i class="fas fa-fire-alt"></i> Solo <strong>4 unidades disponibles</strong> — Precio aumenta en próxima etapa
+          <i class="fas fa-fire-alt"></i> Solo <strong>4 unidades disponibles</strong>: precio aumenta en próxima etapa
         </div>
 
         <h1 class="proyecto-hero__title">Proyecto Terralta</h1>
@@ -363,7 +380,7 @@
       <div class="tipologia-card">
         <div class="tipologia-img"><i class="fas fa-home" style="font-size:2rem;color:#9CA3AF"></i><br>Plano Tipo A</div>
         <div>
-          <h3 style="margin-bottom:8px">Tipo A — 65 m² · 2 Hab.</h3>
+          <h3 style="margin-bottom:8px">Tipo A: 65 m² · 2 Hab.</h3>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">Ideal para parejas o familias pequeñas. Sala-comedor integrado, cocina abierta, 2 habitaciones, 1 baño completo + social.</p>
           <div style="display:flex;gap:20px;flex-wrap:wrap">
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 65 m² privados</span>
@@ -371,13 +388,13 @@
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $317.685.000</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Terralta — Tipo A 65m²')" style="margin-left:auto;white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Terralta: Tipo A 65m²')" style="margin-left:auto;white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
       </div>
 
       <div class="tipologia-card">
         <div class="tipologia-img"><i class="fas fa-home" style="font-size:2rem;color:#9CA3AF"></i><br>Plano Tipo B</div>
         <div>
-          <h3 style="margin-bottom:8px">Tipo B — 75 m² · 3 Hab.</h3>
+          <h3 style="margin-bottom:8px">Tipo B: 75 m² · 3 Hab.</h3>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">Para familias en crecimiento. 3 habitaciones amplias, 2 baños, estudio/habitación servicio, sala-comedor amplio.</p>
           <div style="display:flex;gap:20px;flex-wrap:wrap">
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 75 m² privados</span>
@@ -385,13 +402,13 @@
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $345.000.000</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Terralta — Tipo B 75m²')" style="margin-left:auto;white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Terralta: Tipo B 75m²')" style="margin-left:auto;white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
       </div>
 
       <div class="tipologia-card">
         <div class="tipologia-img"><i class="fas fa-home" style="font-size:2rem;color:#9CA3AF"></i><br>Plano Tipo C</div>
         <div>
-          <h3 style="margin-bottom:8px">Tipo C — 85 m² · 3 Hab. + Estudio</h3>
+          <h3 style="margin-bottom:8px">Tipo C: 85 m² · 3 Hab. + Estudio</h3>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">La tipología más grande. Habitación principal suite con walk-in closet, balcón privado y estudio independiente.</p>
           <div style="display:flex;gap:20px;flex-wrap:wrap">
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-ruler-combined"></i> 85 m² privados</span>
@@ -399,13 +416,13 @@
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $378.000.000</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Terralta — Tipo C 85m²')" style="margin-left:auto;white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
+        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Terralta: Tipo C 85m²')" style="margin-left:auto;white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
       </div>
     </div>
 
     <!-- Avances de obra -->
     <div class="tab-panel" id="tab-avances">
-      <h2 style="margin-bottom:8px">Avances de obra — Proyecto Terralta</h2>
+      <h2 style="margin-bottom:8px">Avances de obra de Proyecto Terralta</h2>
       <p style="color:#4B5563;margin-bottom:32px">Actualizamos los avances mensualmente para que estés siempre informado.</p>
 
       <div style="background:#F8F6F2;border-radius:16px;padding:24px;margin-bottom:32px">
@@ -439,7 +456,7 @@
       </div>
 
       <div style="text-align:center;margin-top:32px">
-        <button class="btn btn-primary" onclick="openWhatsApp('Terralta — quisiera recibir actualizaciones mensuales de obra')">
+        <button class="btn btn-primary" onclick="openWhatsApp('Terralta: quisiera recibir actualizaciones mensuales de obra')">
           <i class="fab fa-whatsapp"></i> Recibir actualizaciones por WhatsApp
         </button>
       </div>
@@ -537,9 +554,9 @@
     <div class="wa-float__popup-body">
       <div class="wa-message">¡Hola! Soy tu asesor para Terralta. ¿Tienes alguna pregunta?</div>
       <div class="wa-options">
-        <div class="wa-option" onclick="openWhatsApp('Terralta — quisiera cotizar')"><i class="fas fa-tag"></i> Quiero cotizar</div>
-        <div class="wa-option" onclick="openWhatsApp('Terralta — quiero agendar visita')"><i class="fas fa-calendar"></i> Agendar visita</div>
-        <div class="wa-option" onclick="openWhatsApp('Terralta — pregunta sobre financiación')"><i class="fas fa-university"></i> Opciones de pago</div>
+        <div class="wa-option" onclick="openWhatsApp('Terralta: quisiera cotizar')"><i class="fas fa-tag"></i> Quiero cotizar</div>
+        <div class="wa-option" onclick="openWhatsApp('Terralta: quiero agendar visita')"><i class="fas fa-calendar"></i> Agendar visita</div>
+        <div class="wa-option" onclick="openWhatsApp('Terralta: pregunta sobre financiación')"><i class="fas fa-university"></i> Opciones de pago</div>
       </div>
     </div>
   </div>
