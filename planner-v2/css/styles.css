@@ -1216,7 +1216,7 @@ section { padding: var(--section-py) 0; }
 }
 .entregado-card__stats {
   display: flex;
-  gap: 18px;
+  justify-content: space-between;
   padding-bottom: 16px;
   margin-bottom: 16px;
   border-bottom: 1px solid var(--color-gray-200);
@@ -1546,6 +1546,10 @@ body.has-announcement #scroll-top    { bottom: 100px; }
 
   /* mostrar barra CTA sticky */
   .mobile-cta-bar { display: flex; }
+
+  /* subir el botón flotante de WhatsApp para que no choque con la barra CTA */
+  .wa-float { bottom: 88px; right: 16px; }
+  .wa-float__btn { width: 52px; height: 52px; font-size: 1.4rem; }
 
   /* empujar el contenido para que no quede tapado por la barra */
   body { padding-bottom: 72px; }

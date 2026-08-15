@@ -2,6 +2,13 @@
    PLANNER CONSTRUCTORA v2 JavaScript
    =================================================== */
 
+// ─── WHATSAPP: NÚMEROS ──────────────────────────────
+const WA_NUMBER_GENERAL = '573185481730';
+const WA_NUMBER_ASIA    = '573148076808';
+function waNumberFor(projectName) {
+  return projectName === 'Asia' ? WA_NUMBER_ASIA : WA_NUMBER_GENERAL;
+}
+
 // ─── TAB NAVIGATION ─────────────────────────────────
 const VALID_TABS = ['inicio','proyectos','proceso','nosotros','blog','contacto'];
 let currentTab = 'inicio';
@@ -34,7 +41,7 @@ function changeAsiaThumb(thumb, src) {
 
 function openWhatsAppExterior() {
   const msg = 'Hola! Estoy en el exterior y me interesa comprar un apartamento en Proyecto Asia para mi familia en Colombia. ¿Me pueden asesorar? Gracias.';
-  window.open('https://wa.me/573185481730?text=' + encodeURIComponent(msg), '_blank');
+  window.open('https://wa.me/' + WA_NUMBER_ASIA + '?text=' + encodeURIComponent(msg), '_blank');
 }
 
 function setBuyerMode(mode) {
@@ -146,12 +153,12 @@ function openWhatsApp(projectName = '') {
   const msg = projectName
     ? `Hola! Me interesa el proyecto *${projectName}*. ¿Podrían enviarme información sobre opciones de pago y disponibilidad? Gracias.`
     : 'Hola! Quisiera información sobre los proyectos de Planner Constructora. ¿Pueden ayudarme?';
-  window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/${waNumberFor(projectName)}?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 function openWhatsAppVisita() {
   const msg = 'Hola! Me gustaría agendar una visita al proyecto. ¿Podrían ayudarme a coordinar un horario? Gracias.';
-  window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
+  window.open(`https://wa.me/${WA_NUMBER_GENERAL}?text=${encodeURIComponent(msg)}`, '_blank');
 }
 
 // ─── MULTI-STEP FORM ────────────────────────────────
@@ -222,20 +229,29 @@ function submitForm(e) {
   const motivo  = document.querySelector('input[name="motivo"]:checked')?.value || 'proyecto';
   const mensaje = document.getElementById('f-mensaje')?.value || '';
 
-  let msg;
+  let msg, waNumber;
   if (motivo === 'empresa') {
     msg = `Hola! Soy *${nombre}*. Tengo una consulta de *servicio al cliente / información general* de Planner Constructora.`;
+    waNumber = WA_NUMBER_GENERAL;
   } else {
     const proyecto    = document.getElementById('f-proyecto')?.value || 'uno de los proyectos';
     const presupuesto = document.querySelector('input[name="presupuesto"]:checked')?.value || '';
     msg = `Hola! Soy *${nombre}*. Me interesa el proyecto *${proyecto}*.`;
     if (presupuesto) msg += ` Mi presupuesto mensual es *${presupuesto}*.`;
+    waNumber = waNumberFor(proyecto);
   }
   if (mensaje) msg += ` Comentario: ${mensaje}`;
   msg += ' Solicité información desde el sitio web.';
 
-  // Nota: hoy todo llega al mismo WhatsApp. Si en el futuro hay un número
-  // distinto para servicio al cliente, aquí se puede elegir el destino según `motivo`.
+  // Envía una copia por correo vía Formspree (no bloquea el flujo de WhatsApp).
+  const formEl = document.getElementById('contact-form');
+  if (formEl) {
+    fetch('https://formspree.io/f/xdenlglp', {
+      method: 'POST',
+      body: new FormData(formEl),
+      headers: { 'Accept': 'application/json' }
+    }).catch(() => {});
+  }
 
   const container = document.getElementById('form-container');
   const success   = document.getElementById('form-success');
@@ -243,7 +259,7 @@ function submitForm(e) {
   if (success)   success.classList.add('visible');
 
   setTimeout(() => {
-    window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`, '_blank');
+    window.open(`https://wa.me/${waNumber}?text=${encodeURIComponent(msg)}`, '_blank');
   }, 700);
 }
 

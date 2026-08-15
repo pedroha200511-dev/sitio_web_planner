@@ -17,8 +17,8 @@
     .proyecto-breadcrumb:hover { color:#C8A96E; }
     .proyecto-hero__inner { display:grid; grid-template-columns:56fr 44fr; gap:56px; align-items:start; padding:24px 0 0; }
     .gallery-main { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
-    .gallery-thumbs { display:flex; gap:8px; padding:8px; background:rgba(0,0,0,.4); }
-    .gallery-thumb { width:70px; height:50px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:border-color .2s; }
+    .gallery-thumbs { display:flex; gap:8px; padding:8px; background:rgba(0,0,0,.4); overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .gallery-thumb { width:70px; height:50px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:border-color .2s; flex-shrink:0; }
     .gallery-thumb.active { border-color:#C8A96E; }
     .proyecto-hero__gallery { position:relative; border-radius:20px 20px 0 0; overflow:hidden; align-self:center; }
     .proyecto-hero__info { padding-bottom:48px; margin-top:-6px; }
@@ -48,7 +48,8 @@
     .tipologia-card { background:#F8F6F2; border-radius:16px; padding:24px; border:1px solid #E5E7EB; display:flex; align-items:center; gap:24px; margin-bottom:16px; }
     .tipologia-img { width:120px; height:100px; background:#E5E7EB; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; flex-direction:column; gap:4px; font-size:.75rem; color:#9CA3AF; text-align:center; }
     .estrenar-box { background:linear-gradient(135deg,rgba(16,185,129,.08),rgba(49,49,51,.06)); border:1px solid rgba(16,185,129,.2); border-radius:16px; padding:28px; margin-bottom:24px; }
-    @media(max-width:768px){ .proyecto-hero__inner{grid-template-columns:1fr;} .specs-grid{grid-template-columns:repeat(3,1fr);} .hero-ctas{flex-direction:column;} .tipologia-card{flex-direction:column;align-items:flex-start;} }
+    @media(max-width:768px){ .proyecto-hero__inner{grid-template-columns:1fr;} .specs-grid{grid-template-columns:repeat(3,1fr);} .hero-ctas{flex-direction:column;} .tipologia-card{flex-direction:column;align-items:flex-start;} .pg-stack-md{grid-template-columns:1fr !important;} }
+    @media(max-width:480px){ .specs-grid{grid-template-columns:repeat(2,1fr);} }
   </style>
 </head>
 <body>
@@ -150,7 +151,7 @@
 
     <!-- Descripción -->
     <div class="tab-panel active" id="tab-descripcion">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div class="pg-stack-md" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
         <div>
           <h2 style="margin-bottom:20px">Tu nuevo hogar listo para estrenar en Niquia</h2>
           <p style="color:#4B5563;margin-bottom:16px">Altea Plaza es la opción perfecta para quienes no quieren esperar. Un edificio terminado, revisado y listo para habitarse, ubicado en Niquia, una de las zonas más conectadas de Bello gracias al Metro y Metro Cable.</p>
@@ -259,7 +260,7 @@
       <p style="color:#4B5563;margin-bottom:32px">No esperes más. La mejor decisión es la que tomas ahora.</p>
 
       <div class="estrenar-box">
-        <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
+        <div class="pg-stack-md" style="display:grid;grid-template-columns:1fr 1fr;gap:24px">
           <div style="display:flex;gap:16px;align-items:flex-start">
             <div style="width:44px;height:44px;background:rgba(16,185,129,.15);border-radius:10px;display:flex;align-items:center;justify-content:center;flex-shrink:0"><span style="font-size:1.3rem;font-weight:800;color:#10B981">1</span></div>
             <div><h4 style="margin-bottom:6px;color:#1F2937">Sin esperar años</h4><p style="font-size:.875rem;color:#4B5563">Recibes las llaves este mes. No esperas 2 o 3 años mientras la obra avanza.</p></div>
@@ -293,7 +294,7 @@
     <div class="tab-panel" id="tab-ubicacion">
       <h2 style="margin-bottom:8px">Niquia: la zona más conectada de Bello</h2>
       <p style="color:#4B5563;margin-bottom:24px">A 3 minutos del Metro Cable Picacho. Acceso directo al centro de Medellín en menos de 30 minutos.</p>
-      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start">
+      <div class="pg-stack-md" style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start">
         <div class="map-embed" style="margin-top:0">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966!2d-75.553!3d6.378!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zBmUwyA!5e0!3m2!1ses!2sco!4v1700000000!5m2!1ses!2sco"

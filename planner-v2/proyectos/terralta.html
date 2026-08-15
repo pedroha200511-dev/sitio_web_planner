@@ -48,12 +48,15 @@
       display: flex; gap: 8px;
       padding: 8px;
       background: rgba(0,0,0,.4);
+      overflow-x: auto;
+      -webkit-overflow-scrolling: touch;
     }
     .gallery-thumb {
       width: 70px; height: 50px;
       object-fit: cover;
       border-radius: 6px;
       cursor: pointer;
+      flex-shrink: 0;
       border: 2px solid transparent;
       transition: border-color .2s;
     }
@@ -101,6 +104,7 @@
       display: flex; gap: 4px;
       border-bottom: 2px solid #E5E7EB;
       margin-bottom: 40px;
+      flex-wrap: wrap;
     }
     .tab-btn {
       padding: 12px 20px;
@@ -167,6 +171,10 @@
       .specs-grid { grid-template-columns: repeat(3, 1fr); }
       .hero-ctas { flex-direction: column; }
       .tipologia-card { flex-direction: column; align-items: flex-start; }
+      .pg-stack-md { grid-template-columns: 1fr !important; }
+    }
+    @media (max-width: 480px) {
+      .specs-grid { grid-template-columns: repeat(2, 1fr); }
     }
   </style>
 </head>
@@ -308,7 +316,7 @@
 
     <!-- Descripción -->
     <div class="tab-panel active" id="tab-descripcion">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
+      <div class="pg-stack-md" style="display:grid;grid-template-columns:1fr 1fr;gap:48px;align-items:start">
         <div>
           <h2 style="margin-bottom:20px">Un hogar diseñado para vivir mejor</h2>
           <p style="color:#4B5563;margin-bottom:16px">Terralta es nuestra apuesta más ambiciosa: un edificio contemporáneo de 8 pisos con vista panorámica al Valle de Aburrá, diseñado para familias que exigen calidad sin renunciar a la funcionalidad.</p>
@@ -467,7 +475,7 @@
       <h2 style="margin-bottom:8px">Ubicación estratégica en Barrio Suárez</h2>
       <p style="color:#4B5563;margin-bottom:24px">A minutos de los principales centros comerciales, colegios, hospitales y vías de acceso al centro de Medellín.</p>
 
-      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start">
+      <div class="pg-stack-md" style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start">
         <div class="map-embed" style="margin-top:0">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966!2d-75.561!3d6.337!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zBmUwyA!5e0!3m2!1ses!2sco!4v1700000000!5m2!1ses!2sco"

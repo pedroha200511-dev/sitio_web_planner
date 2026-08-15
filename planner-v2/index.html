@@ -56,12 +56,20 @@
           "addressLocality": "Medellín",
           "addressCountry": "CO"
         },
-        "openingHoursSpecification": {
-          "@type": "OpeningHoursSpecification",
-          "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
-          "opens": "08:00",
-          "closes": "18:00"
-        }
+        "openingHoursSpecification": [
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Monday","Tuesday","Wednesday","Thursday","Friday"],
+            "opens": "09:00",
+            "closes": "17:30"
+          },
+          {
+            "@type": "OpeningHoursSpecification",
+            "dayOfWeek": ["Saturday"],
+            "opens": "10:00",
+            "closes": "18:00"
+          }
+        ]
       }
     ]
   }
@@ -336,7 +344,7 @@
         <div class="entregado-card__img entregado-card__img--pending">
           <div class="entregado-card__pending-icon"><i class="fas fa-building"></i><span>Foto próximamente</span></div>
           <div class="entregado-card__overlay">
-            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado 2019</span>
+            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado</span>
           </div>
         </div>
         <div class="entregado-card__body">
@@ -355,15 +363,15 @@
         <div class="entregado-card__img">
           <img src="img/altea-card.png" alt="Altea Plaza entregado" loading="lazy" />
           <div class="entregado-card__overlay">
-            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado 2025</span>
+            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado</span>
           </div>
         </div>
         <div class="entregado-card__body">
           <h3 class="entregado-card__name">Altea Plaza</h3>
           <div class="entregado-card__stats">
-            <div><strong>52–68 m²</strong><span>Área</span></div>
-            <div><strong>2–3 hab.</strong><span>Habitaciones</span></div>
-            <div><strong>100%</strong><span>Entregado</span></div>
+            <div><strong>28</strong><span>Apartamentos</span></div>
+            <div><strong>2025</strong><span>Año entrega</span></div>
+            <div><strong>100%</strong><span>Vendido</span></div>
           </div>
           <p class="entregado-card__desc">En Niquia, Bello, a pasos del Metro Cable, con acabados completos.</p>
         </div>
@@ -374,14 +382,14 @@
         <div class="entregado-card__img">
           <img src="img/terralta-card.png" alt="Proyecto Terralta entregado" loading="lazy" />
           <div class="entregado-card__overlay">
-            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado Q1 2026</span>
+            <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado</span>
           </div>
         </div>
         <div class="entregado-card__body">
           <h3 class="entregado-card__name">Proyecto Terralta</h3>
           <div class="entregado-card__stats">
-            <div><strong>65–85 m²</strong><span>Área</span></div>
-            <div><strong>2–3 hab.</strong><span>Habitaciones</span></div>
+            <div><strong>32</strong><span>Apartamentos</span></div>
+            <div><strong>2026</strong><span>Año entrega</span></div>
             <div><strong>100%</strong><span>Vendido</span></div>
           </div>
           <p class="entregado-card__desc">En Barrio Suárez, Bello, con arquitectura contemporánea y gimnasio propio.</p>
@@ -746,7 +754,7 @@
           <div class="contacto-detail__icon"><i class="fas fa-clock"></i></div>
           <div>
             <div class="contacto-detail__label">Horario de atención</div>
-            <div class="contacto-detail__value">Lunes–Viernes: 8:00am – 6:00pm<br>Sábados: 9:00am – 1:00pm</div>
+            <div class="contacto-detail__value">Lunes–Viernes: 9:00am – 5:30pm<br>Sábados: 10:00am – 6:00pm</div>
           </div>
         </div>
       </div>
@@ -926,8 +934,6 @@
         <h5>Proyectos</h5>
         <ul>
           <li><a href="proyectos/asia.html">Proyecto Asia, desde $259M</a></li>
-          <li><a href="proyectos/terralta.html">Proyecto Terralta, desde $317M</a></li>
-          <li><a href="proyectos/altea-plaza.html">Altea Plaza, Inmediata</a></li>
         </ul>
       </div>
 
@@ -936,11 +942,7 @@
         <ul>
           <li><a href="#" onclick="switchTab('proceso');return false;">Cómo comprar</a></li>
           <li><a href="#" onclick="switchTab('nosotros');return false;">Nosotros</a></li>
-          <li><a href="#" onclick="switchTab('nosotros');return false;">Servicios</a></li>
-          <li><a href="#" onclick="switchTab('nosotros');return false;">Testimonios</a></li>
-          <li><a href="#" onclick="switchTab('blog');return false;">Blog</a></li>
           <li><a href="#" onclick="switchTab('contacto');return false;">Contacto</a></li>
-          <li><a href="#">Política de privacidad</a></li>
         </ul>
       </div>
 
@@ -960,7 +962,7 @@
         </div>
         <div class="footer-contact-item" style="margin-top:8px">
           <i class="fas fa-clock"></i>
-          <span>Lun–Vie: 8am–6pm | Sáb: 9am–1pm</span>
+          <span>Lun–Vie: 9am–5:30pm | Sáb: 10am–6pm</span>
         </div>
       </div>
 
@@ -991,20 +993,14 @@
     </div>
     <div class="wa-float__popup-body">
       <div class="wa-message">
-        ¡Hola! 👋 ¿En qué proyecto estás interesado? Cuéntanos y te enviamos toda la información.
+        ¡Hola! 👋 ¿Qué necesitas? Escoge una opción y te contactamos de inmediato.
       </div>
       <div class="wa-options">
         <div class="wa-option" onclick="openWhatsApp('Asia')">
-          <i class="fas fa-building"></i> Proyecto Asia, desde $259M
-        </div>
-        <div class="wa-option" onclick="openWhatsApp('Terralta')">
-          <i class="fas fa-building"></i> Proyecto Terralta, desde $317M
-        </div>
-        <div class="wa-option" onclick="openWhatsApp('Altea Plaza')">
-          <i class="fas fa-building"></i> Altea Plaza, desde $235M
+          <i class="fas fa-building"></i> Información sobre Proyecto Asia
         </div>
         <div class="wa-option" onclick="openWhatsApp()">
-          <i class="fas fa-question-circle"></i> Tengo una pregunta general
+          <i class="fas fa-question-circle"></i> Una pregunta en general
         </div>
       </div>
     </div>

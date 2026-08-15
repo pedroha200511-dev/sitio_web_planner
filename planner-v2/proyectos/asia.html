@@ -17,8 +17,8 @@
     .proyecto-breadcrumb:hover { color:#C8A96E; }
     .proyecto-hero__inner { display:grid; grid-template-columns:56fr 44fr; gap:56px; align-items:start; padding:24px 0 0; }
     .gallery-main { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
-    .gallery-thumbs { display:flex; gap:8px; padding:8px; background:rgba(0,0,0,.4); }
-    .gallery-thumb { width:70px; height:50px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:border-color .2s; }
+    .gallery-thumbs { display:flex; gap:8px; padding:8px; background:rgba(0,0,0,.4); overflow-x:auto; -webkit-overflow-scrolling:touch; }
+    .gallery-thumb { width:70px; height:50px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:border-color .2s; flex-shrink:0; }
     .gallery-thumb.active { border-color:#C8A96E; }
     .proyecto-hero__gallery { position:relative; border-radius:20px 20px 0 0; overflow:hidden; align-self:center; }
     .proyecto-hero__info { padding-bottom:48px; margin-top:-6px; }
@@ -47,7 +47,8 @@
     .amenidad-item i { color:#313133; font-size:1.1rem; width:20px; text-align:center; }
     .tipologia-card { background:#F8F6F2; border-radius:16px; padding:24px; border:1px solid #E5E7EB; display:flex; align-items:center; gap:24px; margin-bottom:16px; }
     .tipologia-img { width:120px; height:100px; background:#E5E7EB; border-radius:8px; display:flex; align-items:center; justify-content:center; flex-shrink:0; font-size:.75rem; color:#9CA3AF; text-align:center; flex-direction:column; gap:4px; }
-    @media(max-width:768px){ .proyecto-hero__inner{grid-template-columns:1fr;} .specs-grid{grid-template-columns:repeat(3,1fr);} .hero-ctas{flex-direction:column;} .tipologia-card{flex-direction:column;align-items:flex-start;} }
+    @media(max-width:768px){ .proyecto-hero__inner{grid-template-columns:1fr;} .specs-grid{grid-template-columns:repeat(3,1fr);} .hero-ctas{flex-direction:column;} .tipologia-card{flex-direction:column;align-items:flex-start;} .pg-stack-md{grid-template-columns:1fr !important;} }
+    @media(max-width:480px){ .specs-grid{grid-template-columns:repeat(2,1fr);} }
   </style>
 </head>
 <body>
@@ -145,7 +146,7 @@
 
     <!-- Descripción -->
     <div class="tab-panel active" id="tab-descripcion">
-      <div style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
+      <div class="pg-stack-md" style="display:grid;grid-template-columns:1fr 1fr;gap:64px;align-items:start">
         <div>
           <h2 style="margin-bottom:28px">Calidad y tranquilidad en Vía Machado</h2>
           <p style="color:#4B5563;margin-bottom:22px;line-height:1.75">Proyecto Asia es una propuesta residencial de vivienda nueva que combina accesibilidad económica y calidad constructiva. Diseñado para compradores que buscan su primera vivienda en una de las zonas de mayor crecimiento y valorización de Bello.</p>
@@ -265,7 +266,7 @@
     <div class="tab-panel" id="tab-ubicacion">
       <h2 style="margin-bottom:8px">Vía Machado: una de las zonas de mayor valorización en Bello</h2>
       <p style="color:#4B5563;margin-bottom:24px">Excelente conectividad con Medellín, servicios completos y alto potencial de valorización.</p>
-      <div style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start">
+      <div class="pg-stack-md" style="display:grid;grid-template-columns:1.2fr 1fr;gap:40px;align-items:start">
         <div class="map-embed" style="margin-top:0">
           <iframe
             src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966!2d-75.545!3d6.355!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2zBmUwyA!5e0!3m2!1ses!2sco!4v1700000000!5m2!1ses!2sco"
@@ -292,7 +293,7 @@
 
 <footer class="footer">
   <div class="container">
-    <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:48px 0 32px;align-items:start">
+    <div class="pg-stack-md" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:40px;padding:48px 0 32px;align-items:start">
       <div>
         <a href="../index.html" style="margin-bottom:16px;display:inline-block"><img src="../img/planner-logo-footer.svg" alt="Planner Constructora" style="height:36px;width:auto" /></a>
         <p style="color:#6B7280;font-size:.82rem;line-height:1.6;margin-bottom:8px">NIT: 900.XXX.XXX-X<br>Medellín, Antioquia, Colombia</p>
@@ -320,7 +321,7 @@
 
 
 <script>
-function openWhatsApp(project){ const msg=`Hola! Me interesa el proyecto *${project}*. ¿Pueden enviarme información?`; window.open(`https://wa.me/573185481730?text=${encodeURIComponent(msg)}`,'_blank'); }
+function openWhatsApp(project){ const msg=`Hola! Me interesa el proyecto *${project}*. ¿Pueden enviarme información?`; window.open(`https://wa.me/573148076808?text=${encodeURIComponent(msg)}`,'_blank'); }
 function changeImg(thumb,src){ document.getElementById('gallery-main-img').src=src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); thumb.classList.add('active'); }
 function switchTab(id,btn){ document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); document.getElementById('tab-'+id).classList.add('active'); btn.classList.add('active'); }
 const navbar=document.getElementById('navbar'); window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>20));
