@@ -10,7 +10,7 @@ function waNumberFor(projectName) {
 }
 
 // ─── TAB NAVIGATION ─────────────────────────────────
-const VALID_TABS = ['inicio','proyectos','proceso','nosotros','blog','contacto'];
+const VALID_TABS = ['inicio','proyectos','proceso','nosotros','contacto'];
 let currentTab = 'inicio';
 
 function switchTab(name) {
@@ -27,16 +27,16 @@ function switchTab(name) {
   document.getElementById('mobile-nav')?.classList.remove('open');
 }
 
-function changeAsiaThumb(thumb, src) {
+const asiaGalleryImages = ['img/asia-nueva-fachada.png', 'img/asia-fachada-2.jpg', 'img/asia-aerea.jpg'];
+let asiaGalleryIndex = 0;
+function asiaGalleryNav(dir) {
+  asiaGalleryIndex = (asiaGalleryIndex + dir + asiaGalleryImages.length) % asiaGalleryImages.length;
   const mainImg = document.getElementById('proyectos-asia-main-img');
-  if (mainImg.src.endsWith(src.replace('../', ''))) return;
   mainImg.style.opacity = '0';
   setTimeout(() => {
-    mainImg.src = src;
+    mainImg.src = asiaGalleryImages[asiaGalleryIndex];
     mainImg.style.opacity = '1';
   }, 200);
-  document.querySelectorAll('.asia-gallery-thumb').forEach(t => t.classList.remove('active'));
-  thumb.classList.add('active');
 }
 
 function openWhatsAppExterior() {

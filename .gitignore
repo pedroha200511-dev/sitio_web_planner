@@ -137,3 +137,11 @@ dist
 # Vite logs files
 vite.config.js.timestamp-*
 vite.config.ts.timestamp-*
+
+# Renders originales sin optimizar (TIFF, 60-130MB c/u) — se usan solo
+# como fuente local para generar los .jpg/.png optimizados que sí se suben.
+*.tif
+*.tiff
+
+# macOS
+.DS_Store

@@ -179,7 +179,7 @@
         <a href="proyectos/asia.html" class="hero__asia-card" aria-label="Ver Proyecto Asia">
           <!-- Imagen de portada -->
           <div class="hero__asia-card-image">
-            <img src="img/asia-card-clean.jpg" alt="Render Proyecto Asia, Vía Machado, Bello" width="700" height="480" loading="eager" />
+            <img src="img/asia-nueva-fachada.png" alt="Render Proyecto Asia, Vía Machado, Bello" width="700" height="480" loading="eager" />
             <span class="hero__asia-badge"><span class="hero__badge-dot"></span>En construcción · Entrega 2027</span>
           </div>
 
@@ -264,16 +264,11 @@
     <article class="asia-featured reveal" aria-label="Proyecto Asia">
       <div class="asia-featured__img">
         <div class="asia-featured__img-main">
-          <img id="proyectos-asia-main-img" src="img/asia-card-clean.jpg" alt="Render Proyecto Asia - Vía Machado, Bello"
+          <img id="proyectos-asia-main-img" src="img/asia-nueva-fachada.png" alt="Render Proyecto Asia - Vía Machado, Bello"
             width="700" height="480" loading="eager" />
-          <span class="asia-featured__badge"><i class="fas fa-circle" style="font-size:.5rem;color:#10B981"></i> Últimas 8 unidades disponibles</span>
-        </div>
-        <div class="asia-featured__gallery">
-          <img src="img/asia-card-clean.jpg" alt="Fachada" class="asia-gallery-thumb active" onclick="changeAsiaThumb(this,'img/asia-card-clean.jpg')" />
-          <img src="img/asia-piscina-adultos.png" alt="Piscina" class="asia-gallery-thumb" onclick="changeAsiaThumb(this,'img/asia-piscina-adultos.png')" />
-          <img src="img/asia-gym.png" alt="Gimnasio" class="asia-gallery-thumb" onclick="changeAsiaThumb(this,'img/asia-gym.png')" />
-          <img src="img/asia-salon.png" alt="Salón social" class="asia-gallery-thumb" onclick="changeAsiaThumb(this,'img/asia-salon.png')" />
-          <img src="img/asia-cancha.png" alt="Cancha deportiva" class="asia-gallery-thumb" onclick="changeAsiaThumb(this,'img/asia-cancha.png')" />
+          <span class="asia-featured__badge"><i class="fas fa-circle" style="font-size:.5rem;color:#10B981"></i> Últimas unidades disponibles</span>
+          <button type="button" class="gallery-arrow gallery-arrow--prev" onclick="asiaGalleryNav(-1)" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+          <button type="button" class="gallery-arrow gallery-arrow--next" onclick="asiaGalleryNav(1)" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
         </div>
       </div>
       <div class="asia-featured__info">
@@ -341,8 +336,8 @@
 
       <!-- Bari -->
       <article class="entregado-card">
-        <div class="entregado-card__img entregado-card__img--pending">
-          <div class="entregado-card__pending-icon"><i class="fas fa-building"></i><span>Foto próximamente</span></div>
+        <div class="entregado-card__img">
+          <img src="img/bari-card.jpg" alt="Proyecto Bari entregado" loading="lazy" class="entregado-card__img--zoom-bari" />
           <div class="entregado-card__overlay">
             <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado</span>
           </div>
@@ -380,7 +375,7 @@
       <!-- Terralta -->
       <article class="entregado-card" style="transition-delay:.2s">
         <div class="entregado-card__img">
-          <img src="img/terralta-card.png" alt="Proyecto Terralta entregado" loading="lazy" />
+          <img src="img/terralta-card-nueva.jpg" alt="Proyecto Terralta entregado" loading="lazy" class="entregado-card__img--zoom-terralta" />
           <div class="entregado-card__overlay">
             <span class="entregado-badge"><i class="fas fa-check-circle"></i> Entregado</span>
           </div>
@@ -680,43 +675,6 @@
 
 
 <!-- ======================== FAQs ======================== -->
-<!-- ======================== BLOG ======================== -->
-<section id="blog" data-tab="blog" aria-labelledby="blog-title">
-  <div class="container">
-
-    <div class="section-header reveal" style="display:flex;justify-content:space-between;align-items:flex-end;flex-wrap:wrap;gap:20px;margin-bottom:48px">
-      <div>
-        <span class="section-label">Blog</span>
-        <h2 class="section-title" id="blog-title">Recursos e información<br>para el comprador</h2>
-      </div>
-      <a href="#" onclick="switchTab('blog');return false;" class="btn btn-outline btn-sm">Ver todos los artículos</a>
-    </div>
-
-    <div class="blog-grid">
-
-      <article class="blog-card reveal" style="transition-delay:.2s">
-        <img
-          src="img/servicio-gerencia.png"
-          alt="Apartamentos sobre planos vs entrega inmediata"
-          class="blog-card__img"
-          loading="lazy" width="500" height="180"
-        />
-        <div class="blog-card__body">
-          <div class="blog-tag">Inversión</div>
-          <h3>¿Sobre planos o entrega inmediata? Ventajas y desventajas reales</h3>
-          <p>Analizamos cuándo conviene cada opción según tu situación financiera y tus planes de vida.</p>
-          <div class="blog-meta">
-            <span><i class="far fa-calendar"></i> 1 Mar 2026</span>
-            <span><i class="far fa-clock"></i> 6 min lectura</span>
-          </div>
-        </div>
-      </article>
-
-    </div>
-
-  </div>
-</section>
-
 
 <!-- ======================== CONTACTO ======================== -->
 <section id="contacto" data-tab="contacto" aria-labelledby="contacto-title">
@@ -820,7 +778,7 @@
                     <label for="f-proyecto">¿Qué proyecto te interesa?</label>
                     <select id="f-proyecto" name="proyecto">
                       <option value="Asia">Proyecto Asia, desde $259M (Entrega 2027)</option>
-                      <option value="Terralta">Proyecto Terralta, desde $317M (Q1 2026)</option>
+                      <option value="Terralta">Proyecto Terralta, desde $317M (2026)</option>
                       <option value="Altea Plaza">Altea Plaza, desde $235M (Inmediata)</option>
                       <option value="Todos">Quiero conocer todos los proyectos</option>
                     </select>

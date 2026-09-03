@@ -17,9 +17,19 @@
     .proyecto-breadcrumb:hover { color:#C8A96E; }
     .proyecto-hero__inner { display:grid; grid-template-columns:56fr 44fr; gap:56px; align-items:start; padding:24px 0 0; }
     .gallery-main { width:100%; aspect-ratio:4/3; object-fit:cover; display:block; }
-    .gallery-thumbs { display:flex; gap:8px; padding:8px; background:rgba(0,0,0,.4); overflow-x:auto; -webkit-overflow-scrolling:touch; }
-    .gallery-thumb { width:70px; height:50px; object-fit:cover; border-radius:6px; cursor:pointer; border:2px solid transparent; transition:border-color .2s; flex-shrink:0; }
-    .gallery-thumb.active { border-color:#C8A96E; }
+    .gallery-arrow {
+      position:absolute; top:50%; transform:translateY(-50%);
+      width:44px; height:44px; border-radius:50%;
+      background:rgba(0,0,0,.45); backdrop-filter:blur(4px);
+      border:1px solid rgba(255,255,255,.25);
+      color:#fff; font-size:1rem;
+      display:flex; align-items:center; justify-content:center;
+      cursor:pointer; transition:background .2s ease;
+      z-index:2;
+    }
+    .gallery-arrow:hover { background:rgba(0,0,0,.7); }
+    .gallery-arrow--prev { left:16px; }
+    .gallery-arrow--next { right:16px; }
     .proyecto-hero__gallery { position:relative; border-radius:20px 20px 0 0; overflow:hidden; align-self:center; }
     .proyecto-hero__info { padding-bottom:48px; margin-top:-6px; }
     .proyecto-badge-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:24px; }
@@ -87,16 +97,11 @@
     <div class="proyecto-hero__inner">
       <div class="proyecto-hero__gallery reveal">
         <img id="gallery-main-img"
-          src="../img/asia-hero.png"
+          src="../img/asia-nueva-fachada.png"
           alt="Render Proyecto Asia, Vía Machado Bello"
           class="gallery-main" width="800" height="380" />
-        <div class="gallery-thumbs">
-          <img src="../img/asia-hero.png"           alt="Portada"     class="gallery-thumb active" onclick="changeImg(this,'../img/asia-hero.png')" />
-          <img src="../img/asia-exterior.png"       alt="Entrada"     class="gallery-thumb" onclick="changeImg(this,'../img/asia-exterior.png')" />
-          <img src="../img/asia-jardines.png"       alt="Jardines"    class="gallery-thumb" onclick="changeImg(this,'../img/asia-jardines.png')" />
-          <img src="../img/asia-senderos.png"       alt="Senderos"    class="gallery-thumb" onclick="changeImg(this,'../img/asia-senderos.png')" />
-          <img src="../img/asia-piscina-adultos.png" alt="Piscina"   class="gallery-thumb" onclick="changeImg(this,'../img/asia-piscina-adultos.png')" />
-        </div>
+        <button type="button" class="gallery-arrow gallery-arrow--prev" onclick="galleryNav(-1)" aria-label="Imagen anterior"><i class="fas fa-chevron-left"></i></button>
+        <button type="button" class="gallery-arrow gallery-arrow--next" onclick="galleryNav(1)" aria-label="Imagen siguiente"><i class="fas fa-chevron-right"></i></button>
       </div>
 
       <div class="proyecto-hero__info">
@@ -179,53 +184,57 @@
       <h2 style="margin-bottom:8px">Áreas comunes y dotación de zonas sociales</h2>
       <p style="color:#4B5563;margin-bottom:32px">Un proyecto residencial integral donde cada espacio fue concebido con criterio técnico y funcional.</p>
       <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-bottom:12px">
-        <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;cursor:pointer" onclick="changeImg(document.getElementById('gallery-main-img'),'../img/asia-piscina-ninos.png');document.getElementById('tab-descripcion').classList.remove('active');document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.getElementById('tab-amenidades').classList.add('active')">
-          <img src="../img/asia-piscina-ninos.png" alt="Piscina niños" style="width:100%;height:100%;object-fit:cover" />
+        <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3;cursor:pointer" onclick="changeImg(document.getElementById('gallery-main-img'),'../img/asia-piscina-ninos.jpg');document.getElementById('tab-descripcion').classList.remove('active');document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active'));document.getElementById('tab-amenidades').classList.add('active')">
+          <img src="../img/asia-piscina-ninos.jpg" alt="Piscina niños" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Piscina niños</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-piscina-adultos.png" alt="Piscina adultos" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-piscina-adultos.jpg" alt="Piscina adultos" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Piscina adultos</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-coworking.png" alt="Coworking" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-coworking.jpg" alt="Coworking" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Coworking</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-salon.png" alt="Salón Social" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-salon.jpg" alt="Salón Social" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Salón Social</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-cancha.png" alt="Cancha Múltiple" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-cancha.jpg" alt="Cancha Múltiple" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Cancha Múltiple</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-gym.png" alt="Gym al aire libre" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-gym.jpg" alt="Gym al aire libre" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Gym al aire libre</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-kids.png" alt="Bosque de la China" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-bosque.jpg" alt="Bosque de la China" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Bosque de la China</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-origami.png" alt="Salón Origami" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-origami.jpg" alt="Salón Origami" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Salón Origami</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-juegos.png" alt="Salón de Juegos" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-juegos.jpg" alt="Salón de Juegos" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Salón de Juegos</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-senderos.png" alt="Senderos" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-senderos.jpg" alt="Senderos" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Senderos ecológicos</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-mascotas.png" alt="Zona mascotas" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-mascotas.jpg" alt="Zona mascotas" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Zona de mascotas</div>
         </div>
         <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
-          <img src="../img/asia-urbanismo.png" alt="Urbanismo" style="width:100%;height:100%;object-fit:cover" />
+          <img src="../img/asia-urbanismo.jpg" alt="Urbanismo" style="width:100%;height:100%;object-fit:cover" />
           <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Vista aérea del proyecto</div>
+        </div>
+        <div style="position:relative;border-radius:12px;overflow:hidden;aspect-ratio:4/3">
+          <img src="../img/asia-porteria.jpg" alt="Portería" style="width:100%;height:100%;object-fit:cover" />
+          <div style="position:absolute;bottom:0;left:0;right:0;background:linear-gradient(transparent,rgba(0,0,0,.6));padding:10px 12px;color:#fff;font-size:.82rem;font-weight:600">Portería</div>
         </div>
       </div>
     </div>
@@ -236,7 +245,7 @@
       <p style="color:#4B5563;margin-bottom:32px">Dos tipologías sobre el mismo módulo de 50.31 m². El cliente elige la distribución que mejor se adapta a su núcleo familiar.</p>
 
       <div class="tipologia-card">
-        <img src="../img/asia-planta-a.png" alt="Planta Tipo A" style="width:200px;height:160px;object-fit:contain;border-radius:10px;background:#F8F6F2;flex-shrink:0" />
+        <img src="../img/asia-planta-a.jpg" alt="Planta Tipo A" style="width:200px;height:160px;object-fit:contain;border-radius:10px;background:#F8F6F2;flex-shrink:0" />
         <div style="flex:1">
           <h3 style="margin-bottom:8px">Tipo A: 50.31 m² · 3 Hab.</h3>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">Cocina integrada, sala-comedor, 3 habitaciones y 1 baño completo. Distribución funcional para núcleo familiar de hasta 5 personas.</p>
@@ -245,11 +254,10 @@
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $259.000.000</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia: Tipo A 50.31m² 3 hab')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
       </div>
 
       <div class="tipologia-card">
-        <img src="../img/asia-planta-b.png" alt="Planta Tipo B" style="width:200px;height:160px;object-fit:contain;border-radius:10px;background:#F8F6F2;flex-shrink:0" />
+        <img src="../img/asia-planta-b.jpg" alt="Planta Tipo B" style="width:200px;height:160px;object-fit:contain;border-radius:10px;background:#F8F6F2;flex-shrink:0" />
         <div style="flex:1">
           <h3 style="margin-bottom:8px">Tipo B: 50.31 m² · 2 Hab. + Estudio</h3>
           <p style="color:#4B5563;font-size:.9rem;margin-bottom:12px">Misma área del Tipo A con una distribución diferente: sala-comedor, 2 habitaciones, estudio independiente y 1 baño completo. Ideal para quienes trabajan o estudian desde casa.</p>
@@ -258,7 +266,12 @@
             <span style="font-size:.875rem;color:#313133;font-weight:600"><i class="fas fa-tag"></i> Desde $259.000.000</span>
           </div>
         </div>
-        <button class="btn btn-whatsapp btn-sm" onclick="openWhatsApp('Asia: Tipo B 50.31m²')" style="white-space:nowrap"><i class="fab fa-whatsapp"></i> Consultar</button>
+      </div>
+
+      <div style="margin-top:32px">
+        <h3 style="margin-bottom:8px">Planta típica</h3>
+        <p style="color:#4B5563;font-size:.9rem;margin-bottom:16px">Distribución general de las unidades por piso.</p>
+        <img src="../img/asia-planta-tipica.jpg" alt="Planta típica del piso" style="width:100%;border-radius:12px;background:#F8F6F2" />
       </div>
     </div>
 
@@ -322,7 +335,13 @@
 
 <script>
 function openWhatsApp(project){ const msg=`Hola! Me interesa el proyecto *${project}*. ¿Pueden enviarme información?`; window.open(`https://wa.me/573148076808?text=${encodeURIComponent(msg)}`,'_blank'); }
-function changeImg(thumb,src){ document.getElementById('gallery-main-img').src=src; document.querySelectorAll('.gallery-thumb').forEach(t=>t.classList.remove('active')); thumb.classList.add('active'); }
+function changeImg(thumb,src){ document.getElementById('gallery-main-img').src=src; }
+const asiaGalleryImages = ['../img/asia-nueva-fachada.png', '../img/asia-fachada-2.jpg', '../img/asia-aerea.jpg'];
+let asiaGalleryIndex = 0;
+function galleryNav(dir){
+  asiaGalleryIndex = (asiaGalleryIndex + dir + asiaGalleryImages.length) % asiaGalleryImages.length;
+  document.getElementById('gallery-main-img').src = asiaGalleryImages[asiaGalleryIndex];
+}
 function switchTab(id,btn){ document.querySelectorAll('.tab-panel').forEach(p=>p.classList.remove('active')); document.querySelectorAll('.tab-btn').forEach(b=>b.classList.remove('active')); document.getElementById('tab-'+id).classList.add('active'); btn.classList.add('active'); }
 const navbar=document.getElementById('navbar'); window.addEventListener('scroll',()=>navbar.classList.toggle('scrolled',scrollY>20));
 document.getElementById('hamburger')?.addEventListener('click',()=>document.getElementById('mobile-nav').classList.toggle('open'));
