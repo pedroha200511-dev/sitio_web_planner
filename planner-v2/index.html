@@ -419,8 +419,8 @@
         <div class="proceso-step reveal">
           <div class="proceso-step__num">1</div>
           <div class="proceso-step__icon"><i class="fas fa-search"></i></div>
-          <h4>Conoce el proyecto</h4>
-          <p>Evalúa las opciones disponibles según área, precio y localización. Un asesor le presentará las condiciones comerciales vigentes y la disponibilidad de unidades.</p>
+          <h4>Conoce ASIA</h4>
+          <p><strong>Todo comienza con una decisión.</strong> Descubre nuestro proyecto, conoce sus espacios, ubicación, diseños, beneficios y las opciones que tenemos para ti.</p>
           <a href="#" onclick="switchTab('proyectos');return false;" class="btn btn-outline btn-sm">Ver proyectos</a>
         </div>
 
@@ -428,15 +428,15 @@
           <div class="proceso-step__num">2</div>
           <div class="proceso-step__icon"><i class="fas fa-calculator"></i></div>
           <h4>Evalúa tu capacidad financiera</h4>
-          <p>Un asesor te ayuda a proyectar el plan de cuota inicial y determinar la viabilidad del crédito hipotecario según tus ingresos.</p>
+          <p><strong>Ahora hagamos realidad los números.</strong> Conoce tu capacidad de compra, revisa las alternativas de financiación y descubre qué opción se adapta mejor a tus posibilidades.</p>
           <button class="btn btn-outline btn-sm" onclick="openWhatsApp('Asia')">Hablar con un asesor</button>
         </div>
 
         <div class="proceso-step reveal" style="transition-delay:.2s">
           <div class="proceso-step__num">3</div>
           <div class="proceso-step__icon"><i class="fas fa-calendar-check"></i></div>
-          <h4>Visite el proyecto</h4>
-          <p>Recorra la sala de ventas o el apartamento modelo con un asesor especializado. Revisamos condiciones contractuales y resolvemos consultas técnicas y comerciales.</p>
+          <h4>Visita el proyecto</h4>
+          <p><strong>Ven y vívelo.</strong> Recorre nuestro proyecto, conoce el entorno y descubre de primera mano los espacios que algún día podrán convertirse en tu hogar.</p>
           <button class="btn btn-outline btn-sm" onclick="openWhatsAppVisita()">Agendar visita</button>
         </div>
 
@@ -444,7 +444,7 @@
           <div class="proceso-step__num">4</div>
           <div class="proceso-step__icon"><i class="fas fa-key"></i></div>
           <h4>Escrituración y entrega</h4>
-          <p>Formalizamos la promesa de compraventa, gestionamos el desembolso hipotecario con la entidad financiera y coordinamos la entrega técnica del inmueble.</p>
+          <p><strong>El momento que estabas esperando.</strong> Después de completar el proceso de compra, llega uno de los momentos más especiales: la escrituración y entrega de tu vivienda.</p>
           <a href="#" onclick="switchTab('contacto');return false;" class="btn btn-primary btn-sm">Empezar ahora</a>
         </div>
 
@@ -463,15 +463,15 @@
           <div class="proceso-step__num">1</div>
           <div class="proceso-step__icon"><i class="fas fa-laptop-house"></i></div>
           <h4>Videollamada</h4>
-          <p>Conoces el proyecto y resolvemos todas tus dudas por videollamada, en tu horario. Sin necesidad de viajar.</p>
+          <p><strong>Conoce ASIA desde donde estés.</strong> Agenda una videollamada con nuestros asesores y descubre el proyecto, sus apartamentos y las opciones de compra.</p>
           <button class="btn btn-outline btn-sm" onclick="openWhatsAppExterior()">Agendar videollamada</button>
         </div>
 
         <div class="proceso-step reveal" style="transition-delay:.1s">
           <div class="proceso-step__num">2</div>
           <div class="proceso-step__icon"><i class="fas fa-exchange-alt"></i></div>
-          <h4>Separas tu unidad</h4>
-          <p>Giro internacional desde tu banco en el exterior (USD, EUR o GBP) a la cuenta fiduciaria del proyecto. Tu dinero queda protegido, no va directo a Planner.</p>
+          <h4>Separa tu unidad y paga de forma segura</h4>
+          <p><strong>Elige tu vista deseada, piso disponible.</strong> Encuentra el apartamento ideal y da el primer paso para hacerlo realidad.</p>
           <button class="btn btn-outline btn-sm" onclick="openWhatsAppExterior()">Hablar con un asesor</button>
         </div>
 
@@ -479,7 +479,7 @@
           <div class="proceso-step__num">3</div>
           <div class="proceso-step__icon"><i class="fas fa-file-signature"></i></div>
           <h4>Poder notarial</h4>
-          <p>Un familiar firma por ti en Colombia, o lo tramitas desde el consulado. Te guiamos paso a paso en el proceso.</p>
+          <p><strong>Hazlo posible, estés donde estés.</strong> Realiza el proceso mediante poder notarial, de acuerdo con los requisitos establecidos para la compra.</p>
           <button class="btn btn-outline btn-sm" onclick="openWhatsAppExterior()">Resolver dudas</button>
         </div>
 
@@ -487,7 +487,7 @@
           <div class="proceso-step__num">4</div>
           <div class="proceso-step__icon"><i class="fas fa-key"></i></div>
           <h4>Tu familia estrena</h4>
-          <p>Formalizamos la promesa de compraventa y coordinamos la entrega técnica del inmueble. Llaves en mano, patrimonio real en Colombia.</p>
+          <p><strong>Tu sueño se convierte en hogar.</strong> Mientras tú estás lejos, tu familia puede comenzar a disfrutar de su nuevo hogar en Colombia.</p>
           <a href="#" onclick="switchTab('contacto');return false;" class="btn btn-primary btn-sm">Empezar ahora</a>
         </div>
 
@@ -717,133 +717,22 @@
         </div>
       </div>
 
-      <!-- Formulario multi-step -->
+      <!-- Contacto directo por WhatsApp -->
       <div class="reveal" style="transition-delay:.15s">
-        <div class="form-card">
-          <div id="form-container">
-            <h3 style="margin-bottom:8px">Contáctanos</h3>
-            <p style="color:var(--color-gray-400);font-size:.875rem;margin-bottom:16px">Sin compromiso. Respondemos en menos de 2 horas.</p>
+        <div class="form-card" id="contacto-whatsapp-card">
+          <h3 style="margin-bottom:8px">Escríbenos por WhatsApp</h3>
+          <p style="color:var(--color-gray-400);font-size:.875rem;margin-bottom:24px">Elige una opción y te respondemos directamente por WhatsApp.</p>
 
-            <!-- Pasos -->
-            <div class="form-steps" role="progressbar" aria-valuenow="1" aria-valuemin="1" aria-valuemax="3">
-              <div class="form-step active" id="step-1"></div>
-              <div class="form-step"        id="step-2"></div>
-              <div class="form-step"        id="step-3"></div>
-            </div>
-            <div class="form-step-label" id="step-label">Paso 1 de 3: <strong>Tu información</strong></div>
-
-            <div id="form-error" style="display:none;background:#FEE2E2;color:#B91C1C;padding:10px 14px;border-radius:6px;font-size:.875rem;margin-bottom:16px"></div>
-
-            <form id="contact-form" onsubmit="submitForm(event)" novalidate>
-
-              <!-- Paso 1 -->
-              <div class="form-panel active" id="step-panel-1">
-                <div class="form-row">
-                  <div class="form-group">
-                    <label for="f-nombre">Nombre completo *</label>
-                    <input type="text" id="f-nombre" name="nombre" placeholder="Tu nombre" required autocomplete="name" />
-                  </div>
-                  <div class="form-group">
-                    <label for="f-tel">WhatsApp / Celular *</label>
-                    <input type="tel" id="f-tel" name="telefono" placeholder="3XX XXX XXXX" required autocomplete="tel" inputmode="tel" />
-                  </div>
-                </div>
-                <div class="form-group">
-                  <label for="f-email">Correo electrónico</label>
-                  <input type="email" id="f-email" name="email" placeholder="tucorreo@email.com" autocomplete="email" />
-                </div>
-                <div class="form-nav">
-                  <button type="button" class="btn btn-primary" onclick="goStep(2)">Continuar <i class="fas fa-arrow-right"></i></button>
-                </div>
-              </div>
-
-              <!-- Paso 2 -->
-              <div class="form-panel" id="step-panel-2">
-                <div class="form-group">
-                  <label>¿En qué podemos ayudarte? *</label>
-                  <div class="budget-options">
-                    <div class="budget-option">
-                      <input type="radio" name="motivo" id="m1" value="proyecto" checked onchange="toggleMotivo()" />
-                      <label for="m1">Información de un proyecto</label>
-                    </div>
-                    <div class="budget-option">
-                      <input type="radio" name="motivo" id="m2" value="empresa" onchange="toggleMotivo()" />
-                      <label for="m2">Servicio al cliente / información general</label>
-                    </div>
-                  </div>
-                </div>
-
-                <div id="motivo-proyecto-fields">
-                  <div class="form-group">
-                    <label for="f-proyecto">¿Qué proyecto te interesa?</label>
-                    <select id="f-proyecto" name="proyecto">
-                      <option value="Asia">Proyecto Asia, desde $259M (Entrega 2027)</option>
-                      <option value="Terralta">Proyecto Terralta, desde $317M (2026)</option>
-                      <option value="Altea Plaza">Altea Plaza, desde $235M (Inmediata)</option>
-                      <option value="Todos">Quiero conocer todos los proyectos</option>
-                    </select>
-                  </div>
-                  <div class="form-group">
-                    <label>¿Cuál es tu presupuesto mensual para la cuota?</label>
-                    <div class="budget-options">
-                      <div class="budget-option">
-                        <input type="radio" name="presupuesto" id="b1" value="menos1m" />
-                        <label for="b1">Menos de $1M</label>
-                      </div>
-                      <div class="budget-option">
-                        <input type="radio" name="presupuesto" id="b2" value="1-2m" checked />
-                        <label for="b2">$1M – $2M</label>
-                      </div>
-                      <div class="budget-option">
-                        <input type="radio" name="presupuesto" id="b3" value="2-4m" />
-                        <label for="b3">$2M – $4M</label>
-                      </div>
-                      <div class="budget-option">
-                        <input type="radio" name="presupuesto" id="b4" value="mas4m" />
-                        <label for="b4">Más de $4M</label>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-
-                <div class="form-nav">
-                  <button type="button" class="btn btn-outline" onclick="goStep(1)"><i class="fas fa-arrow-left"></i> Atrás</button>
-                  <button type="button" class="btn btn-primary" onclick="goStep(3)">Continuar <i class="fas fa-arrow-right"></i></button>
-                </div>
-              </div>
-
-              <!-- Paso 3 -->
-              <div class="form-panel" id="step-panel-3">
-                <div class="form-group">
-                  <label for="f-mensaje">¿Tienes alguna pregunta específica?</label>
-                  <textarea id="f-mensaje" name="mensaje" placeholder="Ej: Quisiera información sobre el Proyecto Asia y opciones de financiación..." rows="4"></textarea>
-                </div>
-                <div class="form-group" style="display:flex;align-items:flex-start;gap:10px">
-                  <input type="checkbox" id="f-privacy" name="privacidad" required style="width:18px;height:18px;margin-top:2px;flex-shrink:0" />
-                  <label for="f-privacy" style="font-weight:400;font-size:.85rem;color:var(--color-gray-600)">
-                    Acepto el <a href="#" style="color:var(--color-primary);text-decoration:underline">tratamiento de mis datos</a> según la Política de Privacidad de Planner Constructora. *
-                  </label>
-                </div>
-                <div class="form-nav">
-                  <button type="button" class="btn btn-outline" onclick="goStep(2)"><i class="fas fa-arrow-left"></i> Atrás</button>
-                  <button type="submit" class="btn btn-primary">
-                    <i class="fab fa-whatsapp"></i> Enviar y hablar por WhatsApp
-                  </button>
-                </div>
-                <p style="text-align:center;font-size:.78rem;color:var(--color-gray-400);margin-top:14px">Tus datos están protegidos y únicamente serán utilizados para brindarte asesoría.</p>
-              </div>
-
-            </form>
+          <div style="display:flex;flex-direction:column;gap:14px">
+            <button class="btn btn-whatsapp btn-lg" style="justify-content:center" onclick="openWhatsApp('Asia')">
+              <i class="fab fa-whatsapp"></i> Quiero información de Asia
+            </button>
+            <button class="btn btn-outline btn-lg" style="justify-content:center" onclick="openWhatsApp()">
+              <i class="fab fa-whatsapp"></i> Información general
+            </button>
           </div>
 
-          <!-- Éxito -->
-          <div class="form-success" id="form-success">
-            <div class="form-success__icon"><i class="fas fa-check"></i></div>
-            <h3>¡Solicitud recibida!</h3>
-            <p>Un asesor especializado te contactará en menos de 2 horas. Mientras tanto, te abrimos el chat de WhatsApp para responder preguntas inmediatas.</p>
-            <a href="#" onclick="switchTab('proyectos');return false;" class="btn btn-primary">Ver proyectos <i class="fas fa-arrow-right"></i></a>
-          </div>
-
+          <p style="text-align:center;font-size:.78rem;color:var(--color-gray-400);margin-top:20px">Horario de atención: Lunes–Viernes 9:00am–5:30pm · Sábados 10:00am–6:00pm</p>
         </div>
       </div>
 
@@ -862,8 +751,8 @@
       <button class="btn btn-white btn-lg" onclick="openWhatsApp()">
         <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
       </button>
-      <a href="#" onclick="document.getElementById('form-container').scrollIntoView({behavior:'smooth',block:'center'});return false;" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
-        <i class="fas fa-envelope"></i> Enviar mensaje
+      <a href="#" onclick="document.getElementById('contacto-whatsapp-card').scrollIntoView({behavior:'smooth',block:'center'});return false;" class="btn btn-outline btn-lg" style="border-color:rgba(255,255,255,.5);color:#fff">
+        <i class="fas fa-envelope"></i> Ver opciones de contacto
       </a>
     </div>
   </div>
